@@ -1,0 +1,122 @@
+[
+  {
+    "query": "Show me my driver's license",
+    "selected_vc_ids": ["vc-003"]
+  },
+  {
+    "query": "I need to prove my English proficiency",
+    "selected_vc_ids": ["vc-011", "vc-012", "vc-013"]
+  },
+  {
+    "query": "I need documents to prove I can travel internationally",
+    "selected_vc_ids": ["vc-004"]
+  },
+  {
+    "query": "Prove that I graduated from university",
+    "selected_vc_ids": ["vc-008"]
+  },
+  {
+    "query": "Show that I'm in good health",
+    "selected_vc_ids": ["vc-007"]
+  },
+  {
+    "query": "I need proof of vaccination",
+    "selected_vc_ids": ["vc-006"]
+  },
+  {
+    "query": "Show that I have IT certifications",
+    "selected_vc_ids": ["vc-015", "vc-016"]
+  },
+  {
+    "query": "Prove my current employment",
+    "selected_vc_ids": ["vc-010"]
+  },
+  {
+    "query": "Show my marathon completion record",
+    "selected_vc_ids": ["vc-018"]
+  },
+  {
+    "query": "Show my conference presentation experience",
+    "selected_vc_ids": ["vc-021"]
+  },
+  {
+    "query": "Document proving my annual income",
+    "selected_vc_ids": ["vc-025"]
+  },
+  {
+    "query": "Document to confirm my blood type",
+    "selected_vc_ids": ["vc-005"]
+  },
+  {
+    "query": "Prove I was a student at Waseda University",
+    "selected_vc_ids": ["vc-008", "vc-009"]
+  },
+  {
+    "query": "Show that I have health insurance",
+    "selected_vc_ids": ["vc-002"]
+  },
+  {
+    "query": "Official documents for identity verification",
+    "selected_vc_ids": ["vc-001", "vc-003", "vc-004"]
+  },
+  {
+    "query": "Proof that I have Eiken Grade 1",
+    "selected_vc_ids": ["vc-011"]
+  },
+  {
+    "query": "I scored over 900 on TOEIC",
+    "selected_vc_ids": ["vc-013"]
+  },
+  {
+    "query": "Show that I have a gym membership",
+    "selected_vc_ids": ["vc-017"]
+  },
+  {
+    "query": "I have traveled to the United States",
+    "selected_vc_ids": ["vc-023"]
+  },
+  {
+    "query": "I have received an academic award",
+    "selected_vc_ids": ["vc-014"]
+  },
+  {
+    "query": "I spoke at a tech conference",
+    "selected_vc_ids": ["vc-021"]
+  },
+  {
+    "query": "Prove that Waseda University is a Japanese university",
+    "selected_vc_ids": ["vc-020"]
+  },
+  {
+    "query": "Tokyo population data",
+    "selected_vc_ids": ["vc-019"]
+  },
+  {
+    "query": "Recent hotel stay records",
+    "selected_vc_ids": ["vc-024"]
+  },
+  {
+    "query": "I attended the AI society conference",
+    "selected_vc_ids": ["vc-022"]
+  },
+  {
+    "query": "I majored in Information Engineering",
+    "selected_vc_ids": ["vc-008", "vc-009"]
+  },
+  {
+    "query": "I visited France for tourism",
+    "selected_vc_ids": ["vc-023"]
+  },
+  {
+    "query": "My Number Card information",
+    "selected_vc_ids": ["vc-001"]
+  },
+  {
+    "query": "Applied Information Technology Engineer certification",
+    "selected_vc_ids": ["vc-016"]
+  },
+  {
+    "query": "I have blood type A",
+    "selected_vc_ids": ["vc-005"]
+  }
+]

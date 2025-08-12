@@ -1,0 +1,16 @@
+{
+  "name": "vc-llm-dataset-v2",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "validate": "tsx validate-llm2-dataset.ts",
+    "inspect": "tsx inspect-dataset.ts"
+  },
+  "dependencies": {
+    "dcql": "^0.4.2",
+    "tsx": "^4.7.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0"
+  }
+}

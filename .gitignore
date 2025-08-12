@@ -1,0 +1,34 @@
+# Large model artifacts and weights
+*.safetensors
+*.gguf
+*.pt
+*.bin
+*.ckpt
+*.onnx
+*.pb
+*.h5
+*.npz
+
+# Core ML bundles
+*.mlmodel
+*.mlmodelc
+*.mlpackage
+
+# Tokenizers and huge generated assets
+**/tokenizer.json
+**/model.safetensors.index.json
+*.index.json
+
+# Entire model directories created during experiments
+# (keep configs/docs separately outside these directories if needed)
+gemma-2-2b-it-merged/
+gemma-2-2b-it-dcql-mlx/
+gemma-2-2b-it/
+vc-llm/gemma-2-2b-it-model/
+
+# Logs and cache
+*.log
+.DS_Store
+.cache/
+__pycache__/
+node_modules/

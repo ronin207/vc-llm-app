@@ -1,0 +1,1642 @@
+[
+  {
+    "id": "vc-001",
+    "@context": ["https://www.w3.org/ns/credentials/v2"],
+    "type": ["VerifiableCredential", "NationalIDCredential"],
+    "issuer": {
+      "id": "https://mynumber.go.jp",
+      "name": "My Number Card Authority"
+    },
+    "credentialSubject": {
+      "nationalId": "123456789012",
+      "fullName": "Taro Yamada",
+      "dateOfBirth": "1990-01-01",
+      "address": "1-1-1 Kasumigaseki, Chiyoda-ku, Tokyo",
+      "gender": "Male"
+    }
+  },
+  {
+    "id": "vc-002",
+    "@context": ["https://www.w3.org/ns/credentials/v2"],
+    "type": ["VerifiableCredential", "HealthInsuranceCardCredential"],
+    "issuer": {
+      "id": "https://health.go.jp",
+      "name": "Ministry of Health, Labour and Welfare"
+    },
+    "credentialSubject": {
+      "insuranceNumber": "H123456789",
+      "insuredName": "Taro Yamada",
+      "insuranceType": "National Health Insurance",
+      "validFrom": "2024-04-01",
+      "validUntil": "2025-03-31"
+    }
+  },
+  {
+    "id": "vc-003",
+    "@context": ["https://www.w3.org/ns/credentials/v2"],
+    "type": ["VerifiableCredential", "MobileDriverLicenseCredential"],
+    "issuer": {
+      "id": "https://npa.go.jp",
+      "name": "National Police Agency"
+    },
+    "credentialSubject": {
+      "licenseNumber": "123456789012",
+      "fullName": "Taro Yamada",
+      "dateOfBirth": "1990-01-01",
+      "licenseClass": ["Regular Vehicle", "Regular Motorcycle"],
+      "validUntil": "2027-01-15",
+      "issueDate": "2024-01-15"
+    }
+  },
+  {
+    "id": "vc-004",
+    "@context": ["https://www.w3.org/ns/credentials/v2"],
+    "type": ["VerifiableCredential", "PassportCredential"],
+    "issuer": {
+      "id": "https://mofa.go.jp",
+      "name": "Ministry of Foreign Affairs"
+    },
+    "credentialSubject": {
+      "passportNumber": "TK1234567",
+      "fullName": "YAMADA TARO",
+      "nationality": "Japanese",
+      "dateOfBirth": "1990-01-01",
+      "placeOfBirth": "Tokyo",
+      "sex": "M",
+      "dateOfIssue": "2023-05-01",
+      "dateOfExpiry": "2033-05-01"
+    }
+  },
+  {
+    "id": "vc-005",
+    "@context": ["https://www.w3.org/ns/credentials/v2"],
+    "type": ["VerifiableCredential", "BloodTypeCredential"],
+    "issuer": {
+      "id": "https://hospital-tokyo.jp",
+      "name": "Tokyo General Hospital"
+    },
+    "credentialSubject": {
+      "patientName": "Taro Yamada",
+      "bloodType": "A",
+      "rhFactor": "positive",
+      "testDate": "2024-03-15"
+    }
+  },
+  {
+    "id": "vc-006",
+    "@context": ["https://www.w3.org/ns/credentials/v2"],
+    "type": ["VerifiableCredential", "VaccinationCertificate"],
+    "issuer": {
+      "id": "https://mhlw.go.jp",
+      "name": "Ministry of Health, Labour and Welfare"
+    },
+    "credentialSubject": {
+      "patientName": "Taro Yamada",
+      "vaccinations": [
+        {
+          "vaccine": "COVID-19",
+          "manufacturer": "Pfizer-BioNTech",
+          "lotNumber": "EY0573",
+          "date": "2023-11-01",
+          "dose": "3rd"
+        },
+        {
+          "vaccine": "Influenza",
+          "date": "2023-10-15",
+          "type": "2023-2024 Season"
+        }
+      ]
+    }
+  },
+  {
+    "id": "vc-007",
+    "@context": ["https://www.w3.org/ns/credentials/v2"],
+    "type": ["VerifiableCredential", "HealthCheckCertificate"],
+    "issuer": {
+      "id": "https://health-center.jp",
+      "name": "Health Check Center"
+    },
+    "credentialSubject": {
+      "patientName": "Taro Yamada",
+      "checkDate": "2024-01-20",
+      "overallGrade": "A",
+      "results": {
+        "bloodPressure": "A",
+        "bloodTest": "A",
+        "vision": "A",
+        "hearing": "A",
+        "chestXray": "A"
+      }
+    }
+  },
+  {
+    "id": "vc-008",
+    "@context": ["https://www.w3.org/ns/credentials/v2"],
+    "type": ["VerifiableCredential", "UniversityDegreeCredential"],
+    "issuer": {
+      "id": "https://waseda.ac.jp",
+      "name": "Waseda University"
+    },
+    "credentialSubject": {
+      "studentName": "Taro Yamada",
+      "degreeType": "Bachelor of Engineering",
+      "major": "Information Engineering",
+      "graduationDate": "2012-03-25",
+      "studentId": "1A10B001"
+    }
+  },
+  {
+    "id": "vc-009",
+    "@context": ["https://www.w3.org/ns/credentials/v2"],
+    "type": ["VerifiableCredential", "AcademicTranscriptCredential"],
+    "issuer": {
+      "id": "https://waseda.ac.jp",
+      "name": "Waseda University"
+    },
+    "credentialSubject": {
+      "studentName": "Taro Yamada",
+      "studentId": "1A10B001",
+      "totalCredits": 128,
+      "gpa": 3.5,
+      "courses": [
+        {"name": "Programming Fundamentals", "credits": 4, "grade": "A"},
+        {"name": "Algorithm Theory", "credits": 4, "grade": "A"},
+        {"name": "Database Systems", "credits": 2, "grade": "B"}
+      ]
+    }
+  },
+  {
+    "id": "vc-010",
+    "@context": ["https://www.w3.org/ns/credentials/v2"],
+    "type": ["VerifiableCredential", "EmployeeIDCredential"],
+    "issuer": {
+      "id": "https://techcorp.jp",
+      "name": "Tech Corporation"
+    },
+    "credentialSubject": {
+      "employeeId": "EMP-2024-001",
+      "employeeName": "Taro Yamada",
+      "department": "Technology Development",
+      "position": "Senior Engineer",
+      "joinDate": "2020-04-01",
+      "employmentType": "Full-time"
+    }
+  },
+  {
+    "id": "vc-011",
+    "@context": ["https://www.w3.org/ns/credentials/v2"],
+    "type": ["VerifiableCredential", "EikenGrade1Certificate"],
+    "issuer": {
+      "id": "https://eiken.or.jp",
+      "name": "Japan English Proficiency Test Association"
+    },
+    "credentialSubject": {
+      "candidateName": "Taro Yamada",
+      "grade": "Grade 1",
+      "testDate": "2023-07-02",
+      "certificateNumber": "2023-1-00123",
+      "score": {
+        "reading": 95,
+        "listening": 92,
+        "writing": 88,
+        "speaking": 90
+      }
+    }
+  },
+  {
+    "id": "vc-012",
+    "@context": ["https://www.w3.org/ns/credentials/v2"],
+    "type": ["VerifiableCredential", "EikenGrade2Certificate"],
+    "issuer": {
+      "id": "https://eiken.or.jp",
+      "name": "Japan English Proficiency Test Association"
+    },
+    "credentialSubject": {
+      "candidateName": "Taro Yamada",
+      "grade": "Grade 2",
+      "testDate": "2021-11-07",
+      "certificateNumber": "2021-2-00456"
+    }
+  },
+  {
+    "id": "vc-013",
+    "@context": ["https://www.w3.org/ns/credentials/v2"],
+    "type": ["VerifiableCredential", "TOEICScoreCertificate"],
+    "issuer": {
+      "id": "https://iibc-global.org",
+      "name": "International Business Communication Association"
+    },
+    "credentialSubject": {
+      "candidateName": "Taro Yamada",
+      "testDate": "2024-01-21",
+      "totalScore": 920,
+      "listeningScore": 470,
+      "readingScore": 450,
+      "certificateNumber": "TOEIC-2024-00123"
+    }
+  },
+  {
+    "id": "vc-014",
+    "@context": ["https://www.w3.org/ns/credentials/v2"],
+    "type": ["VerifiableCredential", "AcademicAwardCredential"],
+    "issuer": {
+      "id": "https://ipsj.or.jp",
+      "name": "Information Processing Society of Japan"
+    },
+    "credentialSubject": {
+      "recipientName": "Taro Yamada",
+      "awardName": "Best Paper Award",
+      "conferenceDate": "2023-03-15",
+      "paperTitle": "Efficient Verification Methods in Decentralized Identity"
+    }
+  },
+  {
+    "id": "vc-015",
+    "@context": ["https://www.w3.org/ns/credentials/v2"],
+    "type": ["VerifiableCredential", "ITPassportCertificate"],
+    "issuer": {
+      "id": "https://jitec.ipa.go.jp",
+      "name": "Information-technology Promotion Agency"
+    },
+    "credentialSubject": {
+      "candidateName": "Taro Yamada",
+      "passDate": "2020-05-17",
+      "registrationNumber": "IP-2020-00123"
+    }
+  },
+  {
+    "id": "vc-016",
+    "@context": ["https://www.w3.org/ns/credentials/v2"],
+    "type": ["VerifiableCredential", "AppliedInformationTechnologyEngineerCertificate"],
+    "issuer": {
+      "id": "https://jitec.ipa.go.jp",
+      "name": "Information-technology Promotion Agency"
+    },
+    "credentialSubject": {
+      "candidateName": "Taro Yamada",
+      "passDate": "2022-10-16",
+      "registrationNumber": "AP-2022-00456"
+    }
+  },
+  {
+    "id": "vc-017",
+    "@context": ["https://www.w3.org/ns/credentials/v2"],
+    "type": ["VerifiableCredential", "GymMembershipCredential"],
+    "issuer": {
+      "id": "https://fitness-club.jp",
+      "name": "Fitness Club Tokyo"
+    },
+    "credentialSubject": {
+      "memberName": "Taro Yamada",
+      "membershipType": "Gold Member",
+      "memberSince": "2022-01-01",
+      "validUntil": "2025-01-01",
+      "monthlyVisits": 15
+    }
+  },
+  {
+    "id": "vc-018",
+    "@context": ["https://www.w3.org/ns/credentials/v2"],
+    "type": ["VerifiableCredential", "MarathonCompletionCertificate"],
+    "issuer": {
+      "id": "https://tokyo-marathon.jp",
+      "name": "Tokyo Marathon Foundation"
+    },
+    "credentialSubject": {
+      "runnerName": "Taro Yamada",
+      "eventName": "Tokyo Marathon 2024",
+      "completionTime": "3:45:22",
+      "distance": "42.195km",
+      "completionDate": "2024-03-03"
+    }
+  },
+  {
+    "id": "vc-019",
+    "@context": ["https://www.w3.org/ns/credentials/v2"],
+    "type": ["VerifiableCredential", "PublicInformationCredential"],
+    "issuer": {
+      "id": "https://stat.go.jp",
+      "name": "Statistics Bureau of Japan"
+    },
+    "credentialSubject": {
+      "dataType": "Population Statistics",
+      "location": "Tokyo",
+      "population": 14047594,
+      "asOf": "2024-01-01"
+    }
+  },
+  {
+    "id": "vc-020",
+    "@context": ["https://www.w3.org/ns/credentials/v2"],
+    "type": ["VerifiableCredential", "UniversityAccreditationCredential"],
+    "issuer": {
+      "id": "https://mext.go.jp",
+      "name": "Ministry of Education, Culture, Sports, Science and Technology"
+    },
+    "credentialSubject": {
+      "universityName": "Waseda University",
+      "location": "Shinjuku, Tokyo",
+      "country": "Japan",
+      "accreditationStatus": "Accredited",
+      "establishedYear": 1882
+    }
+  },
+  {
+    "id": "vc-021",
+    "@context": ["https://www.w3.org/ns/credentials/v2"],
+    "type": ["VerifiableCredential", "ConferenceSpeakerCredential"],
+    "issuer": {
+      "id": "https://tech-conference.jp",
+      "name": "Tech Conference 2024"
+    },
+    "credentialSubject": {
+      "speakerName": "Taro Yamada",
+      "presentationTitle": "Implementing Decentralized Identity",
+      "eventDate": "2024-02-15",
+      "sessionType": "Keynote"
+    }
+  },
+  {
+    "id": "vc-022",
+    "@context": ["https://www.w3.org/ns/credentials/v2"],
+    "type": ["VerifiableCredential", "ConferenceAttendanceCredential"],
+    "issuer": {
+      "id": "https://jsai.org",
+      "name": "Japanese Society for Artificial Intelligence"
+    },
+    "credentialSubject": {
+      "attendeeName": "Taro Yamada",
+      "conferenceName": "38th Annual Conference of JSAI",
+      "attendanceDates": ["2024-05-28", "2024-05-31"],
+      "registrationNumber": "JSAI2024-001"
+    }
+  },
+  {
+    "id": "vc-023",
+    "@context": ["https://www.w3.org/ns/credentials/v2"],
+    "type": ["VerifiableCredential", "TravelHistoryCredential"],
+    "issuer": {
+      "id": "https://immigration.go.jp",
+      "name": "Immigration Services Agency of Japan"
+    },
+    "credentialSubject": {
+      "travelerName": "Taro Yamada",
+      "passportNumber": "TK1234567",
+      "travelRecords": [
+        {
+          "country": "United States",
+          "entryDate": "2023-09-01",
+          "exitDate": "2023-09-10",
+          "purpose": "Business"
+        },
+        {
+          "country": "France",
+          "entryDate": "2023-12-20",
+          "exitDate": "2023-12-27",
+          "purpose": "Tourism"
+        }
+      ]
+    }
+  },
+  {
+    "id": "vc-024",
+    "@context": ["https://www.w3.org/ns/credentials/v2"],
+    "type": ["VerifiableCredential", "HotelStayCredential"],
+    "issuer": {
+      "id": "https://hotel-tokyo.jp",
+      "name": "Tokyo Grand Hotel"
+    },
+    "credentialSubject": {
+      "guestName": "Taro Yamada",
+      "checkInDate": "2024-01-10",
+      "checkOutDate": "2024-01-12",
+      "roomType": "Deluxe Twin",
+      "confirmationNumber": "HTL-2024-00123"
+    }
+  },
+  {
+    "id": "vc-025",
+    "@context": ["https://www.w3.org/ns/credentials/v2"],
+    "type": ["VerifiableCredential", "AnnualIncomeCertificate"],
+    "issuer": {
+      "id": "https://nta.go.jp",
+      "name": "National Tax Agency"
+    },
+    "credentialSubject": {
+      "taxpayerName": "Taro Yamada",
+      "fiscalYear": 2023,
+      "annualIncome": 8000000,
+      "currency": "JPY",
+      "issueDate": "2024-06-01"
+    }
+  },
+  {
+    "id": "vc-026",
+    "@context": ["https://www.w3.org/ns/credentials/v2"],
+    "type": ["VerifiableCredential", "ProfessionalLicenseCredential"],
+    "issuer": {
+      "id": "https://mhlw.go.jp",
+      "name": "Ministry of Health, Labour and Welfare"
+    },
+    "credentialSubject": {
+      "licenseName": "Registered Nurse",
+      "licenseNumber": "N-123456",
+      "holderName": "Hanako Yamada",
+      "issueDate": "2018-04-01",
+      "validUntil": "2028-03-31"
+    }
+  },
+  {
+    "id": "vc-027",
+    "@context": ["https://www.w3.org/ns/credentials/v2"],
+    "type": ["VerifiableCredential", "ResidenceCardCredential"],
+    "issuer": {
+      "id": "https://moj.go.jp",
+      "name": "Ministry of Justice"
+    },
+    "credentialSubject": {
+      "cardNumber": "AB12345678",
+      "fullName": "John Smith",
+      "nationality": "American",
+      "residenceStatus": "Highly Skilled Professional",
+      "periodOfStay": "5 years",
+      "validUntil": "2029-06-30"
+    }
+  },
+  {
+    "id": "vc-028",
+    "@context": ["https://www.w3.org/ns/credentials/v2"],
+    "type": ["VerifiableCredential", "StudentIDCredential"],
+    "issuer": {
+      "id": "https://u-tokyo.ac.jp",
+      "name": "University of Tokyo"
+    },
+    "credentialSubject": {
+      "studentId": "UT-2024-001",
+      "studentName": "Ichiro Suzuki",
+      "faculty": "Faculty of Engineering",
+      "major": "Electrical and Electronic Engineering",
+      "enrollmentYear": 2024,
+      "expectedGraduation": 2028
+    }
+  },
+  {
+    "id": "vc-029",
+    "@context": ["https://www.w3.org/ns/credentials/v2"],
+    "type": ["VerifiableCredential", "MedicalPrescriptionCredential"],
+    "issuer": {
+      "id": "https://hospital-osaka.jp",
+      "name": "Osaka General Hospital"
+    },
+    "credentialSubject": {
+      "patientName": "Taro Yamada",
+      "prescriptionId": "RX-2024-00123",
+      "medication": "Allergy Medicine",
+      "dosage": "Twice daily",
+      "prescribedDate": "2024-03-01",
+      "validUntil": "2024-09-01"
+    }
+  },
+  {
+    "id": "vc-030",
+    "@context": ["https://www.w3.org/ns/credentials/v2"],
+    "type": ["VerifiableCredential", "CreditScoreCredential"],
+    "issuer": {
+      "id": "https://credit-bureau.jp",
+      "name": "Japan Credit Information Center"
+    },
+    "credentialSubject": {
+      "holderName": "Taro Yamada",
+      "creditScore": 750,
+      "scoreRange": "300-850",
+      "evaluationDate": "2024-01-15",
+      "riskLevel": "Low"
+    }
+  },
+  {
+    "id": "vc-031",
+    "@context": ["https://www.w3.org/ns/credentials/v2"],
+    "type": ["VerifiableCredential", "VehicleRegistrationCredential"],
+    "issuer": {
+      "id": "https://mlit.go.jp",
+      "name": "Ministry of Land, Infrastructure, Transport and Tourism"
+    },
+    "credentialSubject": {
+      "vehicleNumber": "Tokyo 300 A 1234",
+      "ownerName": "Taro Yamada",
+      "vehicleType": "Passenger Car",
+      "manufacturer": "Toyota",
+      "model": "Prius",
+      "registrationDate": "2023-05-01"
+    }
+  },
+  {
+    "id": "vc-032",
+    "@context": ["https://www.w3.org/ns/credentials/v2"],
+    "type": ["VerifiableCredential", "PropertyOwnershipCredential"],
+    "issuer": {
+      "id": "https://moj.go.jp/registry",
+      "name": "Legal Affairs Bureau"
+    },
+    "credentialSubject": {
+      "ownerName": "Taro Yamada",
+      "propertyAddress": "1-2-3 Minami-Aoyama, Minato-ku, Tokyo",
+      "propertyType": "Condominium",
+      "ownershipPercentage": 100,
+      "registrationDate": "2022-07-15"
+    }
+  },
+  {
+    "id": "vc-033",
+    "@context": ["https://www.w3.org/ns/credentials/v2"],
+    "type": ["VerifiableCredential", "BankAccountCredential"],
+    "issuer": {
+      "id": "https://bank-tokyo.jp",
+      "name": "Tokyo Bank"
+    },
+    "credentialSubject": {
+      "accountHolder": "Taro Yamada",
+      "accountType": "Savings Account",
+      "branchName": "Shinjuku Branch",
+      "accountOpenDate": "2015-04-01",
+      "accountStatus": "Active"
+    }
+  },
+  {
+    "id": "vc-034",
+    "@context": ["https://www.w3.org/ns/credentials/v2"],
+    "type": ["VerifiableCredential", "TaxPaymentCertificate"],
+    "issuer": {
+      "id": "https://nta.go.jp",
+      "name": "National Tax Agency"
+    },
+    "credentialSubject": {
+      "taxpayerName": "Taro Yamada",
+      "taxYear": 2023,
+      "paymentStatus": "Paid in Full",
+      "paymentDate": "2024-03-15",
+      "certificateNumber": "TAX-2024-00456"
+    }
+  },
+  {
+    "id": "vc-035",
+    "@context": ["https://www.w3.org/ns/credentials/v2"],
+    "type": ["VerifiableCredential", "MarriageCertificate"],
+    "issuer": {
+      "id": "https://city.tokyo.jp",
+      "name": "Chiyoda Ward Office"
+    },
+    "credentialSubject": {
+      "spouse1Name": "Taro Yamada",
+      "spouse2Name": "Hanako Yamada",
+      "marriageDate": "2020-11-22",
+      "registrationNumber": "MAR-2020-00789"
+    }
+  },
+  {
+    "id": "vc-036",
+    "@context": ["https://www.w3.org/ns/credentials/v2"],
+    "type": ["VerifiableCredential", "DivingLicenseCredential"],
+    "issuer": {
+      "id": "https://padi.com",
+      "name": "PADI"
+    },
+    "credentialSubject": {
+      "diverName": "Taro Yamada",
+      "certificationLevel": "Advanced Open Water",
+      "certificationDate": "2023-08-15",
+      "diverNumber": "PADI-2023-00123"
+    }
+  },
+  {
+    "id": "vc-037",
+    "@context": ["https://www.w3.org/ns/credentials/v2"],
+    "type": ["VerifiableCredential", "LanguageProficiencyCredential"],
+    "issuer": {
+      "id": "https://jlpt.jp",
+      "name": "Japanese Language Proficiency Test"
+    },
+    "credentialSubject": {
+      "candidateName": "John Smith",
+      "testLevel": "N1",
+      "testDate": "2023-12-03",
+      "score": 165,
+      "maxScore": 180,
+      "result": "Pass"
+    }
+  },
+  {
+    "id": "vc-038",
+    "@context": ["https://www.w3.org/ns/credentials/v2"],
+    "type": ["VerifiableCredential", "FoodHandlerLicenseCredential"],
+    "issuer": {
+      "id": "https://city.tokyo.jp/health",
+      "name": "Tokyo Public Health Center"
+    },
+    "credentialSubject": {
+      "holderName": "Taro Yamada",
+      "licenseType": "Food Sanitation Manager",
+      "issueDate": "2023-06-01",
+      "validUntil": "2026-05-31",
+      "licenseNumber": "FH-2023-00456"
+    }
+  },
+  {
+    "id": "vc-039",
+    "@context": ["https://www.w3.org/ns/credentials/v2"],
+    "type": ["VerifiableCredential", "SecurityClearanceCredential"],
+    "issuer": {
+      "id": "https://security.go.jp",
+      "name": "Cabinet Intelligence and Research Office"
+    },
+    "credentialSubject": {
+      "holderName": "Taro Yamada",
+      "clearanceLevel": "Confidential",
+      "grantDate": "2023-01-15",
+      "validUntil": "2028-01-14",
+      "clearanceNumber": "SEC-2023-00123"
+    }
+  },
+  {
+    "id": "vc-040",
+    "@context": ["https://www.w3.org/ns/credentials/v2"],
+    "type": ["VerifiableCredential", "PetOwnershipCredential"],
+    "issuer": {
+      "id": "https://city.tokyo.jp/animal",
+      "name": "Tokyo Animal Care Center"
+    },
+    "credentialSubject": {
+      "ownerName": "Taro Yamada",
+      "petName": "Pochi",
+      "species": "Dog",
+      "breed": "Shiba Inu",
+      "registrationNumber": "DOG-2023-00789",
+      "microchipNumber": "392145000123456"
+    }
+  },
+  {
+    "id": "vc-041",
+    "@context": ["https://www.w3.org/ns/credentials/v2"],
+    "type": ["VerifiableCredential", "AllergyTestCredential"],
+    "issuer": {
+      "id": "https://allergy-clinic.jp",
+      "name": "Allergy Specialist Clinic"
+    },
+    "credentialSubject": {
+      "patientName": "Taro Yamada",
+      "testDate": "2024-02-15",
+      "allergies": [
+        {"allergen": "Cedar Pollen", "level": "Class 4"},
+        {"allergen": "House Dust", "level": "Class 2"},
+        {"allergen": "Eggs", "level": "Negative"}
+      ]
+    }
+  },
+  {
+    "id": "vc-042",
+    "@context": ["https://www.w3.org/ns/credentials/v2"],
+    "type": ["VerifiableCredential", "VolunteerCertificate"],
+    "issuer": {
+      "id": "https://redcross.jp",
+      "name": "Japanese Red Cross Society"
+    },
+    "credentialSubject": {
+      "volunteerName": "Taro Yamada",
+      "activityType": "Disaster Relief Volunteer",
+      "totalHours": 120,
+      "period": "2023-01-01 to 2023-12-31",
+      "certificateNumber": "VOL-2023-00456"
+    }
+  },
+  {
+    "id": "vc-043",
+    "@context": ["https://www.w3.org/ns/credentials/v2"],
+    "type": ["VerifiableCredential", "MembershipCredential"],
+    "issuer": {
+      "id": "https://costco.jp",
+      "name": "Costco Wholesale"
+    },
+    "credentialSubject": {
+      "memberName": "Taro Yamada",
+      "membershipType": "Executive",
+      "memberNumber": "1234567890",
+      "validFrom": "2024-01-01",
+      "validUntil": "2024-12-31"
+    }
+  },
+  {
+    "id": "vc-044",
+    "@context": ["https://www.w3.org/ns/credentials/v2"],
+    "type": ["VerifiableCredential", "SmokingCessationCredential"],
+    "issuer": {
+      "id": "https://nosmoking-clinic.jp",
+      "name": "Smoking Cessation Clinic"
+    },
+    "credentialSubject": {
+      "patientName": "Taro Yamada",
+      "cessationDate": "2023-06-01",
+      "programDuration": "3 months",
+      "successStatus": "Successful",
+      "certificateDate": "2024-06-01"
+    }
+  },
+  {
+    "id": "vc-045",
+    "@context": ["https://www.w3.org/ns/credentials/v2"],
+    "type": ["VerifiableCredential", "FirstAidCertificate"],
+    "issuer": {
+      "id": "https://jrc.or.jp",
+      "name": "Japanese Red Cross Society"
+    },
+    "credentialSubject": {
+      "holderName": "Taro Yamada",
+      "courseType": "Basic First Aid",
+      "completionDate": "2023-09-15",
+      "validUntil": "2026-09-14",
+      "certificateNumber": "FA-2023-00789"
+    }
+  },
+  {
+    "id": "vc-046",
+    "@context": ["https://www.w3.org/ns/credentials/v2"],
+    "type": ["VerifiableCredential", "CookingLicenseCredential"],
+    "issuer": {
+      "id": "https://cooking-school.jp",
+      "name": "Japan Culinary Association"
+    },
+    "credentialSubject": {
+      "chefName": "Taro Yamada",
+      "licenseType": "Professional Chef License",
+      "specialty": "Japanese Cuisine",
+      "issueDate": "2022-04-01",
+      "licenseNumber": "COOK-2022-00123"
+    }
+  },
+  {
+    "id": "vc-047",
+    "@context": ["https://www.w3.org/ns/credentials/v2"],
+    "type": ["VerifiableCredential", "TeachingLicenseCredential"],
+    "issuer": {
+      "id": "https://mext.go.jp",
+      "name": "Ministry of Education, Culture, Sports, Science and Technology"
+    },
+    "credentialSubject": {
+      "teacherName": "Hanako Yamada",
+      "licenseType": "Junior High School Teacher Type 1",
+      "subject": "Mathematics",
+      "issueDate": "2019-03-31",
+      "licenseNumber": "TCH-2019-00456"
+    }
+  },
+  {
+    "id": "vc-048",
+    "@context": ["https://www.w3.org/ns/credentials/v2"],
+    "type": ["VerifiableCredential", "ArchitectLicenseCredential"],
+    "issuer": {
+      "id": "https://jaeic.or.jp",
+      "name": "Japan Architectural Education and Information Center"
+    },
+    "credentialSubject": {
+      "architectName": "Taro Yamada",
+      "licenseType": "First-class Architect",
+      "registrationNumber": "123456",
+      "registrationDate": "2020-12-01",
+      "validStatus": "Valid"
+    }
+  },
+  {
+    "id": "vc-049",
+    "@context": ["https://www.w3.org/ns/credentials/v2"],
+    "type": ["VerifiableCredential", "PatentCredential"],
+    "issuer": {
+      "id": "https://jpo.go.jp",
+      "name": "Japan Patent Office"
+    },
+    "credentialSubject": {
+      "inventorName": "Taro Yamada",
+      "patentTitle": "Distributed Authentication System",
+      "patentNumber": "Patent No. 6789012",
+      "filingDate": "2022-03-15",
+      "grantDate": "2023-09-01"
+    }
+  },
+  {
+    "id": "vc-050",
+    "@context": ["https://www.w3.org/ns/credentials/v2"],
+    "type": ["VerifiableCredential", "DonorCardCredential"],
+    "issuer": {
+      "id": "https://jotnw.or.jp",
+      "name": "Japan Organ Transplant Network"
+    },
+    "credentialSubject": {
+      "donorName": "Taro Yamada",
+      "donorId": "DON-2023-00123",
+      "consentDate": "2023-04-01",
+      "consentType": "All Organs",
+      "bloodType": "Type A"
+    }
+  },
+  {
+    "id": "vc-051",
+    "@context": ["https://www.w3.org/ns/credentials/v2"],
+    "type": ["VerifiableCredential", "ElectricianLicenseCredential"],
+    "issuer": {
+      "id": "https://shiken.or.jp",
+      "name": "Electrical Technician Test Center"
+    },
+    "credentialSubject": {
+      "electricianName": "Taro Yamada",
+      "licenseType": "Type 2 Electrical Work Specialist",
+      "licenseNumber": "ELEC-2021-00789",
+      "issueDate": "2021-08-01",
+      "validStatus": "Valid"
+    }
+  },
+  {
+    "id": "vc-052",
+    "@context": ["https://www.w3.org/ns/credentials/v2"],
+    "type": ["VerifiableCredential", "RealEstateLicenseCredential"],
+    "issuer": {
+      "id": "https://retpc.jp",
+      "name": "Real Estate Transaction Promotion Center"
+    },
+    "credentialSubject": {
+      "agentName": "Taro Yamada",
+      "licenseType": "Real Estate Transaction Specialist",
+      "registrationNumber": "Tokyo No. 123456",
+      "registrationDate": "2022-10-01",
+      "validUntil": "2027-09-30"
+    }
+  },
+  {
+    "id": "vc-053",
+    "@context": ["https://www.w3.org/ns/credentials/v2"],
+    "type": ["VerifiableCredential", "YogaInstructorCertificate"],
+    "issuer": {
+      "id": "https://yoga-alliance.jp",
+      "name": "Japan Yoga Alliance"
+    },
+    "credentialSubject": {
+      "instructorName": "Hanako Yamada",
+      "certificationLevel": "RYT200",
+      "completionDate": "2023-03-15",
+      "specialties": ["Hatha Yoga", "Vinyasa Yoga"],
+      "certificateNumber": "YOGA-2023-00456"
+    }
+  },
+  {
+    "id": "vc-054",
+    "@context": ["https://www.w3.org/ns/credentials/v2"],
+    "type": ["VerifiableCredential", "PhotographyPortfolioCredential"],
+    "issuer": {
+      "id": "https://photo-association.jp",
+      "name": "Japan Professional Photographers Society"
+    },
+    "credentialSubject": {
+      "photographerName": "Taro Yamada",
+      "membershipLevel": "Full Member",
+      "specialties": ["Landscape Photography", "Portrait"],
+      "exhibitionCount": 5,
+      "memberSince": "2021-04-01"
+    }
+  },
+  {
+    "id": "vc-055",
+    "@context": ["https://www.w3.org/ns/credentials/v2"],
+    "type": ["VerifiableCredential", "SommelierCertificate"],
+    "issuer": {
+      "id": "https://sommelier.jp",
+      "name": "Japan Sommelier Association"
+    },
+    "credentialSubject": {
+      "sommelierName": "Taro Yamada",
+      "certificationLevel": "Sommelier",
+      "certificationDate": "2022-11-15",
+      "specialRegions": ["Bordeaux", "Burgundy"],
+      "certificateNumber": "SOM-2022-00789"
+    }
+  },
+  {
+    "id": "vc-056",
+    "@context": ["https://www.w3.org/ns/credentials/v2"],
+    "type": ["VerifiableCredential", "MusicGradeCertificate"],
+    "issuer": {
+      "id": "https://piano-teachers.jp",
+      "name": "Piano Teachers' National Association of Japan"
+    },
+    "credentialSubject": {
+      "musicianName": "Hanako Yamada",
+      "instrument": "Piano",
+      "gradeLevel": "Performance Diploma",
+      "examDate": "2023-07-20",
+      "examinerComments": "Excellent performance technique"
+    }
+  },
+  {
+    "id": "vc-057",
+    "@context": ["https://www.w3.org/ns/credentials/v2"],
+    "type": ["VerifiableCredential", "BeekeeperLicenseCredential"],
+    "issuer": {
+      "id": "https://beekeeping.jp",
+      "name": "Japan Beekeeping Association"
+    },
+    "credentialSubject": {
+      "beekeeperName": "Taro Yamada",
+      "licenseNumber": "BEE-2023-00123",
+      "hiveCount": 10,
+      "location": "Nagano Prefecture",
+      "issueDate": "2023-05-01"
+    }
+  },
+  {
+    "id": "vc-058",
+    "@context": ["https://www.w3.org/ns/credentials/v2"],
+    "type": ["VerifiableCredential", "BaristaCertificate"],
+    "issuer": {
+      "id": "https://coffee-association.jp",
+      "name": "Specialty Coffee Association of Japan"
+    },
+    "credentialSubject": {
+      "baristaName": "Taro Yamada",
+      "certificationLevel": "Advanced Barista",
+      "certificationDate": "2023-10-01",
+      "skills": ["Latte Art", "Cupping"],
+      "certificateNumber": "BAR-2023-00456"
+    }
+  },
+  {
+    "id": "vc-059",
+    "@context": ["https://www.w3.org/ns/credentials/v2"],
+    "type": ["VerifiableCredential", "HunterLicenseCredential"],
+    "issuer": {
+      "id": "https://env.go.jp",
+      "name": "Ministry of the Environment"
+    },
+    "credentialSubject": {
+      "hunterName": "Taro Yamada",
+      "licenseType": "Class 1 Hunting License",
+      "licenseNumber": "GUN-2022-00789",
+      "issueDate": "2022-09-01",
+      "validUntil": "2025-08-31"
+    }
+  },
+  {
+    "id": "vc-060",
+    "@context": ["https://www.w3.org/ns/credentials/v2"],
+    "type": ["VerifiableCredential", "TattooArtistLicenseCredential"],
+    "issuer": {
+      "id": "https://tattoo-association.jp",
+      "name": "Japan Tattoo Artist Association"
+    },
+    "credentialSubject": {
+      "artistName": "Taro Yamada",
+      "licenseNumber": "TAT-2023-00123",
+      "specialties": ["Japanese Traditional", "Tribal"],
+      "certificationDate": "2023-02-15",
+      "healthCertificateValid": true
+    }
+  },
+  {
+    "id": "vc-061",
+    "@context": ["https://www.w3.org/ns/credentials/v2"],
+    "type": ["VerifiableCredential", "RadioOperatorLicenseCredential"],
+    "issuer": {
+      "id": "https://soumu.go.jp",
+      "name": "Ministry of Internal Affairs and Communications"
+    },
+    "credentialSubject": {
+      "operatorName": "Taro Yamada",
+      "licenseType": "First-Class Amateur Radio Operator",
+      "callSign": "JA1ABC",
+      "issueDate": "2021-06-01",
+      "licenseNumber": "RADIO-2021-00456"
+    }
+  },
+  {
+    "id": "vc-062",
+    "@context": ["https://www.w3.org/ns/credentials/v2"],
+    "type": ["VerifiableCredential", "TaxiDriverLicenseCredential"],
+    "issuer": {
+      "id": "https://taxi-center.jp",
+      "name": "Tokyo Taxi Center"
+    },
+    "credentialSubject": {
+      "driverName": "Taro Yamada",
+      "licenseType": "Type 2 Driver's License",
+      "geographyTestPassed": true,
+      "issueDate": "2022-07-15",
+      "validUntil": "2025-07-14"
+    }
+  },
+  {
+    "id": "vc-063",
+    "@context": ["https://www.w3.org/ns/credentials/v2"],
+    "type": ["VerifiableCredential", "BartenderCertificate"],
+    "issuer": {
+      "id": "https://bartender.or.jp",
+      "name": "Japan Bartenders Association"
+    },
+    "credentialSubject": {
+      "bartenderName": "Taro Yamada",
+      "certificationLevel": "Certified Bartender",
+      "specialties": ["Classic Cocktails", "Flair Bartending"],
+      "certificationDate": "2023-05-20",
+      "certificateNumber": "BART-2023-00789"
+    }
+  },
+  {
+    "id": "vc-064",
+    "@context": ["https://www.w3.org/ns/credentials/v2"],
+    "type": ["VerifiableCredential", "PersonalTrainerCertificate"],
+    "issuer": {
+      "id": "https://nsca-japan.or.jp",
+      "name": "NSCA Japan"
+    },
+    "credentialSubject": {
+      "trainerName": "Taro Yamada",
+      "certificationName": "NSCA-CPT",
+      "certificationDate": "2022-12-01",
+      "specializations": ["Strength Training", "Nutrition Guidance"],
+      "certificateNumber": "NSCA-2022-00123"
+    }
+  },
+  {
+    "id": "vc-065",
+    "@context": ["https://www.w3.org/ns/credentials/v2"],
+    "type": ["VerifiableCredential", "TranslatorCertificate"],
+    "issuer": {
+      "id": "https://jta.jp",
+      "name": "Japan Translation Association"
+    },
+    "credentialSubject": {
+      "translatorName": "Hanako Yamada",
+      "languages": ["Japanese", "English", "Chinese"],
+      "specialFields": ["Technical Translation", "Medical Translation"],
+      "certificationDate": "2023-04-10",
+      "membershipNumber": "JTA-2023-00456"
+    }
+  },
+  {
+    "id": "vc-066",
+    "@context": ["https://www.w3.org/ns/credentials/v2"],
+    "type": ["VerifiableCredential", "MassageLicenseCredential"],
+    "issuer": {
+      "id": "https://amma-massage.jp",
+      "name": "Japan Shiatsu Society"
+    },
+    "credentialSubject": {
+      "therapistName": "Taro Yamada",
+      "licenseType": "Anma Massage Shiatsu Practitioner",
+      "licenseNumber": "MAS-2020-00789",
+      "issueDate": "2020-04-01",
+      "specialties": ["Sports Massage", "Lymph Drainage"]
+    }
+  },
+  {
+    "id": "vc-067",
+    "@context": ["https://www.w3.org/ns/credentials/v2"],
+    "type": ["VerifiableCredential", "WineExpertCertificate"],
+    "issuer": {
+      "id": "https://wine-expert.jp",
+      "name": "Japan Wine Expert Association"
+    },
+    "credentialSubject": {
+      "expertName": "Taro Yamada",
+      "certificationLevel": "Wine Expert",
+      "examDate": "2023-08-20",
+      "tastingScore": 92,
+      "theoryScore": 88,
+      "certificateNumber": "WINE-2023-00123"
+    }
+  },
+  {
+    "id": "vc-068",
+    "@context": ["https://www.w3.org/ns/credentials/v2"],
+    "type": ["VerifiableCredential", "CalligraphyGradeCertificate"],
+    "issuer": {
+      "id": "https://calligraphy.jp",
+      "name": "Japan Calligraphy Association"
+    },
+    "credentialSubject": {
+      "calligrapherName": "Hanako Yamada",
+      "gradeLevel": "Master",
+      "style": "Regular Script",
+      "certificationDate": "2022-03-15",
+      "instructorQualified": true
+    }
+  },
+  {
+    "id": "vc-069",
+    "@context": ["https://www.w3.org/ns/credentials/v2"],
+    "type": ["VerifiableCredential", "DroneOperatorLicenseCredential"],
+    "issuer": {
+      "id": "https://mlit.go.jp/aviation",
+      "name": "Civil Aviation Bureau"
+    },
+    "credentialSubject": {
+      "operatorName": "Taro Yamada",
+      "licenseType": "First Class Unmanned Aircraft Pilot",
+      "licenseNumber": "DRONE-2023-00456",
+      "issueDate": "2023-12-01",
+      "validUntil": "2026-11-30"
+    }
+  },
+  {
+    "id": "vc-070",
+    "@context": ["https://www.w3.org/ns/credentials/v2"],
+    "type": ["VerifiableCredential", "FishingLicenseCredential"],
+    "issuer": {
+      "id": "https://jfa.maff.go.jp",
+      "name": "Fisheries Agency"
+    },
+    "credentialSubject": {
+      "fisherName": "Taro Yamada",
+      "licenseType": "Recreational Fishing Boat Operator",
+      "licenseNumber": "FISH-2022-00789",
+      "issueDate": "2022-05-15",
+      "validUntil": "2027-05-14"
+    }
+  },
+  {
+    "id": "vc-071",
+    "@context": ["https://www.w3.org/ns/credentials/v2"],
+    "type": ["VerifiableCredential", "AcupuncturistLicenseCredential"],
+    "issuer": {
+      "id": "https://jsam.jp",
+      "name": "Japan Society of Acupuncture and Moxibustion"
+    },
+    "credentialSubject": {
+      "acupuncturistName": "Taro Yamada",
+      "licenseNumber": "ACU-2021-00123",
+      "issueDate": "2021-04-01",
+      "specialties": ["Sports Acupuncture", "Cosmetic Acupuncture"],
+      "clinicName": "Yamada Acupuncture Clinic"
+    }
+  },
+  {
+    "id": "vc-072",
+    "@context": ["https://www.w3.org/ns/credentials/v2"],
+    "type": ["VerifiableCredential", "InteriorDesignerCertificate"],
+    "issuer": {
+      "id": "https://interior.or.jp",
+      "name": "Japan Interior Designers' Association"
+    },
+    "credentialSubject": {
+      "designerName": "Hanako Yamada",
+      "certificationLevel": "Interior Coordinator",
+      "registrationNumber": "INT-2023-00456",
+      "specialties": ["Residential Design", "Commercial Spaces"],
+      "certificationDate": "2023-09-01"
+    }
+  },
+  {
+    "id": "vc-073",
+    "@context": ["https://www.w3.org/ns/credentials/v2"],
+    "type": ["VerifiableCredential", "ChiropractorLicenseCredential"],
+    "issuer": {
+      "id": "https://jac-chiro.org",
+      "name": "Japan Association of Chiropractors"
+    },
+    "credentialSubject": {
+      "chiropractorName": "Taro Yamada",
+      "licenseNumber": "CHIRO-2022-00789",
+      "educationLevel": "Doctor of Chiropractic",
+      "graduationSchool": "Tokyo Chiropractic College",
+      "licenseDate": "2022-06-01"
+    }
+  },
+  {
+    "id": "vc-074",
+    "@context": ["https://www.w3.org/ns/credentials/v2"],
+    "type": ["VerifiableCredential", "NutritionistLicenseCredential"],
+    "issuer": {
+      "id": "https://dietitian.or.jp",
+      "name": "Japan Dietetic Association"
+    },
+    "credentialSubject": {
+      "nutritionistName": "Hanako Yamada",
+      "licenseType": "Registered Dietitian",
+      "licenseNumber": "NUT-2020-00123",
+      "issueDate": "2020-04-01",
+      "specialties": ["Sports Nutrition", "Clinical Nutrition"]
+    }
+  },
+  {
+    "id": "vc-075",
+    "@context": ["https://www.w3.org/ns/credentials/v2"],
+    "type": ["VerifiableCredential", "MakeupArtistCertificate"],
+    "issuer": {
+      "id": "https://jma.or.jp",
+      "name": "Japan Makeup Artist Association"
+    },
+    "credentialSubject": {
+      "artistName": "Hanako Yamada",
+      "certificationLevel": "Level 1",
+      "certificationDate": "2023-11-15",
+      "specialties": ["Bridal Makeup", "Special Effects"],
+      "certificateNumber": "MAKEUP-2023-00456"
+    }
+  },
+  {
+    "id": "vc-076",
+    "@context": ["https://www.w3.org/ns/credentials/v2"],
+    "type": ["VerifiableCredential", "TourGuideLicenseCredential"],
+    "issuer": {
+      "id": "https://jnto.go.jp",
+      "name": "Japan National Tourism Organization"
+    },
+    "credentialSubject": {
+      "guideName": "Taro Yamada",
+      "licenseType": "National Government Licensed Guide Interpreter",
+      "languages": ["English", "Chinese"],
+      "licenseNumber": "GUIDE-2022-00789",
+      "issueDate": "2022-04-01"
+    }
+  },
+  {
+    "id": "vc-077",
+    "@context": ["https://www.w3.org/ns/credentials/v2"],
+    "type": ["VerifiableCredential", "FloristCertificate"],
+    "issuer": {
+      "id": "https://nfd.or.jp",
+      "name": "Nippon Flower Designers' Association"
+    },
+    "credentialSubject": {
+      "floristName": "Hanako Yamada",
+      "certificationLevel": "NFD Level 1",
+      "certificationDate": "2023-06-20",
+      "specialties": ["Wedding Bouquets", "Funeral Arrangements"],
+      "certificateNumber": "FLOWER-2023-00123"
+    }
+  },
+  {
+    "id": "vc-078",
+    "@context": ["https://www.w3.org/ns/credentials/v2"],
+    "type": ["VerifiableCredential", "LocksmithLicenseCredential"],
+    "issuer": {
+      "id": "https://locksmith.jp",
+      "name": "Japan Lock Security Cooperative"
+    },
+    "credentialSubject": {
+      "locksmithName": "Taro Yamada",
+      "licenseNumber": "LOCK-2021-00456",
+      "certificationLevel": "Security Equipment Specialist",
+      "issueDate": "2021-09-01",
+      "specialties": ["Electronic Locks", "Safe Opening"]
+    }
+  },
+  {
+    "id": "vc-079",
+    "@context": ["https://www.w3.org/ns/credentials/v2"],
+    "type": ["VerifiableCredential", "WeldingCertificate"],
+    "issuer": {
+      "id": "https://jwes.or.jp",
+      "name": "Japan Welding Engineering Society"
+    },
+    "credentialSubject": {
+      "welderName": "Taro Yamada",
+      "qualificationType": "JIS Certified Welder",
+      "qualificationLevel": "Specialist",
+      "materials": ["Carbon Steel", "Stainless Steel"],
+      "certificationDate": "2023-02-15",
+      "certificateNumber": "WELD-2023-00789"
+    }
+  },
+  {
+    "id": "vc-080",
+    "@context": ["https://www.w3.org/ns/credentials/v2"],
+    "type": ["VerifiableCredential", "CarpenterLicenseCredential"],
+    "issuer": {
+      "id": "https://kenchikushi.jp",
+      "name": "Japan Architectural Carpentry Association"
+    },
+    "credentialSubject": {
+      "carpenterName": "Taro Yamada",
+      "licenseType": "Master Carpenter Level 1",
+      "licenseNumber": "CARP-2022-00123",
+      "issueDate": "2022-08-01",
+      "specialties": ["Temple Carpentry", "Tea House Construction"]
+    }
+  },
+  {
+    "id": "vc-081",
+    "@context": ["https://www.w3.org/ns/credentials/v2"],
+    "type": ["VerifiableCredential", "PilotLicenseCredential"],
+    "issuer": {
+      "id": "https://cab.mlit.go.jp",
+      "name": "Civil Aviation Bureau"
+    },
+    "credentialSubject": {
+      "pilotName": "Taro Yamada",
+      "licenseType": "Commercial Pilot License",
+      "aircraftCategory": "Airplane",
+      "licenseNumber": "PILOT-2021-00456",
+      "medicalCertificateClass": "Class 1",
+      "validUntil": "2024-12-31"
+    }
+  },
+  {
+    "id": "vc-082",
+    "@context": ["https://www.w3.org/ns/credentials/v2"],
+    "type": ["VerifiableCredential", "JewelerCertificate"],
+    "issuer": {
+      "id": "https://jja.ne.jp",
+      "name": "Japan Jewellery Association"
+    },
+    "credentialSubject": {
+      "jewelerName": "Taro Yamada",
+      "certificationLevel": "Jewelry Coordinator Level 1",
+      "specialties": ["Gemstone Appraisal", "Jewelry Design"],
+      "certificationDate": "2023-07-15",
+      "certificateNumber": "JWL-2023-00789"
+    }
+  },
+  {
+    "id": "vc-083",
+    "@context": ["https://www.w3.org/ns/credentials/v2"],
+    "type": ["VerifiableCredential", "ChildcareLicenseCredential"],
+    "issuer": {
+      "id": "https://hoiku.jp",
+      "name": "Japan Nursery Teacher Training Council"
+    },
+    "credentialSubject": {
+      "caregiverName": "Hanako Yamada",
+      "licenseType": "Certified Nursery Teacher",
+      "registrationNumber": "HOIKU-2019-00123",
+      "registrationDate": "2019-04-01",
+      "workplaceType": "Licensed Nursery School"
+    }
+  },
+  {
+    "id": "vc-084",
+    "@context": ["https://www.w3.org/ns/credentials/v2"],
+    "type": ["VerifiableCredential", "VeterinarianLicenseCredential"],
+    "issuer": {
+      "id": "https://nichiju.or.jp",
+      "name": "Japan Veterinary Medical Association"
+    },
+    "credentialSubject": {
+      "veterinarianName": "Taro Yamada",
+      "licenseNumber": "VET-2020-00456",
+      "issueDate": "2020-04-01",
+      "specialties": ["Small Animal Practice", "Exotic Animals"],
+      "clinicName": "Yamada Animal Hospital"
+    }
+  },
+  {
+    "id": "vc-085",
+    "@context": ["https://www.w3.org/ns/credentials/v2"],
+    "type": ["VerifiableCredential", "PharmacistLicenseCredential"],
+    "issuer": {
+      "id": "https://nichiyaku.or.jp",
+      "name": "Japan Pharmaceutical Association"
+    },
+    "credentialSubject": {
+      "pharmacistName": "Hanako Yamada",
+      "licenseNumber": "PHARM-2018-00789",
+      "issueDate": "2018-04-01",
+      "specialties": ["Community Pharmacy", "Hospital Pharmacy"],
+      "workPlace": "Yamada Pharmacy"
+    }
+  },
+  {
+    "id": "vc-086",
+    "@context": ["https://www.w3.org/ns/credentials/v2"],
+    "type": ["VerifiableCredential", "OptometristLicenseCredential"],
+    "issuer": {
+      "id": "https://megane.or.jp",
+      "name": "Japan Optometric Association"
+    },
+    "credentialSubject": {
+      "optometristName": "Taro Yamada",
+      "certificationLevel": "Certified Optician SS Class",
+      "certificationDate": "2022-11-01",
+      "specialties": ["Binocular Vision Testing", "Prism Prescription"],
+      "certificateNumber": "OPT-2022-00123"
+    }
+  },
+  {
+    "id": "vc-087",
+    "@context": ["https://www.w3.org/ns/credentials/v2"],
+    "type": ["VerifiableCredential", "DentistLicenseCredential"],
+    "issuer": {
+      "id": "https://jda.or.jp",
+      "name": "Japan Dental Association"
+    },
+    "credentialSubject": {
+      "dentistName": "Taro Yamada",
+      "licenseNumber": "DENT-2019-00456",
+      "issueDate": "2019-04-01",
+      "specialties": ["Oral Surgery", "Orthodontics"],
+      "clinicName": "Yamada Dental Clinic"
+    }
+  },
+  {
+    "id": "vc-088",
+    "@context": ["https://www.w3.org/ns/credentials/v2"],
+    "type": ["VerifiableCredential", "CosmetologistLicenseCredential"],
+    "issuer": {
+      "id": "https://biyo.or.jp",
+      "name": "Japan Beauty Association"
+    },
+    "credentialSubject": {
+      "cosmetologistName": "Hanako Yamada",
+      "licenseNumber": "BEAUTY-2021-00789",
+      "issueDate": "2021-04-01",
+      "specialties": ["Cutting", "Coloring", "Perming"],
+      "salonName": "Hair Salon Yamada"
+    }
+  },
+  {
+    "id": "vc-089",
+    "@context": ["https://www.w3.org/ns/credentials/v2"],
+    "type": ["VerifiableCredential", "LawyerLicenseCredential"],
+    "issuer": {
+      "id": "https://nichibenren.or.jp",
+      "name": "Japan Federation of Bar Associations"
+    },
+    "credentialSubject": {
+      "lawyerName": "Taro Yamada",
+      "registrationNumber": "12345",
+      "barAssociation": "Tokyo Bar Association",
+      "admissionDate": "2015-12-01",
+      "specialties": ["Corporate Law", "Intellectual Property"]
+    }
+  },
+  {
+    "id": "vc-090",
+    "@context": ["https://www.w3.org/ns/credentials/v2"],
+    "type": ["VerifiableCredential", "AccountantLicenseCredential"],
+    "issuer": {
+      "id": "https://jicpa.or.jp",
+      "name": "Japanese Institute of Certified Public Accountants"
+    },
+    "credentialSubject": {
+      "accountantName": "Taro Yamada",
+      "registrationNumber": "CPA-2017-00123",
+      "registrationDate": "2017-04-01",
+      "specialties": ["Auditing", "Taxation"],
+      "firmName": "Yamada Accounting Office"
+    }
+  },
+  {
+    "id": "vc-091",
+    "@context": ["https://www.w3.org/ns/credentials/v2"],
+    "type": ["VerifiableCredential", "SocialWorkerLicenseCredential"],
+    "issuer": {
+      "id": "https://jacsw.or.jp",
+      "name": "Japanese Association of Certified Social Workers"
+    },
+    "credentialSubject": {
+      "socialWorkerName": "Hanako Yamada",
+      "licenseNumber": "SW-2020-00456",
+      "issueDate": "2020-04-01",
+      "specialties": ["Elderly Welfare", "Child Welfare"],
+      "workPlace": "City Hall Welfare Department"
+    }
+  },
+  {
+    "id": "vc-092",
+    "@context": ["https://www.w3.org/ns/credentials/v2"],
+    "type": ["VerifiableCredential", "LibrarianCertificate"],
+    "issuer": {
+      "id": "https://jla.or.jp",
+      "name": "Japan Library Association"
+    },
+    "credentialSubject": {
+      "librarianName": "Hanako Yamada",
+      "qualificationType": "Certified Librarian",
+      "certificationDate": "2021-03-31",
+      "specialties": ["Reference Services", "Children's Services"],
+      "workPlace": "City Central Library"
+    }
+  },
+  {
+    "id": "vc-093",
+    "@context": ["https://www.w3.org/ns/credentials/v2"],
+    "type": ["VerifiableCredential", "CuratorCertificate"],
+    "issuer": {
+      "id": "https://museum.or.jp",
+      "name": "Japanese Association of Museums"
+    },
+    "credentialSubject": {
+      "curatorName": "Taro Yamada",
+      "qualificationType": "Museum Curator",
+      "certificationDate": "2019-04-01",
+      "specialties": ["Japanese Art", "Modern Paintings"],
+      "museum": "City Art Museum"
+    }
+  },
+  {
+    "id": "vc-094",
+    "@context": ["https://www.w3.org/ns/credentials/v2"],
+    "type": ["VerifiableCredential", "FirefighterCertificate"],
+    "issuer": {
+      "id": "https://fdma.go.jp",
+      "name": "Fire and Disaster Management Agency"
+    },
+    "credentialSubject": {
+      "firefighterName": "Taro Yamada",
+      "rank": "Fire Captain",
+      "badgeNumber": "FIRE-2018-00789",
+      "specialTraining": ["Rescue Team", "Fire Prevention"],
+      "stationName": "Central Fire Station"
+    }
+  },
+  {
+    "id": "vc-095",
+    "@context": ["https://www.w3.org/ns/credentials/v2"],
+    "type": ["VerifiableCredential", "ParamedicLicenseCredential"],
+    "issuer": {
+      "id": "https://paramedic.or.jp",
+      "name": "Japan Association of Emergency Medical Technicians"
+    },
+    "credentialSubject": {
+      "paramedicName": "Taro Yamada",
+      "licenseNumber": "EMT-2019-00123",
+      "issueDate": "2019-04-01",
+      "advancedSkills": ["Intubation", "Drug Administration"],
+      "workPlace": "City Hospital Emergency Center"
+    }
+  },
+  {
+    "id": "vc-096",
+    "@context": ["https://www.w3.org/ns/credentials/v2"],
+    "type": ["VerifiableCredential", "PoliceOfficerCredential"],
+    "issuer": {
+      "id": "https://npa.go.jp",
+      "name": "National Police Agency"
+    },
+    "credentialSubject": {
+      "officerName": "Taro Yamada",
+      "badgeNumber": "POL-2020-00456",
+      "rank": "Police Sergeant",
+      "department": "Criminal Investigation",
+      "commissionDate": "2020-04-01"
+    }
+  },
+  {
+    "id": "vc-097",
+    "@context": ["https://www.w3.org/ns/credentials/v2"],
+    "type": ["VerifiableCredential", "CustomsOfficerCredential"],
+    "issuer": {
+      "id": "https://customs.go.jp",
+      "name": "Japan Customs"
+    },
+    "credentialSubject": {
+      "officerName": "Taro Yamada",
+      "officerId": "CUSTOMS-2021-00789",
+      "rank": "Customs Inspector",
+      "specialization": "Intellectual Property Enforcement",
+      "portOfDuty": "Narita Customs"
+    }
+  },
+  {
+    "id": "vc-098",
+    "@context": ["https://www.w3.org/ns/credentials/v2"],
+    "type": ["VerifiableCredential", "ImmigrationOfficerCredential"],
+    "issuer": {
+      "id": "https://immi-moj.go.jp",
+      "name": "Immigration Services Agency"
+    },
+    "credentialSubject": {
+      "officerName": "Taro Yamada",
+      "officerId": "IMMI-2022-00123",
+      "rank": "Immigration Inspector",
+      "languages": ["Japanese", "English", "Chinese"],
+      "airport": "Haneda Airport"
+    }
+  },
+  {
+    "id": "vc-099",
+    "@context": ["https://www.w3.org/ns/credentials/v2"],
+    "type": ["VerifiableCredential", "EnvironmentalInspectorCredential"],
+    "issuer": {
+      "id": "https://env.go.jp",
+      "name": "Ministry of the Environment"
+    },
+    "credentialSubject": {
+      "inspectorName": "Taro Yamada",
+      "certificationNumber": "ENV-2023-00456",
+      "specialties": ["Air Pollution Control", "Water Quality Protection"],
+      "certificationDate": "2023-04-01",
+      "region": "Kanto Region"
+    }
+  },
+  {
+    "id": "vc-100",
+    "@context": ["https://www.w3.org/ns/credentials/v2"],
+    "type": ["VerifiableCredential", "FoodSafetyInspectorCredential"],
+    "issuer": {
+      "id": "https://mhlw.go.jp/food",
+      "name": "Food Safety Department, MHLW"
+    },
+    "credentialSubject": {
+      "inspectorName": "Taro Yamada",
+      "licenseNumber": "FOOD-2022-00789",
+      "qualifications": ["HACCP Instructor", "Food Sanitation Supervisor"],
+      "issueDate": "2022-04-01",
+      "jurisdiction": "Tokyo"
+    }
+  }
+]

@@ -1,0 +1,30 @@
+{
+  "credentials": [
+    {
+      "id": "example_credential",
+      "format": "ldp_vc",
+      "meta": {
+        "type_values": [
+          [
+            "VerifiableCredential",
+            "ExampleCredential"
+          ]
+        ]
+      },
+      "claims": [
+        {
+          "path": [
+            "credentialSubject",
+            "name"
+          ]
+        },
+        {
+          "path": [
+            "credentialSubject",
+            "id"
+          ]
+        }
+      ]
+    }
+  ]
+}

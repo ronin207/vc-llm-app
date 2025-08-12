@@ -1,0 +1,42 @@
+[
+  {
+    "query": "I want to check my passport expiration date",
+    "selected_vc_ids": ["vc-004"]
+  },
+  {
+    "query": "Show me all my English proficiency certifications",
+    "selected_vc_ids": ["vc-011", "vc-012", "vc-013"]
+  },
+  {
+    "query": "My university academic transcript",
+    "selected_vc_ids": ["vc-009"]
+  },
+  {
+    "query": "My health check results are all grade A",
+    "selected_vc_ids": ["vc-007"]
+  },
+  {
+    "query": "I have received 3 COVID vaccine doses",
+    "selected_vc_ids": ["vc-006"]
+  },
+  {
+    "query": "National IT certifications",
+    "selected_vc_ids": ["vc-015", "vc-016"]
+  },
+  {
+    "query": "I am a Senior Engineer in Technology Development",
+    "selected_vc_ids": ["vc-010"]
+  },
+  {
+    "query": "Proof of regular exercise habits",
+    "selected_vc_ids": ["vc-017", "vc-018"]
+  },
+  {
+    "query": "Academic achievements",
+    "selected_vc_ids": ["vc-014", "vc-021"]
+  },
+  {
+    "query": "Last year's income proof",
+    "selected_vc_ids": ["vc-025"]
+  }
+]

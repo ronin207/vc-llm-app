@@ -1,0 +1,10 @@
+{
+  "model_type": "gemma-2b-dcql",
+  "max_length": 256,
+  "vocab_size": 256000,
+  "pad_token_id": 0,
+  "eos_token_id": 1,
+  "bos_token_id": 2,
+  "description": "Fine-tuned Gemma model for DCQL generation",
+  "hf_repo": "ronin207/gemma-2-2b-it-dcql-mlx"
+}
