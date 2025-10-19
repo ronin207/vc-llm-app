@@ -3,25 +3,16 @@ import SwiftUI
 struct VCListView: View {
     @State private var credentials: [VerifiableCredential] = []
     @State private var selectedCredential: VerifiableCredential?
-    @State private var showingDetail = false
     @State private var searchText = ""
 
     var filteredCredentials: [VerifiableCredential] {
         if searchText.isEmpty {
             return credentials
         }
+        let lowercasedSearch = searchText.lowercased()
         return credentials.filter { credential in
             let credentialType = credential.type.count > 1 ? credential.type[1] : credential.type[0]
-            let issuerName = credential.issuer.name
-
-            // Search in type, issuer name, and credentialSubject values
-            let matchesType = credentialType.localizedCaseInsensitiveContains(searchText)
-            let matchesIssuer = issuerName.localizedCaseInsensitiveContains(searchText)
-            let matchesSubject = credential.credentialSubject.values.contains { value in
-                value.stringValue.localizedCaseInsensitiveContains(searchText)
-            }
-
-            return matchesType || matchesIssuer || matchesSubject
+            return credentialType.lowercased().contains(lowercasedSearch)
         }
     }
 
@@ -51,7 +42,6 @@ struct VCListView: View {
                         )
                         .onTapGesture {
                             selectedCredential = credential
-                            showingDetail = true
                         }
                     }
 
@@ -77,42 +67,7 @@ struct VCListView: View {
                 .padding(.bottom, 16)
             }
         }
-        .searchable(text: $searchText, prompt: "Search credentials") {
-                HStack(alignment: .top, spacing: 12) {
-                    Button {
-                        searchText = "I want to prove my English skills."
-                    } label: {
-                        Text("I want to prove my English skills.")
-                            .fixedSize(horizontal: false, vertical: true)
-                            .multilineTextAlignment(.leading)
-                    }
-
-                    Button {
-                        searchText = "I want to demonstrate my IT skills."
-                    } label: {
-                        Text("I want to demonstrate my IT skills.")
-                            .fixedSize(horizontal: false, vertical: true)
-                            .multilineTextAlignment(.leading)
-                    }
-
-                    Button {
-                        searchText = "I want to show the class on my driver license, but hide my name."
-                    } label: {
-                        Text("I want to show the class on my driver license, but hide my name.")
-                            .fixedSize(horizontal: false, vertical: true)
-                            .multilineTextAlignment(.leading)
-                    }
-
-                    Button {
-                        searchText = "Show my national ID card but hide name and residence."
-                    } label: {
-                        Text("Show my national ID card but hide name and residence.")
-                            .fixedSize(horizontal: false, vertical: true)
-                            .multilineTextAlignment(.leading)
-                    }
-                }
-                .padding(.horizontal)
-            }
+        .searchable(text: $searchText, prompt: "Search credentials")
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     NavigationLink(destination: FormView()) {
@@ -127,10 +82,8 @@ struct VCListView: View {
             .onAppear {
                 loadCredentials()
             }
-            .sheet(isPresented: $showingDetail) {
-                if let credential = selectedCredential {
-                    VCDetailView(credential: credential)
-                }
+            .sheet(item: $selectedCredential) { credential in
+                VCDetailView(credential: credential)
             }
     }
 
