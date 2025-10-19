@@ -40,7 +40,6 @@ enum AppMode {
     case chat
     case dcql
     case presentation
-    case verifier
 }
 
 // Message type extended for DCQL
@@ -77,7 +76,7 @@ struct ContentViewDCQL: View {
     @State private var appMode: AppMode = .dcql
     @State private var currentDCQLResponse: DCQLResponse?
     @State private var showingPresentation = false
-    @State private var showingVerifier = false
+    @State private var showingVCList = false
     @State private var selectedModel: String = "Gemma 2B Finetuned (DCQL)"
     
     // Example queries for quick testing
@@ -159,8 +158,8 @@ struct ContentViewDCQL: View {
                 PresentationFallbackView()
             }
         }
-        .sheet(isPresented: $showingVerifier) {
-            VerifierView()
+        .sheet(isPresented: $showingVCList) {
+            VCListView()
         }
     }
     
@@ -169,35 +168,27 @@ struct ContentViewDCQL: View {
             Text("VC-LLM")
                 .font(.system(size: 24, weight: .bold, design: .rounded))
                 .foregroundColor(.primary)
-            
+
             Spacer()
-            
-            // Mode selector
-            Menu {
-                Button {
-                    appMode = .dcql
-                } label: {
-                    Label("DCQL Mode", systemImage: "doc.text.magnifyingglass")
-                }
-                
-                Button {
-                    showingVerifier = true
-                } label: {
-                    Label("Verifier Mode", systemImage: "qrcode.viewfinder")
-                }
+
+            // VC List button
+            Button {
+                showingVCList = true
             } label: {
                 HStack(spacing: 6) {
-                    Image(systemName: appMode == .dcql ? "doc.text.magnifyingglass" : "qrcode.viewfinder")
-                    Text(appMode == .dcql ? "DCQL Mode" : "Verifier")
+                    Image(systemName: "list.bullet.rectangle.portrait")
+                    Text("VCs")
                 }
                 .font(.system(size: 14, weight: .semibold, design: .rounded))
                 .padding(.horizontal, 12)
                 .padding(.vertical, 6)
                 .background(
                     RoundedRectangle(cornerRadius: 12, style: .continuous)
-                        .fill(Color.cyan.opacity(0.2))
+                        .fill(Color.purple.opacity(0.2))
                 )
             }
+            .foregroundColor(.primary)
+
         }
         .padding(.horizontal, 20)
         .padding(.vertical, 12)
@@ -573,7 +564,7 @@ struct DCQLDetailsView: View {
             
             // DCQL JSON (collapsible)
             if showingJSON {
-                ScrollView(.horizontal, showsIndicators: false) {
+                ScrollView([.horizontal, .vertical], showsIndicators: true) {
                     Text(dcqlResponse.dcqlString)
                         .font(.system(size: 11, design: .monospaced))
                         .foregroundColor(.primary.opacity(0.7))
@@ -715,101 +706,6 @@ struct PresentationFallbackView: View {
             .padding()
             .navigationBarHidden(true)
         }
-    }
-}
-
-// Verifier View for scanning presentations
-struct VerifierView: View {
-    @Environment(\.dismiss) var dismiss
-    @State private var scannedData: String = ""
-    @State private var presentationData: [String: Any]?
-    
-    var body: some View {
-        NavigationView {
-            VStack(spacing: 20) {
-                HStack {
-                    Text("Verifier Mode")
-                        .font(.system(size: 28, weight: .bold, design: .rounded))
-                    
-                    Spacer()
-                    
-                    Button("Close") {
-                        dismiss()
-                    }
-                    .font(.system(size: 16, weight: .medium, design: .rounded))
-                }
-                .padding()
-                
-                // QR Scanner placeholder
-                VStack {
-                    Image(systemName: "qrcode.viewfinder")
-                        .font(.system(size: 100))
-                        .foregroundColor(.cyan)
-                    
-                    Text("QR Scanner Ready")
-                        .font(.system(size: 18, weight: .medium, design: .rounded))
-                        .padding(.top)
-                    
-                    Text("Point at a presentation QR code")
-                        .font(.system(size: 14, weight: .regular, design: .rounded))
-                        .foregroundColor(.secondary)
-                }
-                .frame(maxWidth: .infinity, maxHeight: 300)
-                .background(
-                    RoundedRectangle(cornerRadius: 20)
-                        .fill(Color.primary.opacity(0.05))
-                )
-                .padding()
-                
-                // Simulated scan result
-                if presentationData != nil {
-                    VStack(alignment: .leading, spacing: 12) {
-                        HStack {
-                            Image(systemName: "checkmark.circle.fill")
-                                .foregroundColor(.green)
-                            Text("Presentation Verified")
-                                .font(.system(size: 18, weight: .semibold, design: .rounded))
-                        }
-                        
-                        Text("Received credentials have been verified")
-                            .font(.system(size: 14, weight: .regular, design: .rounded))
-                            .foregroundColor(.secondary)
-                    }
-                    .padding()
-                    .frame(maxWidth: .infinity)
-                    .background(
-                        RoundedRectangle(cornerRadius: 12)
-                            .fill(Color.green.opacity(0.1))
-                    )
-                    .padding(.horizontal)
-                }
-                
-                Spacer()
-                
-                // Simulate scan button (for demo)
-                Button("Simulate Scan") {
-                    simulateScan()
-                }
-                .font(.system(size: 16, weight: .medium, design: .rounded))
-                .padding(.horizontal, 24)
-                .padding(.vertical, 12)
-                .background(
-                    RoundedRectangle(cornerRadius: 12)
-                        .fill(Color.cyan)
-                )
-                .foregroundColor(.white)
-            }
-            .navigationBarHidden(true)
-        }
-    }
-    
-    private func simulateScan() {
-        // Simulate receiving presentation data
-        presentationData = [
-            "type": "VerifiablePresentation",
-            "verified": true,
-            "timestamp": ISO8601DateFormatter().string(from: Date())
-        ]
     }
 }
 

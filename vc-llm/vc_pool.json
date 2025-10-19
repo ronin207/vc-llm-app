@@ -1,1642 +1,3777 @@
 [
   {
-    "id": "vc-001",
-    "@context": ["https://www.w3.org/ns/credentials/v2"],
-    "type": ["VerifiableCredential", "NationalIDCredential"],
+    "@context": [
+      "https://www.w3.org/ns/credentials/v2",
+      "https://example.com/contexts/identity/v1"
+    ],
+    "id": "https://example.com/credentials/vc-001",
+    "type": [
+      "VerifiableCredential",
+      "PassportCredential"
+    ],
     "issuer": {
-      "id": "https://mynumber.go.jp",
-      "name": "My Number Card Authority"
+      "id": "https://example.com/issuers/passport-office",
+      "name": "Tokyo Passport Office"
     },
+    "validFrom": "2024-01-15T00:00:00Z",
+    "validUntil": "2034-01-14T23:59:59Z",
     "credentialSubject": {
-      "nationalId": "123456789012",
-      "fullName": "Taro Yamada",
-      "dateOfBirth": "1990-01-01",
-      "address": "1-1-1 Kasumigaseki, Chiyoda-ku, Tokyo",
-      "gender": "Male"
-    }
-  },
-  {
-    "id": "vc-002",
-    "@context": ["https://www.w3.org/ns/credentials/v2"],
-    "type": ["VerifiableCredential", "HealthInsuranceCardCredential"],
-    "issuer": {
-      "id": "https://health.go.jp",
-      "name": "Ministry of Health, Labour and Welfare"
-    },
-    "credentialSubject": {
-      "insuranceNumber": "H123456789",
-      "insuredName": "Taro Yamada",
-      "insuranceType": "National Health Insurance",
-      "validFrom": "2024-04-01",
-      "validUntil": "2025-03-31"
-    }
-  },
-  {
-    "id": "vc-003",
-    "@context": ["https://www.w3.org/ns/credentials/v2"],
-    "type": ["VerifiableCredential", "MobileDriverLicenseCredential"],
-    "issuer": {
-      "id": "https://npa.go.jp",
-      "name": "National Police Agency"
-    },
-    "credentialSubject": {
-      "licenseNumber": "123456789012",
-      "fullName": "Taro Yamada",
-      "dateOfBirth": "1990-01-01",
-      "licenseClass": ["Regular Vehicle", "Regular Motorcycle"],
-      "validUntil": "2027-01-15",
-      "issueDate": "2024-01-15"
-    }
-  },
-  {
-    "id": "vc-004",
-    "@context": ["https://www.w3.org/ns/credentials/v2"],
-    "type": ["VerifiableCredential", "PassportCredential"],
-    "issuer": {
-      "id": "https://mofa.go.jp",
-      "name": "Ministry of Foreign Affairs"
-    },
-    "credentialSubject": {
-      "passportNumber": "TK1234567",
-      "fullName": "YAMADA TARO",
+      "id": "did:example:yamada-taro",
+      "name": "Taro Yamada",
+      "birthDate": "1985-04-15",
       "nationality": "Japanese",
-      "dateOfBirth": "1990-01-01",
-      "placeOfBirth": "Tokyo",
-      "sex": "M",
-      "dateOfIssue": "2023-05-01",
-      "dateOfExpiry": "2033-05-01"
+      "passportNumber": "TK1234567"
+    },
+    "proof": {
+      "type": "DataIntegrityProof",
+      "cryptosuite": "eddsa-rdfc-2022",
+      "created": "2025-08-11T09:33:16.567028+00:00",
+      "verificationMethod": "https://example.com/issuers/keys/7706fbb7",
+      "proofPurpose": "assertionMethod",
+      "proofValue": "z5f15fc5dfa4c2432...dummy...06cc8881f1a73aa8"
     }
   },
   {
-    "id": "vc-005",
-    "@context": ["https://www.w3.org/ns/credentials/v2"],
-    "type": ["VerifiableCredential", "BloodTypeCredential"],
+    "@context": [
+      "https://www.w3.org/ns/credentials/v2",
+      "https://example.com/contexts/identity/v1"
+    ],
+    "id": "https://example.com/credentials/vc-002",
+    "type": [
+      "VerifiableCredential",
+      "DriverLicenseCredential"
+    ],
     "issuer": {
-      "id": "https://hospital-tokyo.jp",
-      "name": "Tokyo General Hospital"
+      "id": "https://example.com/issuers/driver-license-issuer",
+      "name": "Tokyo Metropolitan Government"
     },
+    "validFrom": "2024-01-15T00:00:00Z",
+    "validUntil": "2034-01-14T23:59:59Z",
     "credentialSubject": {
-      "patientName": "Taro Yamada",
-      "bloodType": "A",
-      "rhFactor": "positive",
-      "testDate": "2024-03-15"
+      "id": "did:example:yamada-taro",
+      "name": "Taro Yamada",
+      "birthDate": "1985-04-15",
+      "licenseNumber": "123456789012",
+      "licenseClass": "Standard Vehicle Class 1",
+      "address": "1-2-3 Kasumigaseki, Chiyoda-ku, Tokyo"
+    },
+    "proof": {
+      "type": "DataIntegrityProof",
+      "cryptosuite": "eddsa-rdfc-2022",
+      "created": "2025-08-11T09:33:20.628815+00:00",
+      "verificationMethod": "https://example.com/issuers/keys/cf2ed1d7",
+      "proofPurpose": "assertionMethod",
+      "proofValue": "z5851f86b053c75dd...dummy...56ec22980c53d2a6"
     }
   },
   {
-    "id": "vc-006",
-    "@context": ["https://www.w3.org/ns/credentials/v2"],
-    "type": ["VerifiableCredential", "VaccinationCertificate"],
+    "@context": [
+      "https://www.w3.org/ns/credentials/v2",
+      "https://example.com/contexts/identity/v1"
+    ],
+    "id": "https://example.com/credentials/vc-003",
+    "type": [
+      "VerifiableCredential",
+      "MyNumberCardCredential"
+    ],
     "issuer": {
-      "id": "https://mhlw.go.jp",
-      "name": "Ministry of Health, Labour and Welfare"
+      "id": "https://example.com/issuers/my-number-card",
+      "name": "Ministry of Internal Affairs and Communications, Japan"
     },
+    "validFrom": "2024-01-15T00:00:00Z",
+    "validUntil": "2034-01-14T23:59:59Z",
     "credentialSubject": {
-      "patientName": "Taro Yamada",
-      "vaccinations": [
-        {
-          "vaccine": "COVID-19",
-          "manufacturer": "Pfizer-BioNTech",
-          "lotNumber": "EY0573",
-          "date": "2023-11-01",
-          "dose": "3rd"
-        },
-        {
-          "vaccine": "Influenza",
-          "date": "2023-10-15",
-          "type": "2023-2024 Season"
-        }
-      ]
+      "id": "did:example:yamada-taro",
+      "name": "Taro Yamada",
+      "birthDate": "1985-04-15",
+      "myNumber": "123456789012",
+      "address": "1-2-3 Kasumigaseki, Chiyoda-ku, Tokyo"
+    },
+    "proof": {
+      "type": "DataIntegrityProof",
+      "cryptosuite": "eddsa-rdfc-2022",
+      "created": "2025-08-11T09:33:25.576910+00:00",
+      "verificationMethod": "https://example.com/issuers/keys/8f8fe01f",
+      "proofPurpose": "assertionMethod",
+      "proofValue": "zb3d48f2b477e7edb...dummy...be47f47c2223de83"
     }
   },
   {
-    "id": "vc-007",
-    "@context": ["https://www.w3.org/ns/credentials/v2"],
-    "type": ["VerifiableCredential", "HealthCheckCertificate"],
+    "@context": [
+      "https://www.w3.org/ns/credentials/v2",
+      "https://example.com/contexts/identity/v1"
+    ],
+    "id": "https://example.com/credentials/vc-004",
+    "type": [
+      "VerifiableCredential",
+      "SealRegistrationCertificate"
+    ],
     "issuer": {
-      "id": "https://health-center.jp",
-      "name": "Health Check Center"
+      "id": "https://example.com/issuers/seal-registration-authority",
+      "name": "Seal Registration Authority of Tokyo"
     },
+    "validFrom": "2024-01-15T00:00:00Z",
+    "validUntil": "2024-04-14T23:59:59Z",
     "credentialSubject": {
-      "patientName": "Taro Yamada",
-      "checkDate": "2024-01-20",
-      "overallGrade": "A",
+      "id": "did:example:yamada-taro",
+      "name": "Taro Yamada",
+      "sealId": "SEAL-2024-001",
+      "registrationDate": "2024-01-15"
+    },
+    "proof": {
+      "type": "DataIntegrityProof",
+      "cryptosuite": "eddsa-rdfc-2022",
+      "created": "2025-08-11T09:33:28.765154+00:00",
+      "verificationMethod": "https://example.com/issuers/keys/9bbaf714",
+      "proofPurpose": "assertionMethod",
+      "proofValue": "ze578862221f7b668...dummy...c832e91e5ffcb508"
+    }
+  },
+  {
+    "@context": [
+      "https://www.w3.org/ns/credentials/v2",
+      "https://example.com/contexts/identity/v1"
+    ],
+    "id": "https://example.com/credentials/vc-005",
+    "type": [
+      "VerifiableCredential",
+      "VoterRegistrationCredential"
+    ],
+    "issuer": {
+      "id": "https://example.com/issuers/voter-registration-authority",
+      "name": "Tokyo Metropolitan Voter Registration Authority"
+    },
+    "validFrom": "2024-01-15T00:00:00Z",
+    "validUntil": "2025-01-14T23:59:59Z",
+    "credentialSubject": {
+      "id": "did:example:yamada-taro",
+      "name": "Taro Yamada",
+      "voterDistrict": "Tokyo District 1",
+      "registrationDate": "2024-01-15"
+    },
+    "proof": {
+      "type": "DataIntegrityProof",
+      "cryptosuite": "eddsa-rdfc-2022",
+      "created": "2025-08-11T09:33:33.185151+00:00",
+      "verificationMethod": "https://example.com/issuers/keys/ed7a9a84",
+      "proofPurpose": "assertionMethod",
+      "proofValue": "zd89ef2e6268a8973...dummy...c5322da054a15fe5"
+    }
+  },
+  {
+    "@context": [
+      "https://www.w3.org/ns/credentials/v2",
+      "https://example.com/contexts/identity/v1"
+    ],
+    "id": "https://example.com/credentials/vc-006",
+    "type": [
+      "VerifiableCredential",
+      "VotingCompletionCertificate"
+    ],
+    "issuer": {
+      "id": "https://example.com/issuers/election-office",
+      "name": "Tokyo Metropolitan Election Office"
+    },
+    "validFrom": "2024-06-15T00:00:00Z",
+    "validUntil": "2025-06-14T23:59:59Z",
+    "credentialSubject": {
+      "id": "did:example:yamada-taro",
+      "name": "Taro Yamada",
+      "electionDate": "2024-07-01",
+      "votingLocation": "Tokyo Community Center"
+    },
+    "proof": {
+      "type": "DataIntegrityProof",
+      "cryptosuite": "eddsa-rdfc-2022",
+      "created": "2025-08-11T09:33:37.396011+00:00",
+      "verificationMethod": "https://example.com/issuers/keys/c476037d",
+      "proofPurpose": "assertionMethod",
+      "proofValue": "zfa1a2ed2447f32df...dummy...05436c75dde56880"
+    }
+  },
+  {
+    "@context": [
+      "https://www.w3.org/ns/credentials/v2",
+      "https://example.com/contexts/identity/v1"
+    ],
+    "id": "https://example.com/credentials/vc-007",
+    "type": [
+      "VerifiableCredential",
+      "MarriageCertificate"
+    ],
+    "issuer": {
+      "id": "https://example.com/issuers/marriage-certificates",
+      "name": "Tokyo City Hall"
+    },
+    "validFrom": "2024-01-15T00:00:00Z",
+    "credentialSubject": {
+      "id": "did:example:yamada-taro",
+      "name": "Taro Yamada",
+      "spouseName": "Hanako Yamada",
+      "marriageDate": "2010-06-15"
+    },
+    "proof": {
+      "type": "DataIntegrityProof",
+      "cryptosuite": "eddsa-rdfc-2022",
+      "created": "2025-08-11T09:33:41.063011+00:00",
+      "verificationMethod": "https://example.com/issuers/keys/e74a33ec",
+      "proofPurpose": "assertionMethod",
+      "proofValue": "z6984d29860ea47e1...dummy...5d09ca7b029ab2f3"
+    }
+  },
+  {
+    "@context": [
+      "https://www.w3.org/ns/credentials/v2",
+      "https://example.com/contexts/identity/v1"
+    ],
+    "id": "https://example.com/credentials/vc-008",
+    "type": [
+      "VerifiableCredential",
+      "BirthCertificate"
+    ],
+    "issuer": {
+      "id": "https://example.com/issuers/birth-certificates",
+      "name": "Tokyo Metropolitan Government"
+    },
+    "validFrom": "2024-01-15T00:00:00Z",
+    "credentialSubject": {
+      "id": "did:example:yamada-taro",
+      "name": "Taro Yamada",
+      "birthDate": "1985-04-15",
+      "birthPlace": "Tokyo, Japan"
+    },
+    "proof": {
+      "type": "DataIntegrityProof",
+      "cryptosuite": "eddsa-rdfc-2022",
+      "created": "2025-08-11T09:33:44.525643+00:00",
+      "verificationMethod": "https://example.com/issuers/keys/09c02823",
+      "proofPurpose": "assertionMethod",
+      "proofValue": "z2c8747d7b070e192...dummy...eb2f5fa3c8ed3421"
+    }
+  },
+  {
+    "@context": [
+      "https://www.w3.org/ns/credentials/v2",
+      "https://example.com/contexts/qualifications/v1"
+    ],
+    "id": "https://example.com/credentials/vc-009",
+    "type": [
+      "VerifiableCredential",
+      "EnglishProficiencyCredential"
+    ],
+    "issuer": {
+      "id": "https://example.com/issuers/english-proficiency-certification",
+      "name": "Tokyo Language Institute"
+    },
+    "validFrom": "2024-01-15T00:00:00Z",
+    "validUntil": "2025-01-14T23:59:59Z",
+    "credentialSubject": {
+      "id": "did:example:yamada-taro",
+      "name": "Taro Yamada",
+      "level": "Grade 1",
+      "testDate": "2024-01-15",
+      "testName": "English Proficiency Test"
+    },
+    "proof": {
+      "type": "DataIntegrityProof",
+      "cryptosuite": "eddsa-rdfc-2022",
+      "created": "2025-08-11T09:33:57.249134+00:00",
+      "verificationMethod": "https://example.com/issuers/keys/23776c66",
+      "proofPurpose": "assertionMethod",
+      "proofValue": "z5bac1a1c3f370fa8...dummy...8e9ea2d8b8987b71"
+    }
+  },
+  {
+    "@context": [
+      "https://www.w3.org/ns/credentials/v2",
+      "https://example.com/contexts/qualifications/v1"
+    ],
+    "id": "https://example.com/credentials/vc-010",
+    "type": [
+      "VerifiableCredential",
+      "EnglishProficiencyCredential"
+    ],
+    "issuer": {
+      "id": "https://example.com/issuers/english-proficiency-certification",
+      "name": "Tokyo Language Institute"
+    },
+    "validFrom": "2024-01-15T00:00:00Z",
+    "validUntil": "2026-01-14T23:59:59Z",
+    "credentialSubject": {
+      "id": "did:example:yamada-taro",
+      "name": "Taro Yamada",
+      "level": "Grade 2",
+      "testDate": "2024-01-15",
+      "testName": "English Proficiency Test"
+    },
+    "proof": {
+      "type": "DataIntegrityProof",
+      "cryptosuite": "eddsa-rdfc-2022",
+      "created": "2025-08-11T09:33:52.657288+00:00",
+      "verificationMethod": "https://example.com/issuers/keys/c4b91e15",
+      "proofPurpose": "assertionMethod",
+      "proofValue": "ze037c5c710ee3b7b...dummy...021ecf843a1d959d"
+    }
+  },
+  {
+    "@context": [
+      "https://www.w3.org/ns/credentials/v2",
+      "https://example.com/contexts/qualifications/v1"
+    ],
+    "id": "https://example.com/credentials/vc-011",
+    "type": [
+      "VerifiableCredential",
+      "EnglishProficiencyCredential"
+    ],
+    "issuer": {
+      "id": "https://example.com/issuers/english-proficiency-institute",
+      "name": "English Proficiency Institute"
+    },
+    "validFrom": "2024-01-15T00:00:00Z",
+    "validUntil": "2026-01-15T23:59:59Z",
+    "credentialSubject": {
+      "id": "did:example:yamada-taro",
+      "name": "Taro Yamada",
+      "level": "Grade 3",
+      "testDate": "2024-01-15",
+      "testName": "English Proficiency Test"
+    },
+    "proof": {
+      "type": "DataIntegrityProof",
+      "cryptosuite": "eddsa-rdfc-2022",
+      "created": "2025-08-11T09:33:49.791712+00:00",
+      "verificationMethod": "https://example.com/issuers/keys/65657937",
+      "proofPurpose": "assertionMethod",
+      "proofValue": "z7e783941cfa67838...dummy...b1c974ae26d3a36a"
+    }
+  },
+  {
+    "@context": [
+      "https://www.w3.org/ns/credentials/v2",
+      "https://example.com/contexts/qualifications/v1"
+    ],
+    "id": "https://example.com/credentials/vc-012",
+    "type": [
+      "VerifiableCredential",
+      "MathematicsCredential"
+    ],
+    "issuer": {
+      "id": "https://example.com/issuers/math-certification",
+      "name": "Mathematics Certification Authority"
+    },
+    "validFrom": "2024-01-15T00:00:00Z",
+    "validUntil": "2029-01-14T23:59:59Z",
+    "credentialSubject": {
+      "id": "did:example:yamada-taro",
+      "name": "Taro Yamada",
+      "level": "Advanced",
+      "testDate": "2024-01-15",
+      "testName": "Mathematics Proficiency Test"
+    },
+    "proof": {
+      "type": "DataIntegrityProof",
+      "cryptosuite": "eddsa-rdfc-2022",
+      "created": "2025-08-11T09:34:09.822904+00:00",
+      "verificationMethod": "https://example.com/issuers/keys/0bfdc93d",
+      "proofPurpose": "assertionMethod",
+      "proofValue": "z506608bbd0fce9ff...dummy...6b741719f8ecd8f4"
+    }
+  },
+  {
+    "@context": [
+      "https://www.w3.org/ns/credentials/v2",
+      "https://example.com/contexts/qualifications/v1"
+    ],
+    "id": "https://example.com/credentials/vc-013",
+    "type": [
+      "VerifiableCredential",
+      "MathematicsCredential"
+    ],
+    "issuer": {
+      "id": "https://example.com/issuers/math-certification",
+      "name": "Tokyo Mathematics Certification Authority"
+    },
+    "validFrom": "2024-01-15T00:00:00Z",
+    "validUntil": "2025-01-14T23:59:59Z",
+    "credentialSubject": {
+      "id": "did:example:yamada-taro",
+      "name": "Taro Yamada",
+      "level": "Elementary",
+      "testDate": "2024-01-15",
+      "testName": "Mathematics Proficiency Test"
+    },
+    "proof": {
+      "type": "DataIntegrityProof",
+      "cryptosuite": "eddsa-rdfc-2022",
+      "created": "2025-08-11T09:34:01.449473+00:00",
+      "verificationMethod": "https://example.com/issuers/keys/2fc94a7e",
+      "proofPurpose": "assertionMethod",
+      "proofValue": "z59ab88b76a766708...dummy...bf2f4bfb07129760"
+    }
+  },
+  {
+    "@context": [
+      "https://www.w3.org/ns/credentials/v2",
+      "https://example.com/contexts/qualifications/v1"
+    ],
+    "id": "https://example.com/credentials/vc-014",
+    "type": [
+      "VerifiableCredential",
+      "MathematicsCredential"
+    ],
+    "issuer": {
+      "id": "https://example.com/issuers/math-certification",
+      "name": "Tokyo Mathematics Academy"
+    },
+    "validFrom": "2024-01-15T00:00:00Z",
+    "validUntil": "2026-01-14T23:59:59Z",
+    "credentialSubject": {
+      "id": "did:example:yamada-taro",
+      "name": "Taro Yamada",
+      "level": "Intermediate",
+      "testDate": "2024-01-15",
+      "testName": "Mathematics Proficiency Test"
+    },
+    "proof": {
+      "type": "DataIntegrityProof",
+      "cryptosuite": "eddsa-rdfc-2022",
+      "created": "2025-08-11T09:34:06.128615+00:00",
+      "verificationMethod": "https://example.com/issuers/keys/f389b1a8",
+      "proofPurpose": "assertionMethod",
+      "proofValue": "z20eebd1fc7c9b42b...dummy...ae45c844a2e8ab7b"
+    }
+  },
+  {
+    "@context": [
+      "https://www.w3.org/ns/credentials/v2",
+      "https://example.com/contexts/qualifications/v1"
+    ],
+    "id": "https://example.com/credentials/vc-015",
+    "type": [
+      "VerifiableCredential",
+      "ITCertificationCredential"
+    ],
+    "issuer": {
+      "id": "https://example.com/issuers/it-certification-authority",
+      "name": "IT Certification Authority"
+    },
+    "validFrom": "2024-01-15T00:00:00Z",
+    "validUntil": "2029-01-15T23:59:59Z",
+    "credentialSubject": {
+      "id": "did:example:yamada-taro",
+      "name": "Taro Yamada",
+      "certificationName": "Fundamental IT Engineer Certification",
+      "certificationDate": "2006-10-15"
+    },
+    "proof": {
+      "type": "DataIntegrityProof",
+      "cryptosuite": "eddsa-rdfc-2022",
+      "created": "2025-08-11T09:34:13.916844+00:00",
+      "verificationMethod": "https://example.com/issuers/keys/69fdb6be",
+      "proofPurpose": "assertionMethod",
+      "proofValue": "z12d0dae617adc158...dummy...a81c0e20998d0574"
+    }
+  },
+  {
+    "@context": [
+      "https://www.w3.org/ns/credentials/v2",
+      "https://example.com/contexts/qualifications/v1"
+    ],
+    "id": "https://example.com/credentials/vc-016",
+    "type": [
+      "VerifiableCredential",
+      "ITCertificationCredential"
+    ],
+    "issuer": {
+      "id": "https://example.com/issuers/it-certification-authority",
+      "name": "IT Certification Authority"
+    },
+    "validFrom": "2024-01-15T00:00:00Z",
+    "validUntil": "2026-01-15T23:59:59Z",
+    "credentialSubject": {
+      "id": "did:example:yamada-taro",
+      "name": "Taro Yamada",
+      "certificationName": "Applied IT Engineer Certification",
+      "certificationDate": "2010-04-15"
+    },
+    "proof": {
+      "type": "DataIntegrityProof",
+      "cryptosuite": "eddsa-rdfc-2022",
+      "created": "2025-08-11T09:34:18.797437+00:00",
+      "verificationMethod": "https://example.com/issuers/keys/07c3315b",
+      "proofPurpose": "assertionMethod",
+      "proofValue": "ze1b50c2eb86df719...dummy...0315300354157577"
+    }
+  },
+  {
+    "@context": [
+      "https://www.w3.org/ns/credentials/v2",
+      "https://example.com/contexts/qualifications/v1"
+    ],
+    "id": "https://example.com/credentials/vc-017",
+    "type": [
+      "VerifiableCredential",
+      "ITCertificationCredential"
+    ],
+    "issuer": {
+      "id": "https://example.com/issuers/it-certification-authority",
+      "name": "IT Certification Authority"
+    },
+    "validFrom": "2024-01-15T00:00:00Z",
+    "validUntil": "2026-01-15T23:59:59Z",
+    "credentialSubject": {
+      "id": "did:example:yamada-taro",
+      "name": "Taro Yamada",
+      "certificationName": "Project Manager Certification",
+      "certificationDate": "2018-10-15"
+    },
+    "proof": {
+      "type": "DataIntegrityProof",
+      "cryptosuite": "eddsa-rdfc-2022",
+      "created": "2025-08-11T09:34:23.616386+00:00",
+      "verificationMethod": "https://example.com/issuers/keys/b56afefa",
+      "proofPurpose": "assertionMethod",
+      "proofValue": "z62e951e8c76ab5e6...dummy...cfe1d3717ecff4c2"
+    }
+  },
+  {
+    "@context": [
+      "https://www.w3.org/ns/credentials/v2",
+      "https://example.com/contexts/qualifications/v1"
+    ],
+    "id": "https://example.com/credentials/vc-018",
+    "type": [
+      "VerifiableCredential",
+      "BookkeepingCredential"
+    ],
+    "issuer": {
+      "id": "https://example.com/issuers/bookkeeping-certification",
+      "name": "Japan Bookkeeping Association"
+    },
+    "validFrom": "2024-01-15T00:00:00Z",
+    "validUntil": "2026-01-14T23:59:59Z",
+    "credentialSubject": {
+      "id": "did:example:yamada-taro",
+      "name": "Taro Yamada",
+      "level": "Grade 1",
+      "certificationDate": "2024-01-15",
+      "certificationName": "Bookkeeping Certification"
+    },
+    "proof": {
+      "type": "DataIntegrityProof",
+      "cryptosuite": "eddsa-rdfc-2022",
+      "created": "2025-08-11T09:34:36.428857+00:00",
+      "verificationMethod": "https://example.com/issuers/keys/812963d2",
+      "proofPurpose": "assertionMethod",
+      "proofValue": "zcebd838cf7a845b5...dummy...ea2445863cbec0af"
+    }
+  },
+  {
+    "@context": [
+      "https://www.w3.org/ns/credentials/v2",
+      "https://example.com/contexts/qualifications/v1"
+    ],
+    "id": "https://example.com/credentials/vc-019",
+    "type": [
+      "VerifiableCredential",
+      "BookkeepingCredential"
+    ],
+    "issuer": {
+      "id": "https://example.com/issuers/bookkeeping-certification",
+      "name": "Japanese Bookkeepers Association"
+    },
+    "validFrom": "2024-01-15T00:00:00Z",
+    "validUntil": "2026-01-14T23:59:59Z",
+    "credentialSubject": {
+      "id": "did:example:yamada-taro",
+      "name": "Taro Yamada",
+      "level": "Grade 2",
+      "certificationDate": "2024-01-15",
+      "certificationName": "Bookkeeping Certification"
+    },
+    "proof": {
+      "type": "DataIntegrityProof",
+      "cryptosuite": "eddsa-rdfc-2022",
+      "created": "2025-08-11T09:34:32.625009+00:00",
+      "verificationMethod": "https://example.com/issuers/keys/1172bb51",
+      "proofPurpose": "assertionMethod",
+      "proofValue": "zfa9a6fd3ff460ee1...dummy...6197b3fbcb13779e"
+    }
+  },
+  {
+    "@context": [
+      "https://www.w3.org/ns/credentials/v2",
+      "https://example.com/contexts/qualifications/v1"
+    ],
+    "id": "https://example.com/credentials/vc-020",
+    "type": [
+      "VerifiableCredential",
+      "BookkeepingCredential"
+    ],
+    "issuer": {
+      "id": "https://example.com/issuers/bookkeeping-certifications",
+      "name": "Tokyo Bookkeeping Association"
+    },
+    "validFrom": "2024-01-15T00:00:00Z",
+    "validUntil": "2027-01-14T23:59:59Z",
+    "credentialSubject": {
+      "id": "did:example:yamada-taro",
+      "name": "Taro Yamada",
+      "level": "Grade 3",
+      "certificationDate": "2024-01-15",
+      "certificationName": "Bookkeeping Certification"
+    },
+    "proof": {
+      "type": "DataIntegrityProof",
+      "cryptosuite": "eddsa-rdfc-2022",
+      "created": "2025-08-11T09:34:28.676899+00:00",
+      "verificationMethod": "https://example.com/issuers/keys/90b9d12a",
+      "proofPurpose": "assertionMethod",
+      "proofValue": "zdab7538ee5ad757a...dummy...3b2f349a50a22893"
+    }
+  },
+  {
+    "@context": [
+      "https://www.w3.org/ns/credentials/v2",
+      "https://example.com/contexts/qualifications/v1"
+    ],
+    "id": "https://example.com/credentials/vc-021",
+    "type": [
+      "VerifiableCredential",
+      "ManagementCredential"
+    ],
+    "issuer": {
+      "id": "https://example.com/issuers/management-certification",
+      "name": "Global Management Certification Authority"
+    },
+    "validFrom": "2024-01-15T00:00:00Z",
+    "validUntil": "2026-01-14T23:59:59Z",
+    "credentialSubject": {
+      "id": "did:example:yamada-taro",
+      "name": "Taro Yamada",
+      "certificationName": "Small Business Consultant Certification",
+      "certificationDate": "2024-01-15"
+    },
+    "proof": {
+      "type": "DataIntegrityProof",
+      "cryptosuite": "eddsa-rdfc-2022",
+      "created": "2025-08-11T09:34:41.446929+00:00",
+      "verificationMethod": "https://example.com/issuers/keys/ccb3c8ee",
+      "proofPurpose": "assertionMethod",
+      "proofValue": "zf6a7dacc5eda3675...dummy...a66776ef15df5fe1"
+    }
+  },
+  {
+    "@context": [
+      "https://www.w3.org/ns/credentials/v2",
+      "https://example.com/contexts/qualifications/v1"
+    ],
+    "id": "https://example.com/credentials/vc-022",
+    "type": [
+      "VerifiableCredential",
+      "ManagementCredential"
+    ],
+    "issuer": {
+      "id": "https://example.edu/issuers/12345",
+      "name": "Tokyo Graduate School of Business"
+    },
+    "validFrom": "2024-01-15T00:00:00Z",
+    "credentialSubject": {
+      "id": "did:example:yamada-taro",
+      "name": "Taro Yamada",
+      "certificationName": "MBA Degree Certificate",
+      "certificationDate": "2024-01-15"
+    },
+    "proof": {
+      "type": "DataIntegrityProof",
+      "cryptosuite": "eddsa-rdfc-2022",
+      "created": "2025-08-11T09:34:45.874176+00:00",
+      "verificationMethod": "https://example.com/issuers/keys/1901ba03",
+      "proofPurpose": "assertionMethod",
+      "proofValue": "z30b43cca9364cc3b...dummy...f500410c292ec379"
+    }
+  },
+  {
+    "@context": [
+      "https://www.w3.org/ns/credentials/v2",
+      "https://example.com/contexts/education/v1",
+      "https://purl.org/dc/terms/"
+    ],
+    "id": "https://example.com/credentials/vc-023",
+    "type": [
+      "VerifiableCredential",
+      "HighSchoolDiploma"
+    ],
+    "issuer": {
+      "id": "https://example.com/issuers/highschool-diploma",
+      "name": "Tokyo High School of Technology"
+    },
+    "validFrom": "2003-03-15T00:00:00Z",
+    "credentialSubject": {
+      "id": "did:example:yamada-taro",
+      "name": "Taro Yamada",
+      "schoolName": "Tokyo High School",
+      "graduationDate": "2003-03-31"
+    },
+    "proof": {
+      "type": "DataIntegrityProof",
+      "cryptosuite": "eddsa-rdfc-2022",
+      "created": "2025-08-11T09:34:49.909506+00:00",
+      "verificationMethod": "https://example.com/issuers/keys/b3423e04",
+      "proofPurpose": "assertionMethod",
+      "proofValue": "z2937b86956699524...dummy...208d7fae1f01722e"
+    }
+  },
+  {
+    "@context": [
+      "https://www.w3.org/ns/credentials/v2",
+      "https://example.com/contexts/education/v1",
+      "https://purl.org/dc/terms/"
+    ],
+    "id": "https://example.com/credentials/vc-024",
+    "type": [
+      "VerifiableCredential",
+      "UniversityDegree"
+    ],
+    "issuer": {
+      "id": "https://university.example.edu/issuers/12345",
+      "name": "Example University"
+    },
+    "validFrom": "2024-01-15T00:00:00Z",
+    "credentialSubject": {
+      "id": "did:example:yamada-taro",
+      "name": "Taro Yamada",
+      "universityName": "Tokyo University",
+      "degree": {
+        "type": "UniversityDegree",
+        "degreeType": "Bachelor's Degree",
+        "fieldOfStudy": "Computer Science",
+        "institution": "Example University",
+        "graduationDate": "2024-06-15"
+      },
+      "graduationDate": "2007-03-31"
+    },
+    "proof": {
+      "type": "DataIntegrityProof",
+      "cryptosuite": "eddsa-rdfc-2022",
+      "created": "2025-08-11T09:34:56.309409+00:00",
+      "verificationMethod": "https://example.com/issuers/keys/1190beef",
+      "proofPurpose": "assertionMethod",
+      "proofValue": "zfce90ae29afb870a...dummy...2de36496b4ada61e"
+    }
+  },
+  {
+    "@context": [
+      "https://www.w3.org/ns/credentials/v2",
+      "https://example.com/contexts/education/v1",
+      "https://purl.org/dc/terms/"
+    ],
+    "id": "https://example.com/credentials/vc-025",
+    "type": [
+      "VerifiableCredential",
+      "MastersDegree"
+    ],
+    "issuer": {
+      "id": "https://example.edu/issuers/university",
+      "name": "Tokyo Institute of Technology"
+    },
+    "validFrom": "2024-01-15T00:00:00Z",
+    "credentialSubject": {
+      "id": "did:example:yamada-taro",
+      "name": "Taro Yamada",
+      "universityName": "Tokyo University",
+      "degree": {
+        "type": "MastersDegree",
+        "category": "education",
+        "fieldOfStudy": "Computer Science",
+        "dateAwarded": "2023-03-25"
+      },
+      "graduationDate": "2009-03-31"
+    },
+    "proof": {
+      "type": "DataIntegrityProof",
+      "cryptosuite": "eddsa-rdfc-2022",
+      "created": "2025-08-11T09:35:00.764386+00:00",
+      "verificationMethod": "https://example.com/issuers/keys/38f4acf8",
+      "proofPurpose": "assertionMethod",
+      "proofValue": "za15cb538566a9166...dummy...8fd5f464d954fc81"
+    }
+  },
+  {
+    "@context": [
+      "https://www.w3.org/ns/credentials/v2",
+      "https://example.com/contexts/education/v1",
+      "https://purl.org/dc/terms/"
+    ],
+    "id": "https://example.com/credentials/vc-026",
+    "type": [
+      "VerifiableCredential",
+      "TeachingLicense"
+    ],
+    "issuer": {
+      "id": "https://example.com/issuers/education-department",
+      "name": "Tokyo Metropolitan Board of Education"
+    },
+    "validFrom": "2024-01-15T00:00:00Z",
+    "validUntil": "2029-01-14T23:59:59Z",
+    "credentialSubject": {
+      "id": "did:example:yamada-taro",
+      "name": "Taro Yamada",
+      "licenseType": "Elementary School Teacher",
+      "licenseNumber": "123456789012",
+      "issuanceDate": "2024-01-15"
+    },
+    "proof": {
+      "type": "DataIntegrityProof",
+      "cryptosuite": "eddsa-rdfc-2022",
+      "created": "2025-08-11T09:35:05.272895+00:00",
+      "verificationMethod": "https://example.com/issuers/keys/cf6b314d",
+      "proofPurpose": "assertionMethod",
+      "proofValue": "z194055ea48793717...dummy...ecfb6af0802707d8"
+    }
+  },
+  {
+    "@context": [
+      "https://www.w3.org/ns/credentials/v2",
+      "https://example.com/contexts/education/v1",
+      "https://purl.org/dc/terms/"
+    ],
+    "id": "https://example.com/credentials/vc-027",
+    "type": [
+      "VerifiableCredential",
+      "TeachingLicense"
+    ],
+    "issuer": {
+      "id": "https://example.com/issuers/education-department",
+      "name": "Tokyo Metropolitan Board of Education"
+    },
+    "validFrom": "2024-01-15T00:00:00Z",
+    "validUntil": "2034-01-15T23:59:59Z",
+    "credentialSubject": {
+      "id": "did:example:yamada-taro",
+      "name": "Taro Yamada",
+      "licenseType": "Elementary School Teacher",
+      "licenseNumber": "123456789012",
+      "issuanceDate": "2024-01-15"
+    },
+    "proof": {
+      "type": "DataIntegrityProof",
+      "cryptosuite": "eddsa-rdfc-2022",
+      "created": "2025-08-11T09:35:08.699481+00:00",
+      "verificationMethod": "https://example.com/issuers/keys/7799962f",
+      "proofPurpose": "assertionMethod",
+      "proofValue": "z7e3e102728ab0de7...dummy...b51a23e77c5173ba"
+    }
+  },
+  {
+    "@context": [
+      "https://www.w3.org/ns/credentials/v2",
+      "https://example.com/contexts/education/v1",
+      "https://purl.org/dc/terms/"
+    ],
+    "id": "https://example.com/credentials/vc-028",
+    "type": [
+      "VerifiableCredential",
+      "TrainingCertificate"
+    ],
+    "issuer": {
+      "id": "https://example.com/issuers/example-tech-corp",
+      "name": "Example Tech Corporation"
+    },
+    "validFrom": "2024-01-15T00:00:00Z",
+    "validUntil": "2025-01-15T23:59:59Z",
+    "credentialSubject": {
+      "id": "did:example:yamada-taro",
+      "name": "Taro Yamada",
+      "trainingName": "Professional Development Training",
+      "completionDate": "2024-01-15"
+    },
+    "proof": {
+      "type": "DataIntegrityProof",
+      "cryptosuite": "eddsa-rdfc-2022",
+      "created": "2025-08-11T09:35:11.292984+00:00",
+      "verificationMethod": "https://example.com/issuers/keys/85b243a5",
+      "proofPurpose": "assertionMethod",
+      "proofValue": "zd7d83a968db92fff...dummy...8757da02c4940e84"
+    }
+  },
+  {
+    "@context": [
+      "https://www.w3.org/ns/credentials/v2",
+      "https://example.com/contexts/education/v1",
+      "https://purl.org/dc/terms/"
+    ],
+    "id": "https://example.com/credentials/vc-029",
+    "type": [
+      "VerifiableCredential",
+      "TrainingCertificate"
+    ],
+    "issuer": {
+      "id": "https://example.com/issuers/management-training-certificates",
+      "name": "Global Training Institute"
+    },
+    "validFrom": "2024-01-15T00:00:00Z",
+    "validUntil": "2025-01-15T23:59:59Z",
+    "credentialSubject": {
+      "id": "did:example:yamada-taro",
+      "name": "Taro Yamada",
+      "trainingName": "Professional Development Training",
+      "completionDate": "2024-01-15"
+    },
+    "proof": {
+      "type": "DataIntegrityProof",
+      "cryptosuite": "eddsa-rdfc-2022",
+      "created": "2025-08-11T09:35:14.384994+00:00",
+      "verificationMethod": "https://example.com/issuers/keys/86fe2105",
+      "proofPurpose": "assertionMethod",
+      "proofValue": "z94cbb6c5ed4a9f02...dummy...2ffc2c433c9f203c"
+    }
+  },
+  {
+    "@context": [
+      "https://www.w3.org/ns/credentials/v2",
+      "https://example.com/contexts/education/v1",
+      "https://purl.org/dc/terms/"
+    ],
+    "id": "https://example.com/credentials/vc-030",
+    "type": [
+      "VerifiableCredential",
+      "TrainingCertificate"
+    ],
+    "issuer": {
+      "id": "https://example.com/issuers/tech-certificates",
+      "name": "Tech Education Institute"
+    },
+    "validFrom": "2024-01-15T00:00:00Z",
+    "validUntil": "2026-01-15T23:59:59Z",
+    "credentialSubject": {
+      "id": "did:example:yamada-taro",
+      "name": "Taro Yamada",
+      "trainingName": "Professional Development Training",
+      "completionDate": "2024-01-15"
+    },
+    "proof": {
+      "type": "DataIntegrityProof",
+      "cryptosuite": "eddsa-rdfc-2022",
+      "created": "2025-08-11T09:35:19.724205+00:00",
+      "verificationMethod": "https://example.com/issuers/keys/85a49f89",
+      "proofPurpose": "assertionMethod",
+      "proofValue": "z17f0536e1842f6d0...dummy...a52b36d341ce43d3"
+    }
+  },
+  {
+    "@context": [
+      "https://www.w3.org/ns/credentials/v2",
+      "https://example.com/contexts/qualifications/v1"
+    ],
+    "id": "https://example.com/credentials/vc-031",
+    "type": [
+      "VerifiableCredential",
+      "DomesticConferenceParticipation"
+    ],
+    "issuer": {
+      "id": "https://example.com/issuers/domestic-tech-conf",
+      "name": "Japan Technology Research Association"
+    },
+    "validFrom": "2024-03-15T00:00:00Z",
+    "validUntil": "2025-03-14T23:59:59Z",
+    "credentialSubject": {
+      "id": "did:example:yamada-taro",
+      "name": "Taro Yamada",
+      "conferenceName": "Technology Research Society National Conference",
+      "participationDate": "2024-03-15",
+      "location": "Tokyo Convention Center"
+    },
+    "proof": {
+      "type": "DataIntegrityProof",
+      "cryptosuite": "eddsa-rdfc-2022",
+      "created": "2025-08-11T15:06:54.438482+00:00",
+      "verificationMethod": "https://example.com/issuers/keys/8cb140ed",
+      "proofPurpose": "assertionMethod",
+      "proofValue": "z11becdae8deaad41...dummy...d66e9c9f3f63e6ae"
+    }
+  },
+  {
+    "@context": [
+      "https://www.w3.org/ns/credentials/v2",
+      "https://example.com/contexts/qualifications/v1"
+    ],
+    "id": "https://example.com/credentials/vc-032",
+    "type": [
+      "VerifiableCredential",
+      "DomesticConferenceParticipation"
+    ],
+    "issuer": {
+      "id": "https://example.com/issuers/domestic-ai-conf",
+      "name": "AI Innovation Society of Japan"
+    },
+    "validFrom": "2024-06-10T00:00:00Z",
+    "validUntil": "2025-06-09T23:59:59Z",
+    "credentialSubject": {
+      "id": "did:example:yamada-taro",
+      "name": "Taro Yamada",
+      "conferenceName": "AI Innovation Society National Conference",
+      "participationDate": "2024-06-10",
+      "location": "Osaka International Conference Center"
+    },
+    "proof": {
+      "type": "DataIntegrityProof",
+      "cryptosuite": "eddsa-rdfc-2022",
+      "created": "2025-08-11T15:06:54.439845+00:00",
+      "verificationMethod": "https://example.com/issuers/keys/151ed2c6",
+      "proofPurpose": "assertionMethod",
+      "proofValue": "zed00a5b7e71d556a...dummy...54ebf370282b9300"
+    }
+  },
+  {
+    "@context": [
+      "https://www.w3.org/ns/credentials/v2",
+      "https://example.com/contexts/education/v1",
+      "https://purl.org/dc/terms/"
+    ],
+    "id": "https://example.com/credentials/vc-033",
+    "type": [
+      "VerifiableCredential",
+      "ConferenceParticipation"
+    ],
+    "issuer": {
+      "id": "https://example.com/issuers/conference-org",
+      "name": "Tech Conference Organization"
+    },
+    "validFrom": "2024-01-15T00:00:00Z",
+    "validUntil": "2025-01-14T23:59:59Z",
+    "credentialSubject": {
+      "id": "did:example:yamada-taro",
+      "name": "Taro Yamada",
+      "conferenceName": "International Conference 2024",
+      "participationDate": "2024-01-15"
+    },
+    "proof": {
+      "type": "DataIntegrityProof",
+      "cryptosuite": "eddsa-rdfc-2022",
+      "created": "2025-08-11T09:35:25.000683+00:00",
+      "verificationMethod": "https://example.com/issuers/keys/7862aa19",
+      "proofPurpose": "assertionMethod",
+      "proofValue": "z0d549920119892af...dummy...35c59265b577155a"
+    }
+  },
+  {
+    "@context": [
+      "https://www.w3.org/ns/credentials/v2",
+      "https://example.com/contexts/education/v1",
+      "https://purl.org/dc/terms/"
+    ],
+    "id": "https://example.com/credentials/vc-034",
+    "type": [
+      "VerifiableCredential",
+      "ConferenceParticipation"
+    ],
+    "issuer": {
+      "id": "https://example.com/issuers/conference-org",
+      "name": "International Conference Organization"
+    },
+    "validFrom": "2024-01-15T00:00:00Z",
+    "validUntil": "2025-01-14T23:59:59Z",
+    "credentialSubject": {
+      "id": "did:example:yamada-taro",
+      "name": "Taro Yamada",
+      "conferenceName": "International Conference 2024",
+      "participationDate": "2024-01-15"
+    },
+    "proof": {
+      "type": "DataIntegrityProof",
+      "cryptosuite": "eddsa-rdfc-2022",
+      "created": "2025-08-11T09:35:29.055610+00:00",
+      "verificationMethod": "https://example.com/issuers/keys/2357ae45",
+      "proofPurpose": "assertionMethod",
+      "proofValue": "ze4e4249426a44e98...dummy...0a9cf908dcb47770"
+    }
+  },
+  {
+    "@context": [
+      "https://www.w3.org/ns/credentials/v2",
+      "https://example.com/contexts/employment/v1",
+      "https://schema.org/"
+    ],
+    "id": "https://example.com/credentials/vc-035",
+    "type": [
+      "VerifiableCredential",
+      "EmploymentCertificate"
+    ],
+    "issuer": {
+      "id": "https://example.com/issuers/example-tech-corp",
+      "name": "Example Tech Corporation"
+    },
+    "validFrom": "2024-01-15T00:00:00Z",
+    "validUntil": "2026-01-14T23:59:59Z",
+    "credentialSubject": {
+      "id": "did:example:yamada-taro",
+      "name": "Taro Yamada",
+      "employer": "Example Tech Corporation",
+      "jobTitle": "Senior Software Engineer",
+      "startDate": "2012-04-01"
+    },
+    "proof": {
+      "type": "DataIntegrityProof",
+      "cryptosuite": "eddsa-rdfc-2022",
+      "created": "2025-08-11T09:35:36.562493+00:00",
+      "verificationMethod": "https://example.com/issuers/keys/d7a5cd43",
+      "proofPurpose": "assertionMethod",
+      "proofValue": "z9a935a05d53d4e01...dummy...da4b809de532a325"
+    }
+  },
+  {
+    "@context": [
+      "https://www.w3.org/ns/credentials/v2",
+      "https://example.com/contexts/employment/v1",
+      "https://schema.org/"
+    ],
+    "id": "https://example.com/credentials/vc-036",
+    "type": [
+      "VerifiableCredential",
+      "EmploymentContract"
+    ],
+    "issuer": {
+      "id": "https://example.com/issuers/example-tech-corporation",
+      "name": "Example Tech Corporation"
+    },
+    "validFrom": "2024-01-15T00:00:00Z",
+    "validUntil": "2026-01-15T23:59:59Z",
+    "credentialSubject": {
+      "id": "did:example:yamada-taro",
+      "name": "Taro Yamada",
+      "employer": "Example Tech Corporation",
+      "jobTitle": "Senior Software Engineer",
+      "contractDate": "2024-01-15"
+    },
+    "proof": {
+      "type": "DataIntegrityProof",
+      "cryptosuite": "eddsa-rdfc-2022",
+      "created": "2025-08-11T09:35:40.377458+00:00",
+      "verificationMethod": "https://example.com/issuers/keys/310bd277",
+      "proofPurpose": "assertionMethod",
+      "proofValue": "z1799804cec8eb93f...dummy...06a128ba0bebfb34"
+    }
+  },
+  {
+    "@context": [
+      "https://www.w3.org/ns/credentials/v2",
+      "https://example.com/contexts/employment/v1",
+      "https://schema.org/"
+    ],
+    "id": "https://example.com/credentials/vc-037",
+    "type": [
+      "VerifiableCredential",
+      "SalaryStatement"
+    ],
+    "issuer": {
+      "id": "https://example.com/issuers/example-tech-corporation",
+      "name": "Example Tech Corporation"
+    },
+    "validFrom": "2024-01-15T00:00:00Z",
+    "validUntil": "2025-01-14T23:59:59Z",
+    "credentialSubject": {
+      "id": "did:example:yamada-taro",
+      "name": "Taro Yamada",
+      "employer": "Example Tech Corporation",
+      "period": "2024-01",
+      "amount": "8000000",
+      "currency": "JPY"
+    },
+    "proof": {
+      "type": "DataIntegrityProof",
+      "cryptosuite": "eddsa-rdfc-2022",
+      "created": "2025-08-11T09:35:44.668977+00:00",
+      "verificationMethod": "https://example.com/issuers/keys/7af9af8f",
+      "proofPurpose": "assertionMethod",
+      "proofValue": "z0963f5a1bc9a4ffe...dummy...a721f4e808d182f8"
+    }
+  },
+  {
+    "@context": [
+      "https://www.w3.org/ns/credentials/v2",
+      "https://example.com/contexts/employment/v1",
+      "https://schema.org/"
+    ],
+    "id": "https://example.com/credentials/vc-038",
+    "type": [
+      "VerifiableCredential",
+      "PerformanceEvaluation"
+    ],
+    "issuer": {
+      "id": "https://example.com/issuers/example-tech-corp",
+      "name": "Example Tech Corporation"
+    },
+    "validFrom": "2024-01-15T00:00:00Z",
+    "validUntil": "2025-01-14T23:59:59Z",
+    "credentialSubject": {
+      "id": "did:example:yamada-taro",
+      "name": "Taro Yamada",
+      "employer": "Example Tech Corporation",
+      "reviewPeriod": "2023",
+      "rating": "Excellent"
+    },
+    "proof": {
+      "type": "DataIntegrityProof",
+      "cryptosuite": "eddsa-rdfc-2022",
+      "created": "2025-08-11T09:35:50.027720+00:00",
+      "verificationMethod": "https://example.com/issuers/keys/1aae7915",
+      "proofPurpose": "assertionMethod",
+      "proofValue": "z6a7666122f042118...dummy...213df881b27a5c83"
+    }
+  },
+  {
+    "@context": [
+      "https://www.w3.org/ns/credentials/v2",
+      "https://example.com/contexts/employment/v1",
+      "https://schema.org/"
+    ],
+    "id": "https://example.com/credentials/vc-039",
+    "type": [
+      "VerifiableCredential",
+      "PromotionLetter"
+    ],
+    "issuer": {
+      "id": "https://example.com/issuers/example-tech-corp",
+      "name": "Example Tech Corporation"
+    },
+    "validFrom": "2024-01-15T00:00:00Z",
+    "validUntil": "2026-01-14T23:59:59Z",
+    "credentialSubject": {
+      "id": "did:example:yamada-taro",
+      "name": "Taro Yamada",
+      "employer": "Example Tech Corporation",
+      "newPosition": "Lead Engineer",
+      "promotionDate": "2024-01-15"
+    },
+    "proof": {
+      "type": "DataIntegrityProof",
+      "cryptosuite": "eddsa-rdfc-2022",
+      "created": "2025-08-11T09:35:54.010688+00:00",
+      "verificationMethod": "https://example.com/issuers/keys/a74f6ea5",
+      "proofPurpose": "assertionMethod",
+      "proofValue": "z0a8efa740147438c...dummy...519e3fbf70974b10"
+    }
+  },
+  {
+    "@context": [
+      "https://www.w3.org/ns/credentials/v2",
+      "https://example.com/contexts/employment/v1",
+      "https://schema.org/"
+    ],
+    "id": "https://example.com/credentials/vc-040",
+    "type": [
+      "VerifiableCredential",
+      "ResignationCertificate"
+    ],
+    "issuer": {
+      "id": "https://example.com/issuers/example-tech",
+      "name": "Example Tech Corporation HR Department"
+    },
+    "validFrom": "2024-01-15T00:00:00Z",
+    "credentialSubject": {
+      "id": "did:example:yamada-taro",
+      "name": "Taro Yamada",
+      "employer": "Example Tech Corporation",
+      "resignationDate": "2024-01-10"
+    },
+    "proof": {
+      "type": "DataIntegrityProof",
+      "cryptosuite": "eddsa-rdfc-2022",
+      "created": "2025-08-11T09:35:58.106973+00:00",
+      "verificationMethod": "https://example.com/issuers/keys/d7ba06ee",
+      "proofPurpose": "assertionMethod",
+      "proofValue": "zb424b374261e224a...dummy...6b632a7bde952625"
+    }
+  },
+  {
+    "@context": [
+      "https://www.w3.org/ns/credentials/v2",
+      "https://example.com/contexts/employment/v1",
+      "https://schema.org/"
+    ],
+    "id": "https://example.com/credentials/vc-041",
+    "type": [
+      "VerifiableCredential",
+      "UnemploymentCertificate"
+    ],
+    "issuer": {
+      "id": "https://example.com/issuers/unemployment-office",
+      "name": "Tokyo Employment Security Office"
+    },
+    "validFrom": "2024-01-15T00:00:00Z",
+    "validUntil": "2025-01-14T23:59:59Z",
+    "credentialSubject": {
+      "id": "did:example:yamada-taro",
+      "name": "Taro Yamada",
+      "issuer": "Tokyo Labor Office",
+      "unemploymentStartDate": "2025-01-01",
+      "previousEmployer": "Example Tech Corporation",
+      "previousJobTitle": "Senior Software Engineer",
+      "employmentEndDate": "2024-12-31"
+    },
+    "proof": {
+      "type": "DataIntegrityProof",
+      "cryptosuite": "eddsa-rdfc-2022",
+      "created": "2025-08-11T09:36:01.485118+00:00",
+      "verificationMethod": "https://example.com/issuers/keys/9b993fa8",
+      "proofPurpose": "assertionMethod",
+      "proofValue": "z22b4e64b5b575b9a...dummy...97d94bcec710dfc0"
+    }
+  },
+  {
+    "@context": [
+      "https://www.w3.org/ns/credentials/v2",
+      "https://example.com/contexts/health/v1",
+      "https://hl7.org/fhir"
+    ],
+    "id": "https://example.com/credentials/vc-042",
+    "type": [
+      "VerifiableCredential",
+      "VaccinationCertificate"
+    ],
+    "issuer": {
+      "id": "https://health.gov/issuers/covid-vaccination",
+      "name": "National Health Organization"
+    },
+    "validFrom": "2024-01-15T00:00:00Z",
+    "validUntil": "2025-01-14T23:59:59Z",
+    "credentialSubject": {
+      "id": "did:example:yamada-taro",
+      "name": "Taro Yamada",
+      "vaccineType": "mRNA COVID-19 Vaccine",
+      "vaccinationDate": "2023-09-10",
+      "lotNumber": "LOT-2024-001"
+    },
+    "proof": {
+      "type": "DataIntegrityProof",
+      "cryptosuite": "eddsa-rdfc-2022",
+      "created": "2025-08-11T09:36:07.414055+00:00",
+      "verificationMethod": "https://example.com/issuers/keys/9b32e0e1",
+      "proofPurpose": "assertionMethod",
+      "proofValue": "z3b64d414e7c0db7a...dummy...769e21cc199a0da4"
+    }
+  },
+  {
+    "@context": [
+      "https://www.w3.org/ns/credentials/v2",
+      "https://example.com/contexts/health/v1",
+      "https://hl7.org/fhir"
+    ],
+    "id": "https://example.com/credentials/vc-043",
+    "type": [
+      "VerifiableCredential",
+      "VaccinationCertificate"
+    ],
+    "issuer": {
+      "id": "https://health.gov/issuers/vaccination",
+      "name": "Tokyo Health Authority"
+    },
+    "validFrom": "2024-01-15T00:00:00Z",
+    "validUntil": "2025-01-14T23:59:59Z",
+    "credentialSubject": {
+      "id": "did:example:yamada-taro",
+      "name": "Taro Yamada",
+      "vaccineType": "COVID-19",
+      "vaccinationDate": "2024-01-10",
+      "lotNumber": "LOT-2024-001"
+    },
+    "proof": {
+      "type": "DataIntegrityProof",
+      "cryptosuite": "eddsa-rdfc-2022",
+      "created": "2025-08-11T09:36:11.926597+00:00",
+      "verificationMethod": "https://example.com/issuers/keys/238e8d39",
+      "proofPurpose": "assertionMethod",
+      "proofValue": "z90f2339cd3d9876a...dummy...16cf9e1b32cc4078"
+    }
+  },
+  {
+    "@context": [
+      "https://www.w3.org/ns/credentials/v2",
+      "https://example.com/contexts/health/v1",
+      "https://hl7.org/fhir"
+    ],
+    "id": "https://example.com/credentials/vc-044",
+    "type": [
+      "VerifiableCredential",
+      "VaccinationCertificate"
+    ],
+    "issuer": {
+      "id": "https://healthcare.example.com/issuers/vaccination",
+      "name": "Tokyo Health Authority"
+    },
+    "validFrom": "2024-01-15T00:00:00Z",
+    "validUntil": "2025-01-14T23:59:59Z",
+    "credentialSubject": {
+      "id": "did:example:yamada-taro",
+      "name": "Taro Yamada",
+      "vaccineType": "COVID-19",
+      "vaccinationDate": "2024-01-15",
+      "lotNumber": "LOT-2024-001"
+    },
+    "proof": {
+      "type": "DataIntegrityProof",
+      "cryptosuite": "eddsa-rdfc-2022",
+      "created": "2025-08-11T09:36:17.771093+00:00",
+      "verificationMethod": "https://example.com/issuers/keys/42fe09e2",
+      "proofPurpose": "assertionMethod",
+      "proofValue": "z116b9e2a62790af9...dummy...a840ba5baa30dc2c"
+    }
+  },
+  {
+    "@context": [
+      "https://www.w3.org/ns/credentials/v2",
+      "https://example.com/contexts/health/v1",
+      "https://hl7.org/fhir"
+    ],
+    "id": "https://example.com/credentials/vc-045",
+    "type": [
+      "VerifiableCredential",
+      "HealthCheckCertificate"
+    ],
+    "issuer": {
+      "id": "https://healthcheckissuer.example.com/issuers/health-001",
+      "name": "Tokyo Health Authority"
+    },
+    "validFrom": "2024-01-15T00:00:00Z",
+    "validUntil": "2025-01-15T23:59:59Z",
+    "credentialSubject": {
+      "id": "did:example:yamada-taro",
+      "name": "Taro Yamada",
+      "checkDate": "2024-01-15",
+      "facility": "Tokyo Medical Center"
+    },
+    "proof": {
+      "type": "DataIntegrityProof",
+      "cryptosuite": "eddsa-rdfc-2022",
+      "created": "2025-08-11T09:36:24.831151+00:00",
+      "verificationMethod": "https://example.com/issuers/keys/4e958b5a",
+      "proofPurpose": "assertionMethod",
+      "proofValue": "z649f3a7083a8b5ad...dummy...2f96a89428143aac"
+    }
+  },
+  {
+    "@context": [
+      "https://www.w3.org/ns/credentials/v2",
+      "https://example.com/contexts/health/v1",
+      "https://hl7.org/fhir"
+    ],
+    "id": "https://example.com/credentials/vc-046",
+    "type": [
+      "VerifiableCredential",
+      "MedicalExaminationCertificate"
+    ],
+    "issuer": {
+      "id": "https://healthcare.example.com/issuers/medical-certificates",
+      "name": "Tokyo Health Authority"
+    },
+    "validFrom": "2024-01-15T00:00:00Z",
+    "validUntil": "2025-01-14T23:59:59Z",
+    "credentialSubject": {
+      "id": "did:example:yamada-taro",
+      "name": "Taro Yamada",
+      "examinationDate": "2024-01-10",
+      "facility": "Tokyo Medical Center",
       "results": {
-        "bloodPressure": "A",
-        "bloodTest": "A",
-        "vision": "A",
-        "hearing": "A",
-        "chestXray": "A"
+        "generalHealth": "Good",
+        "bloodPressure": "120/80",
+        "cholesterol": "Normal",
+        "glucose": "Normal"
       }
+    },
+    "proof": {
+      "type": "DataIntegrityProof",
+      "cryptosuite": "eddsa-rdfc-2022",
+      "created": "2025-08-11T09:36:30.013634+00:00",
+      "verificationMethod": "https://example.com/issuers/keys/77685293",
+      "proofPurpose": "assertionMethod",
+      "proofValue": "zdaa4971aafccd23b...dummy...8aa42c97e8c11d9f"
     }
   },
   {
-    "id": "vc-008",
-    "@context": ["https://www.w3.org/ns/credentials/v2"],
-    "type": ["VerifiableCredential", "UniversityDegreeCredential"],
+    "@context": [
+      "https://www.w3.org/ns/credentials/v2",
+      "https://example.com/contexts/health/v1",
+      "https://hl7.org/fhir"
+    ],
+    "id": "https://example.com/credentials/vc-047",
+    "type": [
+      "VerifiableCredential",
+      "PrescriptionCredential"
+    ],
     "issuer": {
-      "id": "https://waseda.ac.jp",
-      "name": "Waseda University"
+      "id": "https://healthcare.example.com/issuers/12345",
+      "name": "Tokyo Health Services"
     },
+    "validFrom": "2024-01-15T00:00:00Z",
+    "validUntil": "2025-01-14T23:59:59Z",
     "credentialSubject": {
-      "studentName": "Taro Yamada",
-      "degreeType": "Bachelor of Engineering",
-      "major": "Information Engineering",
-      "graduationDate": "2012-03-25",
-      "studentId": "1A10B001"
+      "id": "did:example:yamada-taro",
+      "name": "Taro Yamada",
+      "medication": "Generic Medicine",
+      "prescriptionDate": "2024-01-15",
+      "doctor": "Dr. Smith"
+    },
+    "proof": {
+      "type": "DataIntegrityProof",
+      "cryptosuite": "eddsa-rdfc-2022",
+      "created": "2025-08-11T09:36:36.267454+00:00",
+      "verificationMethod": "https://example.com/issuers/keys/728cd2da",
+      "proofPurpose": "assertionMethod",
+      "proofValue": "z0e00291b86e82e81...dummy...43b3ccf5b58cb368"
     }
   },
   {
-    "id": "vc-009",
-    "@context": ["https://www.w3.org/ns/credentials/v2"],
-    "type": ["VerifiableCredential", "AcademicTranscriptCredential"],
+    "@context": [
+      "https://www.w3.org/ns/credentials/v2",
+      "https://example.com/contexts/health/v1",
+      "https://hl7.org/fhir"
+    ],
+    "id": "https://example.com/credentials/vc-048",
+    "type": [
+      "VerifiableCredential",
+      "MedicationCertificate"
+    ],
     "issuer": {
-      "id": "https://waseda.ac.jp",
-      "name": "Waseda University"
+      "id": "https://healthcertificates.example.com/issuers/medcert123",
+      "name": "Health Certificate Authority"
     },
+    "validFrom": "2024-01-15T00:00:00Z",
+    "validUntil": "2025-01-14T23:59:59Z",
     "credentialSubject": {
-      "studentName": "Taro Yamada",
-      "studentId": "1A10B001",
-      "totalCredits": 128,
-      "gpa": 3.5,
-      "courses": [
-        {"name": "Programming Fundamentals", "credits": 4, "grade": "A"},
-        {"name": "Algorithm Theory", "credits": 4, "grade": "A"},
-        {"name": "Database Systems", "credits": 2, "grade": "B"}
-      ]
-    }
-  },
-  {
-    "id": "vc-010",
-    "@context": ["https://www.w3.org/ns/credentials/v2"],
-    "type": ["VerifiableCredential", "EmployeeIDCredential"],
-    "issuer": {
-      "id": "https://techcorp.jp",
-      "name": "Tech Corporation"
-    },
-    "credentialSubject": {
-      "employeeId": "EMP-2024-001",
-      "employeeName": "Taro Yamada",
-      "department": "Technology Development",
-      "position": "Senior Engineer",
-      "joinDate": "2020-04-01",
-      "employmentType": "Full-time"
-    }
-  },
-  {
-    "id": "vc-011",
-    "@context": ["https://www.w3.org/ns/credentials/v2"],
-    "type": ["VerifiableCredential", "EikenGrade1Certificate"],
-    "issuer": {
-      "id": "https://eiken.or.jp",
-      "name": "Japan English Proficiency Test Association"
-    },
-    "credentialSubject": {
-      "candidateName": "Taro Yamada",
-      "grade": "Grade 1",
-      "testDate": "2023-07-02",
-      "certificateNumber": "2023-1-00123",
-      "score": {
-        "reading": 95,
-        "listening": 92,
-        "writing": 88,
-        "speaking": 90
-      }
-    }
-  },
-  {
-    "id": "vc-012",
-    "@context": ["https://www.w3.org/ns/credentials/v2"],
-    "type": ["VerifiableCredential", "EikenGrade2Certificate"],
-    "issuer": {
-      "id": "https://eiken.or.jp",
-      "name": "Japan English Proficiency Test Association"
-    },
-    "credentialSubject": {
-      "candidateName": "Taro Yamada",
-      "grade": "Grade 2",
-      "testDate": "2021-11-07",
-      "certificateNumber": "2021-2-00456"
-    }
-  },
-  {
-    "id": "vc-013",
-    "@context": ["https://www.w3.org/ns/credentials/v2"],
-    "type": ["VerifiableCredential", "TOEICScoreCertificate"],
-    "issuer": {
-      "id": "https://iibc-global.org",
-      "name": "International Business Communication Association"
-    },
-    "credentialSubject": {
-      "candidateName": "Taro Yamada",
-      "testDate": "2024-01-21",
-      "totalScore": 920,
-      "listeningScore": 470,
-      "readingScore": 450,
-      "certificateNumber": "TOEIC-2024-00123"
-    }
-  },
-  {
-    "id": "vc-014",
-    "@context": ["https://www.w3.org/ns/credentials/v2"],
-    "type": ["VerifiableCredential", "AcademicAwardCredential"],
-    "issuer": {
-      "id": "https://ipsj.or.jp",
-      "name": "Information Processing Society of Japan"
-    },
-    "credentialSubject": {
-      "recipientName": "Taro Yamada",
-      "awardName": "Best Paper Award",
-      "conferenceDate": "2023-03-15",
-      "paperTitle": "Efficient Verification Methods in Decentralized Identity"
-    }
-  },
-  {
-    "id": "vc-015",
-    "@context": ["https://www.w3.org/ns/credentials/v2"],
-    "type": ["VerifiableCredential", "ITPassportCertificate"],
-    "issuer": {
-      "id": "https://jitec.ipa.go.jp",
-      "name": "Information-technology Promotion Agency"
-    },
-    "credentialSubject": {
-      "candidateName": "Taro Yamada",
-      "passDate": "2020-05-17",
-      "registrationNumber": "IP-2020-00123"
-    }
-  },
-  {
-    "id": "vc-016",
-    "@context": ["https://www.w3.org/ns/credentials/v2"],
-    "type": ["VerifiableCredential", "AppliedInformationTechnologyEngineerCertificate"],
-    "issuer": {
-      "id": "https://jitec.ipa.go.jp",
-      "name": "Information-technology Promotion Agency"
-    },
-    "credentialSubject": {
-      "candidateName": "Taro Yamada",
-      "passDate": "2022-10-16",
-      "registrationNumber": "AP-2022-00456"
-    }
-  },
-  {
-    "id": "vc-017",
-    "@context": ["https://www.w3.org/ns/credentials/v2"],
-    "type": ["VerifiableCredential", "GymMembershipCredential"],
-    "issuer": {
-      "id": "https://fitness-club.jp",
-      "name": "Fitness Club Tokyo"
-    },
-    "credentialSubject": {
-      "memberName": "Taro Yamada",
-      "membershipType": "Gold Member",
-      "memberSince": "2022-01-01",
-      "validUntil": "2025-01-01",
-      "monthlyVisits": 15
-    }
-  },
-  {
-    "id": "vc-018",
-    "@context": ["https://www.w3.org/ns/credentials/v2"],
-    "type": ["VerifiableCredential", "MarathonCompletionCertificate"],
-    "issuer": {
-      "id": "https://tokyo-marathon.jp",
-      "name": "Tokyo Marathon Foundation"
-    },
-    "credentialSubject": {
-      "runnerName": "Taro Yamada",
-      "eventName": "Tokyo Marathon 2024",
-      "completionTime": "3:45:22",
-      "distance": "42.195km",
-      "completionDate": "2024-03-03"
-    }
-  },
-  {
-    "id": "vc-019",
-    "@context": ["https://www.w3.org/ns/credentials/v2"],
-    "type": ["VerifiableCredential", "PublicInformationCredential"],
-    "issuer": {
-      "id": "https://stat.go.jp",
-      "name": "Statistics Bureau of Japan"
-    },
-    "credentialSubject": {
-      "dataType": "Population Statistics",
-      "location": "Tokyo",
-      "population": 14047594,
-      "asOf": "2024-01-01"
-    }
-  },
-  {
-    "id": "vc-020",
-    "@context": ["https://www.w3.org/ns/credentials/v2"],
-    "type": ["VerifiableCredential", "UniversityAccreditationCredential"],
-    "issuer": {
-      "id": "https://mext.go.jp",
-      "name": "Ministry of Education, Culture, Sports, Science and Technology"
-    },
-    "credentialSubject": {
-      "universityName": "Waseda University",
-      "location": "Shinjuku, Tokyo",
-      "country": "Japan",
-      "accreditationStatus": "Accredited",
-      "establishedYear": 1882
-    }
-  },
-  {
-    "id": "vc-021",
-    "@context": ["https://www.w3.org/ns/credentials/v2"],
-    "type": ["VerifiableCredential", "ConferenceSpeakerCredential"],
-    "issuer": {
-      "id": "https://tech-conference.jp",
-      "name": "Tech Conference 2024"
-    },
-    "credentialSubject": {
-      "speakerName": "Taro Yamada",
-      "presentationTitle": "Implementing Decentralized Identity",
-      "eventDate": "2024-02-15",
-      "sessionType": "Keynote"
-    }
-  },
-  {
-    "id": "vc-022",
-    "@context": ["https://www.w3.org/ns/credentials/v2"],
-    "type": ["VerifiableCredential", "ConferenceAttendanceCredential"],
-    "issuer": {
-      "id": "https://jsai.org",
-      "name": "Japanese Society for Artificial Intelligence"
-    },
-    "credentialSubject": {
-      "attendeeName": "Taro Yamada",
-      "conferenceName": "38th Annual Conference of JSAI",
-      "attendanceDates": ["2024-05-28", "2024-05-31"],
-      "registrationNumber": "JSAI2024-001"
-    }
-  },
-  {
-    "id": "vc-023",
-    "@context": ["https://www.w3.org/ns/credentials/v2"],
-    "type": ["VerifiableCredential", "TravelHistoryCredential"],
-    "issuer": {
-      "id": "https://immigration.go.jp",
-      "name": "Immigration Services Agency of Japan"
-    },
-    "credentialSubject": {
-      "travelerName": "Taro Yamada",
-      "passportNumber": "TK1234567",
-      "travelRecords": [
+      "id": "did:example:yamada-taro",
+      "name": "Taro Yamada",
+      "medication": [
         {
-          "country": "United States",
-          "entryDate": "2023-09-01",
-          "exitDate": "2023-09-10",
-          "purpose": "Business"
+          "name": "Medication A",
+          "dosage": "500mg",
+          "prescriptionDate": "2024-01-10",
+          "prescribingDoctor": "Dr. Kenji Nakamura"
         },
         {
-          "country": "France",
-          "entryDate": "2023-12-20",
-          "exitDate": "2023-12-27",
-          "purpose": "Tourism"
+          "name": "Medication B",
+          "dosage": "250mg",
+          "prescriptionDate": "2024-01-12",
+          "prescribingDoctor": "Dr. Kenji Nakamura"
         }
-      ]
-    }
-  },
-  {
-    "id": "vc-024",
-    "@context": ["https://www.w3.org/ns/credentials/v2"],
-    "type": ["VerifiableCredential", "HotelStayCredential"],
-    "issuer": {
-      "id": "https://hotel-tokyo.jp",
-      "name": "Tokyo Grand Hotel"
-    },
-    "credentialSubject": {
-      "guestName": "Taro Yamada",
-      "checkInDate": "2024-01-10",
-      "checkOutDate": "2024-01-12",
-      "roomType": "Deluxe Twin",
-      "confirmationNumber": "HTL-2024-00123"
-    }
-  },
-  {
-    "id": "vc-025",
-    "@context": ["https://www.w3.org/ns/credentials/v2"],
-    "type": ["VerifiableCredential", "AnnualIncomeCertificate"],
-    "issuer": {
-      "id": "https://nta.go.jp",
-      "name": "National Tax Agency"
-    },
-    "credentialSubject": {
-      "taxpayerName": "Taro Yamada",
-      "fiscalYear": 2023,
-      "annualIncome": 8000000,
-      "currency": "JPY",
-      "issueDate": "2024-06-01"
-    }
-  },
-  {
-    "id": "vc-026",
-    "@context": ["https://www.w3.org/ns/credentials/v2"],
-    "type": ["VerifiableCredential", "ProfessionalLicenseCredential"],
-    "issuer": {
-      "id": "https://mhlw.go.jp",
-      "name": "Ministry of Health, Labour and Welfare"
-    },
-    "credentialSubject": {
-      "licenseName": "Registered Nurse",
-      "licenseNumber": "N-123456",
-      "holderName": "Hanako Yamada",
-      "issueDate": "2018-04-01",
-      "validUntil": "2028-03-31"
-    }
-  },
-  {
-    "id": "vc-027",
-    "@context": ["https://www.w3.org/ns/credentials/v2"],
-    "type": ["VerifiableCredential", "ResidenceCardCredential"],
-    "issuer": {
-      "id": "https://moj.go.jp",
-      "name": "Ministry of Justice"
-    },
-    "credentialSubject": {
-      "cardNumber": "AB12345678",
-      "fullName": "John Smith",
-      "nationality": "American",
-      "residenceStatus": "Highly Skilled Professional",
-      "periodOfStay": "5 years",
-      "validUntil": "2029-06-30"
-    }
-  },
-  {
-    "id": "vc-028",
-    "@context": ["https://www.w3.org/ns/credentials/v2"],
-    "type": ["VerifiableCredential", "StudentIDCredential"],
-    "issuer": {
-      "id": "https://u-tokyo.ac.jp",
-      "name": "University of Tokyo"
-    },
-    "credentialSubject": {
-      "studentId": "UT-2024-001",
-      "studentName": "Ichiro Suzuki",
-      "faculty": "Faculty of Engineering",
-      "major": "Electrical and Electronic Engineering",
-      "enrollmentYear": 2024,
-      "expectedGraduation": 2028
-    }
-  },
-  {
-    "id": "vc-029",
-    "@context": ["https://www.w3.org/ns/credentials/v2"],
-    "type": ["VerifiableCredential", "MedicalPrescriptionCredential"],
-    "issuer": {
-      "id": "https://hospital-osaka.jp",
-      "name": "Osaka General Hospital"
-    },
-    "credentialSubject": {
-      "patientName": "Taro Yamada",
-      "prescriptionId": "RX-2024-00123",
-      "medication": "Allergy Medicine",
-      "dosage": "Twice daily",
-      "prescribedDate": "2024-03-01",
-      "validUntil": "2024-09-01"
-    }
-  },
-  {
-    "id": "vc-030",
-    "@context": ["https://www.w3.org/ns/credentials/v2"],
-    "type": ["VerifiableCredential", "CreditScoreCredential"],
-    "issuer": {
-      "id": "https://credit-bureau.jp",
-      "name": "Japan Credit Information Center"
-    },
-    "credentialSubject": {
-      "holderName": "Taro Yamada",
-      "creditScore": 750,
-      "scoreRange": "300-850",
-      "evaluationDate": "2024-01-15",
-      "riskLevel": "Low"
-    }
-  },
-  {
-    "id": "vc-031",
-    "@context": ["https://www.w3.org/ns/credentials/v2"],
-    "type": ["VerifiableCredential", "VehicleRegistrationCredential"],
-    "issuer": {
-      "id": "https://mlit.go.jp",
-      "name": "Ministry of Land, Infrastructure, Transport and Tourism"
-    },
-    "credentialSubject": {
-      "vehicleNumber": "Tokyo 300 A 1234",
-      "ownerName": "Taro Yamada",
-      "vehicleType": "Passenger Car",
-      "manufacturer": "Toyota",
-      "model": "Prius",
-      "registrationDate": "2023-05-01"
-    }
-  },
-  {
-    "id": "vc-032",
-    "@context": ["https://www.w3.org/ns/credentials/v2"],
-    "type": ["VerifiableCredential", "PropertyOwnershipCredential"],
-    "issuer": {
-      "id": "https://moj.go.jp/registry",
-      "name": "Legal Affairs Bureau"
-    },
-    "credentialSubject": {
-      "ownerName": "Taro Yamada",
-      "propertyAddress": "1-2-3 Minami-Aoyama, Minato-ku, Tokyo",
-      "propertyType": "Condominium",
-      "ownershipPercentage": 100,
-      "registrationDate": "2022-07-15"
-    }
-  },
-  {
-    "id": "vc-033",
-    "@context": ["https://www.w3.org/ns/credentials/v2"],
-    "type": ["VerifiableCredential", "BankAccountCredential"],
-    "issuer": {
-      "id": "https://bank-tokyo.jp",
-      "name": "Tokyo Bank"
-    },
-    "credentialSubject": {
-      "accountHolder": "Taro Yamada",
-      "accountType": "Savings Account",
-      "branchName": "Shinjuku Branch",
-      "accountOpenDate": "2015-04-01",
-      "accountStatus": "Active"
-    }
-  },
-  {
-    "id": "vc-034",
-    "@context": ["https://www.w3.org/ns/credentials/v2"],
-    "type": ["VerifiableCredential", "TaxPaymentCertificate"],
-    "issuer": {
-      "id": "https://nta.go.jp",
-      "name": "National Tax Agency"
-    },
-    "credentialSubject": {
-      "taxpayerName": "Taro Yamada",
-      "taxYear": 2023,
-      "paymentStatus": "Paid in Full",
-      "paymentDate": "2024-03-15",
-      "certificateNumber": "TAX-2024-00456"
-    }
-  },
-  {
-    "id": "vc-035",
-    "@context": ["https://www.w3.org/ns/credentials/v2"],
-    "type": ["VerifiableCredential", "MarriageCertificate"],
-    "issuer": {
-      "id": "https://city.tokyo.jp",
-      "name": "Chiyoda Ward Office"
-    },
-    "credentialSubject": {
-      "spouse1Name": "Taro Yamada",
-      "spouse2Name": "Hanako Yamada",
-      "marriageDate": "2020-11-22",
-      "registrationNumber": "MAR-2020-00789"
-    }
-  },
-  {
-    "id": "vc-036",
-    "@context": ["https://www.w3.org/ns/credentials/v2"],
-    "type": ["VerifiableCredential", "DivingLicenseCredential"],
-    "issuer": {
-      "id": "https://padi.com",
-      "name": "PADI"
-    },
-    "credentialSubject": {
-      "diverName": "Taro Yamada",
-      "certificationLevel": "Advanced Open Water",
-      "certificationDate": "2023-08-15",
-      "diverNumber": "PADI-2023-00123"
-    }
-  },
-  {
-    "id": "vc-037",
-    "@context": ["https://www.w3.org/ns/credentials/v2"],
-    "type": ["VerifiableCredential", "LanguageProficiencyCredential"],
-    "issuer": {
-      "id": "https://jlpt.jp",
-      "name": "Japanese Language Proficiency Test"
-    },
-    "credentialSubject": {
-      "candidateName": "John Smith",
-      "testLevel": "N1",
-      "testDate": "2023-12-03",
-      "score": 165,
-      "maxScore": 180,
-      "result": "Pass"
-    }
-  },
-  {
-    "id": "vc-038",
-    "@context": ["https://www.w3.org/ns/credentials/v2"],
-    "type": ["VerifiableCredential", "FoodHandlerLicenseCredential"],
-    "issuer": {
-      "id": "https://city.tokyo.jp/health",
-      "name": "Tokyo Public Health Center"
-    },
-    "credentialSubject": {
-      "holderName": "Taro Yamada",
-      "licenseType": "Food Sanitation Manager",
-      "issueDate": "2023-06-01",
-      "validUntil": "2026-05-31",
-      "licenseNumber": "FH-2023-00456"
-    }
-  },
-  {
-    "id": "vc-039",
-    "@context": ["https://www.w3.org/ns/credentials/v2"],
-    "type": ["VerifiableCredential", "SecurityClearanceCredential"],
-    "issuer": {
-      "id": "https://security.go.jp",
-      "name": "Cabinet Intelligence and Research Office"
-    },
-    "credentialSubject": {
-      "holderName": "Taro Yamada",
-      "clearanceLevel": "Confidential",
-      "grantDate": "2023-01-15",
-      "validUntil": "2028-01-14",
-      "clearanceNumber": "SEC-2023-00123"
-    }
-  },
-  {
-    "id": "vc-040",
-    "@context": ["https://www.w3.org/ns/credentials/v2"],
-    "type": ["VerifiableCredential", "PetOwnershipCredential"],
-    "issuer": {
-      "id": "https://city.tokyo.jp/animal",
-      "name": "Tokyo Animal Care Center"
-    },
-    "credentialSubject": {
-      "ownerName": "Taro Yamada",
-      "petName": "Pochi",
-      "species": "Dog",
-      "breed": "Shiba Inu",
-      "registrationNumber": "DOG-2023-00789",
-      "microchipNumber": "392145000123456"
-    }
-  },
-  {
-    "id": "vc-041",
-    "@context": ["https://www.w3.org/ns/credentials/v2"],
-    "type": ["VerifiableCredential", "AllergyTestCredential"],
-    "issuer": {
-      "id": "https://allergy-clinic.jp",
-      "name": "Allergy Specialist Clinic"
-    },
-    "credentialSubject": {
-      "patientName": "Taro Yamada",
-      "testDate": "2024-02-15",
-      "allergies": [
-        {"allergen": "Cedar Pollen", "level": "Class 4"},
-        {"allergen": "House Dust", "level": "Class 2"},
-        {"allergen": "Eggs", "level": "Negative"}
-      ]
-    }
-  },
-  {
-    "id": "vc-042",
-    "@context": ["https://www.w3.org/ns/credentials/v2"],
-    "type": ["VerifiableCredential", "VolunteerCertificate"],
-    "issuer": {
-      "id": "https://redcross.jp",
-      "name": "Japanese Red Cross Society"
-    },
-    "credentialSubject": {
-      "volunteerName": "Taro Yamada",
-      "activityType": "Disaster Relief Volunteer",
-      "totalHours": 120,
-      "period": "2023-01-01 to 2023-12-31",
-      "certificateNumber": "VOL-2023-00456"
-    }
-  },
-  {
-    "id": "vc-043",
-    "@context": ["https://www.w3.org/ns/credentials/v2"],
-    "type": ["VerifiableCredential", "MembershipCredential"],
-    "issuer": {
-      "id": "https://costco.jp",
-      "name": "Costco Wholesale"
-    },
-    "credentialSubject": {
-      "memberName": "Taro Yamada",
-      "membershipType": "Executive",
-      "memberNumber": "1234567890",
-      "validFrom": "2024-01-01",
-      "validUntil": "2024-12-31"
-    }
-  },
-  {
-    "id": "vc-044",
-    "@context": ["https://www.w3.org/ns/credentials/v2"],
-    "type": ["VerifiableCredential", "SmokingCessationCredential"],
-    "issuer": {
-      "id": "https://nosmoking-clinic.jp",
-      "name": "Smoking Cessation Clinic"
-    },
-    "credentialSubject": {
-      "patientName": "Taro Yamada",
-      "cessationDate": "2023-06-01",
-      "programDuration": "3 months",
-      "successStatus": "Successful",
-      "certificateDate": "2024-06-01"
-    }
-  },
-  {
-    "id": "vc-045",
-    "@context": ["https://www.w3.org/ns/credentials/v2"],
-    "type": ["VerifiableCredential", "FirstAidCertificate"],
-    "issuer": {
-      "id": "https://jrc.or.jp",
-      "name": "Japanese Red Cross Society"
-    },
-    "credentialSubject": {
-      "holderName": "Taro Yamada",
-      "courseType": "Basic First Aid",
-      "completionDate": "2023-09-15",
-      "validUntil": "2026-09-14",
-      "certificateNumber": "FA-2023-00789"
-    }
-  },
-  {
-    "id": "vc-046",
-    "@context": ["https://www.w3.org/ns/credentials/v2"],
-    "type": ["VerifiableCredential", "CookingLicenseCredential"],
-    "issuer": {
-      "id": "https://cooking-school.jp",
-      "name": "Japan Culinary Association"
-    },
-    "credentialSubject": {
-      "chefName": "Taro Yamada",
-      "licenseType": "Professional Chef License",
-      "specialty": "Japanese Cuisine",
-      "issueDate": "2022-04-01",
-      "licenseNumber": "COOK-2022-00123"
-    }
-  },
-  {
-    "id": "vc-047",
-    "@context": ["https://www.w3.org/ns/credentials/v2"],
-    "type": ["VerifiableCredential", "TeachingLicenseCredential"],
-    "issuer": {
-      "id": "https://mext.go.jp",
-      "name": "Ministry of Education, Culture, Sports, Science and Technology"
-    },
-    "credentialSubject": {
-      "teacherName": "Hanako Yamada",
-      "licenseType": "Junior High School Teacher Type 1",
-      "subject": "Mathematics",
-      "issueDate": "2019-03-31",
-      "licenseNumber": "TCH-2019-00456"
-    }
-  },
-  {
-    "id": "vc-048",
-    "@context": ["https://www.w3.org/ns/credentials/v2"],
-    "type": ["VerifiableCredential", "ArchitectLicenseCredential"],
-    "issuer": {
-      "id": "https://jaeic.or.jp",
-      "name": "Japan Architectural Education and Information Center"
-    },
-    "credentialSubject": {
-      "architectName": "Taro Yamada",
-      "licenseType": "First-class Architect",
-      "registrationNumber": "123456",
-      "registrationDate": "2020-12-01",
-      "validStatus": "Valid"
-    }
-  },
-  {
-    "id": "vc-049",
-    "@context": ["https://www.w3.org/ns/credentials/v2"],
-    "type": ["VerifiableCredential", "PatentCredential"],
-    "issuer": {
-      "id": "https://jpo.go.jp",
-      "name": "Japan Patent Office"
-    },
-    "credentialSubject": {
-      "inventorName": "Taro Yamada",
-      "patentTitle": "Distributed Authentication System",
-      "patentNumber": "Patent No. 6789012",
-      "filingDate": "2022-03-15",
-      "grantDate": "2023-09-01"
-    }
-  },
-  {
-    "id": "vc-050",
-    "@context": ["https://www.w3.org/ns/credentials/v2"],
-    "type": ["VerifiableCredential", "DonorCardCredential"],
-    "issuer": {
-      "id": "https://jotnw.or.jp",
-      "name": "Japan Organ Transplant Network"
-    },
-    "credentialSubject": {
-      "donorName": "Taro Yamada",
-      "donorId": "DON-2023-00123",
-      "consentDate": "2023-04-01",
-      "consentType": "All Organs",
-      "bloodType": "Type A"
-    }
-  },
-  {
-    "id": "vc-051",
-    "@context": ["https://www.w3.org/ns/credentials/v2"],
-    "type": ["VerifiableCredential", "ElectricianLicenseCredential"],
-    "issuer": {
-      "id": "https://shiken.or.jp",
-      "name": "Electrical Technician Test Center"
-    },
-    "credentialSubject": {
-      "electricianName": "Taro Yamada",
-      "licenseType": "Type 2 Electrical Work Specialist",
-      "licenseNumber": "ELEC-2021-00789",
-      "issueDate": "2021-08-01",
-      "validStatus": "Valid"
-    }
-  },
-  {
-    "id": "vc-052",
-    "@context": ["https://www.w3.org/ns/credentials/v2"],
-    "type": ["VerifiableCredential", "RealEstateLicenseCredential"],
-    "issuer": {
-      "id": "https://retpc.jp",
-      "name": "Real Estate Transaction Promotion Center"
-    },
-    "credentialSubject": {
-      "agentName": "Taro Yamada",
-      "licenseType": "Real Estate Transaction Specialist",
-      "registrationNumber": "Tokyo No. 123456",
-      "registrationDate": "2022-10-01",
-      "validUntil": "2027-09-30"
-    }
-  },
-  {
-    "id": "vc-053",
-    "@context": ["https://www.w3.org/ns/credentials/v2"],
-    "type": ["VerifiableCredential", "YogaInstructorCertificate"],
-    "issuer": {
-      "id": "https://yoga-alliance.jp",
-      "name": "Japan Yoga Alliance"
-    },
-    "credentialSubject": {
-      "instructorName": "Hanako Yamada",
-      "certificationLevel": "RYT200",
-      "completionDate": "2023-03-15",
-      "specialties": ["Hatha Yoga", "Vinyasa Yoga"],
-      "certificateNumber": "YOGA-2023-00456"
-    }
-  },
-  {
-    "id": "vc-054",
-    "@context": ["https://www.w3.org/ns/credentials/v2"],
-    "type": ["VerifiableCredential", "PhotographyPortfolioCredential"],
-    "issuer": {
-      "id": "https://photo-association.jp",
-      "name": "Japan Professional Photographers Society"
-    },
-    "credentialSubject": {
-      "photographerName": "Taro Yamada",
-      "membershipLevel": "Full Member",
-      "specialties": ["Landscape Photography", "Portrait"],
-      "exhibitionCount": 5,
-      "memberSince": "2021-04-01"
-    }
-  },
-  {
-    "id": "vc-055",
-    "@context": ["https://www.w3.org/ns/credentials/v2"],
-    "type": ["VerifiableCredential", "SommelierCertificate"],
-    "issuer": {
-      "id": "https://sommelier.jp",
-      "name": "Japan Sommelier Association"
-    },
-    "credentialSubject": {
-      "sommelierName": "Taro Yamada",
-      "certificationLevel": "Sommelier",
-      "certificationDate": "2022-11-15",
-      "specialRegions": ["Bordeaux", "Burgundy"],
-      "certificateNumber": "SOM-2022-00789"
-    }
-  },
-  {
-    "id": "vc-056",
-    "@context": ["https://www.w3.org/ns/credentials/v2"],
-    "type": ["VerifiableCredential", "MusicGradeCertificate"],
-    "issuer": {
-      "id": "https://piano-teachers.jp",
-      "name": "Piano Teachers' National Association of Japan"
-    },
-    "credentialSubject": {
-      "musicianName": "Hanako Yamada",
-      "instrument": "Piano",
-      "gradeLevel": "Performance Diploma",
-      "examDate": "2023-07-20",
-      "examinerComments": "Excellent performance technique"
-    }
-  },
-  {
-    "id": "vc-057",
-    "@context": ["https://www.w3.org/ns/credentials/v2"],
-    "type": ["VerifiableCredential", "BeekeeperLicenseCredential"],
-    "issuer": {
-      "id": "https://beekeeping.jp",
-      "name": "Japan Beekeeping Association"
-    },
-    "credentialSubject": {
-      "beekeeperName": "Taro Yamada",
-      "licenseNumber": "BEE-2023-00123",
-      "hiveCount": 10,
-      "location": "Nagano Prefecture",
-      "issueDate": "2023-05-01"
-    }
-  },
-  {
-    "id": "vc-058",
-    "@context": ["https://www.w3.org/ns/credentials/v2"],
-    "type": ["VerifiableCredential", "BaristaCertificate"],
-    "issuer": {
-      "id": "https://coffee-association.jp",
-      "name": "Specialty Coffee Association of Japan"
-    },
-    "credentialSubject": {
-      "baristaName": "Taro Yamada",
-      "certificationLevel": "Advanced Barista",
-      "certificationDate": "2023-10-01",
-      "skills": ["Latte Art", "Cupping"],
-      "certificateNumber": "BAR-2023-00456"
-    }
-  },
-  {
-    "id": "vc-059",
-    "@context": ["https://www.w3.org/ns/credentials/v2"],
-    "type": ["VerifiableCredential", "HunterLicenseCredential"],
-    "issuer": {
-      "id": "https://env.go.jp",
-      "name": "Ministry of the Environment"
-    },
-    "credentialSubject": {
-      "hunterName": "Taro Yamada",
-      "licenseType": "Class 1 Hunting License",
-      "licenseNumber": "GUN-2022-00789",
-      "issueDate": "2022-09-01",
-      "validUntil": "2025-08-31"
-    }
-  },
-  {
-    "id": "vc-060",
-    "@context": ["https://www.w3.org/ns/credentials/v2"],
-    "type": ["VerifiableCredential", "TattooArtistLicenseCredential"],
-    "issuer": {
-      "id": "https://tattoo-association.jp",
-      "name": "Japan Tattoo Artist Association"
-    },
-    "credentialSubject": {
-      "artistName": "Taro Yamada",
-      "licenseNumber": "TAT-2023-00123",
-      "specialties": ["Japanese Traditional", "Tribal"],
-      "certificationDate": "2023-02-15",
-      "healthCertificateValid": true
-    }
-  },
-  {
-    "id": "vc-061",
-    "@context": ["https://www.w3.org/ns/credentials/v2"],
-    "type": ["VerifiableCredential", "RadioOperatorLicenseCredential"],
-    "issuer": {
-      "id": "https://soumu.go.jp",
-      "name": "Ministry of Internal Affairs and Communications"
-    },
-    "credentialSubject": {
-      "operatorName": "Taro Yamada",
-      "licenseType": "First-Class Amateur Radio Operator",
-      "callSign": "JA1ABC",
-      "issueDate": "2021-06-01",
-      "licenseNumber": "RADIO-2021-00456"
-    }
-  },
-  {
-    "id": "vc-062",
-    "@context": ["https://www.w3.org/ns/credentials/v2"],
-    "type": ["VerifiableCredential", "TaxiDriverLicenseCredential"],
-    "issuer": {
-      "id": "https://taxi-center.jp",
-      "name": "Tokyo Taxi Center"
-    },
-    "credentialSubject": {
-      "driverName": "Taro Yamada",
-      "licenseType": "Type 2 Driver's License",
-      "geographyTestPassed": true,
-      "issueDate": "2022-07-15",
-      "validUntil": "2025-07-14"
-    }
-  },
-  {
-    "id": "vc-063",
-    "@context": ["https://www.w3.org/ns/credentials/v2"],
-    "type": ["VerifiableCredential", "BartenderCertificate"],
-    "issuer": {
-      "id": "https://bartender.or.jp",
-      "name": "Japan Bartenders Association"
-    },
-    "credentialSubject": {
-      "bartenderName": "Taro Yamada",
-      "certificationLevel": "Certified Bartender",
-      "specialties": ["Classic Cocktails", "Flair Bartending"],
-      "certificationDate": "2023-05-20",
-      "certificateNumber": "BART-2023-00789"
-    }
-  },
-  {
-    "id": "vc-064",
-    "@context": ["https://www.w3.org/ns/credentials/v2"],
-    "type": ["VerifiableCredential", "PersonalTrainerCertificate"],
-    "issuer": {
-      "id": "https://nsca-japan.or.jp",
-      "name": "NSCA Japan"
-    },
-    "credentialSubject": {
-      "trainerName": "Taro Yamada",
-      "certificationName": "NSCA-CPT",
-      "certificationDate": "2022-12-01",
-      "specializations": ["Strength Training", "Nutrition Guidance"],
-      "certificateNumber": "NSCA-2022-00123"
-    }
-  },
-  {
-    "id": "vc-065",
-    "@context": ["https://www.w3.org/ns/credentials/v2"],
-    "type": ["VerifiableCredential", "TranslatorCertificate"],
-    "issuer": {
-      "id": "https://jta.jp",
-      "name": "Japan Translation Association"
-    },
-    "credentialSubject": {
-      "translatorName": "Hanako Yamada",
-      "languages": ["Japanese", "English", "Chinese"],
-      "specialFields": ["Technical Translation", "Medical Translation"],
-      "certificationDate": "2023-04-10",
-      "membershipNumber": "JTA-2023-00456"
-    }
-  },
-  {
-    "id": "vc-066",
-    "@context": ["https://www.w3.org/ns/credentials/v2"],
-    "type": ["VerifiableCredential", "MassageLicenseCredential"],
-    "issuer": {
-      "id": "https://amma-massage.jp",
-      "name": "Japan Shiatsu Society"
-    },
-    "credentialSubject": {
-      "therapistName": "Taro Yamada",
-      "licenseType": "Anma Massage Shiatsu Practitioner",
-      "licenseNumber": "MAS-2020-00789",
-      "issueDate": "2020-04-01",
-      "specialties": ["Sports Massage", "Lymph Drainage"]
-    }
-  },
-  {
-    "id": "vc-067",
-    "@context": ["https://www.w3.org/ns/credentials/v2"],
-    "type": ["VerifiableCredential", "WineExpertCertificate"],
-    "issuer": {
-      "id": "https://wine-expert.jp",
-      "name": "Japan Wine Expert Association"
-    },
-    "credentialSubject": {
-      "expertName": "Taro Yamada",
-      "certificationLevel": "Wine Expert",
-      "examDate": "2023-08-20",
-      "tastingScore": 92,
-      "theoryScore": 88,
-      "certificateNumber": "WINE-2023-00123"
-    }
-  },
-  {
-    "id": "vc-068",
-    "@context": ["https://www.w3.org/ns/credentials/v2"],
-    "type": ["VerifiableCredential", "CalligraphyGradeCertificate"],
-    "issuer": {
-      "id": "https://calligraphy.jp",
-      "name": "Japan Calligraphy Association"
-    },
-    "credentialSubject": {
-      "calligrapherName": "Hanako Yamada",
-      "gradeLevel": "Master",
-      "style": "Regular Script",
-      "certificationDate": "2022-03-15",
-      "instructorQualified": true
-    }
-  },
-  {
-    "id": "vc-069",
-    "@context": ["https://www.w3.org/ns/credentials/v2"],
-    "type": ["VerifiableCredential", "DroneOperatorLicenseCredential"],
-    "issuer": {
-      "id": "https://mlit.go.jp/aviation",
-      "name": "Civil Aviation Bureau"
-    },
-    "credentialSubject": {
-      "operatorName": "Taro Yamada",
-      "licenseType": "First Class Unmanned Aircraft Pilot",
-      "licenseNumber": "DRONE-2023-00456",
-      "issueDate": "2023-12-01",
-      "validUntil": "2026-11-30"
-    }
-  },
-  {
-    "id": "vc-070",
-    "@context": ["https://www.w3.org/ns/credentials/v2"],
-    "type": ["VerifiableCredential", "FishingLicenseCredential"],
-    "issuer": {
-      "id": "https://jfa.maff.go.jp",
-      "name": "Fisheries Agency"
-    },
-    "credentialSubject": {
-      "fisherName": "Taro Yamada",
-      "licenseType": "Recreational Fishing Boat Operator",
-      "licenseNumber": "FISH-2022-00789",
-      "issueDate": "2022-05-15",
-      "validUntil": "2027-05-14"
-    }
-  },
-  {
-    "id": "vc-071",
-    "@context": ["https://www.w3.org/ns/credentials/v2"],
-    "type": ["VerifiableCredential", "AcupuncturistLicenseCredential"],
-    "issuer": {
-      "id": "https://jsam.jp",
-      "name": "Japan Society of Acupuncture and Moxibustion"
-    },
-    "credentialSubject": {
-      "acupuncturistName": "Taro Yamada",
-      "licenseNumber": "ACU-2021-00123",
-      "issueDate": "2021-04-01",
-      "specialties": ["Sports Acupuncture", "Cosmetic Acupuncture"],
-      "clinicName": "Yamada Acupuncture Clinic"
-    }
-  },
-  {
-    "id": "vc-072",
-    "@context": ["https://www.w3.org/ns/credentials/v2"],
-    "type": ["VerifiableCredential", "InteriorDesignerCertificate"],
-    "issuer": {
-      "id": "https://interior.or.jp",
-      "name": "Japan Interior Designers' Association"
-    },
-    "credentialSubject": {
-      "designerName": "Hanako Yamada",
-      "certificationLevel": "Interior Coordinator",
-      "registrationNumber": "INT-2023-00456",
-      "specialties": ["Residential Design", "Commercial Spaces"],
-      "certificationDate": "2023-09-01"
-    }
-  },
-  {
-    "id": "vc-073",
-    "@context": ["https://www.w3.org/ns/credentials/v2"],
-    "type": ["VerifiableCredential", "ChiropractorLicenseCredential"],
-    "issuer": {
-      "id": "https://jac-chiro.org",
-      "name": "Japan Association of Chiropractors"
-    },
-    "credentialSubject": {
-      "chiropractorName": "Taro Yamada",
-      "licenseNumber": "CHIRO-2022-00789",
-      "educationLevel": "Doctor of Chiropractic",
-      "graduationSchool": "Tokyo Chiropractic College",
-      "licenseDate": "2022-06-01"
-    }
-  },
-  {
-    "id": "vc-074",
-    "@context": ["https://www.w3.org/ns/credentials/v2"],
-    "type": ["VerifiableCredential", "NutritionistLicenseCredential"],
-    "issuer": {
-      "id": "https://dietitian.or.jp",
-      "name": "Japan Dietetic Association"
-    },
-    "credentialSubject": {
-      "nutritionistName": "Hanako Yamada",
-      "licenseType": "Registered Dietitian",
-      "licenseNumber": "NUT-2020-00123",
-      "issueDate": "2020-04-01",
-      "specialties": ["Sports Nutrition", "Clinical Nutrition"]
-    }
-  },
-  {
-    "id": "vc-075",
-    "@context": ["https://www.w3.org/ns/credentials/v2"],
-    "type": ["VerifiableCredential", "MakeupArtistCertificate"],
-    "issuer": {
-      "id": "https://jma.or.jp",
-      "name": "Japan Makeup Artist Association"
-    },
-    "credentialSubject": {
-      "artistName": "Hanako Yamada",
-      "certificationLevel": "Level 1",
-      "certificationDate": "2023-11-15",
-      "specialties": ["Bridal Makeup", "Special Effects"],
-      "certificateNumber": "MAKEUP-2023-00456"
-    }
-  },
-  {
-    "id": "vc-076",
-    "@context": ["https://www.w3.org/ns/credentials/v2"],
-    "type": ["VerifiableCredential", "TourGuideLicenseCredential"],
-    "issuer": {
-      "id": "https://jnto.go.jp",
-      "name": "Japan National Tourism Organization"
-    },
-    "credentialSubject": {
-      "guideName": "Taro Yamada",
-      "licenseType": "National Government Licensed Guide Interpreter",
-      "languages": ["English", "Chinese"],
-      "licenseNumber": "GUIDE-2022-00789",
-      "issueDate": "2022-04-01"
-    }
-  },
-  {
-    "id": "vc-077",
-    "@context": ["https://www.w3.org/ns/credentials/v2"],
-    "type": ["VerifiableCredential", "FloristCertificate"],
-    "issuer": {
-      "id": "https://nfd.or.jp",
-      "name": "Nippon Flower Designers' Association"
-    },
-    "credentialSubject": {
-      "floristName": "Hanako Yamada",
-      "certificationLevel": "NFD Level 1",
-      "certificationDate": "2023-06-20",
-      "specialties": ["Wedding Bouquets", "Funeral Arrangements"],
-      "certificateNumber": "FLOWER-2023-00123"
-    }
-  },
-  {
-    "id": "vc-078",
-    "@context": ["https://www.w3.org/ns/credentials/v2"],
-    "type": ["VerifiableCredential", "LocksmithLicenseCredential"],
-    "issuer": {
-      "id": "https://locksmith.jp",
-      "name": "Japan Lock Security Cooperative"
-    },
-    "credentialSubject": {
-      "locksmithName": "Taro Yamada",
-      "licenseNumber": "LOCK-2021-00456",
-      "certificationLevel": "Security Equipment Specialist",
-      "issueDate": "2021-09-01",
-      "specialties": ["Electronic Locks", "Safe Opening"]
-    }
-  },
-  {
-    "id": "vc-079",
-    "@context": ["https://www.w3.org/ns/credentials/v2"],
-    "type": ["VerifiableCredential", "WeldingCertificate"],
-    "issuer": {
-      "id": "https://jwes.or.jp",
-      "name": "Japan Welding Engineering Society"
-    },
-    "credentialSubject": {
-      "welderName": "Taro Yamada",
-      "qualificationType": "JIS Certified Welder",
-      "qualificationLevel": "Specialist",
-      "materials": ["Carbon Steel", "Stainless Steel"],
-      "certificationDate": "2023-02-15",
-      "certificateNumber": "WELD-2023-00789"
-    }
-  },
-  {
-    "id": "vc-080",
-    "@context": ["https://www.w3.org/ns/credentials/v2"],
-    "type": ["VerifiableCredential", "CarpenterLicenseCredential"],
-    "issuer": {
-      "id": "https://kenchikushi.jp",
-      "name": "Japan Architectural Carpentry Association"
-    },
-    "credentialSubject": {
-      "carpenterName": "Taro Yamada",
-      "licenseType": "Master Carpenter Level 1",
-      "licenseNumber": "CARP-2022-00123",
-      "issueDate": "2022-08-01",
-      "specialties": ["Temple Carpentry", "Tea House Construction"]
-    }
-  },
-  {
-    "id": "vc-081",
-    "@context": ["https://www.w3.org/ns/credentials/v2"],
-    "type": ["VerifiableCredential", "PilotLicenseCredential"],
-    "issuer": {
-      "id": "https://cab.mlit.go.jp",
-      "name": "Civil Aviation Bureau"
-    },
-    "credentialSubject": {
-      "pilotName": "Taro Yamada",
-      "licenseType": "Commercial Pilot License",
-      "aircraftCategory": "Airplane",
-      "licenseNumber": "PILOT-2021-00456",
-      "medicalCertificateClass": "Class 1",
-      "validUntil": "2024-12-31"
-    }
-  },
-  {
-    "id": "vc-082",
-    "@context": ["https://www.w3.org/ns/credentials/v2"],
-    "type": ["VerifiableCredential", "JewelerCertificate"],
-    "issuer": {
-      "id": "https://jja.ne.jp",
-      "name": "Japan Jewellery Association"
-    },
-    "credentialSubject": {
-      "jewelerName": "Taro Yamada",
-      "certificationLevel": "Jewelry Coordinator Level 1",
-      "specialties": ["Gemstone Appraisal", "Jewelry Design"],
-      "certificationDate": "2023-07-15",
-      "certificateNumber": "JWL-2023-00789"
-    }
-  },
-  {
-    "id": "vc-083",
-    "@context": ["https://www.w3.org/ns/credentials/v2"],
-    "type": ["VerifiableCredential", "ChildcareLicenseCredential"],
-    "issuer": {
-      "id": "https://hoiku.jp",
-      "name": "Japan Nursery Teacher Training Council"
-    },
-    "credentialSubject": {
-      "caregiverName": "Hanako Yamada",
-      "licenseType": "Certified Nursery Teacher",
-      "registrationNumber": "HOIKU-2019-00123",
-      "registrationDate": "2019-04-01",
-      "workplaceType": "Licensed Nursery School"
-    }
-  },
-  {
-    "id": "vc-084",
-    "@context": ["https://www.w3.org/ns/credentials/v2"],
-    "type": ["VerifiableCredential", "VeterinarianLicenseCredential"],
-    "issuer": {
-      "id": "https://nichiju.or.jp",
-      "name": "Japan Veterinary Medical Association"
-    },
-    "credentialSubject": {
-      "veterinarianName": "Taro Yamada",
-      "licenseNumber": "VET-2020-00456",
-      "issueDate": "2020-04-01",
-      "specialties": ["Small Animal Practice", "Exotic Animals"],
-      "clinicName": "Yamada Animal Hospital"
-    }
-  },
-  {
-    "id": "vc-085",
-    "@context": ["https://www.w3.org/ns/credentials/v2"],
-    "type": ["VerifiableCredential", "PharmacistLicenseCredential"],
-    "issuer": {
-      "id": "https://nichiyaku.or.jp",
-      "name": "Japan Pharmaceutical Association"
-    },
-    "credentialSubject": {
-      "pharmacistName": "Hanako Yamada",
-      "licenseNumber": "PHARM-2018-00789",
-      "issueDate": "2018-04-01",
-      "specialties": ["Community Pharmacy", "Hospital Pharmacy"],
-      "workPlace": "Yamada Pharmacy"
-    }
-  },
-  {
-    "id": "vc-086",
-    "@context": ["https://www.w3.org/ns/credentials/v2"],
-    "type": ["VerifiableCredential", "OptometristLicenseCredential"],
-    "issuer": {
-      "id": "https://megane.or.jp",
-      "name": "Japan Optometric Association"
-    },
-    "credentialSubject": {
-      "optometristName": "Taro Yamada",
-      "certificationLevel": "Certified Optician SS Class",
-      "certificationDate": "2022-11-01",
-      "specialties": ["Binocular Vision Testing", "Prism Prescription"],
-      "certificateNumber": "OPT-2022-00123"
-    }
-  },
-  {
-    "id": "vc-087",
-    "@context": ["https://www.w3.org/ns/credentials/v2"],
-    "type": ["VerifiableCredential", "DentistLicenseCredential"],
-    "issuer": {
-      "id": "https://jda.or.jp",
-      "name": "Japan Dental Association"
-    },
-    "credentialSubject": {
-      "dentistName": "Taro Yamada",
-      "licenseNumber": "DENT-2019-00456",
-      "issueDate": "2019-04-01",
-      "specialties": ["Oral Surgery", "Orthodontics"],
-      "clinicName": "Yamada Dental Clinic"
-    }
-  },
-  {
-    "id": "vc-088",
-    "@context": ["https://www.w3.org/ns/credentials/v2"],
-    "type": ["VerifiableCredential", "CosmetologistLicenseCredential"],
-    "issuer": {
-      "id": "https://biyo.or.jp",
-      "name": "Japan Beauty Association"
-    },
-    "credentialSubject": {
-      "cosmetologistName": "Hanako Yamada",
-      "licenseNumber": "BEAUTY-2021-00789",
-      "issueDate": "2021-04-01",
-      "specialties": ["Cutting", "Coloring", "Perming"],
-      "salonName": "Hair Salon Yamada"
-    }
-  },
-  {
-    "id": "vc-089",
-    "@context": ["https://www.w3.org/ns/credentials/v2"],
-    "type": ["VerifiableCredential", "LawyerLicenseCredential"],
-    "issuer": {
-      "id": "https://nichibenren.or.jp",
-      "name": "Japan Federation of Bar Associations"
-    },
-    "credentialSubject": {
-      "lawyerName": "Taro Yamada",
-      "registrationNumber": "12345",
-      "barAssociation": "Tokyo Bar Association",
-      "admissionDate": "2015-12-01",
-      "specialties": ["Corporate Law", "Intellectual Property"]
-    }
-  },
-  {
-    "id": "vc-090",
-    "@context": ["https://www.w3.org/ns/credentials/v2"],
-    "type": ["VerifiableCredential", "AccountantLicenseCredential"],
-    "issuer": {
-      "id": "https://jicpa.or.jp",
-      "name": "Japanese Institute of Certified Public Accountants"
-    },
-    "credentialSubject": {
-      "accountantName": "Taro Yamada",
-      "registrationNumber": "CPA-2017-00123",
-      "registrationDate": "2017-04-01",
-      "specialties": ["Auditing", "Taxation"],
-      "firmName": "Yamada Accounting Office"
-    }
-  },
-  {
-    "id": "vc-091",
-    "@context": ["https://www.w3.org/ns/credentials/v2"],
-    "type": ["VerifiableCredential", "SocialWorkerLicenseCredential"],
-    "issuer": {
-      "id": "https://jacsw.or.jp",
-      "name": "Japanese Association of Certified Social Workers"
-    },
-    "credentialSubject": {
-      "socialWorkerName": "Hanako Yamada",
-      "licenseNumber": "SW-2020-00456",
-      "issueDate": "2020-04-01",
-      "specialties": ["Elderly Welfare", "Child Welfare"],
-      "workPlace": "City Hall Welfare Department"
-    }
-  },
-  {
-    "id": "vc-092",
-    "@context": ["https://www.w3.org/ns/credentials/v2"],
-    "type": ["VerifiableCredential", "LibrarianCertificate"],
-    "issuer": {
-      "id": "https://jla.or.jp",
-      "name": "Japan Library Association"
-    },
-    "credentialSubject": {
-      "librarianName": "Hanako Yamada",
-      "qualificationType": "Certified Librarian",
-      "certificationDate": "2021-03-31",
-      "specialties": ["Reference Services", "Children's Services"],
-      "workPlace": "City Central Library"
-    }
-  },
-  {
-    "id": "vc-093",
-    "@context": ["https://www.w3.org/ns/credentials/v2"],
-    "type": ["VerifiableCredential", "CuratorCertificate"],
-    "issuer": {
-      "id": "https://museum.or.jp",
-      "name": "Japanese Association of Museums"
-    },
-    "credentialSubject": {
-      "curatorName": "Taro Yamada",
-      "qualificationType": "Museum Curator",
-      "certificationDate": "2019-04-01",
-      "specialties": ["Japanese Art", "Modern Paintings"],
-      "museum": "City Art Museum"
-    }
-  },
-  {
-    "id": "vc-094",
-    "@context": ["https://www.w3.org/ns/credentials/v2"],
-    "type": ["VerifiableCredential", "FirefighterCertificate"],
-    "issuer": {
-      "id": "https://fdma.go.jp",
-      "name": "Fire and Disaster Management Agency"
-    },
-    "credentialSubject": {
-      "firefighterName": "Taro Yamada",
-      "rank": "Fire Captain",
-      "badgeNumber": "FIRE-2018-00789",
-      "specialTraining": ["Rescue Team", "Fire Prevention"],
-      "stationName": "Central Fire Station"
-    }
-  },
-  {
-    "id": "vc-095",
-    "@context": ["https://www.w3.org/ns/credentials/v2"],
-    "type": ["VerifiableCredential", "ParamedicLicenseCredential"],
-    "issuer": {
-      "id": "https://paramedic.or.jp",
-      "name": "Japan Association of Emergency Medical Technicians"
-    },
-    "credentialSubject": {
-      "paramedicName": "Taro Yamada",
-      "licenseNumber": "EMT-2019-00123",
-      "issueDate": "2019-04-01",
-      "advancedSkills": ["Intubation", "Drug Administration"],
-      "workPlace": "City Hospital Emergency Center"
-    }
-  },
-  {
-    "id": "vc-096",
-    "@context": ["https://www.w3.org/ns/credentials/v2"],
-    "type": ["VerifiableCredential", "PoliceOfficerCredential"],
-    "issuer": {
-      "id": "https://npa.go.jp",
-      "name": "National Police Agency"
-    },
-    "credentialSubject": {
-      "officerName": "Taro Yamada",
-      "badgeNumber": "POL-2020-00456",
-      "rank": "Police Sergeant",
-      "department": "Criminal Investigation",
-      "commissionDate": "2020-04-01"
-    }
-  },
-  {
-    "id": "vc-097",
-    "@context": ["https://www.w3.org/ns/credentials/v2"],
-    "type": ["VerifiableCredential", "CustomsOfficerCredential"],
-    "issuer": {
-      "id": "https://customs.go.jp",
-      "name": "Japan Customs"
-    },
-    "credentialSubject": {
-      "officerName": "Taro Yamada",
-      "officerId": "CUSTOMS-2021-00789",
-      "rank": "Customs Inspector",
-      "specialization": "Intellectual Property Enforcement",
-      "portOfDuty": "Narita Customs"
-    }
-  },
-  {
-    "id": "vc-098",
-    "@context": ["https://www.w3.org/ns/credentials/v2"],
-    "type": ["VerifiableCredential", "ImmigrationOfficerCredential"],
-    "issuer": {
-      "id": "https://immi-moj.go.jp",
-      "name": "Immigration Services Agency"
-    },
-    "credentialSubject": {
-      "officerName": "Taro Yamada",
-      "officerId": "IMMI-2022-00123",
-      "rank": "Immigration Inspector",
-      "languages": ["Japanese", "English", "Chinese"],
-      "airport": "Haneda Airport"
-    }
-  },
-  {
-    "id": "vc-099",
-    "@context": ["https://www.w3.org/ns/credentials/v2"],
-    "type": ["VerifiableCredential", "EnvironmentalInspectorCredential"],
-    "issuer": {
-      "id": "https://env.go.jp",
-      "name": "Ministry of the Environment"
-    },
-    "credentialSubject": {
-      "inspectorName": "Taro Yamada",
-      "certificationNumber": "ENV-2023-00456",
-      "specialties": ["Air Pollution Control", "Water Quality Protection"],
-      "certificationDate": "2023-04-01",
-      "region": "Kanto Region"
-    }
-  },
-  {
-    "id": "vc-100",
-    "@context": ["https://www.w3.org/ns/credentials/v2"],
-    "type": ["VerifiableCredential", "FoodSafetyInspectorCredential"],
-    "issuer": {
-      "id": "https://mhlw.go.jp/food",
-      "name": "Food Safety Department, MHLW"
-    },
-    "credentialSubject": {
-      "inspectorName": "Taro Yamada",
-      "licenseNumber": "FOOD-2022-00789",
-      "qualifications": ["HACCP Instructor", "Food Sanitation Supervisor"],
-      "issueDate": "2022-04-01",
-      "jurisdiction": "Tokyo"
+      ],
+      "startDate": "2010-04-01"
+    },
+    "proof": {
+      "type": "DataIntegrityProof",
+      "cryptosuite": "eddsa-rdfc-2022",
+      "created": "2025-08-11T09:36:41.894124+00:00",
+      "verificationMethod": "https://example.com/issuers/keys/da804acd",
+      "proofPurpose": "assertionMethod",
+      "proofValue": "zf0cb8da8b0f49c64...dummy...e1a36b55391a281b"
+    }
+  },
+  {
+    "@context": [
+      "https://www.w3.org/ns/credentials/v2",
+      "https://example.com/contexts/health/v1",
+      "https://hl7.org/fhir"
+    ],
+    "id": "https://example.com/credentials/vc-049",
+    "type": [
+      "VerifiableCredential",
+      "BackgroundCheckCertificate"
+    ],
+    "issuer": {
+      "id": "https://healthcheck.example.com/issuers/12345",
+      "name": "Health Verification Agency"
+    },
+    "validFrom": "2024-01-15T00:00:00Z",
+    "validUntil": "2025-01-14T23:59:59Z",
+    "credentialSubject": {
+      "id": "did:example:yamada-taro",
+      "name": "Taro Yamada",
+      "checkDate": "2024-01-15",
+      "checkType": "Criminal Background Check"
+    },
+    "proof": {
+      "type": "DataIntegrityProof",
+      "cryptosuite": "eddsa-rdfc-2022",
+      "created": "2025-08-11T09:36:45.899732+00:00",
+      "verificationMethod": "https://example.com/issuers/keys/d6e3d1d3",
+      "proofPurpose": "assertionMethod",
+      "proofValue": "z4df38a8e43db822a...dummy...fdfc54152e552cbd"
+    }
+  },
+  {
+    "@context": [
+      "https://www.w3.org/ns/credentials/v2",
+      "https://example.com/contexts/health/v1",
+      "https://hl7.org/fhir"
+    ],
+    "id": "https://example.com/credentials/vc-050",
+    "type": [
+      "VerifiableCredential",
+      "PeerReviewNotification"
+    ],
+    "issuer": {
+      "id": "https://example.com/issuers/health-research-institute",
+      "name": "Health Research Institute"
+    },
+    "validFrom": "2024-01-15T00:00:00Z",
+    "validUntil": "2025-01-14T23:59:59Z",
+    "credentialSubject": {
+      "id": "did:example:yamada-taro",
+      "name": "Taro Yamada",
+      "paperTitle": "Innovations in Health Technology",
+      "reviewDate": "2024-01-15",
+      "journal": "International Journal of Health Innovations"
+    },
+    "proof": {
+      "type": "DataIntegrityProof",
+      "cryptosuite": "eddsa-rdfc-2022",
+      "created": "2025-08-11T09:36:49.807863+00:00",
+      "verificationMethod": "https://example.com/issuers/keys/3e212782",
+      "proofPurpose": "assertionMethod",
+      "proofValue": "z4902f2f3828a39dc...dummy...004d56aec334b41f"
+    }
+  },
+  {
+    "@context": [
+      "https://www.w3.org/ns/credentials/v2",
+      "https://example.com/contexts/transport/v1"
+    ],
+    "id": "https://example.com/credentials/vc-051",
+    "type": [
+      "VerifiableCredential",
+      "VehicleInspectionCertificate"
+    ],
+    "issuer": {
+      "id": "https://example.com/issuers/vehicle-inspection",
+      "name": "Tokyo Vehicle Inspection Authority"
+    },
+    "validFrom": "2024-01-15T00:00:00Z",
+    "validUntil": "2026-01-14T23:59:59Z",
+    "credentialSubject": {
+      "id": "did:example:yamada-taro",
+      "vehicleNumber": "Tokyo 123-45-67",
+      "inspectionDate": "2024-01-15",
+      "expiryDate": "2026-01-14",
+      "name": "Taro Yamada"
+    },
+    "proof": {
+      "type": "DataIntegrityProof",
+      "cryptosuite": "eddsa-rdfc-2022",
+      "created": "2025-08-11T09:36:54.103080+00:00",
+      "verificationMethod": "https://example.com/issuers/keys/a12e24de",
+      "proofPurpose": "assertionMethod",
+      "proofValue": "z78342aec51f67081...dummy...f91841f0a186ccbe"
+    }
+  },
+  {
+    "@context": [
+      "https://www.w3.org/ns/credentials/v2",
+      "https://example.com/contexts/transport/v1"
+    ],
+    "id": "https://example.com/credentials/vc-052",
+    "type": [
+      "VerifiableCredential",
+      "AutoInsurancePolicy"
+    ],
+    "issuer": {
+      "id": "https://example.com/issuers/auto-insurance",
+      "name": "Tokyo Auto Insurance Co."
+    },
+    "validFrom": "2024-01-15T00:00:00Z",
+    "validUntil": "2025-01-14T23:59:59Z",
+    "credentialSubject": {
+      "id": "did:example:yamada-taro",
+      "policyNumber": "AIP-2024-XYZ123",
+      "vehicleNumber": "Tokyo 123-45-67",
+      "coveragePeriod": "2024-01-15 to 2025-01-14",
+      "coverageType": "Comprehensive",
+      "name": "Taro Yamada"
+    },
+    "proof": {
+      "type": "DataIntegrityProof",
+      "cryptosuite": "eddsa-rdfc-2022",
+      "created": "2025-08-11T09:36:59.472039+00:00",
+      "verificationMethod": "https://example.com/issuers/keys/6d8f753e",
+      "proofPurpose": "assertionMethod",
+      "proofValue": "z48a5a2531452a3d3...dummy...da8eabe1b2f4cb68"
+    }
+  },
+  {
+    "@context": [
+      "https://www.w3.org/ns/credentials/v2",
+      "https://example.com/contexts/transport/v1"
+    ],
+    "id": "https://example.com/credentials/vc-053",
+    "type": [
+      "VerifiableCredential",
+      "ParkingPermit"
+    ],
+    "issuer": {
+      "id": "https://example.com/issuers/parking-authority",
+      "name": "Tokyo Metropolitan Parking Authority"
+    },
+    "validFrom": "2024-01-15T00:00:00Z",
+    "validUntil": "2025-01-14T23:59:59Z",
+    "credentialSubject": {
+      "id": "did:example:yamada-taro",
+      "parkingLocation": "Tokyo Station Parking",
+      "permitNumber": "PERMIT-2024-001",
+      "validityPeriod": "2024-01-15 to 2025-01-14",
+      "name": "Taro Yamada"
+    },
+    "proof": {
+      "type": "DataIntegrityProof",
+      "cryptosuite": "eddsa-rdfc-2022",
+      "created": "2025-08-11T09:37:02.997071+00:00",
+      "verificationMethod": "https://example.com/issuers/keys/9d480292",
+      "proofPurpose": "assertionMethod",
+      "proofValue": "zfdc202d1bcbd3493...dummy...439c9faa617d38c4"
+    }
+  },
+  {
+    "@context": [
+      "https://www.w3.org/ns/credentials/v2",
+      "https://example.com/contexts/transport/v1"
+    ],
+    "id": "https://example.com/credentials/vc-054",
+    "type": [
+      "VerifiableCredential",
+      "ParkingTicket"
+    ],
+    "issuer": {
+      "id": "https://example.com/issuers/parking-authority",
+      "name": "Tokyo Metropolitan Parking Authority"
+    },
+    "validFrom": "2024-01-15T00:00:00Z",
+    "validUntil": "2024-07-15T23:59:59Z",
+    "credentialSubject": {
+      "id": "did:example:yamada-taro",
+      "parkingLocation": "Tokyo Station Parking",
+      "parkingTime": "2024-01-15T10:00:00Z",
+      "ticketNumber": "TKT-2024-001",
+      "name": "Taro Yamada"
+    },
+    "proof": {
+      "type": "DataIntegrityProof",
+      "cryptosuite": "eddsa-rdfc-2022",
+      "created": "2025-08-11T09:37:08.029955+00:00",
+      "verificationMethod": "https://example.com/issuers/keys/40eb1b5b",
+      "proofPurpose": "assertionMethod",
+      "proofValue": "z896de9b2db018878...dummy...88b43e62a4a704c4"
+    }
+  },
+  {
+    "@context": [
+      "https://www.w3.org/ns/credentials/v2",
+      "https://example.com/contexts/transport/v1"
+    ],
+    "id": "https://example.com/credentials/vc-055",
+    "type": [
+      "VerifiableCredential",
+      "InternationalDrivingPermit"
+    ],
+    "issuer": {
+      "id": "https://example.com/issuers/transport-authority",
+      "name": "Tokyo Transport Authority"
+    },
+    "validFrom": "2024-01-15T00:00:00Z",
+    "validUntil": "2026-01-14T23:59:59Z",
+    "credentialSubject": {
+      "id": "did:example:yamada-taro",
+      "name": "Taro Yamada",
+      "permitNumber": "PERMIT-2024-001",
+      "issuanceDate": "2024-01-15",
+      "expiryDate": "2026-01-14"
+    },
+    "proof": {
+      "type": "DataIntegrityProof",
+      "cryptosuite": "eddsa-rdfc-2022",
+      "created": "2025-08-11T09:37:11.422852+00:00",
+      "verificationMethod": "https://example.com/issuers/keys/087df5d2",
+      "proofPurpose": "assertionMethod",
+      "proofValue": "z315a25a033e99cf8...dummy...42635e31225df9ed"
+    }
+  },
+  {
+    "@context": [
+      "https://www.w3.org/ns/credentials/v2",
+      "https://example.com/contexts/transport/v1"
+    ],
+    "id": "https://example.com/credentials/vc-056",
+    "type": [
+      "VerifiableCredential",
+      "BoatLicense"
+    ],
+    "issuer": {
+      "id": "https://example.com/issuers/smallboatlicense",
+      "name": "Tokyo Maritime Authority"
+    },
+    "validFrom": "2024-01-15T00:00:00Z",
+    "validUntil": "2026-01-14T23:59:59Z",
+    "credentialSubject": {
+      "id": "did:example:yamada-taro",
+      "name": "Taro Yamada",
+      "licenseNumber": "123456789012",
+      "licenseType": "Small Boat License"
+    },
+    "proof": {
+      "type": "DataIntegrityProof",
+      "cryptosuite": "eddsa-rdfc-2022",
+      "created": "2025-08-11T09:37:15.663504+00:00",
+      "verificationMethod": "https://example.com/issuers/keys/6094838d",
+      "proofPurpose": "assertionMethod",
+      "proofValue": "z5ce69c956e1a27d1...dummy...420c6e913bd7f9c5"
+    }
+  },
+  {
+    "@context": [
+      "https://www.w3.org/ns/credentials/v2",
+      "https://example.com/contexts/transport/v1"
+    ],
+    "id": "https://example.com/credentials/vc-057",
+    "type": [
+      "VerifiableCredential",
+      "RentalCarReservation"
+    ],
+    "issuer": {
+      "id": "https://example.com/issuers/rentalcar",
+      "name": "Global Car Rentals Inc."
+    },
+    "validFrom": "2024-01-15T00:00:00Z",
+    "validUntil": "2024-02-18T23:59:59Z",
+    "credentialSubject": {
+      "id": "did:example:yamada-taro",
+      "name": "Taro Yamada",
+      "reservationId": "RES-2024-001",
+      "rentalPeriod": "2024-01-15 to 2024-01-20",
+      "vehicleType": "Compact"
+    },
+    "proof": {
+      "type": "DataIntegrityProof",
+      "cryptosuite": "eddsa-rdfc-2022",
+      "created": "2025-08-11T09:37:20.875707+00:00",
+      "verificationMethod": "https://example.com/issuers/keys/716cbb01",
+      "proofPurpose": "assertionMethod",
+      "proofValue": "z9ec72ed5e95f89c1...dummy...c1252360e1211708"
+    }
+  },
+  {
+    "@context": [
+      "https://www.w3.org/ns/credentials/v2",
+      "https://example.com/contexts/transport/v1"
+    ],
+    "id": "https://example.com/credentials/vc-058",
+    "type": [
+      "VerifiableCredential",
+      "RentalCarReturn"
+    ],
+    "issuer": {
+      "id": "https://example.com/issuers/rentalcarcompany",
+      "name": "Tokyo Rental Cars Co."
+    },
+    "validFrom": "2024-01-15T00:00:00Z",
+    "validUntil": "2025-01-15T23:59:59Z",
+    "credentialSubject": {
+      "id": "did:example:yamada-taro",
+      "name": "Taro Yamada",
+      "rentalId": "RENT-2024-001",
+      "returnDate": "2024-01-20"
+    },
+    "proof": {
+      "type": "DataIntegrityProof",
+      "cryptosuite": "eddsa-rdfc-2022",
+      "created": "2025-08-11T09:37:24.541398+00:00",
+      "verificationMethod": "https://example.com/issuers/keys/45505472",
+      "proofPurpose": "assertionMethod",
+      "proofValue": "z876903a9a7de86fb...dummy...e493c6e922ea78bd"
+    }
+  },
+  {
+    "@context": [
+      "https://www.w3.org/ns/credentials/v2",
+      "https://example.com/contexts/transport/v1"
+    ],
+    "id": "https://example.com/credentials/vc-059",
+    "type": [
+      "VerifiableCredential",
+      "CommuterPass"
+    ],
+    "issuer": {
+      "id": "https://example.com/issuers/commuter-pass-issuer",
+      "name": "Tokyo Transportation Authority"
+    },
+    "validFrom": "2024-01-15T00:00:00Z",
+    "validUntil": "2025-01-14T23:59:59Z",
+    "credentialSubject": {
+      "id": "did:example:yamada-taro",
+      "name": "Taro Yamada",
+      "route": "Tokyo to Yokohama",
+      "validPeriod": "2024-01-15 to 2024-04-14"
+    },
+    "proof": {
+      "type": "DataIntegrityProof",
+      "cryptosuite": "eddsa-rdfc-2022",
+      "created": "2025-08-11T09:37:27.950116+00:00",
+      "verificationMethod": "https://example.com/issuers/keys/fd01ae6a",
+      "proofPurpose": "assertionMethod",
+      "proofValue": "zc05db3fcc50dffff...dummy...1b30f95261aacc26"
+    }
+  },
+  {
+    "@context": [
+      "https://www.w3.org/ns/credentials/v2",
+      "https://example.com/contexts/transport/v1"
+    ],
+    "id": "https://example.com/credentials/vc-060",
+    "type": [
+      "VerifiableCredential",
+      "DeliveryReceipt"
+    ],
+    "issuer": {
+      "id": "https://example.com/issuers/12345",
+      "name": "Logistics Solutions Inc."
+    },
+    "validFrom": "2024-01-15T00:00:00Z",
+    "validUntil": "2025-01-15T23:59:59Z",
+    "credentialSubject": {
+      "id": "did:example:yamada-taro",
+      "name": "Taro Yamada",
+      "trackingNumber": "TRACK-2024-001",
+      "receivedDate": "2024-01-20"
+    },
+    "proof": {
+      "type": "DataIntegrityProof",
+      "cryptosuite": "eddsa-rdfc-2022",
+      "created": "2025-08-11T09:37:40.694361+00:00",
+      "verificationMethod": "https://example.com/issuers/keys/65a38ce6",
+      "proofPurpose": "assertionMethod",
+      "proofValue": "ze58deb70a7d5d4cb...dummy...2793e072e3cf8b5f"
+    }
+  },
+  {
+    "@context": [
+      "https://www.w3.org/ns/credentials/v2",
+      "https://example.com/contexts/transport/v1"
+    ],
+    "id": "https://example.com/credentials/vc-061",
+    "type": [
+      "VerifiableCredential",
+      "PostalCertificate"
+    ],
+    "issuer": {
+      "id": "https://example.com/issuers/post-office",
+      "name": "Tokyo Central Post Office"
+    },
+    "validFrom": "2024-01-15T00:00:00Z",
+    "validUntil": "2025-01-14T23:59:59Z",
+    "credentialSubject": {
+      "id": "did:example:yamada-taro",
+      "name": "Taro Yamada",
+      "certificateType": "Registered Mail Certificate",
+      "issuanceDate": "2024-01-15"
+    },
+    "proof": {
+      "type": "DataIntegrityProof",
+      "cryptosuite": "eddsa-rdfc-2022",
+      "created": "2025-08-11T09:37:46.538033+00:00",
+      "verificationMethod": "https://example.com/issuers/keys/fc49ccee",
+      "proofPurpose": "assertionMethod",
+      "proofValue": "z0b14d7bbd6f68b24...dummy...7c7c03f573a88cbc"
+    }
+  },
+  {
+    "@context": [
+      "https://www.w3.org/ns/credentials/v2",
+      "https://example.com/contexts/travel/v1"
+    ],
+    "id": "https://example.com/credentials/vc-062",
+    "type": [
+      "VerifiableCredential",
+      "TouristVisa"
+    ],
+    "issuer": {
+      "id": "https://example.com/issuers/123456",
+      "name": "Tokyo Immigration Authority"
+    },
+    "validFrom": "2024-01-15T00:00:00Z",
+    "validUntil": "2025-01-14T23:59:59Z",
+    "credentialSubject": {
+      "id": "did:example:yamada-taro",
+      "name": "Taro Yamada",
+      "visaType": "Tourist",
+      "country": "United States",
+      "validPeriod": "2024-01-15 to 2024-04-14"
+    },
+    "proof": {
+      "type": "DataIntegrityProof",
+      "cryptosuite": "eddsa-rdfc-2022",
+      "created": "2025-08-11T09:37:50.715260+00:00",
+      "verificationMethod": "https://example.com/issuers/keys/6e3a7e1b",
+      "proofPurpose": "assertionMethod",
+      "proofValue": "z9d103b2b5cc7df72...dummy...c97341be8e8204d3"
+    }
+  },
+  {
+    "@context": [
+      "https://www.w3.org/ns/credentials/v2",
+      "https://example.com/contexts/travel/v1"
+    ],
+    "id": "https://example.com/credentials/vc-063",
+    "type": [
+      "VerifiableCredential",
+      "WorkVisa"
+    ],
+    "issuer": {
+      "id": "https://example.com/issuers/workvisa",
+      "name": "Ministry of Foreign Affairs, Japan"
+    },
+    "validFrom": "2024-01-15T00:00:00Z",
+    "validUntil": "2026-01-14T23:59:59Z",
+    "credentialSubject": {
+      "id": "did:example:yamada-taro",
+      "name": "Taro Yamada",
+      "visaType": "Work Visa",
+      "country": "United States",
+      "validPeriod": "2024-01-15 to 2024-04-14",
+      "employer": "Example Tech Corporation"
+    },
+    "proof": {
+      "type": "DataIntegrityProof",
+      "cryptosuite": "eddsa-rdfc-2022",
+      "created": "2025-08-11T09:37:54.454077+00:00",
+      "verificationMethod": "https://example.com/issuers/keys/4dca98e0",
+      "proofPurpose": "assertionMethod",
+      "proofValue": "z91331cbbcac851df...dummy...d98aff2511af71dc"
+    }
+  },
+  {
+    "@context": [
+      "https://www.w3.org/ns/credentials/v2",
+      "https://example.com/contexts/travel/v1"
+    ],
+    "id": "https://example.com/credentials/vc-064",
+    "type": [
+      "VerifiableCredential",
+      "GuesthouseStayCertificate"
+    ],
+    "issuer": {
+      "id": "https://example.com/issuers/guesthouse-certificate",
+      "name": "Tokyo Guesthouse Association"
+    },
+    "validFrom": "2024-01-15T00:00:00Z",
+    "validUntil": "2025-01-15T23:59:59Z",
+    "credentialSubject": {
+      "id": "did:example:yamada-taro",
+      "name": "Taro Yamada",
+      "guesthouseName": "Tokyo Guesthouse",
+      "stayPeriod": "2024-02-01 to 2024-02-05"
+    },
+    "proof": {
+      "type": "DataIntegrityProof",
+      "cryptosuite": "eddsa-rdfc-2022",
+      "created": "2025-08-11T09:38:04.506849+00:00",
+      "verificationMethod": "https://example.com/issuers/keys/2bd08ee2",
+      "proofPurpose": "assertionMethod",
+      "proofValue": "z2dd260fa85009f5e...dummy...b35b7d12b08c0eee"
+    }
+  },
+  {
+    "@context": [
+      "https://www.w3.org/ns/credentials/v2",
+      "https://example.com/contexts/travel/v1"
+    ],
+    "id": "https://example.com/credentials/vc-065",
+    "type": [
+      "VerifiableCredential",
+      "GuesthouseStayCertificate"
+    ],
+    "issuer": {
+      "id": "https://example.com/issuers/hakone-guesthouse",
+      "name": "Hakone Hot Spring Guesthouse Association"
+    },
+    "validFrom": "2024-04-20T00:00:00Z",
+    "validUntil": "2025-04-19T23:59:59Z",
+    "credentialSubject": {
+      "id": "did:example:yamada-taro",
+      "name": "Taro Yamada",
+      "stayPeriod": "2024-04-20 to 2024-04-22",
+      "roomType": "Japanese Style Room with Hot Spring",
+      "guesthouseName": "Hakone Hot Spring Guesthouse Mountain Lodge"
+    },
+    "proof": {
+      "type": "DataIntegrityProof",
+      "cryptosuite": "eddsa-rdfc-2022",
+      "created": "2025-08-11T15:06:54.439853+00:00",
+      "verificationMethod": "https://example.com/issuers/keys/e83aaa84",
+      "proofPurpose": "assertionMethod",
+      "proofValue": "z31dad9c8d902c125...dummy...ba4ad496cfb4d5e4"
+    }
+  },
+  {
+    "@context": [
+      "https://www.w3.org/ns/credentials/v2",
+      "https://example.com/contexts/travel/v1"
+    ],
+    "id": "https://example.com/credentials/vc-066",
+    "type": [
+      "VerifiableCredential",
+      "GuesthouseStayCertificate"
+    ],
+    "issuer": {
+      "id": "https://example.com/issuers/kyoto-guesthouse",
+      "name": "Kyoto Traditional Guesthouse Association"
+    },
+    "validFrom": "2024-05-03T00:00:00Z",
+    "validUntil": "2025-05-02T23:59:59Z",
+    "credentialSubject": {
+      "id": "did:example:yamada-taro",
+      "name": "Taro Yamada",
+      "stayPeriod": "2024-05-03 to 2024-05-05",
+      "roomType": "Traditional Machiya House",
+      "guesthouseName": "Kyoto Traditional Guesthouse Historic Inn"
+    },
+    "proof": {
+      "type": "DataIntegrityProof",
+      "cryptosuite": "eddsa-rdfc-2022",
+      "created": "2025-08-11T15:06:54.439860+00:00",
+      "verificationMethod": "https://example.com/issuers/keys/4f71992a",
+      "proofPurpose": "assertionMethod",
+      "proofValue": "z02221b5053f3b9ed...dummy...e1f871d6af5204d5"
+    }
+  },
+  {
+    "@context": [
+      "https://www.w3.org/ns/credentials/v2",
+      "https://example.com/contexts/travel/v1"
+    ],
+    "id": "https://example.com/credentials/vc-067",
+    "type": [
+      "VerifiableCredential",
+      "CruiseTourCertificate"
+    ],
+    "issuer": {
+      "id": "https://example.com/issuers/cruise-certificates",
+      "name": "Global Travel Agency"
+    },
+    "validFrom": "2024-01-15T00:00:00Z",
+    "validUntil": "2025-01-15T23:59:59Z",
+    "credentialSubject": {
+      "id": "did:example:yamada-taro",
+      "name": "Taro Yamada",
+      "cruiseName": "Pacific Cruise",
+      "cruiseDate": "2024-03-01"
+    },
+    "proof": {
+      "type": "DataIntegrityProof",
+      "cryptosuite": "eddsa-rdfc-2022",
+      "created": "2025-08-11T09:38:15.873994+00:00",
+      "verificationMethod": "https://example.com/issuers/keys/fe7162dc",
+      "proofPurpose": "assertionMethod",
+      "proofValue": "z2790597e1ca7e1ec...dummy...437ce50e2e04049b"
+    }
+  },
+  {
+    "@context": [
+      "https://www.w3.org/ns/credentials/v2",
+      "https://example.com/contexts/travel/v1"
+    ],
+    "id": "https://example.com/credentials/vc-068",
+    "type": [
+      "VerifiableCredential",
+      "CruiseTourCertificate"
+    ],
+    "issuer": {
+      "id": "https://example.com/issuers/mediterranean-cruise",
+      "name": "Mediterranean Cruise Lines"
+    },
+    "validFrom": "2024-07-10T00:00:00Z",
+    "validUntil": "2025-07-09T23:59:59Z",
+    "credentialSubject": {
+      "id": "did:example:yamada-taro",
+      "name": "Taro Yamada",
+      "cruiseName": "Mediterranean Cruise",
+      "cruiseDate": "2024-07-10 to 2024-07-17",
+      "route": "Barcelona - Nice - Rome - Athens",
+      "cabinType": "Balcony Suite"
+    },
+    "proof": {
+      "type": "DataIntegrityProof",
+      "cryptosuite": "eddsa-rdfc-2022",
+      "created": "2025-08-11T15:06:54.439879+00:00",
+      "verificationMethod": "https://example.com/issuers/keys/fecf4916",
+      "proofPurpose": "assertionMethod",
+      "proofValue": "za7a2c614f9ea7314...dummy...f646cd78e726ab69"
+    }
+  },
+  {
+    "@context": [
+      "https://www.w3.org/ns/credentials/v2",
+      "https://example.com/contexts/travel/v1"
+    ],
+    "id": "https://example.com/credentials/vc-069",
+    "type": [
+      "VerifiableCredential",
+      "CruiseTourCertificate"
+    ],
+    "issuer": {
+      "id": "https://example.com/issuers/pacific-cruise",
+      "name": "Pacific Ocean Cruise Lines"
+    },
+    "validFrom": "2024-08-15T00:00:00Z",
+    "validUntil": "2025-08-14T23:59:59Z",
+    "credentialSubject": {
+      "id": "did:example:yamada-taro",
+      "name": "Taro Yamada",
+      "cruiseName": "Pacific Ocean Cruise",
+      "cruiseDate": "2024-08-15 to 2024-08-22",
+      "route": "Tokyo - Hawaii - San Francisco - Vancouver",
+      "cabinType": "Ocean View Suite"
+    },
+    "proof": {
+      "type": "DataIntegrityProof",
+      "cryptosuite": "eddsa-rdfc-2022",
+      "created": "2025-08-11T15:12:49.843040+00:00",
+      "verificationMethod": "https://example.com/issuers/keys/2bdc8c77",
+      "proofPurpose": "assertionMethod",
+      "proofValue": "z40ca7ae6bb68b8c7...dummy...d37b8084909eafa7"
+    }
+  },
+  {
+    "@context": [
+      "https://www.w3.org/ns/credentials/v2",
+      "https://example.com/contexts/travel/v1"
+    ],
+    "id": "https://example.com/credentials/vc-070",
+    "type": [
+      "VerifiableCredential",
+      "EntryPermit"
+    ],
+    "issuer": {
+      "id": "https://example.com/issuers/entry-permit-authority",
+      "name": "Tokyo Entry Permit Authority"
+    },
+    "validFrom": "2024-01-15T00:00:00Z",
+    "validUntil": "2025-01-15T23:59:59Z",
+    "credentialSubject": {
+      "id": "did:example:yamada-taro",
+      "name": "Taro Yamada",
+      "country": "United States",
+      "entryDate": "2024-02-01"
+    },
+    "proof": {
+      "type": "DataIntegrityProof",
+      "cryptosuite": "eddsa-rdfc-2022",
+      "created": "2025-08-11T09:38:19.582180+00:00",
+      "verificationMethod": "https://example.com/issuers/keys/4598a024",
+      "proofPurpose": "assertionMethod",
+      "proofValue": "z7f776f84bfc77950...dummy...b78dd4be6b3d60b6"
+    }
+  },
+  {
+    "@context": [
+      "https://www.w3.org/ns/credentials/v2",
+      "https://example.com/contexts/travel/v1"
+    ],
+    "id": "https://example.com/credentials/vc-071",
+    "type": [
+      "VerifiableCredential",
+      "ExitCertificate"
+    ],
+    "issuer": {
+      "id": "https://example.com/issuers/exit-certificates",
+      "name": "Tokyo Immigration Authority"
+    },
+    "validFrom": "2024-01-15T00:00:00Z",
+    "validUntil": "2025-01-14T23:59:59Z",
+    "credentialSubject": {
+      "id": "did:example:yamada-taro",
+      "name": "Taro Yamada",
+      "country": "United States",
+      "exitDate": "2024-02-15"
+    },
+    "proof": {
+      "type": "DataIntegrityProof",
+      "cryptosuite": "eddsa-rdfc-2022",
+      "created": "2025-08-11T09:38:23.849969+00:00",
+      "verificationMethod": "https://example.com/issuers/keys/afd3ada5",
+      "proofPurpose": "assertionMethod",
+      "proofValue": "z54fd56ceeffc77a4...dummy...b04220e90d40bc77"
+    }
+  },
+  {
+    "@context": [
+      "https://www.w3.org/ns/credentials/v2",
+      "https://example.com/contexts/travel/v1"
+    ],
+    "id": "https://example.com/credentials/vc-072",
+    "type": [
+      "VerifiableCredential",
+      "BaggageClaim"
+    ],
+    "issuer": {
+      "id": "https://example.com/issuers/airport",
+      "name": "Tokyo International Airport Authority"
+    },
+    "validFrom": "2024-01-15T00:00:00Z",
+    "validUntil": "2025-01-15T23:59:59Z",
+    "credentialSubject": {
+      "id": "did:example:yamada-taro",
+      "name": "Taro Yamada",
+      "claimNumber": "CLM-2024-001",
+      "flightNumber": "JL123"
+    },
+    "proof": {
+      "type": "DataIntegrityProof",
+      "cryptosuite": "eddsa-rdfc-2022",
+      "created": "2025-08-11T09:38:27.996806+00:00",
+      "verificationMethod": "https://example.com/issuers/keys/17397779",
+      "proofPurpose": "assertionMethod",
+      "proofValue": "z4c8cff897e592dfe...dummy...00d506360519882e"
+    }
+  },
+  {
+    "@context": [
+      "https://www.w3.org/ns/credentials/v2",
+      "https://example.com/contexts/travel/v1"
+    ],
+    "id": "https://example.com/credentials/vc-073",
+    "type": [
+      "VerifiableCredential",
+      "LockerCertificate"
+    ],
+    "issuer": {
+      "id": "https://example.com/issuers/coin-locker-certificates",
+      "name": "Tokyo Travel Services"
+    },
+    "validFrom": "2024-01-15T00:00:00Z",
+    "validUntil": "2025-01-14T23:59:59Z",
+    "credentialSubject": {
+      "id": "did:example:yamada-taro",
+      "lockerNumber": "A-123",
+      "location": "Tokyo Station",
+      "usageTime": "2024-01-15T10:00:00Z to 2024-01-15T18:00:00Z",
+      "name": "Taro Yamada"
+    },
+    "proof": {
+      "type": "DataIntegrityProof",
+      "cryptosuite": "eddsa-rdfc-2022",
+      "created": "2025-08-11T09:38:33.248005+00:00",
+      "verificationMethod": "https://example.com/issuers/keys/5a1ff74e",
+      "proofPurpose": "assertionMethod",
+      "proofValue": "z20028ad02fa3e6c9...dummy...ccb48d272849fc08"
+    }
+  },
+  {
+    "@context": [
+      "https://www.w3.org/ns/credentials/v2",
+      "https://example.com/contexts/finance/v1",
+      "https://schema.org/"
+    ],
+    "id": "https://example.com/credentials/vc-074",
+    "type": [
+      "VerifiableCredential",
+      "TaxWithholdingCertificate"
+    ],
+    "issuer": {
+      "id": "https://example.com/issuers/tax-authority",
+      "name": "Tokyo Tax Authority"
+    },
+    "validFrom": "2024-01-15T00:00:00Z",
+    "validUntil": "2025-01-14T23:59:59Z",
+    "credentialSubject": {
+      "id": "did:example:yamada-taro",
+      "name": "Taro Yamada",
+      "employer": "Example Tech Corporation",
+      "taxYear": "2023",
+      "withholdingAmount": "100000"
+    },
+    "proof": {
+      "type": "DataIntegrityProof",
+      "cryptosuite": "eddsa-rdfc-2022",
+      "created": "2025-08-11T09:38:37.406233+00:00",
+      "verificationMethod": "https://example.com/issuers/keys/d5fab138",
+      "proofPurpose": "assertionMethod",
+      "proofValue": "za470264b61d134c3...dummy...ff63cb41deb1ebf4"
+    }
+  },
+  {
+    "@context": [
+      "https://www.w3.org/ns/credentials/v2",
+      "https://example.com/contexts/finance/v1",
+      "https://schema.org/"
+    ],
+    "id": "https://example.com/credentials/vc-075",
+    "type": [
+      "VerifiableCredential",
+      "TaxReturnCertificate"
+    ],
+    "issuer": {
+      "id": "https://taxauthority.example.com/issuers/123",
+      "name": "Tokyo Tax Authority"
+    },
+    "validFrom": "2024-01-15T00:00:00Z",
+    "validUntil": "2025-01-14T23:59:59Z",
+    "credentialSubject": {
+      "id": "did:example:yamada-taro",
+      "name": "Taro Yamada",
+      "taxYear": "2023",
+      "filingDate": "2024-03-15"
+    },
+    "proof": {
+      "type": "DataIntegrityProof",
+      "cryptosuite": "eddsa-rdfc-2022",
+      "created": "2025-08-11T09:38:43.129609+00:00",
+      "verificationMethod": "https://example.com/issuers/keys/1f583e6e",
+      "proofPurpose": "assertionMethod",
+      "proofValue": "z0a0586f846cb5838...dummy...d2bd7229489554d4"
+    }
+  },
+  {
+    "@context": [
+      "https://www.w3.org/ns/credentials/v2",
+      "https://example.com/contexts/finance/v1",
+      "https://schema.org/"
+    ],
+    "id": "https://example.com/credentials/vc-076",
+    "type": [
+      "VerifiableCredential",
+      "TaxPaymentCertificate"
+    ],
+    "issuer": {
+      "id": "https://taxauthority.example.com/issuers/123456",
+      "name": "Tokyo Tax Authority"
+    },
+    "validFrom": "2024-01-15T00:00:00Z",
+    "validUntil": "2025-01-14T23:59:59Z",
+    "credentialSubject": {
+      "id": "did:example:yamada-taro",
+      "name": "Taro Yamada",
+      "taxType": "Income Tax",
+      "paymentDate": "2024-03-31",
+      "amount": "500000"
+    },
+    "proof": {
+      "type": "DataIntegrityProof",
+      "cryptosuite": "eddsa-rdfc-2022",
+      "created": "2025-08-11T09:38:47.426286+00:00",
+      "verificationMethod": "https://example.com/issuers/keys/adc59bc5",
+      "proofPurpose": "assertionMethod",
+      "proofValue": "zdc8acf244198bc7c...dummy...4cef6606b8368c65"
+    }
+  },
+  {
+    "@context": [
+      "https://www.w3.org/ns/credentials/v2",
+      "https://example.com/contexts/finance/v1",
+      "https://schema.org/"
+    ],
+    "id": "https://example.com/credentials/vc-077",
+    "type": [
+      "VerifiableCredential",
+      "TravelInsurance"
+    ],
+    "issuer": {
+      "id": "https://example.com/issuers/travelinsurance",
+      "name": "Global Travel Insurance Co."
+    },
+    "validFrom": "2024-01-15T00:00:00Z",
+    "validUntil": "2025-01-14T23:59:59Z",
+    "credentialSubject": {
+      "id": "did:example:yamada-taro",
+      "name": "Taro Yamada",
+      "policyNumber": "POL-2024-001",
+      "coveragePeriod": "2024-01-15 to 2025-01-14",
+      "destination": "United States"
+    },
+    "proof": {
+      "type": "DataIntegrityProof",
+      "cryptosuite": "eddsa-rdfc-2022",
+      "created": "2025-08-11T09:38:52.982366+00:00",
+      "verificationMethod": "https://example.com/issuers/keys/0d4b675e",
+      "proofPurpose": "assertionMethod",
+      "proofValue": "zc75eafbb5509cf8e...dummy...b2b9bc27c582d624"
+    }
+  },
+  {
+    "@context": [
+      "https://www.w3.org/ns/credentials/v2",
+      "https://example.com/contexts/finance/v1",
+      "https://schema.org/"
+    ],
+    "id": "https://example.com/credentials/vc-078",
+    "type": [
+      "VerifiableCredential",
+      "PensionPaymentCertificate"
+    ],
+    "issuer": {
+      "id": "https://pension.gov.jp/issuers/nationalpension",
+      "name": "Japan National Pension Service"
+    },
+    "validFrom": "2024-01-15T00:00:00Z",
+    "validUntil": "2025-01-14T23:59:59Z",
+    "credentialSubject": {
+      "id": "did:example:yamada-taro",
+      "name": "Taro Yamada",
+      "pensionNumber": "PEN-123456",
+      "paymentPeriod": "2024-01",
+      "amount": "500000",
+      "employer": "Example Tech Corporation"
+    },
+    "proof": {
+      "type": "DataIntegrityProof",
+      "cryptosuite": "eddsa-rdfc-2022",
+      "created": "2025-08-11T09:38:56.759707+00:00",
+      "verificationMethod": "https://example.com/issuers/keys/b19e30fb",
+      "proofPurpose": "assertionMethod",
+      "proofValue": "zd6f20b88cb689cb9...dummy...c8f8bb3c5716b494"
+    }
+  },
+  {
+    "@context": [
+      "https://www.w3.org/ns/credentials/v2",
+      "https://example.com/contexts/finance/v1",
+      "https://schema.org/"
+    ],
+    "id": "https://example.com/credentials/vc-079",
+    "type": [
+      "VerifiableCredential",
+      "LifeInsuranceCertificate"
+    ],
+    "issuer": {
+      "id": "https://example.com/issuers/life-insurance",
+      "name": "Tokyo Life Insurance Company"
+    },
+    "validFrom": "2024-01-15T00:00:00Z",
+    "validUntil": "2034-01-14T23:59:59Z",
+    "credentialSubject": {
+      "id": "did:example:yamada-taro",
+      "name": "Taro Yamada",
+      "policyNumber": "POL-2024-001",
+      "insuredAmount": "10000000"
+    },
+    "proof": {
+      "type": "DataIntegrityProof",
+      "cryptosuite": "eddsa-rdfc-2022",
+      "created": "2025-08-11T09:39:00.419225+00:00",
+      "verificationMethod": "https://example.com/issuers/keys/bd2eb257",
+      "proofPurpose": "assertionMethod",
+      "proofValue": "z476916ef7e110a10...dummy...31cd93a879cb66d3"
+    }
+  },
+  {
+    "@context": [
+      "https://www.w3.org/ns/credentials/v2",
+      "https://example.com/contexts/finance/v1",
+      "https://schema.org/"
+    ],
+    "id": "https://example.com/credentials/vc-080",
+    "type": [
+      "VerifiableCredential",
+      "MileageAccountCertificate"
+    ],
+    "issuer": {
+      "id": "https://example.com/issuers/airline-miles",
+      "name": "Global Airline Loyalty Program"
+    },
+    "validFrom": "2024-01-15T00:00:00Z",
+    "validUntil": "2025-01-14T23:59:59Z",
+    "credentialSubject": {
+      "id": "did:example:yamada-taro",
+      "name": "Taro Yamada",
+      "memberNumber": "MEM-123456",
+      "airline": "Japan Airlines",
+      "miles": "50000"
+    },
+    "proof": {
+      "type": "DataIntegrityProof",
+      "cryptosuite": "eddsa-rdfc-2022",
+      "created": "2025-08-11T09:39:04.957401+00:00",
+      "verificationMethod": "https://example.com/issuers/keys/7f300654",
+      "proofPurpose": "assertionMethod",
+      "proofValue": "za0767852740c581c...dummy...925b8b540de19081"
+    }
+  },
+  {
+    "@context": [
+      "https://www.w3.org/ns/credentials/v2",
+      "https://example.com/contexts/finance/v1",
+      "https://schema.org/"
+    ],
+    "id": "https://example.com/credentials/vc-081",
+    "type": [
+      "VerifiableCredential",
+      "HotelPointsMembership"
+    ],
+    "issuer": {
+      "id": "https://example.com/issuers/hotelpoints",
+      "name": "Global Hotel Loyalty Program"
+    },
+    "validFrom": "2024-01-15T00:00:00Z",
+    "validUntil": "2025-01-14T23:59:59Z",
+    "credentialSubject": {
+      "id": "did:example:yamada-taro",
+      "name": "Taro Yamada",
+      "memberNumber": "MEM-123456",
+      "hotelChain": "Tokyo Hotels",
+      "points": "10000"
+    },
+    "proof": {
+      "type": "DataIntegrityProof",
+      "cryptosuite": "eddsa-rdfc-2022",
+      "created": "2025-08-11T09:39:09.245142+00:00",
+      "verificationMethod": "https://example.com/issuers/keys/76c7e998",
+      "proofPurpose": "assertionMethod",
+      "proofValue": "zd6a83a96ef5b327b...dummy...558d72f966635ab3"
+    }
+  },
+  {
+    "@context": [
+      "https://www.w3.org/ns/credentials/v2",
+      "https://example.com/contexts/entertainment/v1",
+      "https://schema.org/"
+    ],
+    "id": "https://example.com/credentials/vc-082",
+    "type": [
+      "VerifiableCredential",
+      "MarathonCompletionCertificate"
+    ],
+    "issuer": {
+      "id": "https://marathoncertificates.example.com/issuers/12345",
+      "name": "Tokyo Marathon Authority"
+    },
+    "validFrom": "2024-01-15T00:00:00Z",
+    "credentialSubject": {
+      "id": "did:example:yamada-taro",
+      "name": "Taro Yamada",
+      "eventName": "Tokyo Marathon 2024",
+      "completionTime": "03:45:30",
+      "eventDate": "2024-02-25"
+    },
+    "proof": {
+      "type": "DataIntegrityProof",
+      "cryptosuite": "eddsa-rdfc-2022",
+      "created": "2025-08-11T09:39:14.003805+00:00",
+      "verificationMethod": "https://example.com/issuers/keys/46bf6aca",
+      "proofPurpose": "assertionMethod",
+      "proofValue": "z87d962eb31926918...dummy...d3a8f84bf640fad7"
+    }
+  },
+  {
+    "@context": [
+      "https://www.w3.org/ns/credentials/v2",
+      "https://example.com/contexts/entertainment/v1",
+      "https://schema.org/"
+    ],
+    "id": "https://example.com/credentials/vc-083",
+    "type": [
+      "VerifiableCredential",
+      "TriathlonCertificate"
+    ],
+    "issuer": {
+      "id": "https://example.com/issuers/triathlon-certificates",
+      "name": "Tokyo Triathlon Association"
+    },
+    "validFrom": "2024-01-15T00:00:00Z",
+    "credentialSubject": {
+      "id": "did:example:yamada-taro",
+      "name": "Taro Yamada",
+      "eventName": "Tokyo Marathon 2024",
+      "eventDate": "2024-02-25"
+    },
+    "proof": {
+      "type": "DataIntegrityProof",
+      "cryptosuite": "eddsa-rdfc-2022",
+      "created": "2025-08-11T09:39:18.955361+00:00",
+      "verificationMethod": "https://example.com/issuers/keys/5eff8b34",
+      "proofPurpose": "assertionMethod",
+      "proofValue": "zf104f15bfe7faddc...dummy...fd10fa39b30c8392"
+    }
+  },
+  {
+    "@context": [
+      "https://www.w3.org/ns/credentials/v2",
+      "https://example.com/contexts/entertainment/v1",
+      "https://schema.org/"
+    ],
+    "id": "https://example.com/credentials/vc-084",
+    "type": [
+      "VerifiableCredential",
+      "ClimbingPermit"
+    ],
+    "issuer": {
+      "id": "https://example.com/issuers/mountain-climbing-authority",
+      "name": "Japan Mountain Climbing Authority"
+    },
+    "validFrom": "2024-01-15T00:00:00Z",
+    "validUntil": "2025-01-14T23:59:59Z",
+    "credentialSubject": {
+      "id": "did:example:yamada-taro",
+      "name": "Taro Yamada",
+      "mountainName": "Mount Fuji",
+      "climbDate": "2024-07-15"
+    },
+    "proof": {
+      "type": "DataIntegrityProof",
+      "cryptosuite": "eddsa-rdfc-2022",
+      "created": "2025-08-11T09:39:23.109485+00:00",
+      "verificationMethod": "https://example.com/issuers/keys/c709aafd",
+      "proofPurpose": "assertionMethod",
+      "proofValue": "z82ffb46cb15d7710...dummy...3e2f4cab618538d6"
+    }
+  },
+  {
+    "@context": [
+      "https://www.w3.org/ns/credentials/v2",
+      "https://example.com/contexts/entertainment/v1",
+      "https://schema.org/"
+    ],
+    "id": "https://example.com/credentials/vc-085",
+    "type": [
+      "VerifiableCredential",
+      "MuseumTicket"
+    ],
+    "issuer": {
+      "id": "https://museum.example.com/issuers/12345",
+      "name": "Tokyo National Museum"
+    },
+    "validFrom": "2024-01-15T00:00:00Z",
+    "validUntil": "2025-01-14T23:59:59Z",
+    "credentialSubject": {
+      "id": "did:example:yamada-taro",
+      "museumName": "Tokyo National Museum",
+      "visitDate": "2024-01-20",
+      "name": "Taro Yamada"
+    },
+    "proof": {
+      "type": "DataIntegrityProof",
+      "cryptosuite": "eddsa-rdfc-2022",
+      "created": "2025-08-11T09:39:26.527791+00:00",
+      "verificationMethod": "https://example.com/issuers/keys/7875d862",
+      "proofPurpose": "assertionMethod",
+      "proofValue": "z8313850ef83e3d77...dummy...0a00c6500bf9fac2"
+    }
+  },
+  {
+    "@context": [
+      "https://www.w3.org/ns/credentials/v2",
+      "https://example.com/contexts/entertainment/v1",
+      "https://schema.org/"
+    ],
+    "id": "https://example.com/credentials/vc-086",
+    "type": [
+      "VerifiableCredential",
+      "ThemeParkPass"
+    ],
+    "issuer": {
+      "id": "https://example.com/issuers/amusement-park",
+      "name": "Tokyo Fun Amusement Park"
+    },
+    "validFrom": "2024-01-15T00:00:00Z",
+    "validUntil": "2025-01-14T23:59:59Z",
+    "credentialSubject": {
+      "id": "did:example:yamada-taro",
+      "parkName": "Tokyo Disneyland",
+      "visitDate": "2024-01-20",
+      "name": "Taro Yamada"
+    },
+    "proof": {
+      "type": "DataIntegrityProof",
+      "cryptosuite": "eddsa-rdfc-2022",
+      "created": "2025-08-11T09:39:29.995688+00:00",
+      "verificationMethod": "https://example.com/issuers/keys/e73e1faa",
+      "proofPurpose": "assertionMethod",
+      "proofValue": "z1694bd6476ce52fe...dummy...3516e59e9dbc2829"
+    }
+  },
+  {
+    "@context": [
+      "https://www.w3.org/ns/credentials/v2",
+      "https://example.com/contexts/entertainment/v1",
+      "https://schema.org/"
+    ],
+    "id": "https://example.com/credentials/vc-087",
+    "type": [
+      "VerifiableCredential",
+      "ConcertTicket"
+    ],
+    "issuer": {
+      "id": "https://example.com/issuers/concert-tickets",
+      "name": "Tokyo Concerts Inc."
+    },
+    "validFrom": "2024-01-15T00:00:00Z",
+    "validUntil": "2024-06-21T23:59:59Z",
+    "credentialSubject": {
+      "id": "did:example:yamada-taro",
+      "artistName": "Famous Artist",
+      "venue": "Tokyo Dome",
+      "concertDate": "2024-03-15",
+      "name": "Taro Yamada"
+    },
+    "proof": {
+      "type": "DataIntegrityProof",
+      "cryptosuite": "eddsa-rdfc-2022",
+      "created": "2025-08-11T09:39:37.942984+00:00",
+      "verificationMethod": "https://example.com/issuers/keys/1d47d9a1",
+      "proofPurpose": "assertionMethod",
+      "proofValue": "z51b9870293f6628d...dummy...0c26e2148d8ce785"
+    }
+  },
+  {
+    "@context": [
+      "https://www.w3.org/ns/credentials/v2",
+      "https://example.com/contexts/entertainment/v1",
+      "https://schema.org/"
+    ],
+    "id": "https://example.com/credentials/vc-088",
+    "type": [
+      "VerifiableCredential",
+      "MusicEventTicket"
+    ],
+    "issuer": {
+      "id": "https://example.com/issuers/music-events",
+      "name": "Music Event Ticketing Authority"
+    },
+    "validFrom": "2024-01-15T00:00:00Z",
+    "validUntil": "2024-05-21T23:59:59Z",
+    "credentialSubject": {
+      "id": "did:example:yamada-taro",
+      "eventName": "Tokyo Marathon 2024",
+      "venue": "Tokyo Dome",
+      "eventDate": "2024-02-25",
+      "name": "Taro Yamada"
+    },
+    "proof": {
+      "type": "DataIntegrityProof",
+      "cryptosuite": "eddsa-rdfc-2022",
+      "created": "2025-08-11T09:39:42.810443+00:00",
+      "verificationMethod": "https://example.com/issuers/keys/348de3ce",
+      "proofPurpose": "assertionMethod",
+      "proofValue": "zbcabceedff157884...dummy...ff8354140a14ef4b"
+    }
+  },
+  {
+    "@context": [
+      "https://www.w3.org/ns/credentials/v2",
+      "https://example.com/contexts/entertainment/v1",
+      "https://schema.org/"
+    ],
+    "id": "https://example.com/credentials/vc-089",
+    "type": [
+      "VerifiableCredential",
+      "SportsEventTicket"
+    ],
+    "issuer": {
+      "id": "https://example.com/issuers/sportseventtickets",
+      "name": "Tokyo Sports Event Authority"
+    },
+    "validFrom": "2024-01-15T00:00:00Z",
+    "validUntil": "2024-07-20T23:59:59Z",
+    "credentialSubject": {
+      "id": "did:example:yamada-taro",
+      "sportType": "Baseball",
+      "teams": "Tokyo Giants vs Osaka Tigers",
+      "matchDate": "2024-04-01",
+      "venue": "Tokyo Dome",
+      "name": "Taro Yamada"
+    },
+    "proof": {
+      "type": "DataIntegrityProof",
+      "cryptosuite": "eddsa-rdfc-2022",
+      "created": "2025-08-11T09:39:46.499783+00:00",
+      "verificationMethod": "https://example.com/issuers/keys/3c872d4d",
+      "proofPurpose": "assertionMethod",
+      "proofValue": "z91978900c1b85cb5...dummy...4c40ac0c41f17e62"
+    }
+  },
+  {
+    "@context": [
+      "https://www.w3.org/ns/credentials/v2",
+      "https://example.com/contexts/entertainment/v1",
+      "https://schema.org/"
+    ],
+    "id": "https://example.com/credentials/vc-090",
+    "type": [
+      "VerifiableCredential",
+      "TheaterTicket"
+    ],
+    "issuer": {
+      "id": "https://example.com/issuers/theater-tickets",
+      "name": "Tokyo Theater Box Office"
+    },
+    "validFrom": "2024-01-15T00:00:00Z",
+    "validUntil": "2024-03-10T23:59:59Z",
+    "credentialSubject": {
+      "id": "did:example:yamada-taro",
+      "playName": "Hamlet",
+      "theater": "Tokyo Theater",
+      "showDate": "2024-03-20",
+      "name": "Taro Yamada"
+    },
+    "proof": {
+      "type": "DataIntegrityProof",
+      "cryptosuite": "eddsa-rdfc-2022",
+      "created": "2025-08-11T09:39:51.286621+00:00",
+      "verificationMethod": "https://example.com/issuers/keys/d60f6cc7",
+      "proofPurpose": "assertionMethod",
+      "proofValue": "z53477d11592599d5...dummy...0a32337fb6bfbdc4"
+    }
+  },
+  {
+    "@context": [
+      "https://www.w3.org/ns/credentials/v2",
+      "https://example.com/contexts/entertainment/v1",
+      "https://schema.org/"
+    ],
+    "id": "https://example.com/credentials/vc-091",
+    "type": [
+      "VerifiableCredential",
+      "GymMembership"
+    ],
+    "issuer": {
+      "id": "https://fitnessclub.example.com/issuers/12345",
+      "name": "Tokyo Fitness Club"
+    },
+    "validFrom": "2024-01-15T00:00:00Z",
+    "validUntil": "2025-01-14T23:59:59Z",
+    "credentialSubject": {
+      "id": "did:example:yamada-taro",
+      "name": "Taro Yamada",
+      "gymName": "Tokyo Fitness Club",
+      "membershipType": "GymMembership"
+    },
+    "proof": {
+      "type": "DataIntegrityProof",
+      "cryptosuite": "eddsa-rdfc-2022",
+      "created": "2025-08-11T09:39:56.420253+00:00",
+      "verificationMethod": "https://example.com/issuers/keys/f563682b",
+      "proofPurpose": "assertionMethod",
+      "proofValue": "zc022730a478c3bfe...dummy...91936c19f7d46d86"
+    }
+  },
+  {
+    "@context": [
+      "https://www.w3.org/ns/credentials/v2",
+      "https://example.com/contexts/entertainment/v1",
+      "https://schema.org/"
+    ],
+    "id": "https://example.com/credentials/vc-092",
+    "type": [
+      "VerifiableCredential",
+      "SportsMembership"
+    ],
+    "issuer": {
+      "id": "https://example.com/issuers/sports-gym",
+      "name": "Tokyo Sports Club"
+    },
+    "validFrom": "2024-01-15T00:00:00Z",
+    "validUntil": "2025-01-14T23:59:59Z",
+    "credentialSubject": {
+      "id": "did:example:yamada-taro",
+      "name": "Taro Yamada",
+      "clubName": "Tokyo Sports Club",
+      "membershipType": "SportsMembership"
+    },
+    "proof": {
+      "type": "DataIntegrityProof",
+      "cryptosuite": "eddsa-rdfc-2022",
+      "created": "2025-08-11T09:40:05.470513+00:00",
+      "verificationMethod": "https://example.com/issuers/keys/666e7496",
+      "proofPurpose": "assertionMethod",
+      "proofValue": "z0356a3745b6005d5...dummy...04bbf1ff6b82a24b"
+    }
+  },
+  {
+    "@context": [
+      "https://www.w3.org/ns/credentials/v2",
+      "https://example.com/contexts/entertainment/v1",
+      "https://schema.org/"
+    ],
+    "id": "https://example.com/credentials/vc-093",
+    "type": [
+      "VerifiableCredential",
+      "GameTournamentCertificate"
+    ],
+    "issuer": {
+      "id": "https://example.com/issuers/gaming-certificates",
+      "name": "Global Gaming Association"
+    },
+    "validFrom": "2024-01-15T00:00:00Z",
+    "validUntil": "2025-01-15T23:59:59Z",
+    "credentialSubject": {
+      "id": "did:example:yamada-taro",
+      "name": "Taro Yamada",
+      "gameName": "Popular Game",
+      "tournamentName": "World Championship 2024",
+      "eventDate": "2024-02-25"
+    },
+    "proof": {
+      "type": "DataIntegrityProof",
+      "cryptosuite": "eddsa-rdfc-2022",
+      "created": "2025-08-11T09:40:08.934035+00:00",
+      "verificationMethod": "https://example.com/issuers/keys/69265aa3",
+      "proofPurpose": "assertionMethod",
+      "proofValue": "z1a535ea0dc4a47bd...dummy...84d705083450eab7"
+    }
+  },
+  {
+    "@context": [
+      "https://www.w3.org/ns/credentials/v2",
+      "https://example.com/contexts/entertainment/v1",
+      "https://schema.org/"
+    ],
+    "id": "https://example.com/credentials/vc-094",
+    "type": [
+      "VerifiableCredential",
+      "GameRankingCertificate"
+    ],
+    "issuer": {
+      "id": "https://example.com/issuers/game-certificates",
+      "name": "Gaming Achievement Bureau"
+    },
+    "validFrom": "2024-01-15T00:00:00Z",
+    "validUntil": "2025-01-15T23:59:59Z",
+    "credentialSubject": {
+      "id": "did:example:yamada-taro",
+      "name": "Taro Yamada",
+      "gameName": "Popular Game",
+      "rank": "1",
+      "score": "999999"
+    },
+    "proof": {
+      "type": "DataIntegrityProof",
+      "cryptosuite": "eddsa-rdfc-2022",
+      "created": "2025-08-11T09:40:14.505620+00:00",
+      "verificationMethod": "https://example.com/issuers/keys/cdeb2f0e",
+      "proofPurpose": "assertionMethod",
+      "proofValue": "za2c45467c7d887f0...dummy...e84fcc31e2ca1261"
+    }
+  },
+  {
+    "@context": [
+      "https://www.w3.org/ns/credentials/v2",
+      "https://example.com/contexts/entertainment/v1",
+      "https://schema.org/"
+    ],
+    "id": "https://example.com/credentials/vc-095",
+    "type": [
+      "VerifiableCredential",
+      "FanClubMembership"
+    ],
+    "issuer": {
+      "id": "https://fanclub.example.com/issuers/artist-fan-club-001",
+      "name": "Tokyo Artist Fan Club"
+    },
+    "validFrom": "2024-01-15T00:00:00Z",
+    "validUntil": "2025-01-14T23:59:59Z",
+    "credentialSubject": {
+      "id": "did:example:yamada-taro",
+      "name": "Taro Yamada",
+      "clubName": "Tokyo Sports Club",
+      "memberNumber": "MEM-123456"
+    },
+    "proof": {
+      "type": "DataIntegrityProof",
+      "cryptosuite": "eddsa-rdfc-2022",
+      "created": "2025-08-11T09:40:17.759929+00:00",
+      "verificationMethod": "https://example.com/issuers/keys/86e738ad",
+      "proofPurpose": "assertionMethod",
+      "proofValue": "z6fd5037d80712c2f...dummy...c524806b92ca720f"
+    }
+  },
+  {
+    "@context": [
+      "https://www.w3.org/ns/credentials/v2",
+      "https://example.com/contexts/entertainment/v1",
+      "https://schema.org/"
+    ],
+    "id": "https://example.com/credentials/vc-096",
+    "type": [
+      "VerifiableCredential",
+      "TeamSupporterCard"
+    ],
+    "issuer": {
+      "id": "https://example.com/issuers/sports-organization",
+      "name": "Tokyo Sports Federation"
+    },
+    "validFrom": "2024-01-15T00:00:00Z",
+    "validUntil": "2025-01-14T23:59:59Z",
+    "credentialSubject": {
+      "id": "did:example:yamada-taro",
+      "name": "Taro Yamada",
+      "teamName": "Tokyo Giants",
+      "memberNumber": "MEM-123456"
+    },
+    "proof": {
+      "type": "DataIntegrityProof",
+      "cryptosuite": "eddsa-rdfc-2022",
+      "created": "2025-08-11T09:40:22.452186+00:00",
+      "verificationMethod": "https://example.com/issuers/keys/f0a4da56",
+      "proofPurpose": "assertionMethod",
+      "proofValue": "ze5810995ea03ee9a...dummy...f67b81e6c0df1ec5"
+    }
+  },
+  {
+    "@context": [
+      "https://www.w3.org/ns/credentials/v2",
+      "https://example.com/contexts/entertainment/v1",
+      "https://schema.org/"
+    ],
+    "id": "https://example.com/credentials/vc-097",
+    "type": [
+      "VerifiableCredential",
+      "LibraryCard"
+    ],
+    "issuer": {
+      "id": "https://library.example.com/issuers/public-library",
+      "name": "Tokyo Public Library"
+    },
+    "validFrom": "2024-01-15T00:00:00Z",
+    "validUntil": "2026-01-14T23:59:59Z",
+    "credentialSubject": {
+      "id": "did:example:yamada-taro",
+      "name": "Taro Yamada",
+      "libraryName": "Tokyo Public Library",
+      "cardNumber": "LIB-123456"
+    },
+    "proof": {
+      "type": "DataIntegrityProof",
+      "cryptosuite": "eddsa-rdfc-2022",
+      "created": "2025-08-11T09:40:27.686656+00:00",
+      "verificationMethod": "https://example.com/issuers/keys/1934fbf2",
+      "proofPurpose": "assertionMethod",
+      "proofValue": "z8623cfb06c727c53...dummy...e342cdd22e255993"
+    }
+  },
+  {
+    "@context": [
+      "https://www.w3.org/ns/credentials/v2",
+      "https://example.com/contexts/entertainment/v1",
+      "https://schema.org/"
+    ],
+    "id": "https://example.com/credentials/vc-098",
+    "type": [
+      "VerifiableCredential",
+      "LibraryAccessCard"
+    ],
+    "issuer": {
+      "id": "https://universitylibrary.example.edu/issuers/library",
+      "name": "Tokyo University Library"
+    },
+    "validFrom": "2024-01-15T00:00:00Z",
+    "validUntil": "2025-01-14T23:59:59Z",
+    "credentialSubject": {
+      "id": "did:example:yamada-taro",
+      "name": "Taro Yamada",
+      "libraryName": "Tokyo Public Library",
+      "accessLevel": "Full Access"
+    },
+    "proof": {
+      "type": "DataIntegrityProof",
+      "cryptosuite": "eddsa-rdfc-2022",
+      "created": "2025-08-11T09:40:31.410280+00:00",
+      "verificationMethod": "https://example.com/issuers/keys/bb5155f6",
+      "proofPurpose": "assertionMethod",
+      "proofValue": "z00ee1702661907fd...dummy...31306505e2719e3a"
+    }
+  },
+  {
+    "@context": [
+      "https://www.w3.org/ns/credentials/v2",
+      "https://example.com/contexts/entertainment/v1",
+      "https://schema.org/"
+    ],
+    "id": "https://example.com/credentials/vc-099",
+    "type": [
+      "VerifiableCredential",
+      "PosterPresentationCertificate"
+    ],
+    "issuer": {
+      "id": "https://example.com/issuers/123456",
+      "name": "Tokyo International Conference on Technology"
+    },
+    "validFrom": "2024-01-15T00:00:00Z",
+    "validUntil": "2025-01-15T23:59:59Z",
+    "credentialSubject": {
+      "id": "did:example:yamada-taro",
+      "name": "Taro Yamada",
+      "posterTitle": "Research Poster",
+      "conferenceName": "International Conference 2024",
+      "presentationDate": "2024-01-15"
+    },
+    "proof": {
+      "type": "DataIntegrityProof",
+      "cryptosuite": "eddsa-rdfc-2022",
+      "created": "2025-08-11T09:40:35.647762+00:00",
+      "verificationMethod": "https://example.com/issuers/keys/15997917",
+      "proofPurpose": "assertionMethod",
+      "proofValue": "z8cdf56e5c86f8235...dummy...7d1a98ca78ff5334"
+    }
+  },
+  {
+    "@context": [
+      "https://www.w3.org/ns/credentials/v2",
+      "https://example.com/contexts/digital/v1"
+    ],
+    "id": "https://example.com/credentials/vc-100",
+    "type": [
+      "VerifiableCredential",
+      "EmailVerificationCredential"
+    ],
+    "issuer": {
+      "id": "https://example.com/issuers/email-verification",
+      "name": "Example Tech Corporation"
+    },
+    "validFrom": "2024-01-15T00:00:00Z",
+    "validUntil": "2025-01-15T00:00:00Z",
+    "credentialSubject": {
+      "id": "did:example:yamada-taro",
+      "email": "taro.yamada@example.com",
+      "verificationDate": "2024-01-15",
+      "name": "Taro Yamada"
+    },
+    "proof": {
+      "type": "DataIntegrityProof",
+      "cryptosuite": "eddsa-rdfc-2022",
+      "created": "2025-08-11T09:40:39.578391+00:00",
+      "verificationMethod": "https://example.com/issuers/keys/db0469d3",
+      "proofPurpose": "assertionMethod",
+      "proofValue": "z5309c55e4e268355...dummy...5f99322b3be3315d"
+    }
+  },
+  {
+    "@context": [
+      "https://www.w3.org/ns/credentials/v2",
+      "https://example.com/contexts/digital/v1"
+    ],
+    "id": "https://example.com/credentials/vc-101",
+    "type": [
+      "VerifiableCredential",
+      "PhoneVerificationCredential"
+    ],
+    "issuer": {
+      "id": "https://example.com/issuers/phone-verification",
+      "name": "Phone Verification Authority"
+    },
+    "validFrom": "2024-01-15T00:00:00Z",
+    "validUntil": "2025-01-15T23:59:59Z",
+    "credentialSubject": {
+      "id": "did:example:yamada-taro",
+      "phoneNumber": "+81-3-1234-5678",
+      "verificationDate": "2024-01-15",
+      "name": "Taro Yamada"
+    },
+    "proof": {
+      "type": "DataIntegrityProof",
+      "cryptosuite": "eddsa-rdfc-2022",
+      "created": "2025-08-11T09:40:44.334313+00:00",
+      "verificationMethod": "https://example.com/issuers/keys/056fc46d",
+      "proofPurpose": "assertionMethod",
+      "proofValue": "zc103a2e68628bdc9...dummy...e2a983a145d72616"
+    }
+  },
+  {
+    "@context": [
+      "https://www.w3.org/ns/credentials/v2",
+      "https://example.com/contexts/digital/v1"
+    ],
+    "id": "https://example.com/credentials/vc-102",
+    "type": [
+      "VerifiableCredential",
+      "SocialMediaAccountCredential"
+    ],
+    "issuer": {
+      "id": "https://example.com/issuers/business-sns-verification",
+      "name": "Digital Verification Authority"
+    },
+    "validFrom": "2024-01-15T00:00:00Z",
+    "validUntil": "2025-01-14T23:59:59Z",
+    "credentialSubject": {
+      "id": "did:example:yamada-taro",
+      "accountName": "@taro_yamada",
+      "platform": "Twitter",
+      "verificationDate": "2024-01-15",
+      "name": "Taro Yamada"
+    },
+    "proof": {
+      "type": "DataIntegrityProof",
+      "cryptosuite": "eddsa-rdfc-2022",
+      "created": "2025-08-11T09:40:50.038985+00:00",
+      "verificationMethod": "https://example.com/issuers/keys/694157ea",
+      "proofPurpose": "assertionMethod",
+      "proofValue": "z1f5af378a041dc24...dummy...7aefecb1d51147b3"
+    }
+  },
+  {
+    "@context": [
+      "https://www.w3.org/ns/credentials/v2",
+      "https://example.com/contexts/digital/v1"
+    ],
+    "id": "https://example.com/credentials/vc-103",
+    "type": [
+      "VerifiableCredential",
+      "SocialMediaVerification"
+    ],
+    "issuer": {
+      "id": "https://example.com/issuers/photo-sharing-sns",
+      "name": "Photo Sharing SNS Verification Authority"
+    },
+    "validFrom": "2024-01-15T00:00:00Z",
+    "validUntil": "2025-01-15T23:59:59Z",
+    "credentialSubject": {
+      "id": "did:example:yamada-taro",
+      "accountName": "@taro_yamada",
+      "platform": "Twitter",
+      "verificationDate": "2024-01-15",
+      "name": "Taro Yamada"
+    },
+    "proof": {
+      "type": "DataIntegrityProof",
+      "cryptosuite": "eddsa-rdfc-2022",
+      "created": "2025-08-11T09:40:53.967909+00:00",
+      "verificationMethod": "https://example.com/issuers/keys/7becb35d",
+      "proofPurpose": "assertionMethod",
+      "proofValue": "z52da1230e75feb1d...dummy...b2b98449eab041f7"
+    }
+  },
+  {
+    "@context": [
+      "https://www.w3.org/ns/credentials/v2",
+      "https://example.com/contexts/digital/v1"
+    ],
+    "id": "https://example.com/credentials/vc-104",
+    "type": [
+      "VerifiableCredential",
+      "YouTubeChannelCredential"
+    ],
+    "issuer": {
+      "id": "https://example.com/issuers/video-platform",
+      "name": "Video Platform Verification Authority"
+    },
+    "validFrom": "2024-01-15T00:00:00Z",
+    "validUntil": "2025-01-14T23:59:59Z",
+    "credentialSubject": {
+      "id": "did:example:yamada-taro",
+      "channelName": "Taro's Tech Talks",
+      "channelId": "UC1234567890abcdefg",
+      "subscriberCount": 15000,
+      "name": "Taro Yamada"
+    },
+    "proof": {
+      "type": "DataIntegrityProof",
+      "cryptosuite": "eddsa-rdfc-2022",
+      "created": "2025-08-11T09:40:58.051962+00:00",
+      "verificationMethod": "https://example.com/issuers/keys/5f05b747",
+      "proofPurpose": "assertionMethod",
+      "proofValue": "za222fc44d0b1a861...dummy...406731c89d98a1b2"
+    }
+  },
+  {
+    "@context": [
+      "https://www.w3.org/ns/credentials/v2",
+      "https://example.com/contexts/digital/v1"
+    ],
+    "id": "https://example.com/credentials/vc-105",
+    "type": [
+      "VerifiableCredential",
+      "AccessCardCredential"
+    ],
+    "issuer": {
+      "id": "https://example.com/issuers/example-tech",
+      "name": "Example Tech Corporation"
+    },
+    "validFrom": "2024-01-15T00:00:00Z",
+    "validUntil": "2025-01-14T23:59:59Z",
+    "credentialSubject": {
+      "id": "did:example:yamada-taro",
+      "name": "Taro Yamada",
+      "cardNumber": "LIB-123456",
+      "accessLevel": "Full Access"
+    },
+    "proof": {
+      "type": "DataIntegrityProof",
+      "cryptosuite": "eddsa-rdfc-2022",
+      "created": "2025-08-11T09:41:01.688585+00:00",
+      "verificationMethod": "https://example.com/issuers/keys/f30b6a6e",
+      "proofPurpose": "assertionMethod",
+      "proofValue": "z881dee061876c6ab...dummy...1a1d204745cfcec1"
+    }
+  },
+  {
+    "@context": [
+      "https://www.w3.org/ns/credentials/v2",
+      "https://example.com/contexts/digital/v1"
+    ],
+    "id": "https://example.com/credentials/vc-106",
+    "type": [
+      "VerifiableCredential",
+      "SmartHomeAccess"
+    ],
+    "issuer": {
+      "id": "https://example.com/issuers/smart-home-access",
+      "name": "Smart Home Solutions Inc."
+    },
+    "validFrom": "2024-01-15T00:00:00Z",
+    "validUntil": "2025-01-14T23:59:59Z",
+    "credentialSubject": {
+      "id": "did:example:yamada-taro",
+      "name": "Taro Yamada",
+      "deviceId": "DEVICE-123456",
+      "propertyAddress": "1-2-3 Kasumigaseki, Chiyoda-ku, Tokyo"
+    },
+    "proof": {
+      "type": "DataIntegrityProof",
+      "cryptosuite": "eddsa-rdfc-2022",
+      "created": "2025-08-11T09:41:05.097019+00:00",
+      "verificationMethod": "https://example.com/issuers/keys/8b790ca7",
+      "proofPurpose": "assertionMethod",
+      "proofValue": "zc5d888b5520cf415...dummy...3f64be34a4f220d6"
+    }
+  },
+  {
+    "@context": [
+      "https://www.w3.org/ns/credentials/v2",
+      "https://example.com/contexts/digital/v1"
+    ],
+    "id": "https://example.com/credentials/vc-107",
+    "type": [
+      "VerifiableCredential",
+      "ConferenceSpeakerCredential"
+    ],
+    "issuer": {
+      "id": "https://example.com/issuers/12345",
+      "name": "International Tech Conference Organizers"
+    },
+    "validFrom": "2024-01-15T00:00:00Z",
+    "validUntil": "2026-01-15T00:00:00Z",
+    "credentialSubject": {
+      "id": "did:example:yamada-taro",
+      "name": "Taro Yamada",
+      "conferenceName": "International Conference 2024",
+      "presentationTitle": "Advanced Topics in Technology",
+      "presentationDate": "2024-01-15"
+    },
+    "proof": {
+      "type": "DataIntegrityProof",
+      "cryptosuite": "eddsa-rdfc-2022",
+      "created": "2025-08-11T09:41:11.139524+00:00",
+      "verificationMethod": "https://example.com/issuers/keys/0aac6ebd",
+      "proofPurpose": "assertionMethod",
+      "proofValue": "zdc80f84b4d7d775e...dummy...4e45b097118d7ce6"
+    }
+  },
+  {
+    "@context": [
+      "https://www.w3.org/ns/credentials/v2",
+      "https://example.com/contexts/business/v1",
+      "https://schema.org/"
+    ],
+    "id": "https://example.com/credentials/vc-108",
+    "type": [
+      "VerifiableCredential",
+      "ReceiptCredential"
+    ],
+    "issuer": {
+      "id": "https://example.com/issuers/retail-store",
+      "name": "Tokyo Retail Inc."
+    },
+    "validFrom": "2024-01-10T15:30:00Z",
+    "validUntil": "2025-01-10T15:30:00Z",
+    "credentialSubject": {
+      "id": "did:example:yamada-taro",
+      "storeName": "Tokyo Electronics",
+      "purchaseDate": "2024-01-10T15:30:00Z",
+      "totalAmount": "1500.00",
+      "transactionId": "TRX123456789",
+      "name": "Taro Yamada"
+    },
+    "proof": {
+      "type": "DataIntegrityProof",
+      "cryptosuite": "eddsa-rdfc-2022",
+      "created": "2025-08-11T09:41:15.938682+00:00",
+      "verificationMethod": "https://example.com/issuers/keys/00cd81b2",
+      "proofPurpose": "assertionMethod",
+      "proofValue": "z757512e9e3fdc57f...dummy...ef5171b44c0721e9"
+    }
+  },
+  {
+    "@context": [
+      "https://www.w3.org/ns/credentials/v2",
+      "https://example.com/contexts/business/v1",
+      "https://schema.org/"
+    ],
+    "id": "https://example.com/credentials/vc-109",
+    "type": [
+      "VerifiableCredential",
+      "ReceiptCredential"
+    ],
+    "issuer": {
+      "id": "https://example.com/issuers/restaurant-receipts",
+      "name": "Tokyo Dining Experiences"
+    },
+    "validFrom": "2024-01-14T21:00:00Z",
+    "validUntil": "2025-01-14T21:00:00Z",
+    "credentialSubject": {
+      "id": "did:example:yamada-taro",
+      "storeName": "Tokyo Store",
+      "purchaseDate": "2024-01-14T19:30:00Z",
+      "totalAmount": "10000",
+      "items": [
+        {
+          "itemName": "Sushi Platter",
+          "itemPrice": "30.00"
+        },
+        {
+          "itemName": "Green Tea",
+          "itemPrice": "5.00"
+        },
+        {
+          "itemName": "Miso Soup",
+          "itemPrice": "3.00"
+        },
+        {
+          "itemName": "Dessert",
+          "itemPrice": "7.00"
+        }
+      ],
+      "name": "Taro Yamada"
+    },
+    "proof": {
+      "type": "DataIntegrityProof",
+      "cryptosuite": "eddsa-rdfc-2022",
+      "created": "2025-08-11T09:41:22.049507+00:00",
+      "verificationMethod": "https://example.com/issuers/keys/06b9d10c",
+      "proofPurpose": "assertionMethod",
+      "proofValue": "z618d578c3a3d424c...dummy...58700e787cf3d157"
+    }
+  },
+  {
+    "@context": [
+      "https://www.w3.org/ns/credentials/v2",
+      "https://example.com/contexts/business/v1",
+      "https://schema.org/"
+    ],
+    "id": "https://example.com/credentials/vc-110",
+    "type": [
+      "VerifiableCredential",
+      "GovernmentCertificate"
+    ],
+    "issuer": {
+      "id": "https://govtokyo.jp/issuers/statistics",
+      "name": "Tokyo Metropolitan Government"
+    },
+    "validFrom": "2024-01-15T00:00:00Z",
+    "validUntil": "2026-01-14T23:59:59Z",
+    "credentialSubject": {
+      "id": "did:example:yamada-taro",
+      "certificateType": "Registered Mail Certificate",
+      "issuingAuthority": "Tokyo Government",
+      "issuanceDate": "2024-01-15",
+      "name": "Taro Yamada"
+    },
+    "proof": {
+      "type": "DataIntegrityProof",
+      "cryptosuite": "eddsa-rdfc-2022",
+      "created": "2025-08-11T09:41:25.521560+00:00",
+      "verificationMethod": "https://example.com/issuers/keys/bcb0467b",
+      "proofPurpose": "assertionMethod",
+      "proofValue": "z6b9261e07616a7ae...dummy...be3e41de694d28cd"
+    }
+  },
+  {
+    "@context": [
+      "https://www.w3.org/ns/credentials/v2",
+      "https://example.com/contexts/business/v1",
+      "https://schema.org/"
+    ],
+    "id": "https://example.com/credentials/vc-111",
+    "type": [
+      "VerifiableCredential",
+      "SeminarCertificate"
+    ],
+    "issuer": {
+      "id": "https://example.com/issuers/seminar-certificates",
+      "name": "Tokyo Business Seminar Institute"
+    },
+    "validFrom": "2024-01-15T00:00:00Z",
+    "validUntil": "2026-01-15T23:59:59Z",
+    "credentialSubject": {
+      "id": "did:example:yamada-taro",
+      "name": "Taro Yamada",
+      "seminarTitle": "Professional Development Seminar",
+      "date": "2024-01-15"
+    },
+    "proof": {
+      "type": "DataIntegrityProof",
+      "cryptosuite": "eddsa-rdfc-2022",
+      "created": "2025-08-11T09:41:29.766442+00:00",
+      "verificationMethod": "https://example.com/issuers/keys/74cbf337",
+      "proofPurpose": "assertionMethod",
+      "proofValue": "z197ee39885e5b33a...dummy...37b930bca95ead45"
+    }
+  },
+  {
+    "@context": [
+      "https://www.w3.org/ns/credentials/v2",
+      "https://example.com/contexts/business/v1",
+      "https://schema.org/"
+    ],
+    "id": "https://example.com/credentials/vc-112",
+    "type": [
+      "VerifiableCredential",
+      "WarrantyCredential"
+    ],
+    "issuer": {
+      "id": "https://example.com/issuers/tech-warranties",
+      "name": "Tech Warranty Services Inc."
+    },
+    "validFrom": "2024-01-15T00:00:00Z",
+    "validUntil": "2026-01-14T23:59:59Z",
+    "credentialSubject": {
+      "id": "did:example:yamada-taro",
+      "productName": "Electronic Device",
+      "warrantyPeriod": "2 years",
+      "purchaseDate": "2024-01-15",
+      "name": "Taro Yamada"
+    },
+    "proof": {
+      "type": "DataIntegrityProof",
+      "cryptosuite": "eddsa-rdfc-2022",
+      "created": "2025-08-11T09:41:35.695592+00:00",
+      "verificationMethod": "https://example.com/issuers/keys/ab2e71b0",
+      "proofPurpose": "assertionMethod",
+      "proofValue": "z77a26163216fff45...dummy...7ec4388e46bae324"
+    }
+  },
+  {
+    "@context": [
+      "https://www.w3.org/ns/credentials/v2",
+      "https://example.com/contexts/business/v1",
+      "https://schema.org/"
+    ],
+    "id": "https://example.com/credentials/vc-113",
+    "type": [
+      "VerifiableCredential",
+      "RestaurantCoupon"
+    ],
+    "issuer": {
+      "id": "https://example.com/issuers/restaurant-coupons",
+      "name": "Tokyo Dine Rewards"
+    },
+    "validFrom": "2024-01-15T00:00:00Z",
+    "validUntil": "2025-01-14T23:59:59Z",
+    "credentialSubject": {
+      "id": "did:example:yamada-taro",
+      "restaurantName": "Tokyo Restaurant",
+      "discountAmount": "20%",
+      "expiryDate": "2026-01-14",
+      "name": "Taro Yamada"
+    },
+    "proof": {
+      "type": "DataIntegrityProof",
+      "cryptosuite": "eddsa-rdfc-2022",
+      "created": "2025-08-11T09:41:39.758341+00:00",
+      "verificationMethod": "https://example.com/issuers/keys/5adc00e9",
+      "proofPurpose": "assertionMethod",
+      "proofValue": "zecf41c89ad2c155c...dummy...8f5f88f5ee0245cc"
+    }
+  },
+  {
+    "@context": [
+      "https://www.w3.org/ns/credentials/v2",
+      "https://example.com/contexts/business/v1",
+      "https://schema.org/"
+    ],
+    "id": "https://example.com/credentials/vc-114",
+    "type": [
+      "VerifiableCredential",
+      "CompanyRegistration"
+    ],
+    "issuer": {
+      "id": "https://example.com/issuers/12345",
+      "name": "Tokyo Business Registration Authority"
+    },
+    "validFrom": "2024-01-15T00:00:00Z",
+    "validUntil": "2026-01-15T23:59:59Z",
+    "credentialSubject": {
+      "id": "did:example:yamada-taro",
+      "companyName": "Example Corporation",
+      "registrationNumber": "REG-2024-001",
+      "registrationDate": "2024-01-15",
+      "name": "Taro Yamada"
+    },
+    "proof": {
+      "type": "DataIntegrityProof",
+      "cryptosuite": "eddsa-rdfc-2022",
+      "created": "2025-08-11T09:41:43.140034+00:00",
+      "verificationMethod": "https://example.com/issuers/keys/50139284",
+      "proofPurpose": "assertionMethod",
+      "proofValue": "za5f0c18b138451f7...dummy...7b043604071b59d8"
+    }
+  },
+  {
+    "@context": [
+      "https://www.w3.org/ns/credentials/v2",
+      "https://example.com/contexts/business/v1",
+      "https://schema.org/"
+    ],
+    "id": "https://example.com/credentials/vc-115",
+    "type": [
+      "VerifiableCredential",
+      "ServiceContract"
+    ],
+    "issuer": {
+      "id": "https://example.com/issuers/example-tech-corporation",
+      "name": "Example Tech Corporation"
+    },
+    "validFrom": "2024-01-15T00:00:00Z",
+    "validUntil": "2025-01-14T23:59:59Z",
+    "credentialSubject": {
+      "id": "did:example:yamada-taro",
+      "contractParties": "Party A and Party B",
+      "contractDate": "2024-01-15",
+      "serviceType": "Consulting Service",
+      "name": "Taro Yamada"
+    },
+    "proof": {
+      "type": "DataIntegrityProof",
+      "cryptosuite": "eddsa-rdfc-2022",
+      "created": "2025-08-11T09:41:47.231996+00:00",
+      "verificationMethod": "https://example.com/issuers/keys/fe295085",
+      "proofPurpose": "assertionMethod",
+      "proofValue": "zcab86dfd50513cbd...dummy...8dc52971d340b626"
+    }
+  },
+  {
+    "@context": [
+      "https://www.w3.org/ns/credentials/v2",
+      "https://example.com/contexts/education/v1",
+      "https://purl.org/dc/terms/"
+    ],
+    "id": "https://example.com/credentials/vc-116",
+    "type": [
+      "VerifiableCredential",
+      "PaperAcceptanceNotification"
+    ],
+    "issuer": {
+      "id": "https://example.com/issuers/academic-committee",
+      "name": "International Conference on Software Engineering"
+    },
+    "validFrom": "2024-01-15T00:00:00Z",
+    "validUntil": "2025-01-14T23:59:59Z",
+    "credentialSubject": {
+      "id": "did:example:yamada-taro",
+      "name": "Taro Yamada",
+      "paperTitle": "Innovative Approaches to Software Development",
+      "conferenceName": "International Conference on Software Engineering",
+      "acceptanceDate": "2024-01-15"
+    },
+    "proof": {
+      "type": "DataIntegrityProof",
+      "cryptosuite": "eddsa-rdfc-2022",
+      "created": "2025-08-11T09:35:33.309531+00:00",
+      "verificationMethod": "https://example.com/issuers/keys/39ea318c",
+      "proofPurpose": "assertionMethod",
+      "proofValue": "zba47a94d5ba1c5a6...dummy...5230573a408d5562"
     }
   }
 ]
