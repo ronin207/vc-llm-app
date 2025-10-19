@@ -73,20 +73,6 @@ struct FormView: View {
         }
     }
 
-    private var headerView: some View {
-        HStack {
-            Text("VC-LLM")
-                .font(.system(size: 32, weight: .bold, design: .rounded))
-                .foregroundColor(.primary)
-
-            Spacer()
-        }
-        .padding(.horizontal, 24)
-        .padding(.top, 8)
-        .padding(.bottom, 16)
-        .background(Color(colorScheme == .dark ? .black : .systemGroupedBackground))
-    }
-
     private var exampleQueriesSection: some View {
         VStack(alignment: .leading, spacing: 1) {
             Text("Try these examples")
