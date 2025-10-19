@@ -1,10 +1,3 @@
-//
-//  MLXManager_Finetuned.swift
-//  vc-llm
-//
-//  Created by Assistant on 2025/07/28.
-//
-
 import Foundation
 import Combine
 import MLXLMCommon

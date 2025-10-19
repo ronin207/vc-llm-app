@@ -1,10 +1,3 @@
-//
-//  PresentationView.swift
-//  vc-llm
-//
-//  Created by Assistant on 2025/10/19.
-//
-
 import SwiftUI
 
 struct PresentationView: View {

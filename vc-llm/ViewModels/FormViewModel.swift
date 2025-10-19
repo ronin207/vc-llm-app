@@ -1,10 +1,3 @@
-//
-//  FormViewModel.swift
-//  vc-llm
-//
-//  Created on 2025/10/19
-//
-
 import Foundation
 import Combine
 

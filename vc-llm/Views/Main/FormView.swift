@@ -1,10 +1,3 @@
-//
-//  FormView.swift
-//  vc-llm
-//
-//  Created on 2025/10/19
-//
-
 import SwiftUI
 
 struct FormView: View {

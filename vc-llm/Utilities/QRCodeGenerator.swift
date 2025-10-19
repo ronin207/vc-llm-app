@@ -1,10 +1,3 @@
-//
-//  QRCodeGenerator.swift
-//  vc-llm
-//
-//  Created by Assistant on 2025/10/19.
-//
-
 import UIKit
 import CoreImage.CIFilterBuiltins
 
