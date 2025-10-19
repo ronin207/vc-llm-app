@@ -49,21 +49,23 @@ enum ModelLoadingState {
 
 @MainActor
 class MLXManagerFinetuned: ObservableObject {
+    static let shared = MLXManagerFinetuned()
+
     @Published var loadingState: ModelLoadingState = .initializing
     @Published var isLoading = false
     @Published var isModelLoaded = false
-    
+
     private var model: ChatSession?
     private let vcEmbeddings = VCEmbeddings()
-    
+
     // Fine-tuned model configuration
     // Note: The folder `gemma-2-2b-it-model` in this project contains LoRA adapter weights
     // (adapter_model.safetensors) and tokenizer files, not a fully merged model.
     // MLX cannot load LoRA adapters directly. To run your finetuned model, merge the adapters
     // into the base Gemma 2B and upload the merged model to Hugging Face, then set the ID below.
     private var huggingFaceModelID = "ronin207/gemma-2-2b-it-dcql-mlx" // TODO: replace with your merged finetuned repo
-    
-    init() {
+
+    private init() {
         // Attempt to read a Hugging Face repo override from bundle metadata
         if let url = Bundle.main.url(forResource: "model_metadata", withExtension: "json"),
            let data = try? Data(contentsOf: url),
