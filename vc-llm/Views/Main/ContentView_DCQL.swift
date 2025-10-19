@@ -89,12 +89,12 @@ struct ContentViewDCQL: View {
             .ignoresSafeArea(.container, edges: .bottom)
 
             // Loading overlay
-            if modelManager.isLoading {
+            if modelManager.loadingState.isLoading {
                 loadingOverlay
             }
 
             // Error overlay
-            if !modelManager.isModelLoaded && !modelManager.isLoading {
+            if case .failed = modelManager.loadingState {
                 errorOverlay
             }
         }
@@ -203,37 +203,9 @@ struct ContentViewDCQL: View {
                     .progressViewStyle(CircularProgressViewStyle(tint: .cyan))
                     .scaleEffect(1.5)
 
-                VStack(spacing: 8) {
-                    Text("Loading Fine-tuned Model")
-                        .font(.system(size: 24, weight: .bold, design: .rounded))
-                        .foregroundColor(.primary)
-
-                    Text(modelManager.loadingProgress)
-                        .font(.system(size: 16, weight: .medium, design: .rounded))
-                        .foregroundColor(.primary.opacity(0.8))
-                }
-
-                if modelManager.downloadProgress > 0 {
-                    VStack(spacing: 12) {
-                        HStack {
-                            Text("\(Int(modelManager.downloadProgress * 100))%")
-                                .font(.system(size: 20, weight: .bold, design: .rounded))
-                                .foregroundColor(.cyan)
-
-                            Spacer()
-
-                            if modelManager.totalMB > 0 {
-                                Text("\(Int(modelManager.downloadedMB))MB / \(Int(modelManager.totalMB))MB")
-                                    .font(.system(size: 16, weight: .medium, design: .rounded))
-                                    .foregroundColor(.primary.opacity(0.7))
-                            }
-                        }
-
-                        ProgressView(value: modelManager.downloadProgress)
-                            .progressViewStyle(LinearProgressViewStyle(tint: .cyan))
-                            .scaleEffect(y: 3.0)
-                    }
-                }
+                Text(loadingTitle)
+                    .font(.system(size: 24, weight: .bold, design: .rounded))
+                    .foregroundColor(.primary)
             }
             .padding(.all, 32)
             .frame(maxWidth: 320)
@@ -246,6 +218,21 @@ struct ContentViewDCQL: View {
                     )
             )
             .shadow(color: Color.black.opacity(0.5), radius: 30, y: 15)
+        }
+    }
+
+    private var loadingTitle: String {
+        switch modelManager.loadingState {
+        case .initializing:
+            return "Initializing"
+        case .downloading:
+            return "Downloading Model"
+        case .loading:
+            return "Loading Model"
+        case .ready:
+            return "Ready"
+        case .failed:
+            return "Error"
         }
     }
 

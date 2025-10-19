@@ -22,14 +22,36 @@ enum MLXError: Error {
     case generationFailed(String)
 }
 
+// Model loading state
+enum ModelLoadingState {
+    case initializing
+    case downloading
+    case loading
+    case ready
+    case failed(String)
+
+    var isLoading: Bool {
+        switch self {
+        case .initializing, .downloading, .loading:
+            return true
+        case .ready, .failed:
+            return false
+        }
+    }
+
+    var isReady: Bool {
+        if case .ready = self {
+            return true
+        }
+        return false
+    }
+}
+
 @MainActor
 class MLXManagerFinetuned: ObservableObject {
+    @Published var loadingState: ModelLoadingState = .initializing
     @Published var isLoading = false
     @Published var isModelLoaded = false
-    @Published var loadingProgress: String = ""
-    @Published var downloadProgress: Double = 0.0
-    @Published var downloadedMB: Double = 0.0
-    @Published var totalMB: Double = 0.0
     
     private var model: ChatSession?
     private let vcEmbeddings = VCEmbeddings()
@@ -60,52 +82,47 @@ class MLXManagerFinetuned: ObservableObject {
     }
     
     private func loadModelAsync() async {
+        loadingState = .initializing
         isLoading = true
-        downloadProgress = 0.0
-        loadingProgress = "Loading fine-tuned Gemma 2B model..."
-        
-        do {
-            // Note: MLXLMCommon only supports loading from HuggingFace model IDs
-            // For local models, you would need to upload your fine-tuned model to HuggingFace
-            // or use a different loading mechanism
-            
-            // Informative status based on what's available in the bundle
-            if Bundle.main.url(forResource: "tokenizer", withExtension: "json", subdirectory: localAdapterFolderName) != nil {
-                loadingProgress = "Found local LoRA adapter. MLX requires a merged model. Loading from Hugging Face instead..."
-            } else {
-                loadingProgress = "Loading DCQL model from Hugging Face..."
-            }
-            
-            // Load model from Hugging Face. Replace `huggingFaceModelID` with your merged finetuned repo.
-            print("🔄 Starting to load model from: \(huggingFaceModelID)")
 
-            // Update progress to show actual loading
-            await MainActor.run {
-                self.downloadProgress = 0.1
-                self.loadingProgress = "Downloading model from Hugging Face..."
+        do {
+            // Check if model is cached
+            let cachesDir = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).first
+            let modelPath = cachesDir?.appendingPathComponent("models").appendingPathComponent(huggingFaceModelID)
+            let isModelCached = modelPath.map { FileManager.default.fileExists(atPath: $0.path) } ?? false
+
+            print("🔄 Loading model: \(huggingFaceModelID)")
+
+            if isModelCached {
+                print("💾 Model found in cache")
+                // Cache available: initializing -> loading -> ready
+                loadingState = .loading
+            } else {
+                print("📥 Model not in cache, will download")
+                // No cache: initializing -> downloading -> loading -> ready
+                loadingState = .downloading
             }
 
             let loadedModel = try await MLXLMCommon.loadModel(id: huggingFaceModelID)
-            print("🎉 Model loaded successfully from HuggingFace")
-            
+
+            // After download/cache load, transition to loading state
+            if case .downloading = loadingState {
+                print("📦 Download complete, loading into memory...")
+                loadingState = .loading
+            }
+
             model = ChatSession(loadedModel)
-            
-            downloadProgress = 1.0
-            downloadedMB = 1500
-            totalMB = 1500
+
+            loadingState = .ready
             isModelLoaded = true
-            loadingProgress = "Model loaded successfully!"
-            print("Successfully loaded model from HuggingFace")
-            
+            print("✅ Model ready")
+
         } catch {
-            downloadProgress = 0.0
-            loadingProgress = "Failed to load model: \(error.localizedDescription)"
+            loadingState = .failed(error.localizedDescription)
             print("❌ Error loading model: \(error)")
-            print("❌ Error details: \(String(describing: error))")
         }
 
         isLoading = false
-        print("✅ Model loading completed. isModelLoaded=\(isModelLoaded), isLoading=\(isLoading)")
     }
     
     // Generate DCQL from natural language query

@@ -11,7 +11,22 @@ import SwiftUI
 struct vc_llmApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentViewDCQL()
+            TabView {
+                ContentViewDCQL()
+                    .tabItem {
+                        Label("Chat", systemImage: "bubble.left.and.bubble.right.fill")
+                    }
+
+                FormView()
+                    .tabItem {
+                        Label("Form", systemImage: "square.and.pencil")
+                    }
+
+                VCListView()
+                    .tabItem {
+                        Label("Credentials", systemImage: "doc.text.fill")
+                    }
+            }
         }
     }
 }
