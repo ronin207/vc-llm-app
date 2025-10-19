@@ -9,7 +9,7 @@ import SwiftUI
 
 struct FormView: View {
     @Environment(\.colorScheme) var colorScheme
-    @StateObject private var modelManager = MLXManagerFinetuned()
+    @ObservedObject private var modelManager = MLXManagerFinetuned.shared
     @StateObject private var viewModel: FormViewModel
 
     @State private var showingDCQL = false
@@ -24,9 +24,7 @@ struct FormView: View {
     ]
 
     init() {
-        let manager = MLXManagerFinetuned()
-        _modelManager = StateObject(wrappedValue: manager)
-        _viewModel = StateObject(wrappedValue: FormViewModel(modelManager: manager))
+        _viewModel = StateObject(wrappedValue: FormViewModel(modelManager: MLXManagerFinetuned.shared))
     }
 
     var body: some View {

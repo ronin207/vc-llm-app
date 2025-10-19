@@ -11,7 +11,7 @@ struct VCListView: View {
         }
         let lowercasedSearch = searchText.lowercased()
         return credentials.filter { credential in
-            let credentialType = credential.type.count > 1 ? credential.type[1] : credential.type[0]
+            let credentialType = credential.primaryType
             return credentialType.lowercased().contains(lowercasedSearch)
         }
     }
@@ -35,7 +35,7 @@ struct VCListView: View {
                     ForEach(filteredCredentials) { credential in
                         VCCardView(
                             credential: credential,
-                            gradient: gradients[abs(credential.id.hashValue) % gradients.count]
+                            gradient: gradient(for: credential)
                         )
                         .onTapGesture {
                             selectedCredential = credential
@@ -86,6 +86,12 @@ struct VCListView: View {
             }
     }
 
+    private func gradient(for credential: VerifiableCredential) -> LinearGradient {
+        let hash = UInt(bitPattern: credential.id.hashValue)
+        let index = Int(hash % UInt(gradients.count))
+        return gradients[index]
+    }
+
     private func loadCredentials() {
         guard let url = Bundle.main.url(forResource: "vc_pool", withExtension: "json") else {
             print("Could not find vc_pool.json")
@@ -108,7 +114,7 @@ struct VCCardView: View {
     let gradient: LinearGradient
 
     var credentialType: String {
-        credential.type.count > 1 ? credential.type[1] : credential.type[0]
+        credential.primaryType
     }
 
     var issuerName: String {
@@ -159,7 +165,7 @@ struct VCDetailView: View {
     @State private var jsonString: String = ""
 
     var credentialType: String {
-        credential.type.count > 1 ? credential.type[1] : credential.type[0]
+        credential.primaryType
     }
 
     private func generateJSONString() -> String {
@@ -262,6 +268,13 @@ struct VerifiableCredential: Codable, Identifiable {
     let type: [String]
     let issuer: Issuer
     let credentialSubject: [String: JSONValue]
+
+    var primaryType: String {
+        if type.count > 1 {
+            return type[1]
+        }
+        return type.first ?? "Unknown Credential"
+    }
 
     enum CodingKeys: String, CodingKey {
         case id
