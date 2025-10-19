@@ -10,6 +10,18 @@ import Combine
 import MLXLMCommon
 import MLXLLM
 
+// Model metadata structure for reading configuration
+struct ModelMetadata: Codable {
+    let hf_repo: String?
+}
+
+// Custom error type for MLX operations
+enum MLXError: Error {
+    case modelNotLoaded
+    case invalidResponse
+    case generationFailed(String)
+}
+
 @MainActor
 class MLXManagerFinetuned: ObservableObject {
     @Published var isLoading = false
