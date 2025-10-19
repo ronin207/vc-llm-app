@@ -36,69 +36,89 @@ struct VCListView: View {
     ]
 
     var body: some View {
-        NavigationView {
-            ZStack {
-                // Background
-                Color(uiColor: .systemGroupedBackground)
-                    .ignoresSafeArea()
+        ZStack {
+            // Background
+            Color(uiColor: .systemGroupedBackground)
+                .ignoresSafeArea()
 
-                VStack(spacing: 0) {
-                    // Search bar
-                    HStack {
-                        Image(systemName: "magnifyingglass")
-                            .foregroundColor(.gray)
-
-                        TextField("Search credentials...", text: $searchText)
-                            .textFieldStyle(.plain)
-
-                        if !searchText.isEmpty {
-                            Button(action: {
-                                searchText = ""
-                            }) {
-                                Image(systemName: "xmark.circle.fill")
-                                    .foregroundColor(.gray)
-                            }
+            // Credentials List
+            ScrollView {
+                LazyVStack(spacing: 16) {
+                    ForEach(Array(filteredCredentials.enumerated()), id: \.element.id) { index, credential in
+                        VCCardView(
+                            credential: credential,
+                            gradient: gradients[index % gradients.count]
+                        )
+                        .onTapGesture {
+                            selectedCredential = credential
+                            showingDetail = true
                         }
                     }
-                    .padding(12)
-                    .background(
-                        RoundedRectangle(cornerRadius: 12)
-                            .fill(Color(uiColor: .systemBackground))
-                    )
-                    .padding(.horizontal)
-                    .padding(.vertical, 8)
 
-                    ScrollView {
-                        LazyVStack(spacing: 16) {
-                            ForEach(Array(filteredCredentials.enumerated()), id: \.element.id) { index, credential in
-                                VCCardView(
-                                    credential: credential,
-                                    gradient: gradients[index % gradients.count]
-                                )
-                                .onTapGesture {
-                                    selectedCredential = credential
-                                    showingDetail = true
-                                }
-                            }
+                    if filteredCredentials.isEmpty && !credentials.isEmpty {
+                        VStack(spacing: 12) {
+                            Image(systemName: "magnifyingglass")
+                                .font(.system(size: 48))
+                                .foregroundColor(.gray)
 
-                            if filteredCredentials.isEmpty && !credentials.isEmpty {
-                                VStack(spacing: 12) {
-                                    Image(systemName: "magnifyingglass")
-                                        .font(.system(size: 48))
-                                        .foregroundColor(.gray)
+                            Text("No credentials found")
+                                .font(.system(size: 18, weight: .medium))
+                                .foregroundColor(.gray)
 
-                                    Text("No credentials found")
-                                        .font(.system(size: 18, weight: .medium))
-                                        .foregroundColor(.gray)
-
-                                    Text("Try a different search term")
-                                        .font(.system(size: 14))
-                                        .foregroundColor(.secondary)
-                                }
-                                .padding(.top, 60)
-                            }
+                            Text("Try a different search term")
+                                .font(.system(size: 14))
+                                .foregroundColor(.secondary)
                         }
-                        .padding()
+                        .padding(.top, 60)
+                    }
+                }
+                .padding(.horizontal, 16)
+                .padding(.top, 16)
+                .padding(.bottom, 16)
+            }
+        }
+        .searchable(text: $searchText, prompt: "Search credentials") {
+                HStack(alignment: .top, spacing: 12) {
+                    Button {
+                        searchText = "I want to prove my English skills."
+                    } label: {
+                        Text("I want to prove my English skills.")
+                            .fixedSize(horizontal: false, vertical: true)
+                            .multilineTextAlignment(.leading)
+                    }
+
+                    Button {
+                        searchText = "I want to demonstrate my IT skills."
+                    } label: {
+                        Text("I want to demonstrate my IT skills.")
+                            .fixedSize(horizontal: false, vertical: true)
+                            .multilineTextAlignment(.leading)
+                    }
+
+                    Button {
+                        searchText = "I want to show the class on my driver license, but hide my name."
+                    } label: {
+                        Text("I want to show the class on my driver license, but hide my name.")
+                            .fixedSize(horizontal: false, vertical: true)
+                            .multilineTextAlignment(.leading)
+                    }
+
+                    Button {
+                        searchText = "Show my national ID card but hide name and residence."
+                    } label: {
+                        Text("Show my national ID card but hide name and residence.")
+                            .fixedSize(horizontal: false, vertical: true)
+                            .multilineTextAlignment(.leading)
+                    }
+                }
+                .padding(.horizontal)
+            }
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    NavigationLink(destination: FormView()) {
+                        Image(systemName: "sparkles")
+                            .font(.system(size: 20, weight: .semibold))
+                            .foregroundColor(.primary)
                     }
                 }
             }
@@ -112,7 +132,6 @@ struct VCListView: View {
                     VCDetailView(credential: credential)
                 }
             }
-        }
     }
 
     private func loadCredentials() {
@@ -269,8 +288,8 @@ struct VCDetailView: View {
                 }
                 .padding(.vertical)
             }
-            .navigationTitle("Credential Details")
-            .navigationBarTitleDisplayMode(.inline)
+            // .navigationTitle("Credential Details")
+            // .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button("Done") {
