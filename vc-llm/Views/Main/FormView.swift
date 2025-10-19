@@ -10,15 +10,10 @@ import SwiftUI
 struct FormView: View {
     @Environment(\.colorScheme) var colorScheme
     @StateObject private var modelManager = MLXManagerFinetuned()
+    @StateObject private var viewModel: FormViewModel
 
-    @State private var inputText: String = ""
-    @State private var isGenerating = false
-    @State private var showResult = false
-
-    // Result data (placeholder for now)
-    @State private var vcData: String = ""
-    @State private var dcqlData: String = ""
-    @State private var qrImage: UIImage?
+    @State private var showingDCQL = false
+    @State private var showingPresentation = false
 
     // Example queries for quick testing
     let exampleQueries = [
@@ -28,40 +23,45 @@ struct FormView: View {
         "I need my university degree"
     ]
 
+    init() {
+        let manager = MLXManagerFinetuned()
+        _modelManager = StateObject(wrappedValue: manager)
+        _viewModel = StateObject(wrappedValue: FormViewModel(modelManager: manager))
+    }
+
     var body: some View {
         ZStack {
             // Background
             Color(colorScheme == .dark ? .black : .systemGroupedBackground)
                 .ignoresSafeArea()
 
-            VStack(spacing: 0) {
-                // Header
-                headerView
+            ScrollView {
+                VStack(spacing: 0) {
+                    // Input Section
+                    inputSection
+                        .padding(.top, 20)
 
-                ScrollView {
-                    VStack(spacing: 0) {
-                        // Input Section
-                        inputSection
-                            .padding(.top, 20)
+                    // Example queries (always shown)
+                    exampleQueriesSection
+                        .padding(.top, 16)
 
-                        // Example queries (shown when no result)
-                        if !showResult {
-                            exampleQueriesSection
-                                .padding(.top, 16)
-                        }
+                    // Submit Button
+                    submitButton
+                        .padding(.top, 28)
 
-                        // Submit Button
-                        submitButton
+                    // Result Section (shown after submission)
+                    if viewModel.showResult {
+                        resultSection
                             .padding(.top, 28)
-
-                        // Result Section (shown after submission)
-                        if showResult {
-                            resultSection
-                                .padding(.top, 28)
-                        }
                     }
-                    .padding(.bottom, 40)
+
+                    // Error message
+                    if let error = viewModel.errorMessage {
+                        errorMessageView(error)
+                            .padding(.top, 16)
+                    }
                 }
+                .padding(.bottom, 40)
             }
 
             // Loading overlay
@@ -72,6 +72,18 @@ struct FormView: View {
             // Error overlay
             if case .failed = modelManager.loadingState {
                 errorOverlay
+            }
+        }
+        .navigationTitle("VC-LLM")
+        .navigationBarTitleDisplayMode(.inline)
+        .sheet(isPresented: $showingDCQL) {
+            if let response = viewModel.dcqlResponse {
+                DCQLSheetView(dcqlResponse: response)
+            }
+        }
+        .sheet(isPresented: $showingPresentation) {
+            if let response = viewModel.dcqlResponse {
+                QRPresentationView(dcqlResponse: response)
             }
         }
     }
@@ -101,20 +113,22 @@ struct FormView: View {
                 HStack(spacing: 10) {
                     ForEach(exampleQueries, id: \.self) { query in
                         Button {
-                            inputText = query
-                            handleSubmit()
+                            viewModel.inputText = query
+                            viewModel.submitRequest()
                         } label: {
                             HStack(alignment: .top, spacing: 8) {
                                 Image(systemName: "sparkles")
                                     .font(.system(size: 12, weight: .medium))
                                     .foregroundColor(.blue.opacity(0.7))
+                                    .padding(.top, 2)
 
                                 Text(query)
                                     .font(.system(size: 14, weight: .medium, design: .rounded))
                                     .foregroundColor(.primary)
-                                    .lineLimit(2)
+                                    .lineLimit(3)
                                     .multilineTextAlignment(.leading)
-                                    .frame(width: 160, alignment: .leading)
+                                    .fixedSize(horizontal: false, vertical: true)
+                                    .frame(width: 180, alignment: .leading)
                             }
                             .padding(.horizontal, 14)
                             .padding(.vertical, 12)
@@ -146,7 +160,7 @@ struct FormView: View {
 
             VStack(spacing: 0) {
                 ZStack(alignment: .topLeading) {
-                    if inputText.isEmpty {
+                    if viewModel.inputText.isEmpty {
                         Text("Describe what credentials you need...\n\nExample:\nShow my driver's license\nDisplay my passport expiration date")
                             .font(.system(size: 16, weight: .regular, design: .default))
                             .foregroundColor(.secondary.opacity(0.6))
@@ -154,7 +168,7 @@ struct FormView: View {
                             .padding(.vertical, 14)
                     }
 
-                    TextEditor(text: $inputText)
+                    TextEditor(text: $viewModel.inputText)
                         .font(.system(size: 16, weight: .regular, design: .default))
                         .foregroundColor(.primary)
                         .scrollContentBackground(.hidden)
@@ -174,10 +188,12 @@ struct FormView: View {
 
     private var submitButton: some View {
         Button {
-            handleSubmit()
+            // Hide keyboard
+            UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+            viewModel.submitRequest()
         } label: {
             HStack(spacing: 10) {
-                if isGenerating {
+                if viewModel.isGenerating {
                     ProgressView()
                         .progressViewStyle(CircularProgressViewStyle(tint: .white))
                         .scaleEffect(0.9)
@@ -194,92 +210,129 @@ struct FormView: View {
             .background(
                 RoundedRectangle(cornerRadius: 14, style: .continuous)
                     .fill(
-                        isGenerating ? Color.gray : Color.blue
+                        viewModel.isGenerating ? Color.gray : Color.blue
                     )
             )
         }
-        .disabled(inputText.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty || isGenerating || !modelManager.isModelLoaded)
-        .opacity((inputText.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty || isGenerating || !modelManager.isModelLoaded) ? 0.5 : 1.0)
+        .disabled(viewModel.inputText.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty || viewModel.isGenerating || !viewModel.isModelReady)
+        .opacity((viewModel.inputText.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty || viewModel.isGenerating || !viewModel.isModelReady) ? 0.5 : 1.0)
         .padding(.horizontal, 24)
     }
 
     private var resultSection: some View {
-        VStack(alignment: .leading, spacing: 12) {
-            Text("I found relevant credentials for your query.")
-                .font(.system(size: 16, weight: .regular, design: .rounded))
-                .foregroundColor(.primary.opacity(0.95))
+        Group {
+            if let response = viewModel.dcqlResponse {
+                VStack(alignment: .leading, spacing: 12) {
+                    Text("I found \(response.selectedVCs.count) relevant credential(s) for your query.")
+                        .font(.system(size: 16, weight: .regular, design: .rounded))
+                        .foregroundColor(.primary.opacity(0.95))
 
-            // Selected VCs
-            VStack(alignment: .leading, spacing: 8) {
-                Text("Selected Credentials:")
-                    .font(.system(size: 14, weight: .semibold, design: .rounded))
-                    .foregroundColor(.primary.opacity(0.8))
+                    // Selected VCs
+                    VStack(alignment: .leading, spacing: 8) {
+                        Text("Selected Credentials:")
+                            .font(.system(size: 14, weight: .semibold, design: .rounded))
+                            .foregroundColor(.primary.opacity(0.8))
 
-                HStack {
-                    Image(systemName: "checkmark.circle.fill")
-                        .foregroundColor(.green)
+                        ForEach(response.selectedVCs) { vc in
+                            HStack {
+                                Image(systemName: "checkmark.circle.fill")
+                                    .foregroundColor(.green)
+                                    .font(.system(size: 12))
+                                Text(vc.type.last ?? "Unknown")
+                                    .font(.system(size: 13, weight: .medium, design: .rounded))
+                                    .foregroundColor(.primary.opacity(0.7))
+                            }
+                        }
+                    }
+
+                    // Action buttons
+                    actionButtons(for: response)
+                }
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .padding(.horizontal, 16)
+                .padding(.vertical, 12)
+                .background(
+                    RoundedRectangle(cornerRadius: 14, style: .continuous)
+                        .fill(
+                            LinearGradient(
+                                colors: colorScheme == .dark ?
+                                    [Color.white.opacity(0.1), Color.white.opacity(0.05)] :
+                                    [Color.black.opacity(0.05), Color.black.opacity(0.03)],
+                                startPoint: .topLeading,
+                                endPoint: .bottomTrailing
+                            )
+                        )
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 14, style: .continuous)
+                                .stroke(Color.primary.opacity(0.1), lineWidth: 0.5)
+                        )
+                )
+                .padding(.horizontal, 24)
+            }
+        }
+    }
+
+    private func actionButtons(for response: DCQLResponse) -> some View {
+        HStack(spacing: 12) {
+            Button {
+                showingDCQL = true
+            } label: {
+                HStack(spacing: 4) {
+                    Image(systemName: "doc.text")
                         .font(.system(size: 12))
-                    Text("Driver's License")
-                        .font(.system(size: 13, weight: .medium, design: .rounded))
-                        .foregroundColor(.primary.opacity(0.7))
+                    Text("View DCQL")
+                        .font(.system(size: 13, weight: .medium))
                 }
+                .padding(.horizontal, 12)
+                .padding(.vertical, 6)
+                .background(
+                    RoundedRectangle(cornerRadius: 8)
+                        .fill(Color.primary.opacity(0.1))
+                )
             }
 
-            // Action buttons
-            HStack(spacing: 12) {
-                Button {
-                    // Toggle DCQL view
-                } label: {
-                    HStack(spacing: 4) {
-                        Image(systemName: "chevron.down")
-                            .font(.system(size: 12))
-                        Text("View DCQL")
-                            .font(.system(size: 13, weight: .medium))
-                    }
-                    .padding(.horizontal, 12)
-                    .padding(.vertical, 6)
-                    .background(
-                        RoundedRectangle(cornerRadius: 8)
-                            .fill(Color.primary.opacity(0.1))
-                    )
+            Button {
+                showingPresentation = true
+            } label: {
+                HStack(spacing: 4) {
+                    Image(systemName: "qrcode")
+                        .font(.system(size: 12))
+                    Text("Present")
+                        .font(.system(size: 13, weight: .medium))
                 }
-
-                Button {
-                    // Present action
-                } label: {
-                    HStack(spacing: 4) {
-                        Image(systemName: "qrcode")
-                            .font(.system(size: 12))
-                        Text("Present")
-                            .font(.system(size: 13, weight: .medium))
-                    }
-                    .padding(.horizontal, 12)
-                    .padding(.vertical, 6)
-                    .background(
-                        RoundedRectangle(cornerRadius: 8)
-                            .fill(Color.blue.opacity(0.2))
-                    )
-                }
+                .padding(.horizontal, 12)
+                .padding(.vertical, 6)
+                .background(
+                    RoundedRectangle(cornerRadius: 8)
+                        .fill(Color.blue.opacity(0.2))
+                )
             }
-            .foregroundColor(.primary)
+        }
+        .foregroundColor(.primary)
+    }
+
+    private func errorMessageView(_ message: String) -> some View {
+        VStack(alignment: .leading, spacing: 8) {
+            HStack(spacing: 8) {
+                Image(systemName: "exclamationmark.triangle.fill")
+                    .foregroundColor(.orange)
+                Text("Error")
+                    .font(.system(size: 14, weight: .semibold, design: .rounded))
+                    .foregroundColor(.primary)
+            }
+
+            Text(message)
+                .font(.system(size: 13, weight: .regular, design: .rounded))
+                .foregroundColor(.secondary)
         }
         .frame(maxWidth: .infinity, alignment: .leading)
-        .padding(.horizontal, 16)
-        .padding(.vertical, 12)
+        .padding(12)
         .background(
-            RoundedRectangle(cornerRadius: 14, style: .continuous)
-                .fill(
-                    LinearGradient(
-                        colors: colorScheme == .dark ?
-                            [Color.white.opacity(0.1), Color.white.opacity(0.05)] :
-                            [Color.black.opacity(0.05), Color.black.opacity(0.03)],
-                        startPoint: .topLeading,
-                        endPoint: .bottomTrailing
-                    )
-                )
+            RoundedRectangle(cornerRadius: 12, style: .continuous)
+                .fill(Color.orange.opacity(0.1))
                 .overlay(
-                    RoundedRectangle(cornerRadius: 14, style: .continuous)
-                        .stroke(Color.primary.opacity(0.1), lineWidth: 0.5)
+                    RoundedRectangle(cornerRadius: 12, style: .continuous)
+                        .stroke(Color.orange.opacity(0.3), lineWidth: 1)
                 )
         )
         .padding(.horizontal, 24)
@@ -376,28 +429,125 @@ struct FormView: View {
         }
     }
 
-    private func handleSubmit() {
-        let trimmed = inputText.trimmingCharacters(in: .whitespacesAndNewlines)
-        guard !trimmed.isEmpty, modelManager.isModelLoaded, !isGenerating else { return }
+}
 
-        isGenerating = true
+// MARK: - DCQL Sheet View
+struct DCQLSheetView: View {
+    @Environment(\.dismiss) var dismiss
+    @Environment(\.colorScheme) var colorScheme
+    let dcqlResponse: DCQLResponse
 
-        // TODO: Implement actual VC generation logic
-        // For now, just show placeholder results
-        Task {
-            // Simulate processing delay
-            try? await Task.sleep(nanoseconds: 1_500_000_000) // 1.5 seconds
-
-            await MainActor.run {
-                // Placeholder data
-                vcData = "{\n  \"type\": \"VerifiableCredential\",\n  \"credentialSubject\": {\n    // VC data will be displayed here\n  }\n}"
-                dcqlData = "{\n  \"query\": {\n    // DCQL query will be displayed here\n  }\n}"
-                qrImage = nil // QR code will be generated here
-
-                showResult = true
-                isGenerating = false
+    var body: some View {
+        NavigationView {
+            ScrollView {
+                VStack(alignment: .leading, spacing: 16) {
+                    Text(dcqlResponse.dcqlString)
+                        .font(.system(size: 13, design: .monospaced))
+                        .foregroundColor(.primary)
+                        .textSelection(.enabled)
+                        .padding(16)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .background(
+                            RoundedRectangle(cornerRadius: 12, style: .continuous)
+                                .fill(colorScheme == .dark ? Color(.systemGray6).opacity(0.3) : Color(.secondarySystemGroupedBackground))
+                        )
+                }
+                .padding(24)
+            }
+            .navigationTitle("DCQL Query")
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button("Done") {
+                        dismiss()
+                    }
+                }
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button {
+                        UIPasteboard.general.string = dcqlResponse.dcqlString
+                    } label: {
+                        Label("Copy", systemImage: "doc.on.doc")
+                    }
+                }
             }
         }
+    }
+}
+
+// MARK: - QR Presentation View
+struct QRPresentationView: View {
+    @Environment(\.dismiss) var dismiss
+    @Environment(\.colorScheme) var colorScheme
+    let dcqlResponse: DCQLResponse
+
+    var body: some View {
+        NavigationView {
+            VStack(spacing: 32) {
+                Spacer()
+
+                // QR Code
+                if let qrImage = generateQRCode(from: dcqlResponse.dcqlString) {
+                    Image(uiImage: qrImage)
+                        .interpolation(.none)
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 280, height: 280)
+                        .padding(24)
+                        .background(Color.white)
+                        .cornerRadius(20)
+                        .shadow(color: Color.black.opacity(0.1), radius: 10, y: 5)
+                } else {
+                    VStack(spacing: 16) {
+                        Image(systemName: "qrcode")
+                            .font(.system(size: 80))
+                            .foregroundColor(.gray.opacity(0.3))
+
+                        Text("Unable to generate QR code")
+                            .font(.system(size: 16, weight: .medium))
+                            .foregroundColor(.secondary)
+                    }
+                    .frame(width: 280, height: 280)
+                }
+
+                // Instruction text
+                Text("Scan this QR code to receive the verifiable presentation")
+                    .font(.system(size: 16, weight: .medium, design: .rounded))
+                    .foregroundColor(.secondary)
+                    .multilineTextAlignment(.center)
+                    .padding(.horizontal, 40)
+
+                Spacer()
+            }
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .background(Color(colorScheme == .dark ? .black : .systemGroupedBackground))
+            .navigationTitle("Present VP")
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button("Done") {
+                        dismiss()
+                    }
+                }
+            }
+        }
+    }
+
+    private func generateQRCode(from string: String) -> UIImage? {
+        let data = Data(string.utf8)
+
+        guard let filter = CIFilter(name: "CIQRCodeGenerator") else { return nil }
+        filter.setValue(data, forKey: "inputMessage")
+        filter.setValue("H", forKey: "inputCorrectionLevel")
+
+        guard let ciImage = filter.outputImage else { return nil }
+
+        let transform = CGAffineTransform(scaleX: 10, y: 10)
+        let scaledCIImage = ciImage.transformed(by: transform)
+
+        let context = CIContext()
+        guard let cgImage = context.createCGImage(scaledCIImage, from: scaledCIImage.extent) else { return nil }
+
+        return UIImage(cgImage: cgImage)
     }
 }
 

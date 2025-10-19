@@ -19,13 +19,15 @@ struct ExampleQueriesView: View {
                 .padding(.horizontal, 20)
 
             ScrollView(.horizontal, showsIndicators: false) {
-                HStack(spacing: 12) {
+                HStack(alignment: .top, spacing: 12) {
                     ForEach(queries, id: \.self) { query in
                         Button {
                             onQueryTapped(query)
                         } label: {
                             Text(query)
                                 .font(.system(size: 14, weight: .medium, design: .rounded))
+                                .fixedSize(horizontal: false, vertical: true)
+                                .multilineTextAlignment(.leading)
                                 .padding(.horizontal, 12)
                                 .padding(.vertical, 8)
                                 .background(
