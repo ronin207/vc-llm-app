@@ -4,6 +4,26 @@ struct VCListView: View {
     @State private var credentials: [VerifiableCredential] = []
     @State private var selectedCredential: VerifiableCredential?
     @State private var showingDetail = false
+    @State private var searchText = ""
+
+    var filteredCredentials: [VerifiableCredential] {
+        if searchText.isEmpty {
+            return credentials
+        }
+        return credentials.filter { credential in
+            let credentialType = credential.type.count > 1 ? credential.type[1] : credential.type[0]
+            let issuerName = credential.issuer.name
+
+            // Search in type, issuer name, and credentialSubject values
+            let matchesType = credentialType.localizedCaseInsensitiveContains(searchText)
+            let matchesIssuer = issuerName.localizedCaseInsensitiveContains(searchText)
+            let matchesSubject = credential.credentialSubject.values.contains { value in
+                value.stringValue.localizedCaseInsensitiveContains(searchText)
+            }
+
+            return matchesType || matchesIssuer || matchesSubject
+        }
+    }
 
     // Gradient colors for cards
     let gradients: [LinearGradient] = [
@@ -22,23 +42,67 @@ struct VCListView: View {
                 Color(uiColor: .systemGroupedBackground)
                     .ignoresSafeArea()
 
-                ScrollView {
-                    LazyVStack(spacing: 16) {
-                        ForEach(Array(credentials.enumerated()), id: \.element.id) { index, credential in
-                            VCCardView(
-                                credential: credential,
-                                gradient: gradients[index % gradients.count]
-                            )
-                            .onTapGesture {
-                                selectedCredential = credential
-                                showingDetail = true
+                VStack(spacing: 0) {
+                    // Search bar
+                    HStack {
+                        Image(systemName: "magnifyingglass")
+                            .foregroundColor(.gray)
+
+                        TextField("Search credentials...", text: $searchText)
+                            .textFieldStyle(.plain)
+
+                        if !searchText.isEmpty {
+                            Button(action: {
+                                searchText = ""
+                            }) {
+                                Image(systemName: "xmark.circle.fill")
+                                    .foregroundColor(.gray)
                             }
                         }
                     }
-                    .padding()
+                    .padding(12)
+                    .background(
+                        RoundedRectangle(cornerRadius: 12)
+                            .fill(Color(uiColor: .systemBackground))
+                    )
+                    .padding(.horizontal)
+                    .padding(.vertical, 8)
+
+                    ScrollView {
+                        LazyVStack(spacing: 16) {
+                            ForEach(Array(filteredCredentials.enumerated()), id: \.element.id) { index, credential in
+                                VCCardView(
+                                    credential: credential,
+                                    gradient: gradients[index % gradients.count]
+                                )
+                                .onTapGesture {
+                                    selectedCredential = credential
+                                    showingDetail = true
+                                }
+                            }
+
+                            if filteredCredentials.isEmpty && !credentials.isEmpty {
+                                VStack(spacing: 12) {
+                                    Image(systemName: "magnifyingglass")
+                                        .font(.system(size: 48))
+                                        .foregroundColor(.gray)
+
+                                    Text("No credentials found")
+                                        .font(.system(size: 18, weight: .medium))
+                                        .foregroundColor(.gray)
+
+                                    Text("Try a different search term")
+                                        .font(.system(size: 14))
+                                        .foregroundColor(.secondary)
+                                }
+                                .padding(.top, 60)
+                            }
+                        }
+                        .padding()
+                    }
                 }
             }
-            .navigationTitle("Verifiable Credentials")
+            .navigationTitle("Credentials")
             .navigationBarTitleDisplayMode(.large)
             .onAppear {
                 loadCredentials()
@@ -170,7 +234,7 @@ struct VCDetailView: View {
 
                                         Spacer()
 
-                                        Text(value)
+                                        Text(value.stringValue)
                                             .font(.system(size: 14, weight: .regular))
                                             .multilineTextAlignment(.trailing)
                                     }
@@ -221,21 +285,104 @@ struct VCDetailView: View {
 
 // Decodable struct for VerifiableCredential
 struct VerifiableCredential: Codable, Identifiable {
+    let context: [String]?
     let id: String
     let type: [String]
     let issuer: Issuer
     let validFrom: String?
     let validUntil: String?
-    let credentialSubject: [String: String]
+    let credentialSubject: [String: JSONValue]
+    let proof: Proof?
 
     enum CodingKeys: String, CodingKey {
+        case context = "@context"
         case id
         case type
         case issuer
         case validFrom
         case validUntil
         case credentialSubject
+        case proof
     }
+}
+
+// Helper enum to decode any JSON value
+enum JSONValue: Codable {
+    case string(String)
+    case number(Double)
+    case bool(Bool)
+    case object([String: JSONValue])
+    case array([JSONValue])
+    case null
+
+    init(from decoder: Decoder) throws {
+        let container = try decoder.singleValueContainer()
+
+        if container.decodeNil() {
+            self = .null
+        } else if let bool = try? container.decode(Bool.self) {
+            self = .bool(bool)
+        } else if let number = try? container.decode(Double.self) {
+            self = .number(number)
+        } else if let string = try? container.decode(String.self) {
+            self = .string(string)
+        } else if let array = try? container.decode([JSONValue].self) {
+            self = .array(array)
+        } else if let object = try? container.decode([String: JSONValue].self) {
+            self = .object(object)
+        } else {
+            throw DecodingError.dataCorruptedError(in: container, debugDescription: "Cannot decode JSONValue")
+        }
+    }
+
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.singleValueContainer()
+        switch self {
+        case .string(let value):
+            try container.encode(value)
+        case .number(let value):
+            try container.encode(value)
+        case .bool(let value):
+            try container.encode(value)
+        case .object(let value):
+            try container.encode(value)
+        case .array(let value):
+            try container.encode(value)
+        case .null:
+            try container.encodeNil()
+        }
+    }
+
+    var stringValue: String {
+        switch self {
+        case .string(let value):
+            return value
+        case .number(let value):
+            return String(value)
+        case .bool(let value):
+            return String(value)
+        case .object(let dict):
+            // Convert object to JSON string for display
+            if let data = try? JSONEncoder().encode(dict),
+               let string = String(data: data, encoding: .utf8) {
+                return string
+            }
+            return "{...}"
+        case .array(let arr):
+            return "[\(arr.count) items]"
+        case .null:
+            return "null"
+        }
+    }
+}
+
+struct Proof: Codable {
+    let type: String
+    let cryptosuite: String?
+    let created: String?
+    let verificationMethod: String?
+    let proofPurpose: String?
+    let proofValue: String?
 }
 
 struct Issuer: Codable {
