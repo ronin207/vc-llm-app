@@ -7,7 +7,6 @@
 
 import SwiftUI
 
-// Presentation View for sharing VCs
 struct PresentationView: View {
     @Environment(\.dismiss) var dismiss
     let dcqlResponse: DCQLResponse

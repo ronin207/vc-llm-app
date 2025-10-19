@@ -17,11 +17,9 @@ struct ContentViewDCQL: View {
     @State private var inputText: String = ""
     @FocusState private var isInputFocused: Bool
     @State private var isGenerating = false
-    @State private var appMode: AppMode = .dcql
     @State private var currentDCQLResponse: DCQLResponse?
     @State private var showingPresentation = false
     @State private var showingVCList = false
-    @State private var selectedModel: String = "Gemma 2B Finetuned (DCQL)"
 
     // Example queries for quick testing
     let exampleQueries = [
@@ -35,7 +33,6 @@ struct ContentViewDCQL: View {
 
     var body: some View {
         ZStack {
-            // Background gradient
             LinearGradient(
                 colors: colorScheme == .dark ?
                     [Color(red: 0.07, green: 0.08, blue: 0.13), Color(red: 0.10, green: 0.11, blue: 0.18)] :
@@ -46,10 +43,8 @@ struct ContentViewDCQL: View {
             .ignoresSafeArea()
 
             VStack(spacing: 0) {
-                // Header with mode selector
                 headerView
 
-                // Example queries (shown when empty)
                 if messages.count == 1 {
                     ExampleQueriesView(queries: exampleQueries) { query in
                         inputText = query
@@ -57,7 +52,6 @@ struct ContentViewDCQL: View {
                     }
                 }
 
-                // Messages ScrollView
                 ScrollViewReader { proxy in
                     ScrollView {
                         VStack(spacing: 8) {
@@ -83,17 +77,14 @@ struct ContentViewDCQL: View {
                     }
                 }
 
-                // Input Bar
                 inputBar
             }
             .ignoresSafeArea(.container, edges: .bottom)
 
-            // Loading overlay
             if modelManager.loadingState.isLoading {
                 loadingOverlay
             }
 
-            // Error overlay
             if case .failed = modelManager.loadingState {
                 errorOverlay
             }
@@ -118,7 +109,6 @@ struct ContentViewDCQL: View {
 
             Spacer()
 
-            // VC List button
             Button {
                 showingVCList = true
             } label: {
@@ -287,7 +277,6 @@ struct ContentViewDCQL: View {
         let trimmed = inputText.trimmingCharacters(in: .whitespacesAndNewlines)
         guard !trimmed.isEmpty, modelManager.isModelLoaded, !isGenerating else { return }
 
-        // Add user message
         withAnimation(.easeInOut(duration: 0.2)) {
             messages.append(DCQLMessage(text: trimmed, isUser: true))
             inputText = ""
@@ -296,14 +285,12 @@ struct ContentViewDCQL: View {
         isGenerating = true
         isInputFocused = true
 
-        // Generate DCQL response
         Task {
             do {
                 let dcqlResponse = try await modelManager.generateDCQL(from: trimmed)
 
                 await MainActor.run {
                     withAnimation(.easeInOut(duration: 0.2)) {
-                        // Format the response message
                         let responseText = """
                         I found \(dcqlResponse.selectedVCs.count) relevant credential(s) for your query.
 
@@ -333,7 +320,6 @@ struct ContentViewDCQL: View {
     }
 }
 
-// Preview
 #Preview {
     ContentViewDCQL()
 }

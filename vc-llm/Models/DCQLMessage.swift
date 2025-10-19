@@ -6,15 +6,6 @@
 //
 
 import Foundation
-
-// Mode enum for different app states
-enum AppMode {
-    case chat
-    case dcql
-    case presentation
-}
-
-// Message type extended for DCQL
 struct DCQLMessage: Identifiable, Equatable {
     let id = UUID()
     let text: String

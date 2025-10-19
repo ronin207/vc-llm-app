@@ -7,7 +7,6 @@
 
 import SwiftUI
 
-// Message bubble component
 struct MessageBubble: View {
     @Environment(\.colorScheme) var colorScheme
     let message: DCQLMessage
