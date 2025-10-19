@@ -21,8 +21,8 @@ class MLXManager: ObservableObject {
     
     private var model: ChatSession? // Changed from Any? to ChatSession?
     
-    // Gemma 1B model from Hugging Face
-    private let modelID = "mlx-community/gemma-2-2b-it-4bit"
+    // Local fine-tuned Gemma 2B model
+    private let modelID = "vc-llm/gemma-2-2b-it/model"
     
     init() {
         loadModel()

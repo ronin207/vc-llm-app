@@ -64,21 +64,17 @@ class MLXManagerFinetuned: ObservableObject {
                 loadingProgress = "Loading DCQL model from Hugging Face..."
             }
             
-            let progressTask = Task {
-                for progress in stride(from: 0.1, to: 0.9, by: 0.1) {
-                    try? await Task.sleep(nanoseconds: UInt64(1.5 * 1_000_000_000))
-                    await MainActor.run {
-                        self.downloadProgress = progress
-                        self.loadingProgress = "Downloading model... \(Int(progress * 100))%"
-                        self.downloadedMB = progress * 1500
-                        self.totalMB = 1500
-                    }
-                }
-            }
-            
             // Load model from Hugging Face. Replace `huggingFaceModelID` with your merged finetuned repo.
+            print("🔄 Starting to load model from: \(huggingFaceModelID)")
+
+            // Update progress to show actual loading
+            await MainActor.run {
+                self.downloadProgress = 0.1
+                self.loadingProgress = "Downloading model from Hugging Face..."
+            }
+
             let loadedModel = try await MLXLMCommon.loadModel(id: huggingFaceModelID)
-            progressTask.cancel()
+            print("🎉 Model loaded successfully from HuggingFace")
             
             model = ChatSession(loadedModel)
             
@@ -92,10 +88,12 @@ class MLXManagerFinetuned: ObservableObject {
         } catch {
             downloadProgress = 0.0
             loadingProgress = "Failed to load model: \(error.localizedDescription)"
-            print("Error loading model: \(error)")
+            print("❌ Error loading model: \(error)")
+            print("❌ Error details: \(String(describing: error))")
         }
-        
+
         isLoading = false
+        print("✅ Model loading completed. isModelLoaded=\(isModelLoaded), isLoading=\(isLoading)")
     }
     
     // Generate DCQL from natural language query
