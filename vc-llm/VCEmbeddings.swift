@@ -10,7 +10,6 @@ import NaturalLanguage
 import SwiftUI
 import Combine
 
-// Simple text embedding using NaturalLanguage framework
 class VCEmbeddings: ObservableObject {
     // Required publisher to satisfy Combine.ObservableObject when no @Published properties
     let objectWillChange = ObservableObjectPublisher()
@@ -40,8 +39,7 @@ class VCEmbeddings: ObservableObject {
             case issuer
             case credentialSubject
         }
-        
-        // Helper to get a text representation for embedding
+
         func toSearchableText() -> String {
             var text = type.joined(separator: " ")
             
@@ -72,8 +70,7 @@ class VCEmbeddings: ObservableObject {
         let id: String
         let name: String
     }
-    
-    // Helper type to handle any JSON value
+
     struct AnyCodable: Codable {
         let value: Any
         
@@ -332,8 +329,7 @@ class VCEmbeddings: ObservableObject {
         guard normA > 0 && normB > 0 else { return 0 }
         return dotProduct / (sqrt(normA) * sqrt(normB))
     }
-    
-    // Helper to format VCs for prompt
+
     func formatVCsForPrompt(_ vcs: [VerifiableCredential]) -> String {
         var result = ""
         for (index, vc) in vcs.enumerated() {

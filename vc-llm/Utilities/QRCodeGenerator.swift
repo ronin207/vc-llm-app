@@ -8,7 +8,6 @@
 import UIKit
 import CoreImage.CIFilterBuiltins
 
-// QR Code generator for presentation sharing
 struct QRCodeGenerator {
     static func generate(from string: String) -> UIImage? {
         let context = CIContext()

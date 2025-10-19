@@ -16,7 +16,6 @@ struct VCListView: View {
         }
     }
 
-    // Gradient colors for cards
     let gradients: [LinearGradient] = [
         LinearGradient(colors: [Color.blue.opacity(0.6), Color.purple.opacity(0.8)], startPoint: .topLeading, endPoint: .bottomTrailing),
         LinearGradient(colors: [Color.green.opacity(0.6), Color.teal.opacity(0.8)], startPoint: .topLeading, endPoint: .bottomTrailing),
@@ -28,17 +27,15 @@ struct VCListView: View {
 
     var body: some View {
         ZStack {
-            // Background
             Color(uiColor: .systemGroupedBackground)
                 .ignoresSafeArea()
 
-            // Credentials List
             ScrollView {
                 LazyVStack(spacing: 16) {
-                    ForEach(Array(filteredCredentials.enumerated()), id: \.element.id) { index, credential in
+                    ForEach(filteredCredentials) { credential in
                         VCCardView(
                             credential: credential,
-                            gradient: gradients[index % gradients.count]
+                            gradient: gradients[abs(credential.id.hashValue) % gradients.count]
                         )
                         .onTapGesture {
                             selectedCredential = credential
@@ -80,7 +77,9 @@ struct VCListView: View {
             .navigationTitle("Credentials")
             .navigationBarTitleDisplayMode(.large)
             .onAppear {
-                loadCredentials()
+                if credentials.isEmpty {
+                    loadCredentials()
+                }
             }
             .sheet(item: $selectedCredential) { credential in
                 VCDetailView(credential: credential)
@@ -157,12 +156,13 @@ struct VCCardView: View {
 struct VCDetailView: View {
     @Environment(\.dismiss) var dismiss
     let credential: VerifiableCredential
+    @State private var jsonString: String = ""
 
     var credentialType: String {
         credential.type.count > 1 ? credential.type[1] : credential.type[0]
     }
 
-    var jsonString: String {
+    private func generateJSONString() -> String {
         let encoder = JSONEncoder()
         encoder.outputFormatting = [.prettyPrinted, .sortedKeys]
 
@@ -190,7 +190,6 @@ struct VCDetailView: View {
 
                     Divider()
 
-                    // Credential Subject
                     VStack(alignment: .leading, spacing: 12) {
                         Text("Credential Subject")
                             .font(.system(size: 18, weight: .semibold, design: .rounded))
@@ -241,8 +240,6 @@ struct VCDetailView: View {
                 }
                 .padding(.vertical)
             }
-            // .navigationTitle("Credential Details")
-            // .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button("Done") {
@@ -250,35 +247,30 @@ struct VCDetailView: View {
                     }
                 }
             }
+            .onAppear {
+                if jsonString.isEmpty {
+                    jsonString = generateJSONString()
+                }
+            }
         }
     }
 
 }
 
-// Decodable struct for VerifiableCredential
 struct VerifiableCredential: Codable, Identifiable {
-    let context: [String]?
     let id: String
     let type: [String]
     let issuer: Issuer
-    let validFrom: String?
-    let validUntil: String?
     let credentialSubject: [String: JSONValue]
-    let proof: Proof?
 
     enum CodingKeys: String, CodingKey {
-        case context = "@context"
         case id
         case type
         case issuer
-        case validFrom
-        case validUntil
         case credentialSubject
-        case proof
     }
 }
 
-// Helper enum to decode any JSON value
 enum JSONValue: Codable {
     case string(String)
     case number(Double)
@@ -346,15 +338,6 @@ enum JSONValue: Codable {
             return "null"
         }
     }
-}
-
-struct Proof: Codable {
-    let type: String
-    let cryptosuite: String?
-    let created: String?
-    let verificationMethod: String?
-    let proofPurpose: String?
-    let proofValue: String?
 }
 
 struct Issuer: Codable {

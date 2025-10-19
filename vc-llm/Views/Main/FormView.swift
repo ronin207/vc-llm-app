@@ -31,31 +31,25 @@ struct FormView: View {
 
     var body: some View {
         ZStack {
-            // Background
             Color(colorScheme == .dark ? .black : .systemGroupedBackground)
                 .ignoresSafeArea()
 
             ScrollView {
                 VStack(spacing: 0) {
-                    // Input Section
                     inputSection
                         .padding(.top, 20)
 
-                    // Example queries (always shown)
                     exampleQueriesSection
                         .padding(.top, 16)
 
-                    // Submit Button
                     submitButton
                         .padding(.top, 28)
 
-                    // Result Section (shown after submission)
                     if viewModel.showResult {
                         resultSection
                             .padding(.top, 28)
                     }
 
-                    // Error message
                     if let error = viewModel.errorMessage {
                         errorMessageView(error)
                             .padding(.top, 16)
@@ -245,7 +239,6 @@ struct FormView: View {
                         }
                     }
 
-                    // Action buttons
                     actionButtons(for: response)
                 }
                 .frame(maxWidth: .infinity, alignment: .leading)
@@ -509,7 +502,6 @@ struct QRPresentationView: View {
                     .frame(width: 280, height: 280)
                 }
 
-                // Instruction text
                 Text("Scan this QR code to receive the verifiable presentation")
                     .font(.system(size: 16, weight: .medium, design: .rounded))
                     .foregroundColor(.secondary)

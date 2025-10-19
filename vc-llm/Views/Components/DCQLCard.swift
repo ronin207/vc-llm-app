@@ -7,7 +7,6 @@
 
 import SwiftUI
 
-// DCQL Details View
 struct DCQLDetailsView: View {
     let dcqlResponse: DCQLResponse
     let onPresentTapped: () -> Void
@@ -15,7 +14,6 @@ struct DCQLDetailsView: View {
 
     var body: some View {
         VStack(alignment: .leading, spacing: 12) {
-            // Selected VCs
             VStack(alignment: .leading, spacing: 4) {
                 Text("Selected Credentials:")
                     .font(.system(size: 14, weight: .semibold, design: .rounded))
@@ -33,7 +31,6 @@ struct DCQLDetailsView: View {
                 }
             }
 
-            // Action buttons
             HStack(spacing: 12) {
                 Button {
                     showingJSON.toggle()
