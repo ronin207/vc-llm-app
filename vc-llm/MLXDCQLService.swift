@@ -102,7 +102,11 @@ final class MLXDCQLService: ObservableObject {
             throw DCQLError.modelNotLoaded
         }
 
+        // Measure retrieval time
+        let retrievalStart = CFAbsoluteTimeGetCurrent()
         let retrievalResults = retriever.retrieve(query: query, topK: 3)
+        let retrievalTime = CFAbsoluteTimeGetCurrent() - retrievalStart
+
         let relevantVCs = retrievalResults.map { $0.vc }
 
         guard !relevantVCs.isEmpty else {
@@ -111,17 +115,35 @@ final class MLXDCQLService: ObservableObject {
 
         let formattedVCs = retriever.formatVCsForPrompt(relevantVCs)
 
+        // Measure DCQL generation time
+        let generationStart = CFAbsoluteTimeGetCurrent()
+
         do {
             let generationResult = try generator.generateDCQL(query: query, formattedVCs: formattedVCs)
+            let generationTime = CFAbsoluteTimeGetCurrent() - generationStart
+
+            // Log timing information
+            print("⏱️ Retrieval time: \(String(format: "%.3f", retrievalTime))s")
+            print("⏱️ Generation time: \(String(format: "%.3f", generationTime))s")
+            print("⏱️ Total time: \(String(format: "%.3f", retrievalTime + generationTime))s")
+
             return DCQLResponse(
                 dcql: generationResult.dcql,
                 dcqlString: generationResult.dcqlString,
                 selectedVCs: relevantVCs,
-                query: query
+                query: query,
+                retrievalTime: retrievalTime,
+                generationTime: generationTime
             )
         } catch let validationError as DCQLValidationError {
+            let generationTime = CFAbsoluteTimeGetCurrent() - generationStart
+
             print("❌ DCQL validation failed: \(validationError.localizedDescription)")
             print("🔍 Raw response: \(validationError.rawResponse)")
+            print("⏱️ Retrieval time: \(String(format: "%.3f", retrievalTime))s")
+            print("⏱️ Generation time: \(String(format: "%.3f", generationTime))s")
+            print("⏱️ Total time: \(String(format: "%.3f", retrievalTime + generationTime))s")
+
             let fallback = DCQLGenerator.generateTemplateDCQL(for: relevantVCs, query: query)
             let pretty = (try? JSONSerialization.data(withJSONObject: fallback, options: .prettyPrinted))
                 .flatMap { String(data: $0, encoding: .utf8) } ?? "{}"
@@ -129,7 +151,9 @@ final class MLXDCQLService: ObservableObject {
                 dcql: fallback,
                 dcqlString: pretty,
                 selectedVCs: relevantVCs,
-                query: query
+                query: query,
+                retrievalTime: retrievalTime,
+                generationTime: generationTime
             )
         } catch {
             throw DCQLError.generationFailed(error.localizedDescription)
@@ -179,6 +203,12 @@ struct DCQLResponse {
     let dcqlString: String
     let selectedVCs: [VerifiableCredential]
     let query: String
+    let retrievalTime: TimeInterval
+    let generationTime: TimeInterval
+
+    var totalTime: TimeInterval {
+        retrievalTime + generationTime
+    }
 }
 
 enum DCQLError: LocalizedError {

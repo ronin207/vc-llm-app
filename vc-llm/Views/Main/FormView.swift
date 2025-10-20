@@ -220,6 +220,25 @@ struct FormView: View {
                         }
                     }
 
+                    // Timing Information (Debug)
+                    VStack(alignment: .leading, spacing: 6) {
+                        HStack(spacing: 4) {
+                            Image(systemName: "clock")
+                                .font(.system(size: 11))
+                                .foregroundColor(.secondary.opacity(0.7))
+                            Text("Performance:")
+                                .font(.system(size: 12, weight: .semibold, design: .rounded))
+                                .foregroundColor(.secondary.opacity(0.8))
+                        }
+
+                        HStack(spacing: 12) {
+                            timingItem(label: "Retrieval", time: response.retrievalTime)
+                            timingItem(label: "Generation", time: response.generationTime)
+                            timingItem(label: "Total", time: response.totalTime)
+                        }
+                    }
+                    .padding(.top, 4)
+
                     actionButtons(for: response)
                 }
                 .frame(maxWidth: .infinity, alignment: .leading)
@@ -243,6 +262,17 @@ struct FormView: View {
                 )
                 .padding(.horizontal, 24)
             }
+        }
+    }
+
+    private func timingItem(label: String, time: TimeInterval) -> some View {
+        HStack(spacing: 2) {
+            Text("\(label):")
+                .font(.system(size: 11, weight: .regular, design: .monospaced))
+                .foregroundColor(.secondary.opacity(0.7))
+            Text(String(format: "%.3fs", time))
+                .font(.system(size: 11, weight: .medium, design: .monospaced))
+                .foregroundColor(.secondary)
         }
     }
 
