@@ -109,9 +109,9 @@ class CoreMLEmbeddingGenerator: EmbeddingGenerator {
         let decoder = JSONDecoder()
         let loadedCache = try decoder.decode([String: [Double]].self, from: data)
 
-        // Merge loaded cache with current cache (avoid duplicates)
-        embeddingCache.merge(loadedCache) { (current, _) in current }
-        print("✅ Loaded \(loadedCache.count) embeddings from cache (total: \(embeddingCache.count))")
+        // Replace cache instead of merging to prevent cache bloat
+        embeddingCache = loadedCache
+        print("✅ Loaded \(loadedCache.count) embeddings from cache")
     }
 
     func clearCache() {

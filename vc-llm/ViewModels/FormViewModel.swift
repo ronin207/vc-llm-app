@@ -12,19 +12,18 @@ class FormViewModel: ObservableObject {
     // Result data
     @Published var dcqlResponse: DCQLResponse?
 
-    // Model manager (shared, not reloaded)
-    private let modelManager: MLXManagerFinetuned
+    private let service: MLXDCQLService
 
-    init(modelManager: MLXManagerFinetuned) {
-        self.modelManager = modelManager
+    init(service: MLXDCQLService) {
+        self.service = service
     }
 
     var isModelReady: Bool {
-        modelManager.isModelLoaded
+        service.isModelLoaded
     }
 
     var modelLoadingState: ModelLoadingState {
-        modelManager.loadingState
+        service.loadingState
     }
 
     func submitRequest() {
@@ -40,7 +39,8 @@ class FormViewModel: ObservableObject {
 
         Task {
             do {
-                let response = try await modelManager.generateDCQL(from: trimmed)
+                try await service.ensureModelLoaded()
+                let response = try await service.generateDCQL(from: trimmed)
 
                 await MainActor.run {
                     dcqlResponse = response
