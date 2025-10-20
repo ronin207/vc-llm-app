@@ -32,10 +32,10 @@ struct VCListView: View {
 
             ScrollView {
                 LazyVStack(spacing: 16) {
-                    ForEach(filteredCredentials) { credential in
+                    ForEach(Array(filteredCredentials.enumerated()), id: \.element.id) { index, credential in
                         VCCardView(
                             credential: credential,
-                            gradient: gradient(for: credential)
+                            gradient: gradient(for: index)
                         )
                         .onTapGesture {
                             selectedCredential = credential
@@ -86,10 +86,8 @@ struct VCListView: View {
             }
     }
 
-    private func gradient(for credential: VerifiableCredential) -> LinearGradient {
-        let hash = UInt(bitPattern: credential.id.hashValue)
-        let index = Int(hash % UInt(gradients.count))
-        return gradients[index]
+    private func gradient(for index: Int) -> LinearGradient {
+        return gradients[index % gradients.count]
     }
 
     private func loadCredentials() {
