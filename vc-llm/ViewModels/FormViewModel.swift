@@ -31,6 +31,10 @@ class FormViewModel: ObservableObject {
         let trimmed = inputText.trimmingCharacters(in: .whitespacesAndNewlines)
         guard !trimmed.isEmpty, isModelReady, !isGenerating else { return }
 
+        // Clear previous response to free memory
+        dcqlResponse = nil
+        showResult = false
+
         isGenerating = true
         errorMessage = nil
 

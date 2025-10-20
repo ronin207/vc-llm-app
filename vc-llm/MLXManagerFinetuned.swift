@@ -48,7 +48,7 @@ class MLXManagerFinetuned: ObservableObject {
     @Published var isLoading = false
     @Published var isModelLoaded = false
 
-    private var model: ChatSession?
+    private var modelContext: ModelContext?
     private let vcRetriever: VCRetriever
 
     // Fine-tuned model configuration
@@ -104,15 +104,13 @@ class MLXManagerFinetuned: ObservableObject {
                 loadingState = .downloading
             }
 
-            let loadedModel = try await MLXLMCommon.loadModel(id: huggingFaceModelID)
+            modelContext = try await MLXLMCommon.loadModel(id: huggingFaceModelID)
 
             // After download/cache load, transition to loading state
             if case .downloading = loadingState {
                 print("📦 Download complete, loading into memory...")
                 loadingState = .loading
             }
-
-            model = ChatSession(loadedModel)
 
             loadingState = .ready
             isModelLoaded = true
@@ -128,10 +126,10 @@ class MLXManagerFinetuned: ObservableObject {
     
     // Generate DCQL from natural language query
     func generateDCQL(from query: String) async throws -> DCQLResponse {
-        guard let model = model else {
+        guard let modelContext = modelContext else {
             throw DCQLError.modelNotLoaded
         }
-        
+
         // Step 1: Find relevant VCs using RAG
         let retrievalResults = vcRetriever.retrieve(query: query, topK: 3)
         let relevantVCs = retrievalResults.map { $0.vc }
@@ -144,19 +142,21 @@ class MLXManagerFinetuned: ObservableObject {
         let vcFormatted = vcRetriever.formatVCsForPrompt(relevantVCs)
         let prompt = """
         You are a DCQL generator. Given the following Verifiable Credentials and a natural language query, output ONLY a valid JSON object representing the DCQL. Do not include explanations or markdown fences.
-        
+
         Available Verifiable Credentials:
         \(vcFormatted)
-        
+
         Natural Language Query: \(query)
-        
+
         Generate a DCQL query that selects the appropriate credentials and fields. Output strictly a JSON object like this:
         {"credentials":[{"id":"<snake_case_type>_credential","format":"ldp_vc","meta":{"type_values":[["VerifiableCredential","<ExactCredentialType>"]]},"claims":[{"path":["credentialSubject","<field>"]}]}]}
         """
-        
+
         // Step 3: Generate DCQL using fine-tuned model
+        // Create a fresh ChatSession for each request to avoid history accumulation
         do {
-            let response = try await model.respond(to: prompt)
+            let chatSession = ChatSession(modelContext)
+            let response = try await chatSession.respond(to: prompt)
             
             // Parse the DCQL JSON response (robust)
             if let dcqlJSON = parseDCQLJSON(from: response) {
@@ -184,8 +184,8 @@ class MLXManagerFinetuned: ObservableObject {
         }
     }
 
-    func resetChat() {
-        model = nil
+    func resetModel() {
+        modelContext = nil
         loadModel()
     }
 }

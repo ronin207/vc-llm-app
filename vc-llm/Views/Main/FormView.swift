@@ -61,12 +61,37 @@ struct FormView: View {
         }
         .navigationTitle("VC-LLM")
         .navigationBarTitleDisplayMode(.inline)
-        .sheet(isPresented: $showingDCQL) {
+        .onReceive(NotificationCenter.default.publisher(for: UIApplication.didReceiveMemoryWarningNotification)) { _ in
+            print("⚠️ Memory warning received - cleaning up")
+            viewModel.dcqlResponse = nil
+        }
+        .sheet(isPresented: $showingDCQL, onDismiss: {
+            // Clean up on dismiss to free memory
+            if !showingPresentation {
+                // Only clear if presentation sheet is also closed
+                Task { @MainActor in
+                    try? await Task.sleep(nanoseconds: 500_000_000) // 0.5 second delay
+                    if !showingDCQL && !showingPresentation {
+                        viewModel.dcqlResponse = nil
+                    }
+                }
+            }
+        }) {
             if let response = viewModel.dcqlResponse {
                 DCQLSheetView(dcqlResponse: response)
             }
         }
-        .sheet(isPresented: $showingPresentation) {
+        .sheet(isPresented: $showingPresentation, onDismiss: {
+            // Clean up on dismiss to free memory
+            if !showingDCQL {
+                Task { @MainActor in
+                    try? await Task.sleep(nanoseconds: 500_000_000) // 0.5 second delay
+                    if !showingDCQL && !showingPresentation {
+                        viewModel.dcqlResponse = nil
+                    }
+                }
+            }
+        }) {
             if let response = viewModel.dcqlResponse {
                 QRPresentationView(dcqlResponse: response)
             }
