@@ -32,3 +32,7 @@ vc-llm/gemma-2-2b-it-model/
 .cache/
 __pycache__/
 node_modules/
+# ONNX models (too large for git)
+*.onnx
+# Tokenizer files (auto-generated)
+vc-llm/Resources/Models/tokenizer/
