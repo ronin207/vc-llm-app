@@ -68,7 +68,7 @@ struct PresentationView: View {
 
     private func generateQRCodeAsync() async {
         // Filter credentials strictly to those referenced in DCQL if possible
-        var selected: [VCEmbeddings.VerifiableCredential] = dcqlResponse.selectedVCs
+        var selected: [VerifiableCredential] = dcqlResponse.selectedVCs
         if let dcqlCreds = dcqlResponse.dcql["credentials"] as? [[String: Any]] {
             let dcqlTypeSet: Set<String> = Set(dcqlCreds.compactMap { cred in
                 if let meta = cred["meta"] as? [String: Any],

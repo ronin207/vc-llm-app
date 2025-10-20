@@ -49,7 +49,7 @@ class MLXManagerFinetuned: ObservableObject {
     @Published var isModelLoaded = false
 
     private var model: ChatSession?
-    private let vcEmbeddings = VCEmbeddings()
+    private let vcRetriever: VCRetriever
 
     // Fine-tuned model configuration
     // Note: The folder `gemma-2-2b-it-model` in this project contains LoRA adapter weights
@@ -59,6 +59,9 @@ class MLXManagerFinetuned: ObservableObject {
     private var huggingFaceModelID = "ronin207/gemma-2-2b-it-dcql-mlx" // TODO: replace with your merged finetuned repo
 
     private init() {
+        // Initialize VCRetriever
+        self.vcRetriever = VCRetriever(vcPoolPath: "vc_pool")
+
         // Attempt to read a Hugging Face repo override from bundle metadata
         if let url = Bundle.main.url(forResource: "model_metadata", withExtension: "json"),
            let data = try? Data(contentsOf: url),
@@ -66,6 +69,10 @@ class MLXManagerFinetuned: ObservableObject {
            let repo = meta.hf_repo, !repo.isEmpty {
             huggingFaceModelID = repo
         }
+
+        // Prepare VC pool
+        vcRetriever.prepareVCPool()
+
         loadModel()
     }
     
@@ -126,14 +133,15 @@ class MLXManagerFinetuned: ObservableObject {
         }
         
         // Step 1: Find relevant VCs using RAG
-        let relevantVCs = vcEmbeddings.findRelevantVCs(query: query, topK: 3)
-        
+        let retrievalResults = vcRetriever.retrieve(query: query, topK: 3)
+        let relevantVCs = retrievalResults.map { $0.vc }
+
         if relevantVCs.isEmpty {
             throw DCQLError.noRelevantVCsFound
         }
-        
+
         // Step 2: Format prompt for DCQL generation (matching training format)
-        let vcFormatted = vcEmbeddings.formatVCsForPrompt(relevantVCs)
+        let vcFormatted = vcRetriever.formatVCsForPrompt(relevantVCs)
         let prompt = """
         You are a DCQL generator. Given the following Verifiable Credentials and a natural language query, output ONLY a valid JSON object representing the DCQL. Do not include explanations or markdown fences.
         
@@ -208,7 +216,7 @@ extension MLXManagerFinetuned {
         return nil
     }
     
-    private func generateTemplateDCQL(for vcs: [VCEmbeddings.VerifiableCredential], query: String) -> [String: Any] {
+    private func generateTemplateDCQL(for vcs: [VerifiableCredential], query: String) -> [String: Any] {
         guard let firstVC = vcs.first else { return [:] }
         let credentialType = firstVC.type.last ?? "UnknownCredential"
         let credentialId = credentialType
@@ -249,7 +257,7 @@ extension MLXManagerFinetuned {
 struct DCQLResponse {
     let dcql: [String: Any]  // Parsed DCQL JSON
     let dcqlString: String    // Raw DCQL string
-    let selectedVCs: [VCEmbeddings.VerifiableCredential]  // VCs used for generation
+    let selectedVCs: [VerifiableCredential]  // VCs used for generation
     let query: String         // Original query
 }
 
