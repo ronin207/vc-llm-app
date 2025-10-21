@@ -2,7 +2,7 @@ import SwiftUI
 
 struct FormView: View {
     @Environment(\.colorScheme) var colorScheme
-    @ObservedObject private var modelManager = MLXManagerFinetuned.shared
+    @ObservedObject private var dcqlService = MLXDCQLService.shared
     @StateObject private var viewModel: FormViewModel
 
     @State private var showingDCQL = false
@@ -17,7 +17,7 @@ struct FormView: View {
     ]
 
     init() {
-        _viewModel = StateObject(wrappedValue: FormViewModel(modelManager: MLXManagerFinetuned.shared))
+        _viewModel = StateObject(wrappedValue: FormViewModel(service: MLXDCQLService.shared))
     }
 
     var body: some View {
@@ -50,12 +50,12 @@ struct FormView: View {
             }
 
             // Loading overlay
-            if modelManager.loadingState.isLoading {
+            if dcqlService.loadingState.isLoading {
                 loadingOverlay
             }
 
             // Error overlay
-            if case .failed = modelManager.loadingState {
+            if case .failed = dcqlService.loadingState {
                 errorOverlay
             }
         }
@@ -65,33 +65,12 @@ struct FormView: View {
             print("⚠️ Memory warning received - cleaning up")
             viewModel.dcqlResponse = nil
         }
-        .sheet(isPresented: $showingDCQL, onDismiss: {
-            // Clean up on dismiss to free memory
-            if !showingPresentation {
-                // Only clear if presentation sheet is also closed
-                Task { @MainActor in
-                    try? await Task.sleep(nanoseconds: 500_000_000) // 0.5 second delay
-                    if !showingDCQL && !showingPresentation {
-                        viewModel.dcqlResponse = nil
-                    }
-                }
-            }
-        }) {
+        .sheet(isPresented: $showingDCQL) {
             if let response = viewModel.dcqlResponse {
                 DCQLSheetView(dcqlResponse: response)
             }
         }
-        .sheet(isPresented: $showingPresentation, onDismiss: {
-            // Clean up on dismiss to free memory
-            if !showingDCQL {
-                Task { @MainActor in
-                    try? await Task.sleep(nanoseconds: 500_000_000) // 0.5 second delay
-                    if !showingDCQL && !showingPresentation {
-                        viewModel.dcqlResponse = nil
-                    }
-                }
-            }
-        }) {
+        .sheet(isPresented: $showingPresentation) {
             if let response = viewModel.dcqlResponse {
                 QRPresentationView(dcqlResponse: response)
             }
@@ -241,6 +220,25 @@ struct FormView: View {
                         }
                     }
 
+                    // Timing Information (Debug)
+                    VStack(alignment: .leading, spacing: 6) {
+                        HStack(spacing: 4) {
+                            Image(systemName: "clock")
+                                .font(.system(size: 11))
+                                .foregroundColor(.secondary.opacity(0.7))
+                            Text("Performance:")
+                                .font(.system(size: 12, weight: .semibold, design: .rounded))
+                                .foregroundColor(.secondary.opacity(0.8))
+                        }
+
+                        HStack(spacing: 12) {
+                            timingItem(label: "Retrieval", time: response.retrievalTime)
+                            timingItem(label: "Generation", time: response.generationTime)
+                            timingItem(label: "Total", time: response.totalTime)
+                        }
+                    }
+                    .padding(.top, 4)
+
                     actionButtons(for: response)
                 }
                 .frame(maxWidth: .infinity, alignment: .leading)
@@ -264,6 +262,17 @@ struct FormView: View {
                 )
                 .padding(.horizontal, 24)
             }
+        }
+    }
+
+    private func timingItem(label: String, time: TimeInterval) -> some View {
+        HStack(spacing: 2) {
+            Text("\(label):")
+                .font(.system(size: 11, weight: .regular, design: .monospaced))
+                .foregroundColor(.secondary.opacity(0.7))
+            Text(String(format: "%.3fs", time))
+                .font(.system(size: 11, weight: .medium, design: .monospaced))
+                .foregroundColor(.secondary)
         }
     }
 
@@ -363,7 +372,7 @@ struct FormView: View {
     }
 
     private var loadingTitle: String {
-        switch modelManager.loadingState {
+        switch dcqlService.loadingState {
         case .initializing:
             return "Initializing"
         case .downloading:
@@ -399,7 +408,7 @@ struct FormView: View {
                 }
 
                 Button("Retry") {
-                    modelManager.loadModel()
+                    dcqlService.loadModel()
                 }
                 .font(.system(size: 16, weight: .semibold, design: .rounded))
                 .foregroundColor(.white)

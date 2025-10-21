@@ -14,6 +14,9 @@ protocol EmbeddingGenerator {
 
     /// Load embedding cache from file
     func loadCache(from filepath: String) throws
+
+    /// Clear embedding cache
+    func clearCache()
 }
 
 extension EmbeddingGenerator {

@@ -77,6 +77,9 @@ class VCRetriever: ObservableObject {
 
         print("Preparing VC pool...")
 
+        // Clear cache to prevent bloat - we only want VC pool embeddings
+        embedder.clearCache()
+
         // Prepare texts
         vcTexts = vcPool.map { VCTextPreparation.prepareVCText($0) }
 
