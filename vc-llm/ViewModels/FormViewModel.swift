@@ -12,9 +12,13 @@ class FormViewModel: ObservableObject {
     // Result data
     @Published var dcqlResponse: DCQLResponse?
 
-    private let service: MLXDCQLService
+    // Streaming output
+    @Published var streamingOutput: String = ""
+    @Published var selectedVCsForStreaming: [VerifiableCredential] = []
 
-    init(service: MLXDCQLService) {
+    private let service: LlamaDCQLService
+
+    init(service: LlamaDCQLService) {
         self.service = service
     }
 
@@ -33,6 +37,8 @@ class FormViewModel: ObservableObject {
         // Clear previous response to free memory
         dcqlResponse = nil
         showResult = false
+        streamingOutput = ""
+        selectedVCsForStreaming = []
 
         isGenerating = true
         errorMessage = nil
@@ -40,18 +46,37 @@ class FormViewModel: ObservableObject {
         Task {
             do {
                 try await service.ensureModelLoaded()
-                let response = try await service.generateDCQL(from: trimmed)
+
+                // Get selected VCs first
+                let retriever = VCRetriever(vcPoolPath: "vc_pool")
+                retriever.prepareVCPool()
+                let retrievalResults = retriever.retrieve(query: trimmed, topK: 3)
+                let selectedVCs = retrievalResults.map { $0.vc }
+
+                // Show selected VCs immediately
+                await MainActor.run {
+                    self.selectedVCsForStreaming = selectedVCs
+                }
+
+                // Generate with streaming
+                let response = try await service.generateDCQL(from: trimmed) { currentText in
+                    Task { @MainActor in
+                        self.streamingOutput = currentText
+                    }
+                }
 
                 await MainActor.run {
                     dcqlResponse = response
                     showResult = true
                     isGenerating = false
+                    selectedVCsForStreaming = []
                 }
             } catch {
                 await MainActor.run {
                     errorMessage = error.localizedDescription
                     showResult = false
                     isGenerating = false
+                    selectedVCsForStreaming = []
                 }
             }
         }
@@ -62,5 +87,7 @@ class FormViewModel: ObservableObject {
         showResult = false
         dcqlResponse = nil
         errorMessage = nil
+        streamingOutput = ""
+        selectedVCsForStreaming = []
     }
 }

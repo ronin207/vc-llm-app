@@ -7,19 +7,62 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		42FBA19C2E36835E003C5CAF /* MLX in Frameworks */ = {isa = PBXBuildFile; productRef = 42FBA19B2E36835E003C5CAF /* MLX */; };
-		42FBA19F2E36847C003C5CAF /* MLXLLM in Frameworks */ = {isa = PBXBuildFile; productRef = 42FBA19E2E36847C003C5CAF /* MLXLLM */; };
-		42FBA1A12E36847C003C5CAF /* MLXLMCommon in Frameworks */ = {isa = PBXBuildFile; productRef = 42FBA1A02E36847C003C5CAF /* MLXLMCommon */; };
+		9F3C93942EA80982007A5936 /* llama.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F3C93932EA80982007A5936 /* llama.framework */; platformFilter = ios; };
+		9F3C93952EA80982007A5936 /* llama.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9F3C93932EA80982007A5936 /* llama.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		9F52994B2EA5BB4A00C1AD8F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 421B5B5F2E30C19E004C5D0C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 421B5B662E30C19E004C5D0C;
+			remoteInfo = "vc-llm";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		9F3C93962EA80982007A5936 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				9F3C93952EA80982007A5936 /* llama.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		421B5B672E30C19E004C5D0C /* vc-llm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "vc-llm.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9F3C93932EA80982007A5936 /* llama.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = llama.framework; path = Frameworks/llama.framework; sourceTree = "<group>"; };
+		9F5299472EA5BB4A00C1AD8F /* vc-llmTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "vc-llmTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		9F5299312EA54E8400C1AD8F /* Exceptions for "vc-llm" folder in "vc-llm" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Resources/Models/tokenizer/special_tokens_map.json,
+			);
+			target = 421B5B662E30C19E004C5D0C /* vc-llm */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		421B5B692E30C19E004C5D0C /* vc-llm */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				9F5299312EA54E8400C1AD8F /* Exceptions for "vc-llm" folder in "vc-llm" target */,
+			);
 			path = "vc-llm";
+			sourceTree = "<group>";
+		};
+		9F5299482EA5BB4A00C1AD8F /* vc-llmTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "vc-llmTests";
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -29,9 +72,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				42FBA19F2E36847C003C5CAF /* MLXLLM in Frameworks */,
-				42FBA1A12E36847C003C5CAF /* MLXLMCommon in Frameworks */,
-				42FBA19C2E36835E003C5CAF /* MLX in Frameworks */,
+				9F3C93942EA80982007A5936 /* llama.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9F5299442EA5BB4A00C1AD8F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -42,6 +90,8 @@
 			isa = PBXGroup;
 			children = (
 				421B5B692E30C19E004C5D0C /* vc-llm */,
+				9F5299482EA5BB4A00C1AD8F /* vc-llmTests */,
+				9F3C93922EA80982007A5936 /* Frameworks */,
 				421B5B682E30C19E004C5D0C /* Products */,
 			);
 			sourceTree = "<group>";
@@ -50,8 +100,17 @@
 			isa = PBXGroup;
 			children = (
 				421B5B672E30C19E004C5D0C /* vc-llm.app */,
+				9F5299472EA5BB4A00C1AD8F /* vc-llmTests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		9F3C93922EA80982007A5936 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9F3C93932EA80982007A5936 /* llama.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -64,6 +123,7 @@
 				421B5B632E30C19E004C5D0C /* Sources */,
 				421B5B642E30C19E004C5D0C /* Frameworks */,
 				421B5B652E30C19E004C5D0C /* Resources */,
+				9F3C93962EA80982007A5936 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -74,13 +134,33 @@
 			);
 			name = "vc-llm";
 			packageProductDependencies = (
-				42FBA19B2E36835E003C5CAF /* MLX */,
-				42FBA19E2E36847C003C5CAF /* MLXLLM */,
-				42FBA1A02E36847C003C5CAF /* MLXLMCommon */,
 			);
 			productName = "vc-llm";
 			productReference = 421B5B672E30C19E004C5D0C /* vc-llm.app */;
 			productType = "com.apple.product-type.application";
+		};
+		9F5299462EA5BB4A00C1AD8F /* vc-llmTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9F52994D2EA5BB4A00C1AD8F /* Build configuration list for PBXNativeTarget "vc-llmTests" */;
+			buildPhases = (
+				9F5299432EA5BB4A00C1AD8F /* Sources */,
+				9F5299442EA5BB4A00C1AD8F /* Frameworks */,
+				9F5299452EA5BB4A00C1AD8F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9F52994C2EA5BB4A00C1AD8F /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				9F5299482EA5BB4A00C1AD8F /* vc-llmTests */,
+			);
+			name = "vc-llmTests";
+			packageProductDependencies = (
+			);
+			productName = "vc-llmTests";
+			productReference = 9F5299472EA5BB4A00C1AD8F /* vc-llmTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
@@ -95,6 +175,10 @@
 					421B5B662E30C19E004C5D0C = {
 						CreatedOnToolsVersion = 26.0;
 					};
+					9F5299462EA5BB4A00C1AD8F = {
+						CreatedOnToolsVersion = 26.0.1;
+						TestTargetID = 421B5B662E30C19E004C5D0C;
+					};
 				};
 			};
 			buildConfigurationList = 421B5B622E30C19E004C5D0C /* Build configuration list for PBXProject "vc-llm" */;
@@ -107,8 +191,6 @@
 			mainGroup = 421B5B5E2E30C19E004C5D0C;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
-				42FBA19A2E36835E003C5CAF /* XCRemoteSwiftPackageReference "mlx-swift" */,
-				42FBA19D2E36847C003C5CAF /* XCRemoteSwiftPackageReference "mlx-swift-examples" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 421B5B682E30C19E004C5D0C /* Products */;
@@ -116,12 +198,20 @@
 			projectRoot = "";
 			targets = (
 				421B5B662E30C19E004C5D0C /* vc-llm */,
+				9F5299462EA5BB4A00C1AD8F /* vc-llmTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
 		421B5B652E30C19E004C5D0C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9F5299452EA5BB4A00C1AD8F /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -138,7 +228,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		9F5299432EA5BB4A00C1AD8F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		9F52994C2EA5BB4A00C1AD8F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 421B5B662E30C19E004C5D0C /* vc-llm */;
+			targetProxy = 9F52994B2EA5BB4A00C1AD8F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		421B5B702E30C19F004C5D0C /* Debug */ = {
@@ -264,11 +369,15 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 4DVD7FVTR7;
+				DEVELOPMENT_TEAM = G499L46MLQ;
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SELECTED_FILES = readonly;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Frameworks",
+				);
 				GENERATE_INFOPLIST_FILE = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
@@ -290,12 +399,13 @@
 				REGISTER_APP_GROUPS = YES;
 				SDKROOT = auto;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2,7";
+				TARGETED_DEVICE_FAMILY = 1;
 				XROS_DEPLOYMENT_TARGET = 26.0;
 			};
 			name = Debug;
@@ -307,11 +417,15 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 4DVD7FVTR7;
+				DEVELOPMENT_TEAM = G499L46MLQ;
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SELECTED_FILES = readonly;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Frameworks",
+				);
 				GENERATE_INFOPLIST_FILE = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
@@ -333,13 +447,69 @@
 				REGISTER_APP_GROUPS = YES;
 				SDKROOT = auto;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2,7";
+				TARGETED_DEVICE_FAMILY = 1;
 				XROS_DEPLOYMENT_TARGET = 26.0;
+			};
+			name = Release;
+		};
+		9F52994E2EA5BB4A00C1AD8F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = G499L46MLQ;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Frameworks",
+				);
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.dorakemon.vc-llmTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/vc-llm.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/vc-llm";
+			};
+			name = Debug;
+		};
+		9F52994F2EA5BB4A00C1AD8F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = G499L46MLQ;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Frameworks",
+				);
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.dorakemon.vc-llmTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/vc-llm.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/vc-llm";
+				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
@@ -364,44 +534,16 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		9F52994D2EA5BB4A00C1AD8F /* Build configuration list for PBXNativeTarget "vc-llmTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9F52994E2EA5BB4A00C1AD8F /* Debug */,
+				9F52994F2EA5BB4A00C1AD8F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		42FBA19A2E36835E003C5CAF /* XCRemoteSwiftPackageReference "mlx-swift" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/ml-explore/mlx-swift.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 0.25.6;
-			};
-		};
-		42FBA19D2E36847C003C5CAF /* XCRemoteSwiftPackageReference "mlx-swift-examples" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/ml-explore/mlx-swift-examples";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 2.25.5;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		42FBA19B2E36835E003C5CAF /* MLX */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 42FBA19A2E36835E003C5CAF /* XCRemoteSwiftPackageReference "mlx-swift" */;
-			productName = MLX;
-		};
-		42FBA19E2E36847C003C5CAF /* MLXLLM */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 42FBA19D2E36847C003C5CAF /* XCRemoteSwiftPackageReference "mlx-swift-examples" */;
-			productName = MLXLLM;
-		};
-		42FBA1A02E36847C003C5CAF /* MLXLMCommon */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 42FBA19D2E36847C003C5CAF /* XCRemoteSwiftPackageReference "mlx-swift-examples" */;
-			productName = MLXLMCommon;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 421B5B5F2E30C19E004C5D0C /* Project object */;
 }

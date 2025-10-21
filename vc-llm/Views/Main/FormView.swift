@@ -2,7 +2,7 @@ import SwiftUI
 
 struct FormView: View {
     @Environment(\.colorScheme) var colorScheme
-    @ObservedObject private var dcqlService = MLXDCQLService.shared
+    @ObservedObject private var dcqlService = LlamaDCQLService.shared
     @StateObject private var viewModel: FormViewModel
 
     @State private var showingDCQL = false
@@ -17,7 +17,7 @@ struct FormView: View {
     ]
 
     init() {
-        _viewModel = StateObject(wrappedValue: FormViewModel(service: MLXDCQLService.shared))
+        _viewModel = StateObject(wrappedValue: FormViewModel(service: LlamaDCQLService.shared))
     }
 
     var body: some View {
@@ -36,7 +36,7 @@ struct FormView: View {
                     submitButton
                         .padding(.top, 28)
 
-                    if viewModel.showResult {
+                    if viewModel.showResult || viewModel.isGenerating {
                         resultSection
                             .padding(.top, 28)
                     }
@@ -196,7 +196,69 @@ struct FormView: View {
 
     private var resultSection: some View {
         Group {
-            if let response = viewModel.dcqlResponse {
+            // Show streaming output while generating
+            if viewModel.isGenerating {
+                VStack(alignment: .leading, spacing: 16) {
+                    // Show selected VCs
+                    if !viewModel.selectedVCsForStreaming.isEmpty {
+                        VStack(alignment: .leading, spacing: 12) {
+                            Text("Found \(viewModel.selectedVCsForStreaming.count) relevant credentials")
+                                .font(.system(size: 16, weight: .semibold, design: .rounded))
+                                .foregroundColor(.primary)
+
+                            ForEach(viewModel.selectedVCsForStreaming) { vc in
+                                HStack(spacing: 8) {
+                                    Image(systemName: "checkmark.circle.fill")
+                                        .foregroundColor(.green)
+                                        .font(.system(size: 14))
+                                    Text(vc.type.last ?? "Unknown Credential")
+                                        .font(.system(size: 14, weight: .medium, design: .rounded))
+                                        .foregroundColor(.primary.opacity(0.9))
+                                    Spacer()
+                                }
+                                .padding(.horizontal, 12)
+                                .padding(.vertical, 8)
+                                .background(
+                                    RoundedRectangle(cornerRadius: 8, style: .continuous)
+                                        .fill(Color.green.opacity(0.1))
+                                )
+                            }
+                        }
+                        .padding(.horizontal, 24)
+                    }
+
+                    // Show streaming DCQL generation
+                    if !viewModel.streamingOutput.isEmpty {
+                        VStack(alignment: .leading, spacing: 12) {
+                            HStack(spacing: 8) {
+                                ProgressView()
+                                    .scaleEffect(0.8)
+                                Text("Generating DCQL Query...")
+                                    .font(.system(size: 14, weight: .medium, design: .rounded))
+                                    .foregroundColor(.secondary)
+                            }
+
+                            ScrollView([.vertical, .horizontal], showsIndicators: true) {
+                                Text(viewModel.streamingOutput)
+                                    .font(.system(size: 13, weight: .regular, design: .monospaced))
+                                    .foregroundColor(.primary)
+                                    .padding()
+                                    .frame(maxWidth: .infinity, alignment: .topLeading)
+                            }
+                            .background(
+                                RoundedRectangle(cornerRadius: 8, style: .continuous)
+                                    .fill(colorScheme == .dark ? Color(.systemGray6).opacity(0.3) : Color(.systemGray6).opacity(0.5))
+                            )
+                            .frame(maxHeight: 300)
+                        }
+                        .padding(.horizontal, 24)
+                    }
+                }
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .padding(.vertical, 16)
+            }
+            // Show final result when complete
+            else if let response = viewModel.dcqlResponse {
                 VStack(alignment: .leading, spacing: 12) {
                     Text("I found \(response.selectedVCs.count) relevant credential(s) for your query.")
                         .font(.system(size: 16, weight: .regular, design: .rounded))

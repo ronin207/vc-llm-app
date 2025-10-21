@@ -155,10 +155,11 @@ class VCRetriever: ObservableObject {
         return dotProduct / (sqrt(normA) * sqrt(normB))
     }
 
-    /// Format VCs for prompt (utility function)
+    /// Format VCs for prompt (utility function) - match training format
     func formatVCsForPrompt(_ vcs: [VerifiableCredential]) -> String {
         var result = ""
         for (index, vc) in vcs.enumerated() {
+            // Match the training data format: "VC 1: {json}"
             result += "VC \(index + 1): \(vc.toCompactJSON())"
             if index < vcs.count - 1 {
                 result += "\n"
