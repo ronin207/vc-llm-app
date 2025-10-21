@@ -5,9 +5,9 @@ import Testing
 struct DCQLServiceTests {
 
     @MainActor
-    @Test("Finetuned model generates valid DCQL")
-    func finetunedModelGeneratesValidDCQL() async throws {
-        let service = MLXDCQLService()
+    @Test("Llama.cpp model generates valid DCQL")
+    func llamaCppModelGeneratesValidDCQL() async throws {
+        let service = LlamaDCQLService()
         try await service.ensureModelLoaded()
 
         let response = try await service.generateDCQL(from: "Show my driver's license")
