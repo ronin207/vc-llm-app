@@ -36,3 +36,8 @@ node_modules/
 *.onnx
 # Tokenizer files (auto-generated)
 vc-llm/Resources/Models/tokenizer/
+
+# Xcode user-specific files
+*.xcuserstate
+xcuserdata/
+*.xcuserdatad/

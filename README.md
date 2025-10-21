@@ -1,122 +1,65 @@
 # VC-LLM Mobile App
 
-Verifiable Credential retrieval using CoreML-based semantic embeddings.
+LLM-powered Verifiable Credential query generator for iOS.
 
-## Setup
+## Quick Setup
 
-### 1. Generate CoreML Model
+### 1. Download Model
 
-The CoreML model is not included in the repository due to its size. Generate it using:
+Download the GGUF model file (1.6GB):
+- Model: `gemma-2-2b-it-dcql-q4.gguf`
+- Place it in: `Documents/` directory of the app container
+
+**How to copy the model:**
+1. Build and run the app in Xcode (it will fail to load model, that's OK)
+2. In Xcode: Window → Devices and Simulators → Select your device/simulator
+3. Find the app, click the gear icon → Download Container
+4. Extract the `.xcappdata` file → Create `AppData/Documents/` folder if needed
+5. Copy `gemma-2-2b-it-dcql-q4.gguf` to `AppData/Documents/`
+6. Upload the modified container back to the device/simulator
+7. Restart the app
+
+### 2. Build & Run
 
 ```bash
-cd ../filtering
-../venv/bin/python convert_pytorch_to_coreml_direct.py
+# Open in Xcode
+open vc-llm.xcodeproj
+
+# Build and run (Cmd+R)
 ```
-
-This will create:
-- `vc-llm/Resources/Models/SentenceTransformer.mlpackage/` (CoreML model)
-- `vc-llm/Resources/Models/tokenizer/` (tokenizer files)
-
-### 2. Build the App
-
-Open `vc-llm.xcodeproj` in Xcode and build.
 
 ## Architecture
 
-### Embedding System
+- **VCRetriever**: Semantic search for relevant credentials using embeddings
+- **LlamaDCQLService**: llama.cpp-based DCQL query generation
+- **LlamaDCQLGenerator**: Swift wrapper for llama.cpp inference
+- **FormViewModel**: UI state management with streaming output
 
-- **EmbeddingGenerator Protocol**: Abstract interface for embedding generation
-- **CoreMLEmbeddingGenerator**: CoreML-based implementation for native iOS inference
-- **VCRetriever**: Main retrieval class using cosine similarity
+## How it Works
 
-### Model
+1. User enters natural language query (e.g., "Show my driver's license")
+2. VCRetriever finds top-3 relevant credentials using semantic similarity
+3. LlamaDCQLGenerator creates DCQL query using the LLM (with streaming output)
+4. User can view/present the generated Verifiable Presentation
 
-- **Model**: `sentence-transformers/all-MiniLM-L6-v2`
-- **Embedding Dimension**: 384
-- **Expected Accuracy**: 80.15% (verified in benchmarks)
-
-## Benchmark
-
-Run the benchmark to verify accuracy:
-
-```bash
-swift run_benchmark_coreml.swift
-```
-
-**Expected Results**:
-- Accuracy@3: ~80%
-- Recall@3: ~0.86
-- Precision@3: ~0.43
-
-See benchmark results for detailed performance metrics.
-
-## Files
-
-### Core
-- `vc-llm/VCRetriever.swift` - Main retrieval logic
-- `vc-llm/Embeddings/CoreMLEmbeddingGenerator.swift` - CoreML-based embeddings
-- `vc-llm/Embeddings/WordPieceTokenizer.swift` - WordPiece tokenization
-- `vc-llm/Embeddings/VCTextPreparation.swift` - VC text preprocessing
-- `vc-llm/Models/VerifiableCredential.swift` - VC data model
-
-### Benchmark
-- `vc-llm/Benchmark/VCRetrieverBenchmark.swift` - Swift benchmark implementation
-- `run_benchmark_coreml.swift` - Benchmark runner script
-
-### Resources
-- `vc-llm/Resources/Models/SentenceTransformer.mlpackage/` - CoreML model (generated)
-- `vc-llm/Resources/Models/tokenizer/` - Tokenizer files (generated)
-- `vc-llm/vc_pool.json` - VC pool data
-
-## Cache
-
-Embeddings are cached in:
-```
-~/Library/Caches/coreml_embeddings_cache.json
-```
-
-This significantly speeds up subsequent runs.
-
-## Testing
-
-VCRetriever basic functionality tests are available in `vc-llmTests/VCRetrieverBasicTests.swift`.
-
-### Running Tests
-
-**Via Xcode:**
-1. Open `vc-llm.xcodeproj` in Xcode
-2. Press `Cmd+U` or select Product → Test
-3. View test results in the Test Navigator (Cmd+6)
-
-**Via Command Line:**
-```bash
-xcodebuild test -project vc-llm.xcodeproj -scheme vc-llm \
-  -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 17'
-```
-
-### Test Coverage
-
-The test suite verifies:
-- VCRetriever initialization and VC pool loading
-- Empty results when pool is not prepared
-- ID-based retrieval functionality
-- VC lookup by ID
-- Invalid ID handling
-
-## Performance
-
-- **VC Pool Preparation**: Native CoreML inference (fast, on-device)
-- **Query Embedding**: Native CoreML inference
-- **Total Retrieval**: Fast on-device semantic search
-
-## Dependencies
+## Requirements
 
 - Xcode 15+
 - iOS 17+
-- Python 3.12+ (for model conversion only)
+- ~2GB storage for model file
 
-## Notes
+## Files
 
-- CoreML provides native on-device inference with optimal performance
-- Model files are excluded from git (generate locally)
-- All inference runs natively on iOS without external dependencies
+```
+vc-llm/
+├── LlamaDCQLService.swift      # Main service
+├── LlamaDCQLGenerator.swift    # llama.cpp wrapper
+├── LibLlama.swift              # llama.cpp bindings
+├── VCRetriever.swift           # Semantic search
+└── Views/Main/FormView.swift   # Main UI
+
+Frameworks/
+└── llama.framework             # llama.cpp framework
+
+vc_pool/                        # Sample credentials
+```
