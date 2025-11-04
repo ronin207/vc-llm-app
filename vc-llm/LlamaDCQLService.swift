@@ -1,3 +1,10 @@
+//
+//  LlamaDCQLService.swift
+//  vc-llm
+//
+//  Orchestrator service that coordinates VC retrieval, DCQL generation, and VP generation
+//
+
 import Foundation
 import Combine
 
@@ -9,35 +16,19 @@ final class LlamaDCQLService: ObservableObject {
     @Published private(set) var isLoading = false
     @Published private(set) var isModelLoaded = false
 
-    private var llamaGenerator: LlamaDCQLGenerator?
-    private let retriever: VCRetriever
+    // Three separate services
+    private let vcRetrieverService: VCRetrieverService
+    private let dcqlGenerationService: DCQLGenerationService
+    private let vpGenerationService: VPGenerationService
 
-    private var modelPath: String?
-
-    init(modelPath: String? = nil, retriever: VCRetriever? = nil) {
-        self.retriever = retriever ?? VCRetriever(vcPoolPath: "vc_pool")
-        self.retriever.prepareVCPool()
-
-        // Determine model path
-        if let path = modelPath {
-            self.modelPath = path
-        } else {
-            // Priority 1: Try bundle (for development)
-            if let bundlePath = Bundle.main.resourcePath {
-                let modelURL = URL(fileURLWithPath: bundlePath).appendingPathComponent("Model/gemma-2-2b-it-dcql-q4.gguf")
-                if FileManager.default.fileExists(atPath: modelURL.path) {
-                    self.modelPath = modelURL.path
-                } else {
-                    // Priority 2: Try Documents directory
-                    let documentsPath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
-                    let docsModelURL = documentsPath.appendingPathComponent("gemma-2-2b-it-dcql-q4.gguf")
-
-                    if FileManager.default.fileExists(atPath: docsModelURL.path) {
-                        self.modelPath = docsModelURL.path
-                    }
-                }
-            }
-        }
+    init(
+        vcRetrieverService: VCRetrieverService? = nil,
+        dcqlGenerationService: DCQLGenerationService? = nil,
+        vpGenerationService: VPGenerationService? = nil
+    ) {
+        self.vcRetrieverService = vcRetrieverService ?? VCRetrieverService(vcPoolPath: "vc_pool")
+        self.dcqlGenerationService = dcqlGenerationService ?? DCQLGenerationService()
+        self.vpGenerationService = vpGenerationService ?? VPGenerationService()
 
         loadModel()
     }
@@ -56,57 +47,20 @@ final class LlamaDCQLService: ObservableObject {
         let startTime = CFAbsoluteTimeGetCurrent()
 
         do {
-            // Debug: Print search paths
-            if let bundlePath = Bundle.main.resourcePath {
-                let bundleModelPath = URL(fileURLWithPath: bundlePath).appendingPathComponent("Model/gemma-2-2b-it-dcql-q4.gguf").path
-                print("📂 Bundle path checked: \(bundleModelPath)")
-                print("📂 File exists: \(FileManager.default.fileExists(atPath: bundleModelPath))")
-            }
-
-            let documentsPath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
-            let docsModelPath = documentsPath.appendingPathComponent("gemma-2-2b-it-dcql-q4.gguf").path
-            print("📂 Documents path checked: \(docsModelPath)")
-            print("📂 File exists: \(FileManager.default.fileExists(atPath: docsModelPath))")
-
-            guard let modelPath = modelPath else {
-                let errorMsg = """
-                Model file not found!
-
-                Please copy gemma-2-2b-it-dcql-q4.gguf to:
-                \(docsModelPath)
-
-                You can use Xcode > Window > Devices and Simulators to copy the file.
-                """
-                throw DCQLError.generationFailed(errorMsg)
-            }
-
-            print("🔄 Loading llama.cpp model: \(modelPath)")
             loadingState = .loading
 
-            let loadStart = CFAbsoluteTimeGetCurrent()
-            print("⏱️ Starting llama.cpp model load...")
-            print("📍 Model path: \(modelPath)")
-            print("📊 File size: \(try FileManager.default.attributesOfItem(atPath: modelPath)[.size] ?? 0) bytes")
-
-            do {
-                llamaGenerator = try await LlamaDCQLGenerator(modelPath: modelPath)
-
-                let loadTime = CFAbsoluteTimeGetCurrent() - loadStart
-                print("⏱️ llama.cpp model loaded in \(String(format: "%.2f", loadTime))s")
-            } catch {
-                print("❌ Failed to create LlamaDCQLGenerator: \(error)")
-                throw error
-            }
+            // Load DCQL generation model
+            try await dcqlGenerationService.ensureModelLoaded()
 
             loadingState = .ready
             isModelLoaded = true
 
             let totalTime = CFAbsoluteTimeGetCurrent() - startTime
-            print("✅ Model ready (total: \(String(format: "%.2f", totalTime))s)")
+            print("✅ [Service] All services ready (total: \(String(format: "%.2f", totalTime))s)")
         } catch {
             loadingState = .failed(error.localizedDescription)
             isModelLoaded = false
-            print("❌ Error loading model: \(error)")
+            print("❌ [Service] Error loading services: \(error)")
         }
 
         isLoading = false
@@ -129,204 +83,90 @@ final class LlamaDCQLService: ObservableObject {
         }
     }
 
+    /// Generate DCQL from natural language query
+    /// This method orchestrates the three services: retrieval, generation, and (optionally) VP generation
     func generateDCQL(from query: String, onProgress: ((String) -> Void)? = nil) async throws -> DCQLResponse {
-        guard isModelLoaded, let generator = llamaGenerator else {
-            throw DCQLError.modelNotLoaded
-        }
+        // Step 1: VC Retrieval
+        let retrievalResult = vcRetrieverService.retrieve(query: query, topK: 3)
 
-        // Measure retrieval time
-        let retrievalStart = CFAbsoluteTimeGetCurrent()
-        let retrievalResults = retriever.retrieve(query: query, topK: 3)
-        let retrievalTime = CFAbsoluteTimeGetCurrent() - retrievalStart
-
-        // Use retrieval results
-        let relevantVCs = retrievalResults.map { $0.vc }
-        print("🔍 Using retrieval results")
-
-        guard !relevantVCs.isEmpty else {
+        guard !retrievalResult.selectedVCs.isEmpty else {
             throw DCQLError.noRelevantVCsFound
         }
 
-        let formattedVCs = retriever.formatVCsForPrompt(relevantVCs)
+        // Step 2: DCQL Generation
+        let dcqlResult = try await dcqlGenerationService.generateDCQL(
+            from: query,
+            relevantVCs: retrievalResult.selectedVCs,
+            formattedVCs: retrievalResult.formattedVCs,
+            onProgress: onProgress
+        )
 
-        // Build prompt using the same format as DCQLGenerator
-        let prompt = buildPrompt(formattedVCs: formattedVCs, query: query)
+        // Log timing information
+        print("⏱️ [Service] Retrieval time: \(String(format: "%.3f", retrievalResult.retrievalTime))s")
+        print("⏱️ [Service] Generation time: \(String(format: "%.3f", dcqlResult.generationTime))s")
+        print("⏱️ [Service] Total time: \(String(format: "%.3f", retrievalResult.retrievalTime + dcqlResult.generationTime))s")
 
-        // Measure DCQL generation time
-        let generationStart = CFAbsoluteTimeGetCurrent()
+        return DCQLResponse(
+            dcql: dcqlResult.dcql,
+            dcqlString: dcqlResult.dcqlString,
+            selectedVCs: retrievalResult.selectedVCs,
+            query: query,
+            retrievalTime: retrievalResult.retrievalTime,
+            generationTime: dcqlResult.generationTime,
+            vpGenerationTime: 0,
+            vp: nil,
+            vpError: nil
+        )
+    }
 
-        do {
-            let rawResponse: String
-            if let onProgress = onProgress {
-                // Use streaming version
-                rawResponse = try await generator.generateDCQLStream(prompt: prompt, maxTokens: 512) { currentText in
-                    onProgress(currentText)
-                }
-            } else {
-                // Use non-streaming version
-                rawResponse = try await generator.generateDCQL(prompt: prompt, maxTokens: 512)
-            }
-            let generationTime = CFAbsoluteTimeGetCurrent() - generationStart
+    /// Generate complete response including VP
+    /// This method orchestrates all three services: retrieval, DCQL generation, and VP generation
+    func generateComplete(from query: String, onProgress: ((String) -> Void)? = nil) async throws -> DCQLResponse {
+        // Step 1 & 2: VC Retrieval + DCQL Generation
+        let dcqlResponse = try await generateDCQL(from: query, onProgress: onProgress)
 
-            // Log timing information
-            print("⏱️ Retrieval time: \(String(format: "%.3f", retrievalTime))s")
-            print("⏱️ Generation time: \(String(format: "%.3f", generationTime))s")
-            print("⏱️ Total time: \(String(format: "%.3f", retrievalTime + generationTime))s")
+        // Step 3: VP Generation
+        let vpResult = await vpGenerationService.generateVP(from: dcqlResponse)
 
-            // Parse and validate DCQL
-            let json = try parseDCQLJSON(from: rawResponse)
-            try validateDCQL(json, raw: rawResponse)
-
-            let pretty = (try? JSONSerialization.data(withJSONObject: json, options: .prettyPrinted))
-                .flatMap { String(data: $0, encoding: .utf8) } ?? rawResponse
-
-            return DCQLResponse(
-                dcql: json,
-                dcqlString: pretty,
-                selectedVCs: relevantVCs,
-                query: query,
-                retrievalTime: retrievalTime,
-                generationTime: generationTime,
-                vpGenerationTime: 0,
-                vp: nil,
-                vpError: nil
-            )
-        } catch let validationError as DCQLValidationError {
-            let generationTime = CFAbsoluteTimeGetCurrent() - generationStart
-
-            print("❌ DCQL validation failed: \(validationError.localizedDescription)")
-            print("🔍 Raw response: \(validationError.rawResponse)")
-            print("⏱️ Retrieval time: \(String(format: "%.3f", retrievalTime))s")
-            print("⏱️ Generation time: \(String(format: "%.3f", generationTime))s")
-            print("⏱️ Total time: \(String(format: "%.3f", retrievalTime + generationTime))s")
-
-            // Use fallback template
-            let fallback = generateTemplateDCQL(for: relevantVCs, query: query)
-            let pretty = (try? JSONSerialization.data(withJSONObject: fallback, options: .prettyPrinted))
-                .flatMap { String(data: $0, encoding: .utf8) } ?? "{}"
-            return DCQLResponse(
-                dcql: fallback,
-                dcqlString: pretty,
-                selectedVCs: relevantVCs,
-                query: query,
-                retrievalTime: retrievalTime,
-                generationTime: generationTime,
-                vpGenerationTime: 0,
-                vp: nil,
-                vpError: nil
-            )
-        } catch {
-            throw DCQLError.generationFailed(error.localizedDescription)
-        }
+        // Create final response with VP information
+        return DCQLResponse(
+            dcql: dcqlResponse.dcql,
+            dcqlString: dcqlResponse.dcqlString,
+            selectedVCs: dcqlResponse.selectedVCs,
+            query: dcqlResponse.query,
+            retrievalTime: dcqlResponse.retrievalTime,
+            generationTime: dcqlResponse.generationTime,
+            vpGenerationTime: vpResult.generationTime,
+            vp: vpResult.vp,
+            vpError: vpResult.error
+        )
     }
 
     func resetModel() {
-        llamaGenerator = nil
+        dcqlGenerationService.resetModel()
         isModelLoaded = false
         loadModel()
     }
 
-    // MARK: - DCQL Validation (from DCQLGenerator)
+    // MARK: - Public Access to Individual Services
 
-    private func buildPrompt(formattedVCs: String, query: String) -> String {
-        return """
-Given the following Verifiable Credentials and a natural language query, generate a DCQL query to retrieve the requested information.
-
-Available Verifiable Credentials:
-\(formattedVCs)
-
-Natural Language Query: \(query)
-
-Generate a DCQL query that selects the appropriate credentials and fields:
-"""
+    /// Access to the VC retriever service
+    var retriever: VCRetrieverService {
+        return vcRetrieverService
     }
 
-    private func parseDCQLJSON(from text: String) throws -> [String: Any] {
-        if let data = text.data(using: .utf8),
-           let obj = try? JSONSerialization.jsonObject(with: data) as? [String: Any] {
-            return obj
-        }
-
-        var cleaned = text
-        if cleaned.contains("```") {
-            cleaned = cleaned.replacingOccurrences(of: "```json", with: "")
-            cleaned = cleaned.replacingOccurrences(of: "```JSON", with: "")
-            cleaned = cleaned.replacingOccurrences(of: "```", with: "")
-        }
-        if let start = cleaned.firstIndex(of: "{"), let end = cleaned.lastIndex(of: "}") {
-            let jsonSlice = cleaned[start...end]
-            if let data = String(jsonSlice).data(using: .utf8),
-               let obj = try? JSONSerialization.jsonObject(with: data) as? [String: Any] {
-                return obj
-            }
-        }
-
-        throw DCQLValidationError.invalidJSON(raw: text)
+    /// Access to the DCQL generation service
+    var dcqlGenerator: DCQLGenerationService {
+        return dcqlGenerationService
     }
 
-    private func validateDCQL(_ json: [String: Any], raw: String) throws {
-        guard let credentials = json["credentials"] as? [[String: Any]], !credentials.isEmpty else {
-            throw DCQLValidationError.missingCredentials(raw: raw)
-        }
-
-        for (index, credential) in credentials.enumerated() {
-            guard let id = credential["id"] as? String, !id.isEmpty else {
-                throw DCQLValidationError.invalidCredentialField(index: index, field: "id", raw: raw)
-            }
-            guard let format = credential["format"] as? String, !format.isEmpty else {
-                throw DCQLValidationError.invalidCredentialField(index: index, field: "format", raw: raw)
-            }
-            guard let claims = credential["claims"] as? [[String: Any]], !claims.isEmpty else {
-                throw DCQLValidationError.invalidClaims(index: index, raw: raw)
-            }
-
-            for (claimIndex, claim) in claims.enumerated() {
-                guard let path = claim["path"] as? [String], !path.isEmpty,
-                      path.allSatisfy({ !$0.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty }) else {
-                    throw DCQLValidationError.invalidClaimPath(credentialIndex: index, claimIndex: claimIndex, raw: raw)
-                }
-            }
-        }
-    }
-
-    private func generateTemplateDCQL(for vcs: [VerifiableCredential], query: String) -> [String: Any] {
-        guard let firstVC = vcs.first else { return [:] }
-        let credentialType = firstVC.type.last ?? "UnknownCredential"
-        let credentialId = credentialType
-            .lowercased()
-            .replacingOccurrences(of: "credential", with: "")
-            .replacingOccurrences(of: "certificate", with: "") + "_credential"
-
-        var claims: [[String: Any]] = []
-        let queryLower = query.lowercased()
-        for key in firstVC.credentialSubject.keys {
-            if queryLower.contains(key.lowercased()) ||
-                key == "fullName" || key == "name" ||
-                (queryLower.contains("expir") && (key.contains("expir") || key.contains("valid"))) {
-                claims.append(["path": ["credentialSubject", key]])
-            }
-        }
-        if claims.isEmpty {
-            for key in firstVC.credentialSubject.keys.prefix(3) {
-                claims.append(["path": ["credentialSubject", key]])
-            }
-        }
-        return [
-            "credentials": [
-                [
-                    "id": credentialId,
-                    "format": "ldp_vc",
-                    "meta": [
-                        "type_values": [firstVC.type]
-                    ],
-                    "claims": claims
-                ]
-            ]
-        ]
+    /// Access to the VP generation service
+    var vpGenerator: VPGenerationService {
+        return vpGenerationService
     }
 }
 
-// MARK: - Supporting Types (from MLXDCQLService and DCQLGenerator)
+// MARK: - Supporting Types
 
 enum DCQLValidationError: LocalizedError {
     case invalidJSON(raw: String)
