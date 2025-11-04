@@ -17,7 +17,8 @@ struct FormView: View {
     ]
 
     init() {
-        _viewModel = StateObject(wrappedValue: FormViewModel(service: LlamaDCQLService.shared))
+        let viewModel = FormViewModel(service: LlamaDCQLService.shared)
+        _viewModel = StateObject(wrappedValue: viewModel)
     }
 
     var body: some View {
@@ -61,18 +62,22 @@ struct FormView: View {
         }
         .navigationTitle("VC-LLM")
         .navigationBarTitleDisplayMode(.inline)
+        .onDisappear {
+            // Clear VP result card when navigating away
+            viewModel.reset()
+        }
         .onReceive(NotificationCenter.default.publisher(for: UIApplication.didReceiveMemoryWarningNotification)) { _ in
             print("⚠️ Memory warning received - cleaning up")
             viewModel.dcqlResponse = nil
         }
         .sheet(isPresented: $showingDCQL) {
             if let response = viewModel.dcqlResponse {
-                DCQLSheetView(dcqlResponse: response)
+                DCQLSheetView(dcql: response.dcqlString)
             }
         }
         .sheet(isPresented: $showingPresentation) {
-            if let response = viewModel.dcqlResponse {
-                QRPresentationView(dcqlResponse: response)
+            if let response = viewModel.dcqlResponse, let vp = response.vp {
+                QRPresentationView(vp: vp)
             }
         }
     }
@@ -208,9 +213,9 @@ struct FormView: View {
 
                             ForEach(viewModel.selectedVCsForStreaming) { vc in
                                 HStack(spacing: 8) {
-                                    Image(systemName: "checkmark.circle.fill")
-                                        .foregroundColor(.green)
-                                        .font(.system(size: 14))
+                                    Text("•")
+                                        .font(.system(size: 16, weight: .bold))
+                                        .foregroundColor(.primary.opacity(0.6))
                                     Text(vc.type.last ?? "Unknown Credential")
                                         .font(.system(size: 14, weight: .medium, design: .rounded))
                                         .foregroundColor(.primary.opacity(0.9))
@@ -218,10 +223,6 @@ struct FormView: View {
                                 }
                                 .padding(.horizontal, 12)
                                 .padding(.vertical, 8)
-                                .background(
-                                    RoundedRectangle(cornerRadius: 8, style: .continuous)
-                                        .fill(Color.green.opacity(0.1))
-                                )
                             }
                         }
                         .padding(.horizontal, 24)
@@ -260,21 +261,66 @@ struct FormView: View {
             // Show final result when complete
             else if let response = viewModel.dcqlResponse {
                 VStack(alignment: .leading, spacing: 12) {
-                    Text("I found \(response.selectedVCs.count) relevant credential(s) for your query.")
-                        .font(.system(size: 16, weight: .regular, design: .rounded))
-                        .foregroundColor(.primary.opacity(0.95))
+                    // VP Generation Result or Error
+                    if let vpError = response.vpError {
+                        // VP Error
+                        HStack(spacing: 8) {
+                            Image(systemName: "exclamationmark.triangle.fill")
+                                .foregroundColor(.orange)
+                                .font(.system(size: 14))
+                            VStack(alignment: .leading, spacing: 4) {
+                                Text("VP Generation Failed")
+                                    .font(.system(size: 14, weight: .semibold, design: .rounded))
+                                    .foregroundColor(.primary)
+                                Text(vpError)
+                                    .font(.system(size: 12, weight: .regular, design: .rounded))
+                                    .foregroundColor(.secondary)
+                            }
+                        }
+                        .padding(12)
+                        .background(
+                            RoundedRectangle(cornerRadius: 8)
+                                .fill(Color.orange.opacity(0.1))
+                        )
+                    } else if let vp = response.vp {
+                        // VP Success
+                        VStack(alignment: .leading, spacing: 8) {
+                            HStack(spacing: 6) {
+                                Image(systemName: "checkmark.circle.fill")
+                                    .foregroundColor(.green)
+                                    .font(.system(size: 14))
+                                Text("Verifiable Presentation")
+                                    .font(.system(size: 14, weight: .semibold, design: .rounded))
+                                    .foregroundColor(.primary)
+                            }
+
+                            // VP preview
+                            ScrollView([.horizontal, .vertical], showsIndicators: true) {
+                                Text(vp)
+                                    .font(.system(size: 11, weight: .regular, design: .monospaced))
+                                    .foregroundColor(.primary)
+                                    .padding(12)
+                                    .frame(maxWidth: .infinity, alignment: .topLeading)
+                            }
+                            .background(
+                                RoundedRectangle(cornerRadius: 8)
+                                    .fill(colorScheme == .dark ? Color(.systemGray6).opacity(0.3) : Color(.systemGray6).opacity(0.5))
+                            )
+                            .frame(maxHeight: 200)
+                        }
+                    }
 
                     // Selected VCs
                     VStack(alignment: .leading, spacing: 8) {
-                        Text("Selected Credentials:")
+                        Text("Filtered Credentials:")
                             .font(.system(size: 14, weight: .semibold, design: .rounded))
                             .foregroundColor(.primary.opacity(0.8))
 
                         ForEach(response.selectedVCs) { vc in
-                            HStack {
-                                Image(systemName: "checkmark.circle.fill")
-                                    .foregroundColor(.green)
-                                    .font(.system(size: 12))
+                            HStack(spacing: 6) {
+                                Text("•")
+                                    .font(.system(size: 14, weight: .bold))
+                                    .foregroundColor(.primary.opacity(0.6))
                                 Text(vc.type.last ?? "Unknown")
                                     .font(.system(size: 13, weight: .medium, design: .rounded))
                                     .foregroundColor(.primary.opacity(0.7))
@@ -295,7 +341,10 @@ struct FormView: View {
 
                         HStack(spacing: 12) {
                             timingItem(label: "Retrieval", time: response.retrievalTime)
-                            timingItem(label: "Generation", time: response.generationTime)
+                            timingItem(label: "DCQL Gen", time: response.generationTime)
+                            timingItem(label: "VP Gen", time: response.vpGenerationTime)
+                        }
+                        HStack(spacing: 12) {
                             timingItem(label: "Total", time: response.totalTime)
                         }
                     }
@@ -340,38 +389,40 @@ struct FormView: View {
 
     private func actionButtons(for response: DCQLResponse) -> some View {
         HStack(spacing: 12) {
-            Button {
-                showingDCQL = true
-            } label: {
-                HStack(spacing: 4) {
-                    Image(systemName: "doc.text")
-                        .font(.system(size: 12))
-                    Text("View DCQL")
-                        .font(.system(size: 13, weight: .medium))
+            if response.hasVP {
+                Button {
+                    showingDCQL = true
+                } label: {
+                    HStack(spacing: 4) {
+                        Image(systemName: "doc.text")
+                            .font(.system(size: 12))
+                        Text("View DCQL")
+                            .font(.system(size: 13, weight: .medium))
+                    }
+                    .padding(.horizontal, 12)
+                    .padding(.vertical, 6)
+                    .background(
+                        RoundedRectangle(cornerRadius: 8)
+                            .fill(Color.primary.opacity(0.1))
+                    )
                 }
-                .padding(.horizontal, 12)
-                .padding(.vertical, 6)
-                .background(
-                    RoundedRectangle(cornerRadius: 8)
-                        .fill(Color.primary.opacity(0.1))
-                )
-            }
 
-            Button {
-                showingPresentation = true
-            } label: {
-                HStack(spacing: 4) {
-                    Image(systemName: "qrcode")
-                        .font(.system(size: 12))
-                    Text("Present")
-                        .font(.system(size: 13, weight: .medium))
+                Button {
+                    showingPresentation = true
+                } label: {
+                    HStack(spacing: 4) {
+                        Image(systemName: "qrcode")
+                            .font(.system(size: 12))
+                        Text("Present VP")
+                            .font(.system(size: 13, weight: .medium))
+                    }
+                    .padding(.horizontal, 12)
+                    .padding(.vertical, 6)
+                    .background(
+                        RoundedRectangle(cornerRadius: 8)
+                            .fill(Color.blue.opacity(0.2))
+                    )
                 }
-                .padding(.horizontal, 12)
-                .padding(.vertical, 6)
-                .background(
-                    RoundedRectangle(cornerRadius: 8)
-                        .fill(Color.blue.opacity(0.2))
-                )
             }
         }
         .foregroundColor(.primary)
@@ -501,13 +552,13 @@ struct FormView: View {
 struct DCQLSheetView: View {
     @Environment(\.dismiss) var dismiss
     @Environment(\.colorScheme) var colorScheme
-    let dcqlResponse: DCQLResponse
+    let dcql: String
 
     var body: some View {
         NavigationView {
             ScrollView {
                 VStack(alignment: .leading, spacing: 16) {
-                    Text(dcqlResponse.dcqlString)
+                    Text(dcql)
                         .font(.system(size: 13, design: .monospaced))
                         .foregroundColor(.primary)
                         .textSelection(.enabled)
@@ -530,7 +581,50 @@ struct DCQLSheetView: View {
                 }
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button {
-                        UIPasteboard.general.string = dcqlResponse.dcqlString
+                        UIPasteboard.general.string = dcql
+                    } label: {
+                        Label("Copy", systemImage: "doc.on.doc")
+                    }
+                }
+            }
+        }
+    }
+}
+
+// MARK: - VP Sheet View
+struct VPSheetView: View {
+    @Environment(\.dismiss) var dismiss
+    @Environment(\.colorScheme) var colorScheme
+    let vp: String
+
+    var body: some View {
+        NavigationView {
+            ScrollView {
+                VStack(alignment: .leading, spacing: 16) {
+                    Text(vp)
+                        .font(.system(size: 13, design: .monospaced))
+                        .foregroundColor(.primary)
+                        .textSelection(.enabled)
+                        .padding(16)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .background(
+                            RoundedRectangle(cornerRadius: 12, style: .continuous)
+                                .fill(colorScheme == .dark ? Color(.systemGray6).opacity(0.3) : Color(.secondarySystemGroupedBackground))
+                        )
+                }
+                .padding(24)
+            }
+            .navigationTitle("Verifiable Presentation")
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button("Done") {
+                        dismiss()
+                    }
+                }
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button {
+                        UIPasteboard.general.string = vp
                     } label: {
                         Label("Copy", systemImage: "doc.on.doc")
                     }
@@ -544,7 +638,7 @@ struct DCQLSheetView: View {
 struct QRPresentationView: View {
     @Environment(\.dismiss) var dismiss
     @Environment(\.colorScheme) var colorScheme
-    let dcqlResponse: DCQLResponse
+    let vp: String
 
     var body: some View {
         NavigationView {
@@ -552,7 +646,7 @@ struct QRPresentationView: View {
                 Spacer()
 
                 // QR Code
-                if let qrImage = generateQRCode(from: dcqlResponse.dcqlString) {
+                if let qrImage = generateQRCode(from: vp) {
                     Image(uiImage: qrImage)
                         .interpolation(.none)
                         .resizable()

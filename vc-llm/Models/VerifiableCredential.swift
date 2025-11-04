@@ -6,7 +6,10 @@ struct VerifiableCredential: Codable, Identifiable {
     let context: [String]?
     let type: [String]
     let issuer: Issuer
+    let validFrom: String?
+    let validUntil: String?
     let credentialSubject: [String: JSONValue]
+    let proof: Proof?
 
     /// Primary type of the credential (excluding "VerifiableCredential")
     var primaryType: String {
@@ -19,7 +22,10 @@ struct VerifiableCredential: Codable, Identifiable {
         case context = "@context"
         case type
         case issuer
+        case validFrom
+        case validUntil
         case credentialSubject
+        case proof
     }
 
     /// Convert to compact JSON string for prompt
@@ -38,4 +44,14 @@ struct VerifiableCredential: Codable, Identifiable {
 struct Issuer: Codable {
     let id: String
     let name: String
+}
+
+/// Proof information for a Verifiable Credential
+struct Proof: Codable {
+    let type: String
+    let cryptosuite: String
+    let created: String
+    let verificationMethod: String
+    let proofPurpose: String
+    let proofValue: String
 }

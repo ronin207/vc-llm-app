@@ -23,12 +23,12 @@
       "passportNumber": "TK1234567"
     },
     "proof": {
-      "type": "DataIntegrityProof",
-      "cryptosuite": "eddsa-rdfc-2022",
-      "created": "2025-08-11T09:33:16.567028+00:00",
-      "verificationMethod": "https://example.com/issuers/keys/7706fbb7",
+      "created": "2025-10-28T05:14:33Z",
+      "cryptosuite": "bbs-2025-dorakemon",
       "proofPurpose": "assertionMethod",
-      "proofValue": "z5f15fc5dfa4c2432...dummy...06cc8881f1a73aa8"
+      "proofValue": "z8618022a675ab5ff82d95631986f138220e38af8f0a512086d5ec23fdb2fc78d69bd1deebeaf553c0c4e02055cbb3eeb27180db5353ce64c5ff230ab349fc3282345c88b4e1bd39a44e22860eecae554",
+      "type": "DataIntegrityProof",
+      "verificationMethod": "did:key:zUC73BKvmHPuzxGBESM8jpCoZnn6mrSmafWD8EfdWd83s9FLHUFkLpwERjj3So6fjnT3oEYrYjvzyAVF9f7HQd6Da9pUME6GSeoQvaLqfG2Ak5jX2eaTvFZRZp2f3XkZWGftCtZ"
     }
   },
   {
@@ -56,12 +56,12 @@
       "address": "1-2-3 Kasumigaseki, Chiyoda-ku, Tokyo"
     },
     "proof": {
-      "type": "DataIntegrityProof",
-      "cryptosuite": "eddsa-rdfc-2022",
-      "created": "2025-08-11T09:33:20.628815+00:00",
-      "verificationMethod": "https://example.com/issuers/keys/cf2ed1d7",
+      "created": "2025-10-28T05:14:33Z",
+      "cryptosuite": "bbs-2025-dorakemon",
       "proofPurpose": "assertionMethod",
-      "proofValue": "z5851f86b053c75dd...dummy...56ec22980c53d2a6"
+      "proofValue": "z9979e75f7930f63a1ba1f4e575e22b63a8d279387e63224bb311591673aa32a41355cf7fe411e39afd5d4cb86f62c50e48a49696b8f2f20128e68c1f7246df0ebaac91561da180cc7ebd71e63ee2b76a",
+      "type": "DataIntegrityProof",
+      "verificationMethod": "did:key:zUC7CpYoGcGCtmNyQWf1P2x2EX7jTZQQQ3uE8p9752hviLUSWGebg3VRJS3S6HjJ6EhJ2NP4pD4CApKDguKy4XPyTe3sWrYMe4KXqCVcMM9hyde443jNkMFExTHoX64CAcuX3qd"
     }
   },
   {
@@ -88,12 +88,12 @@
       "address": "1-2-3 Kasumigaseki, Chiyoda-ku, Tokyo"
     },
     "proof": {
-      "type": "DataIntegrityProof",
-      "cryptosuite": "eddsa-rdfc-2022",
-      "created": "2025-08-11T09:33:25.576910+00:00",
-      "verificationMethod": "https://example.com/issuers/keys/8f8fe01f",
+      "created": "2025-10-28T05:14:33Z",
+      "cryptosuite": "bbs-2025-dorakemon",
       "proofPurpose": "assertionMethod",
-      "proofValue": "zb3d48f2b477e7edb...dummy...be47f47c2223de83"
+      "proofValue": "z8f97fd60075d7b5d3fd25443c39edc3cb59e84208d434f6ea961b82ea63f1b2fb7745ae797093860cba38499960c731a046d3929e26226a547c7c4dd5b43fd2415303dc733297c4c405edd9fe5f1d50e",
+      "type": "DataIntegrityProof",
+      "verificationMethod": "did:key:zUC76G11CJoaGFw7mB5fxqaeV1y9VK8Uwd8PqBmfXyrSg67RNgXDuCRkh8FLN7moHehuvvgj2ZsnSFgDTzdntSbzaTRmF2xWtbiC8JTBU2oBwq4bS5q2hPwU1dwdp5Acbcd9zd6"
     }
   },
   {
@@ -119,12 +119,12 @@
       "registrationDate": "2024-01-15"
     },
     "proof": {
-      "type": "DataIntegrityProof",
-      "cryptosuite": "eddsa-rdfc-2022",
-      "created": "2025-08-11T09:33:28.765154+00:00",
-      "verificationMethod": "https://example.com/issuers/keys/9bbaf714",
+      "created": "2025-10-28T05:14:33Z",
+      "cryptosuite": "bbs-2025-dorakemon",
       "proofPurpose": "assertionMethod",
-      "proofValue": "ze578862221f7b668...dummy...c832e91e5ffcb508"
+      "proofValue": "za5d5d83badd35994713e741fc35019a6148df331364001b9af8abae166f2a5d513b837718d75d5037595a228e677b39332ec06fd684591cbd789a650e5103809edd365138aae8fb25e4ce18f0ff2615c",
+      "type": "DataIntegrityProof",
+      "verificationMethod": "did:key:zUC7HFFGfcKSd7tEu4FJCUTbqVoW4qMnvAASpVAgnfB3vuACKjXirSqTAgYg8jsFL4G59wWtv9eXQmKSGz7L1wWLT5LVyrUJCVAa6G4j1noagiZDRXmqC313pJqpWjgG7du9QsK"
     }
   },
   {
@@ -150,12 +150,12 @@
       "registrationDate": "2024-01-15"
     },
     "proof": {
-      "type": "DataIntegrityProof",
-      "cryptosuite": "eddsa-rdfc-2022",
-      "created": "2025-08-11T09:33:33.185151+00:00",
-      "verificationMethod": "https://example.com/issuers/keys/ed7a9a84",
+      "created": "2025-10-28T05:14:33Z",
+      "cryptosuite": "bbs-2025-dorakemon",
       "proofPurpose": "assertionMethod",
-      "proofValue": "zd89ef2e6268a8973...dummy...c5322da054a15fe5"
+      "proofValue": "za40156c6e0688ea55cc16ef9d67c64ec55f9f1a90f713c32f7f7f3718984eede40f8dc228f4343e7f49f706235c7cb8f6c06958c6d56dbecc3ec33dafadc137aabe3599b85936120d5da86cc5e26eb54",
+      "type": "DataIntegrityProof",
+      "verificationMethod": "did:key:zUC78d73qzbk9QiypMCbAyive3DiqnUmkFbRSzV8sv3AZmpXH59uUxmqP1A2toQcQRQDvcXkGu3RTht1XtrWU43xBfAxsvn9h7PSWY9q7kSXtz2Y5EUozDNWM8nGQzxBCrLtNHq"
     }
   },
   {
@@ -181,12 +181,12 @@
       "votingLocation": "Tokyo Community Center"
     },
     "proof": {
-      "type": "DataIntegrityProof",
-      "cryptosuite": "eddsa-rdfc-2022",
-      "created": "2025-08-11T09:33:37.396011+00:00",
-      "verificationMethod": "https://example.com/issuers/keys/c476037d",
+      "created": "2025-10-28T05:14:33Z",
+      "cryptosuite": "bbs-2025-dorakemon",
       "proofPurpose": "assertionMethod",
-      "proofValue": "zfa1a2ed2447f32df...dummy...05436c75dde56880"
+      "proofValue": "z90913765be11f3c91d6d5bf5f15432b6d71b0576977ac53e1028035c6d987a61521ff4ae772fbcbd1fbfb3e8018d07a038f858b5958f093d1de987c64c7f03a2f2d3016348480e4e8b2199bd4d7f7025",
+      "type": "DataIntegrityProof",
+      "verificationMethod": "did:key:zUC7KKMEBZURFYLMbrLSdAARKjLbwQjTfPTdewbTobRXpBu52eqBx7pr8d3WDwZeyW8s7sqXmrMrKywYq1K88Ygzw3G5vdAHvyjs3Q76L2f5k6RW6jngxHrA7UwUAuwYT1U8ufL"
     }
   },
   {
@@ -211,12 +211,12 @@
       "marriageDate": "2010-06-15"
     },
     "proof": {
-      "type": "DataIntegrityProof",
-      "cryptosuite": "eddsa-rdfc-2022",
-      "created": "2025-08-11T09:33:41.063011+00:00",
-      "verificationMethod": "https://example.com/issuers/keys/e74a33ec",
+      "created": "2025-10-28T05:14:33Z",
+      "cryptosuite": "bbs-2025-dorakemon",
       "proofPurpose": "assertionMethod",
-      "proofValue": "z6984d29860ea47e1...dummy...5d09ca7b029ab2f3"
+      "proofValue": "z8fb0710fa5831bd83c5117a04b5e483308f2a85ab2be202db9038ee76550f57988d62486e55860aec82d979b387aae4c003b665cbc452dc4f399304e58c79187b60d3f6c8f23238401a1734adfbdfc3e",
+      "type": "DataIntegrityProof",
+      "verificationMethod": "did:key:zUC7KBuw6WMtCFo6diyMmuw9cEJXCTC7tFaWxVUsGbV3QbFd1vMiP9UG1jmRqEMNPACRfJJs5qy4Z5NFcURwqe3rkLvBhue4mMAM9KPMeKVayq5Da5aAp7a37WSrYAbn3wbhwb9"
     }
   },
   {
@@ -241,12 +241,12 @@
       "birthPlace": "Tokyo, Japan"
     },
     "proof": {
-      "type": "DataIntegrityProof",
-      "cryptosuite": "eddsa-rdfc-2022",
-      "created": "2025-08-11T09:33:44.525643+00:00",
-      "verificationMethod": "https://example.com/issuers/keys/09c02823",
+      "created": "2025-10-28T05:14:34Z",
+      "cryptosuite": "bbs-2025-dorakemon",
       "proofPurpose": "assertionMethod",
-      "proofValue": "z2c8747d7b070e192...dummy...eb2f5fa3c8ed3421"
+      "proofValue": "zaee839e9c354ba50e214a247eb8b8f39da3030381f11b9d3ae5439fb2c858791446d4020039443478d73f82937fce14003c694a06b121f1543ca738901f214a61bde4836e814744321a4c969a1794052",
+      "type": "DataIntegrityProof",
+      "verificationMethod": "did:key:zUC7CSBBvnXLsgY3axw64CFJgS11gYrEg87KUqjw6cYTvqBmfvTWWPRHsnNcuAtoyVRTYmqdoUwMuMqwCJ6Sb9eEDkJ2S38m692V8sdg1QgDgkxc2vE46Z2SeqaT1d5AfQYVoaG"
     }
   },
   {
@@ -273,76 +273,84 @@
       "testName": "English Proficiency Test"
     },
     "proof": {
-      "type": "DataIntegrityProof",
-      "cryptosuite": "eddsa-rdfc-2022",
-      "created": "2025-08-11T09:33:57.249134+00:00",
-      "verificationMethod": "https://example.com/issuers/keys/23776c66",
+      "created": "2025-10-28T05:14:34Z",
+      "cryptosuite": "bbs-2025-dorakemon",
       "proofPurpose": "assertionMethod",
-      "proofValue": "z5bac1a1c3f370fa8...dummy...8e9ea2d8b8987b71"
+      "proofValue": "zacf8d5e2f3f6c5895ed749a1c9e9b7c4d6ca8438b6d973cc8dbc63d89bd8fb2239ed8cd6e141117bbb3c9a3cf9680684045a651dda1b75d2b414c8686b8b82610c2cf9df37e2d967048cf8dc3c046a00",
+      "type": "DataIntegrityProof",
+      "verificationMethod": "did:key:zUC75JATiMF2GrbMvsaq2TwY5pv3qQy91P8DFUnh33UmyGVG93avATbAPeaFSSQqVUM39ryXBzByS7gq72BBjrQJNupMW8hAR6RwwsWtV3B4awQHrdVwFYtbnzbW5RvWTT8ukGC"
     }
   },
   {
     "@context": [
       "https://www.w3.org/ns/credentials/v2",
-      "https://example.com/contexts/qualifications/v1"
+      "https://example.com/contexts/travel/v1"
     ],
     "id": "https://example.com/credentials/vc-010",
     "type": [
       "VerifiableCredential",
-      "EnglishProficiencyCredential"
+      "EnglishTravelVisaCredential"
     ],
     "issuer": {
-      "id": "https://example.com/issuers/english-proficiency-certification",
-      "name": "Tokyo Language Institute"
+      "id": "https://gov.uk/issuers/home-office-visa",
+      "name": "UK Home Office"
     },
-    "validFrom": "2024-01-15T00:00:00Z",
-    "validUntil": "2026-01-14T23:59:59Z",
+    "validFrom": "2024-06-01T00:00:00Z",
+    "validUntil": "2025-12-01T23:59:59Z",
     "credentialSubject": {
       "id": "did:example:yamada-taro",
       "name": "Taro Yamada",
-      "level": "Grade 2",
-      "testDate": "2024-01-15",
-      "testName": "English Proficiency Test"
+      "visaType": "Standard Visitor Visa",
+      "visaNumber": "GBR-2024-V-987654",
+      "destination": "England, United Kingdom",
+      "purpose": "Tourism and English language study",
+      "issueDate": "2024-06-01",
+      "expiryDate": "2025-12-01",
+      "entryType": "Multiple Entry",
+      "maxStayDuration": "6 months per visit"
     },
     "proof": {
-      "type": "DataIntegrityProof",
-      "cryptosuite": "eddsa-rdfc-2022",
-      "created": "2025-08-11T09:33:52.657288+00:00",
-      "verificationMethod": "https://example.com/issuers/keys/c4b91e15",
+      "created": "2025-10-28T05:14:34Z",
+      "cryptosuite": "bbs-2025-dorakemon",
       "proofPurpose": "assertionMethod",
-      "proofValue": "ze037c5c710ee3b7b...dummy...021ecf843a1d959d"
+      "proofValue": "za2385903706fa2b6d101b91e7ae010a8b4ec04cb409ea632ad3d13fbcd71f2b832434f90d6f00d87cf89760a2fce1f7852c4fca54f602ceb7f28fb5ba4f1fdd2fdb760633d518631af82bcebcffa2450",
+      "type": "DataIntegrityProof",
+      "verificationMethod": "did:key:zUC7DmYqoPFK5wE3L1oBwWLugtvUuzpZ9Rxg3ZVfjcR5rF6oJYoJ8tsjM4hk8m2EBkmkd8VzhnFCrcbWCDRtNVRFZB7HFUcx4Ams8MpoT5pd16F4NkfCHNYsjYewWsXLsEzRmVW"
     }
   },
   {
     "@context": [
       "https://www.w3.org/ns/credentials/v2",
-      "https://example.com/contexts/qualifications/v1"
+      "https://example.com/contexts/membership/v1"
     ],
     "id": "https://example.com/credentials/vc-011",
     "type": [
       "VerifiableCredential",
-      "EnglishProficiencyCredential"
+      "EnglishSchoolMembershipCredential"
     ],
     "issuer": {
-      "id": "https://example.com/issuers/english-proficiency-institute",
-      "name": "English Proficiency Institute"
+      "id": "https://example.com/issuers/tokyo-english-academy",
+      "name": "Tokyo English Conversation Academy"
     },
-    "validFrom": "2024-01-15T00:00:00Z",
-    "validUntil": "2026-01-15T23:59:59Z",
+    "validFrom": "2024-04-01T00:00:00Z",
+    "validUntil": "2025-03-31T23:59:59Z",
     "credentialSubject": {
       "id": "did:example:yamada-taro",
       "name": "Taro Yamada",
-      "level": "Grade 3",
-      "testDate": "2024-01-15",
-      "testName": "English Proficiency Test"
+      "membershipType": "Premium Member",
+      "membershipNumber": "TECA-2024-1587",
+      "enrollmentDate": "2024-04-01",
+      "courseLevel": "Advanced Business English",
+      "classSchedule": "Every Tuesday and Thursday 19:00-20:30",
+      "benefits": "Unlimited lesson bookings, online materials access, monthly study counseling"
     },
     "proof": {
-      "type": "DataIntegrityProof",
-      "cryptosuite": "eddsa-rdfc-2022",
-      "created": "2025-08-11T09:33:49.791712+00:00",
-      "verificationMethod": "https://example.com/issuers/keys/65657937",
+      "created": "2025-10-28T05:14:34Z",
+      "cryptosuite": "bbs-2025-dorakemon",
       "proofPurpose": "assertionMethod",
-      "proofValue": "z7e783941cfa67838...dummy...b1c974ae26d3a36a"
+      "proofValue": "zaac95fbd43a15bef60d6a5292c4cff7c7049aee8b6553497097ff5462193939474147aa33f3ae63aec5bba4df052aebc045fd780a5498934ff32cde85355b18c00ff6480c000c13cda08ee8e6b00827c",
+      "type": "DataIntegrityProof",
+      "verificationMethod": "did:key:zUC7ECV6MGjjfB8M6E5CYbJR1nXMmSvjNVFXT1RcNzWWMPc11bBvG5ziQgzJRK74gge6ECbkptDXiaYzyHVWga7CLR45oSb3WtesMLMufxZ8ajw3fGgNMu3A7mUizGzS5UwRbXL"
     }
   },
   {
@@ -369,12 +377,12 @@
       "testName": "Mathematics Proficiency Test"
     },
     "proof": {
-      "type": "DataIntegrityProof",
-      "cryptosuite": "eddsa-rdfc-2022",
-      "created": "2025-08-11T09:34:09.822904+00:00",
-      "verificationMethod": "https://example.com/issuers/keys/0bfdc93d",
+      "created": "2025-10-28T05:14:34Z",
+      "cryptosuite": "bbs-2025-dorakemon",
       "proofPurpose": "assertionMethod",
-      "proofValue": "z506608bbd0fce9ff...dummy...6b741719f8ecd8f4"
+      "proofValue": "z94029aab30e3a056ff7b35a7a7e313368dff8039731c219867d5b3f4a16fa0b21ea61659c7cfd1ba156aaa815eee3c781b2f72f1086bed51d8a66131fdee153c9daffd00925304701d08e72f5ee5579b",
+      "type": "DataIntegrityProof",
+      "verificationMethod": "did:key:zUC7Jy72PuKpMboM5uoN7mhoPr1copGjZkw2SQZCuQx9MpSXR2uDBAacMLT73uQ66ByjvHrZ4JkkH6weUM152d6cfbSJ3i7uCVcjVwu7W8u1TS6HYukxng2akJjN67izsGWoh92"
     }
   },
   {
@@ -401,12 +409,12 @@
       "testName": "Mathematics Proficiency Test"
     },
     "proof": {
-      "type": "DataIntegrityProof",
-      "cryptosuite": "eddsa-rdfc-2022",
-      "created": "2025-08-11T09:34:01.449473+00:00",
-      "verificationMethod": "https://example.com/issuers/keys/2fc94a7e",
+      "created": "2025-10-28T05:14:34Z",
+      "cryptosuite": "bbs-2025-dorakemon",
       "proofPurpose": "assertionMethod",
-      "proofValue": "z59ab88b76a766708...dummy...bf2f4bfb07129760"
+      "proofValue": "zb7582715a1a3ab8a478597c25ac848dd5919eac0c610fb4271bd9669e49bdf3fa4ab885bf25a9db123a80bdb892811375907a155653e2bb8873907ddb61d3e17b529bb3ab79aa84c44c923110bde61c0",
+      "type": "DataIntegrityProof",
+      "verificationMethod": "did:key:zUC7241puLwf6mxra5q6d1AZE5KY5RVZHZBpR94YbRiuYXn5vHWbUUN7hk3aEtXTrHDTSifM1mCAjfGRvEXMHgi9m3ERqLUCrDBmsJ4WMK3qr8VgEZE8WqBvNWCtmSvDkwhpmMo"
     }
   },
   {
@@ -433,12 +441,12 @@
       "testName": "Mathematics Proficiency Test"
     },
     "proof": {
-      "type": "DataIntegrityProof",
-      "cryptosuite": "eddsa-rdfc-2022",
-      "created": "2025-08-11T09:34:06.128615+00:00",
-      "verificationMethod": "https://example.com/issuers/keys/f389b1a8",
+      "created": "2025-10-28T05:14:34Z",
+      "cryptosuite": "bbs-2025-dorakemon",
       "proofPurpose": "assertionMethod",
-      "proofValue": "z20eebd1fc7c9b42b...dummy...ae45c844a2e8ab7b"
+      "proofValue": "z9483f51c1e9ed5c7dada482ed82508b7725876d6da735935880375cae58e5f2f988aa4b6bf53536219e7fb020d6598bc6a42dc8d1b533b778cf1e0f0098ac640e615fead14a40db8b3b1717cda6f4892",
+      "type": "DataIntegrityProof",
+      "verificationMethod": "did:key:zUC7Gx2RZZBEBt3Stse39iVu1QcLmDqEKcpLb2pE3tqWfjLhdnG6W6PXGRgA5zGsbiq5jH69eNaeA32j6j9Kq27rac2jSXZoS65eqKxMJmdZuPALkNXqA9XXGdJ1qh54QMUcqZX"
     }
   },
   {
@@ -464,12 +472,12 @@
       "certificationDate": "2006-10-15"
     },
     "proof": {
-      "type": "DataIntegrityProof",
-      "cryptosuite": "eddsa-rdfc-2022",
-      "created": "2025-08-11T09:34:13.916844+00:00",
-      "verificationMethod": "https://example.com/issuers/keys/69fdb6be",
+      "created": "2025-10-28T05:14:35Z",
+      "cryptosuite": "bbs-2025-dorakemon",
       "proofPurpose": "assertionMethod",
-      "proofValue": "z12d0dae617adc158...dummy...a81c0e20998d0574"
+      "proofValue": "z9082164687f47121fe12b36f79c785fa554adf37936e7ee13cad7d31a3f428b1e674997b28dda85eb31ed442586cfc1e59cdd1e2edd3f31701497135ede9117037df6504d765e6b6f02412aeab16c30d",
+      "type": "DataIntegrityProof",
+      "verificationMethod": "did:key:zUC7KKXiRsuJ6GMdtpNNDkkg655T611b5rVSCWBZuyrffr6iavydk2RRUbf3BMiwUzkwSRteSe6P5YbkYBErHkZhxSDbNxngMpn2m4CV2GKdLd4jXPZg2N5GHRULq3qcfeQb3Gj"
     }
   },
   {
@@ -495,12 +503,12 @@
       "certificationDate": "2010-04-15"
     },
     "proof": {
-      "type": "DataIntegrityProof",
-      "cryptosuite": "eddsa-rdfc-2022",
-      "created": "2025-08-11T09:34:18.797437+00:00",
-      "verificationMethod": "https://example.com/issuers/keys/07c3315b",
+      "created": "2025-10-28T05:14:35Z",
+      "cryptosuite": "bbs-2025-dorakemon",
       "proofPurpose": "assertionMethod",
-      "proofValue": "ze1b50c2eb86df719...dummy...0315300354157577"
+      "proofValue": "z9717c56a794a01d3be7920d01f47c5f3a4ae847f12fc2f998d54007a0fd8084cdf908369e1daad8f7e5e444e7cfa083f6f237d3dc134a9a86f5089d8fbc1645c2195f674e6052f5576ace00b7130825f",
+      "type": "DataIntegrityProof",
+      "verificationMethod": "did:key:zUC771UYmjRDGpkH5UUvccKQXgSJ9wGPgghJC1dAx1isFWNfVB2FGMJFDD7VBuYtfx54Jrgz37xRZZSKtYhpAtoi7BcMXgbAy36Z7o3N37mPLL1JLvLGj5PrK8PgWatAH3Too7N"
     }
   },
   {
@@ -526,12 +534,12 @@
       "certificationDate": "2018-10-15"
     },
     "proof": {
-      "type": "DataIntegrityProof",
-      "cryptosuite": "eddsa-rdfc-2022",
-      "created": "2025-08-11T09:34:23.616386+00:00",
-      "verificationMethod": "https://example.com/issuers/keys/b56afefa",
+      "created": "2025-10-28T05:14:35Z",
+      "cryptosuite": "bbs-2025-dorakemon",
       "proofPurpose": "assertionMethod",
-      "proofValue": "z62e951e8c76ab5e6...dummy...cfe1d3717ecff4c2"
+      "proofValue": "z898240e156105534a8e159e26658c66d7ff20c72edc0aabd14c078850ff41810d4e86e5e2b30564ff79c5d1540b7ff09075ed9bdd6d59cd480465d1a59c123bdd625cc1faf7276f5bdec35cab9ea52dd",
+      "type": "DataIntegrityProof",
+      "verificationMethod": "did:key:zUC7DMwQ8dbJzFyr1En3ugeJSsBm35rNPzCD6tXGfytwtuHQ8aaZZWbQ8YQxAzArSYvutumSQjjAegX6mw3E7rNJfxNf1sLM8ev8rU3RMChiQScgJbzarKDACb1TmdQJSUpKUP5"
     }
   },
   {
@@ -558,12 +566,12 @@
       "certificationName": "Bookkeeping Certification"
     },
     "proof": {
-      "type": "DataIntegrityProof",
-      "cryptosuite": "eddsa-rdfc-2022",
-      "created": "2025-08-11T09:34:36.428857+00:00",
-      "verificationMethod": "https://example.com/issuers/keys/812963d2",
+      "created": "2025-10-28T05:14:35Z",
+      "cryptosuite": "bbs-2025-dorakemon",
       "proofPurpose": "assertionMethod",
-      "proofValue": "zcebd838cf7a845b5...dummy...ea2445863cbec0af"
+      "proofValue": "z94f445fade65b4cd35bb3864cab1af17f12fac9c8b79a1cb5fe7cef93e5238bdd1acc646a1b8b268f137fd63b8a727c70f4adbf921f9daaad34888cc6e65f6843c872e8623ccdd8faa8b0a4287dcb6f6",
+      "type": "DataIntegrityProof",
+      "verificationMethod": "did:key:zUC7Fkr93VF2fCFxSHMmi8dhHEtdrvts841664YPbMukdpu3QHQcodFSEhDM24bdBmExDokD8zzs12x1ytETZ28mseng65WoGXLr6Kh42E2Hwg6eU7W4y6D82wa5Zj6kAzo9Qka"
     }
   },
   {
@@ -590,12 +598,12 @@
       "certificationName": "Bookkeeping Certification"
     },
     "proof": {
-      "type": "DataIntegrityProof",
-      "cryptosuite": "eddsa-rdfc-2022",
-      "created": "2025-08-11T09:34:32.625009+00:00",
-      "verificationMethod": "https://example.com/issuers/keys/1172bb51",
+      "created": "2025-10-28T05:14:35Z",
+      "cryptosuite": "bbs-2025-dorakemon",
       "proofPurpose": "assertionMethod",
-      "proofValue": "zfa9a6fd3ff460ee1...dummy...6197b3fbcb13779e"
+      "proofValue": "z8c6945e7f7b837b311bbbf6b53af89dcbdc3f36e8a3ab93a4c2a104a275e84146f8011cafe40a90787759f4820c0e7f972c41d707c816f1061ea5c22729b479087ee025f390401aead5895b4614f8804",
+      "type": "DataIntegrityProof",
+      "verificationMethod": "did:key:zUC72o1CyNz2PM974MNUipYW8rYvFowgW57Bk9kNgmMsQZUbBdN9pYJCttfjF8Fo6SxqUwwNo9ixRk1HAeqHKs3ZDXcLamvBCivKithqYaERhkuZrzufhUaSR4tnyznzecEf8Pa"
     }
   },
   {
@@ -622,12 +630,12 @@
       "certificationName": "Bookkeeping Certification"
     },
     "proof": {
-      "type": "DataIntegrityProof",
-      "cryptosuite": "eddsa-rdfc-2022",
-      "created": "2025-08-11T09:34:28.676899+00:00",
-      "verificationMethod": "https://example.com/issuers/keys/90b9d12a",
+      "created": "2025-10-28T05:14:35Z",
+      "cryptosuite": "bbs-2025-dorakemon",
       "proofPurpose": "assertionMethod",
-      "proofValue": "zdab7538ee5ad757a...dummy...3b2f349a50a22893"
+      "proofValue": "z8ba60b2436c57e707fad255e48e24ee0f4a453b90c6aad88301abcdec1e3696cfecdc2218b5ed5b9e32588455d5acff804ca949976d690f467d92f37ed40732d0d42b04bebe6cff19151411bc3127561",
+      "type": "DataIntegrityProof",
+      "verificationMethod": "did:key:zUC78oZdMizjUawvtPnhdh3gPJ8RafLuGBynTowJ9fku3spwP8URRHSAZDaXwe85D9LJFrTYHF44KdcXDWh8oYaAuZUDeJEYraSxzSGSGQfzriQ9i3BrKyVZ6jvswfuFo2eKHp2"
     }
   },
   {
@@ -653,12 +661,12 @@
       "certificationDate": "2024-01-15"
     },
     "proof": {
-      "type": "DataIntegrityProof",
-      "cryptosuite": "eddsa-rdfc-2022",
-      "created": "2025-08-11T09:34:41.446929+00:00",
-      "verificationMethod": "https://example.com/issuers/keys/ccb3c8ee",
+      "created": "2025-10-28T05:14:35Z",
+      "cryptosuite": "bbs-2025-dorakemon",
       "proofPurpose": "assertionMethod",
-      "proofValue": "zf6a7dacc5eda3675...dummy...a66776ef15df5fe1"
+      "proofValue": "z842a99c78b9f65e190a4b5a20d68d728106c1eeaab856646114cf3d13ed84ec670dd738a90f12aa46ee4f587995f38bf2c2a096dce3b41f21da848e6a815c71fe06c83a3945c36fd5ae24e5abab0acee",
+      "type": "DataIntegrityProof",
+      "verificationMethod": "did:key:zUC7FAkMpArC6QRTYEuUvjF81EQBYHq4KMPhAfLU93dhYSWNRGjEqvxvB5CvKmZoMSrQm3mZtTzi3Kqv7BPbdxNJYP4afJhvKXtJGcFZ3WUF4mQ9KcKhPjEwnAFM78mo6bmsg7x"
     }
   },
   {
@@ -683,12 +691,12 @@
       "certificationDate": "2024-01-15"
     },
     "proof": {
-      "type": "DataIntegrityProof",
-      "cryptosuite": "eddsa-rdfc-2022",
-      "created": "2025-08-11T09:34:45.874176+00:00",
-      "verificationMethod": "https://example.com/issuers/keys/1901ba03",
+      "created": "2025-10-28T05:14:35Z",
+      "cryptosuite": "bbs-2025-dorakemon",
       "proofPurpose": "assertionMethod",
-      "proofValue": "z30b43cca9364cc3b...dummy...f500410c292ec379"
+      "proofValue": "zb0ffb7236223fbbbb281d610c7719d9974227d7ae39fed08c9134be2ed3bb45cd302138969d46c86146530621958e04f6d278e48039588bad8e2889564e16c8d27248d96dd0d7079e5ae2928d2cea7f7",
+      "type": "DataIntegrityProof",
+      "verificationMethod": "did:key:zUC766q2dDY7aAJzcJoB27hVihpFmEZbsKSQJhhdEah9SswGKTxWzkZUsfRyWL6qK6tL6z5CHBAci2DB6CfosVu3aDXgTpTUgU4HRvUStiBLVEokJATqoV1FUMbudBLwUogXCSu"
     }
   },
   {
@@ -714,12 +722,12 @@
       "graduationDate": "2003-03-31"
     },
     "proof": {
-      "type": "DataIntegrityProof",
-      "cryptosuite": "eddsa-rdfc-2022",
-      "created": "2025-08-11T09:34:49.909506+00:00",
-      "verificationMethod": "https://example.com/issuers/keys/b3423e04",
+      "created": "2025-10-28T05:14:36Z",
+      "cryptosuite": "bbs-2025-dorakemon",
       "proofPurpose": "assertionMethod",
-      "proofValue": "z2937b86956699524...dummy...208d7fae1f01722e"
+      "proofValue": "zab6b28ef26be1a6000a038ddfb7cb130b7209a079900b52bf95e2cd709338a4cdcc12a91c34e2fe64ea2bf3ca74b0c052a8bb97a06a0c44e325f0e742fbc1d3d74b07c8d7bf231007f9cb47aa08516f9",
+      "type": "DataIntegrityProof",
+      "verificationMethod": "did:key:zUC7LZ5Q6n1L6DGEpodr61NMcXkA4rHN8gzxDuwq6dRUc5WV7S9645Kc8ksos7PhEu4f5WUP1hdmA2GzS1vuKg37adrJUs6ogXm2BXmMBpoW81i9viLt42Hi1k7cnsgD1s93fSN"
     }
   },
   {
@@ -752,12 +760,12 @@
       "graduationDate": "2007-03-31"
     },
     "proof": {
-      "type": "DataIntegrityProof",
-      "cryptosuite": "eddsa-rdfc-2022",
-      "created": "2025-08-11T09:34:56.309409+00:00",
-      "verificationMethod": "https://example.com/issuers/keys/1190beef",
+      "created": "2025-10-28T05:14:36Z",
+      "cryptosuite": "bbs-2025-dorakemon",
       "proofPurpose": "assertionMethod",
-      "proofValue": "zfce90ae29afb870a...dummy...2de36496b4ada61e"
+      "proofValue": "z95c36860a617c7f650847ee94c8702ac4f9b7ccd5f7a0c3129558cb0b71a24111e923be9aa85d6cc4c769eb715d02503128cef16df3d42049fa7d8895f127269ce6a8fbc73f6599acae9d12cab074e9c",
+      "type": "DataIntegrityProof",
+      "verificationMethod": "did:key:zUC7CjiaWpEHGzamYz3aYbEyp7vnsLdjtFteL6VbDU866WdVDgeE6htny8iCTvpsKFwtMVNTpbWE1nRkaaiNHPEcGTK5P9zTENmgdi9ZRePboETzxnHycMXHEFqBxiRA9y3JRY4"
     }
   },
   {
@@ -789,12 +797,12 @@
       "graduationDate": "2009-03-31"
     },
     "proof": {
-      "type": "DataIntegrityProof",
-      "cryptosuite": "eddsa-rdfc-2022",
-      "created": "2025-08-11T09:35:00.764386+00:00",
-      "verificationMethod": "https://example.com/issuers/keys/38f4acf8",
+      "created": "2025-10-28T05:14:36Z",
+      "cryptosuite": "bbs-2025-dorakemon",
       "proofPurpose": "assertionMethod",
-      "proofValue": "za15cb538566a9166...dummy...8fd5f464d954fc81"
+      "proofValue": "z8c0e9b5447ec3fd0ab82edaaa0789dc97c617812b88ae5508d52d7be96469afcde8b44120b4f50953e40fc1ed952431f729455f74988d022a5526bf3f671a637f663d658ade358e0c0db07da9f97e9c1",
+      "type": "DataIntegrityProof",
+      "verificationMethod": "did:key:zUC7Ens1k9NA1699JvBuUpEWzS7xDdtNAaV2ybpJJVULtHm1X6wu25mtKJVZjYSXZWJTippm2a6qYwy7SnjLnBXpHsyoEesi9zHqxqdpHsPMRLfHjBHofV8Np91Fs2Me5USHHda"
     }
   },
   {
@@ -822,12 +830,12 @@
       "issuanceDate": "2024-01-15"
     },
     "proof": {
-      "type": "DataIntegrityProof",
-      "cryptosuite": "eddsa-rdfc-2022",
-      "created": "2025-08-11T09:35:05.272895+00:00",
-      "verificationMethod": "https://example.com/issuers/keys/cf6b314d",
+      "created": "2025-10-28T05:14:36Z",
+      "cryptosuite": "bbs-2025-dorakemon",
       "proofPurpose": "assertionMethod",
-      "proofValue": "z194055ea48793717...dummy...ecfb6af0802707d8"
+      "proofValue": "za355be5abb13321a8d06f8e835031f1b6c595a69c8a1e534567fb3bb3b23cc1a9a39f341f11f400566aefd12f79252425e3e3d51b23d60d4b1d8161dfaada82b6d1ec03a3ccd286fbfef51ae3599a70a",
+      "type": "DataIntegrityProof",
+      "verificationMethod": "did:key:zUC71doE1hY6JmxdJBmrsSrBLzLaybmNptNbpubsppiChqaQe2aiJQhLfS16M7dh1Cvu8CwqpFQSxzUHbHxHurDzeCoFyH3SFkN2o17o3QYEskMZTRUiF1Rg8vZuMxk7RFZChrF"
     }
   },
   {
@@ -855,12 +863,12 @@
       "issuanceDate": "2024-01-15"
     },
     "proof": {
-      "type": "DataIntegrityProof",
-      "cryptosuite": "eddsa-rdfc-2022",
-      "created": "2025-08-11T09:35:08.699481+00:00",
-      "verificationMethod": "https://example.com/issuers/keys/7799962f",
+      "created": "2025-10-28T05:14:36Z",
+      "cryptosuite": "bbs-2025-dorakemon",
       "proofPurpose": "assertionMethod",
-      "proofValue": "z7e3e102728ab0de7...dummy...b51a23e77c5173ba"
+      "proofValue": "zac267cef6e42ff2d6a62aca3feed1e853c2f2b684ad0a3e2a01b46bb2620ad4d0a87c8893a9adbb097d285d7ded3a8cc27dc54af18516869db7078c2351f7f5eff957d72ee5ae9da2870c28ba3f7d28a",
+      "type": "DataIntegrityProof",
+      "verificationMethod": "did:key:zUC7CrZKCnhnBG5HZAqsfzavY9RcdsMYsiNWcNBapMroSwgQv5hD1PMFUThLfL3eziBbHZ6RogvLgVXC9Cq2m7zPhtyqPfqb4rb92M2nQb17B4NA2DAQdX6yhgmNPeaV5SbJ9rS"
     }
   },
   {
@@ -887,12 +895,12 @@
       "completionDate": "2024-01-15"
     },
     "proof": {
-      "type": "DataIntegrityProof",
-      "cryptosuite": "eddsa-rdfc-2022",
-      "created": "2025-08-11T09:35:11.292984+00:00",
-      "verificationMethod": "https://example.com/issuers/keys/85b243a5",
+      "created": "2025-10-28T05:14:36Z",
+      "cryptosuite": "bbs-2025-dorakemon",
       "proofPurpose": "assertionMethod",
-      "proofValue": "zd7d83a968db92fff...dummy...8757da02c4940e84"
+      "proofValue": "zaed8449334958c30af3e2ca08a4f36ff29731920fc9e9cf301564a1fe9f5f7f4f453a98ea41be58252a1e30b0dadfc3f4ded71551e824472ec3ace5c6104d023655a704f0b39ea8e74a9842c754f0e15",
+      "type": "DataIntegrityProof",
+      "verificationMethod": "did:key:zUC74hgmud3SoS2tpvFiYBm2Ygnnty42CDJZ27qesio8sdgHWEvMvZs8u7hgFCND9KpqfMRFtF42hbc56LzEzZtDEgQzGCeSHNzzjw5AtjUzGt8Kj4W1KUZ7vFwMkdWcuThCspG"
     }
   },
   {
@@ -919,12 +927,12 @@
       "completionDate": "2024-01-15"
     },
     "proof": {
-      "type": "DataIntegrityProof",
-      "cryptosuite": "eddsa-rdfc-2022",
-      "created": "2025-08-11T09:35:14.384994+00:00",
-      "verificationMethod": "https://example.com/issuers/keys/86fe2105",
+      "created": "2025-10-28T05:14:36Z",
+      "cryptosuite": "bbs-2025-dorakemon",
       "proofPurpose": "assertionMethod",
-      "proofValue": "z94cbb6c5ed4a9f02...dummy...2ffc2c433c9f203c"
+      "proofValue": "z91278f369419ef289df445fc463e659221c7e12a50c93559b0ff662dfcfa60402ecd0a6edc3b0c26ad5c69291e3b06435bc11fe58dd87b0755e14e742a37998a23e090fa18b90a22ed68a83f9cf65bef",
+      "type": "DataIntegrityProof",
+      "verificationMethod": "did:key:zUC7FFASqvBbD3pB7KSdM8E5jpZapBX4DsrM6Qd6Gv6SnoYeMVtf1BjDkWUy2uX673MpJVrNU9gds5mXS7y8BwzvVJpc3qCyDPvUeFjD3sT1wEVN2DhEeUVfjwa2JP9K6wA3z4G"
     }
   },
   {
@@ -951,12 +959,12 @@
       "completionDate": "2024-01-15"
     },
     "proof": {
-      "type": "DataIntegrityProof",
-      "cryptosuite": "eddsa-rdfc-2022",
-      "created": "2025-08-11T09:35:19.724205+00:00",
-      "verificationMethod": "https://example.com/issuers/keys/85a49f89",
+      "created": "2025-10-28T05:14:37Z",
+      "cryptosuite": "bbs-2025-dorakemon",
       "proofPurpose": "assertionMethod",
-      "proofValue": "z17f0536e1842f6d0...dummy...a52b36d341ce43d3"
+      "proofValue": "zb7e1007b9ca17f5fd0cd37994009cdd42d3f57c2053ee5e54694a2e99a3287e7719192630ef4e0c415d74b6b576bf1535b0c10e45730ca24fb80ebb6c38a8f123e7e082f1d8a9556687a9fcc298bc9f1",
+      "type": "DataIntegrityProof",
+      "verificationMethod": "did:key:zUC7LMDZ5VJFBV6DSQonv9DZCvJrmYqgcjiTANSrAuwYDCN6G1qJiuPhsehhLJ9a7ZJ9Vy1gsAEpByLeMVt7DtdoDbycEcFWJQqPZQcqNUCGEeaxTsD9hDg681hvr1qWcpGbkSs"
     }
   },
   {
@@ -983,12 +991,12 @@
       "location": "Tokyo Convention Center"
     },
     "proof": {
-      "type": "DataIntegrityProof",
-      "cryptosuite": "eddsa-rdfc-2022",
-      "created": "2025-08-11T15:06:54.438482+00:00",
-      "verificationMethod": "https://example.com/issuers/keys/8cb140ed",
+      "created": "2025-10-28T05:14:37Z",
+      "cryptosuite": "bbs-2025-dorakemon",
       "proofPurpose": "assertionMethod",
-      "proofValue": "z11becdae8deaad41...dummy...d66e9c9f3f63e6ae"
+      "proofValue": "z997bdcc92b65b9fdaaca60e5d8dd4afaed85ba6c62e57e385e922aba0b89e8d4773d13a0f7f636256cbbcb8b9f82be0323c6b107ac91e353927df1e7a34a2dc9ae195721e54b64e7059328efaa11874f",
+      "type": "DataIntegrityProof",
+      "verificationMethod": "did:key:zUC78nmZCCjSfzsuy5tYzqDN6GJbi7HiCuH2EoR7GjRDNDqk2MAo7BQSYzzFaiZuQiaSjZK7bYoyuhaeq5UNoWe8fKqDuM6eXiPBdKGmYprx5mUVZE2sTUEvz9QhpFLpveRjAy5"
     }
   },
   {
@@ -1015,12 +1023,12 @@
       "location": "Osaka International Conference Center"
     },
     "proof": {
-      "type": "DataIntegrityProof",
-      "cryptosuite": "eddsa-rdfc-2022",
-      "created": "2025-08-11T15:06:54.439845+00:00",
-      "verificationMethod": "https://example.com/issuers/keys/151ed2c6",
+      "created": "2025-10-28T05:14:37Z",
+      "cryptosuite": "bbs-2025-dorakemon",
       "proofPurpose": "assertionMethod",
-      "proofValue": "zed00a5b7e71d556a...dummy...54ebf370282b9300"
+      "proofValue": "zaee1835bf320e33aceaef6ce995006d0f8a66bd733fb93c102f86d3f047427e06d8fdbd2280d9f0ad6846ac413d1b1a630cde34cc2b3f3e6487afbb0d22910ea25817fce1b4ae5ab1545ee8747dcbb6c",
+      "type": "DataIntegrityProof",
+      "verificationMethod": "did:key:zUC7EcSRgVyfYrdyCzJFWz7BEYB1Y9ii8azhup2MtbqpAr6Ste1aDvwjvCojKPhpuaBMW2dT5auWxq4z2B8GKXaVF5a2QWCffDTjFQWWY2yj9HVMpkAmhrUqcHyYH9kWoCntC8B"
     }
   },
   {
@@ -1047,12 +1055,12 @@
       "participationDate": "2024-01-15"
     },
     "proof": {
-      "type": "DataIntegrityProof",
-      "cryptosuite": "eddsa-rdfc-2022",
-      "created": "2025-08-11T09:35:25.000683+00:00",
-      "verificationMethod": "https://example.com/issuers/keys/7862aa19",
+      "created": "2025-10-28T05:14:37Z",
+      "cryptosuite": "bbs-2025-dorakemon",
       "proofPurpose": "assertionMethod",
-      "proofValue": "z0d549920119892af...dummy...35c59265b577155a"
+      "proofValue": "z937fe065405f78cfe9cadf4c7ea459eacafc8235c582fcb890a4060954139b306dd9dbe8cb61606bff3d09722a5b3e1b724c8ad9fa4eba9fc416cce74a54049c59d6f2d5e56fcc3a5b5eba44c6dffcd7",
+      "type": "DataIntegrityProof",
+      "verificationMethod": "did:key:zUC72MQL5DDkmZSTFQ8BSptnG424Axn6GA74cE83bLntVZA31haU3fUnPY2kL6hvh66qaytkZi8WgxnymKmt4sJ6XrW4KCFB7PcKBuwd2UsfPiQ3935bxFKytvKtjiWHAijtcnj"
     }
   },
   {
@@ -1079,12 +1087,12 @@
       "participationDate": "2024-01-15"
     },
     "proof": {
-      "type": "DataIntegrityProof",
-      "cryptosuite": "eddsa-rdfc-2022",
-      "created": "2025-08-11T09:35:29.055610+00:00",
-      "verificationMethod": "https://example.com/issuers/keys/2357ae45",
+      "created": "2025-10-28T05:14:37Z",
+      "cryptosuite": "bbs-2025-dorakemon",
       "proofPurpose": "assertionMethod",
-      "proofValue": "ze4e4249426a44e98...dummy...0a9cf908dcb47770"
+      "proofValue": "zabe231aa979d5768c08bcee77489d8988bfb356276a88a448cdae961f3b567b0b81669af7a9a441dd349d68437fc151c42d71b7f32be6945f2a1d126e8b9c24b7cb23cb8a7b26c0be39ea7c37fab2f32",
+      "type": "DataIntegrityProof",
+      "verificationMethod": "did:key:zUC724b9xmmPtyCjik5GwgVbJxPNXXE7WzUWUgw3CLQYSDNYVjFntC6x2tsYzCVF9E7ptvi9z82XYPqGhYn9TNvw48Aer33eXNpX2WSQJxyNE3t1dT3zqCFLHaC4dRNT528bup9"
     }
   },
   {
@@ -1112,12 +1120,12 @@
       "startDate": "2012-04-01"
     },
     "proof": {
-      "type": "DataIntegrityProof",
-      "cryptosuite": "eddsa-rdfc-2022",
-      "created": "2025-08-11T09:35:36.562493+00:00",
-      "verificationMethod": "https://example.com/issuers/keys/d7a5cd43",
+      "created": "2025-10-28T05:14:37Z",
+      "cryptosuite": "bbs-2025-dorakemon",
       "proofPurpose": "assertionMethod",
-      "proofValue": "z9a935a05d53d4e01...dummy...da4b809de532a325"
+      "proofValue": "za3fed2b55de96477157f99a5405d9da808b37ebd75aa42249e391272cda94a0649a9d2bc3295a8c8118dc543008c7c3936e26987f7356ca8ae93141aa7813f8714bba0cabc2b6e2bf26987425ec4d737",
+      "type": "DataIntegrityProof",
+      "verificationMethod": "did:key:zUC7LEpwesQimvZZZqMqGMav2VVeaP9HqgmpqrXQ6RDB5yz6BN3aqdpbuwRdjpbNz4jq8piBByFJL9HH7XdHmJi8VfVnHNSVYkbJWJMDADNyT9CdgW1LZJg7pmc57dVmvcJpfd4"
     }
   },
   {
@@ -1145,12 +1153,12 @@
       "contractDate": "2024-01-15"
     },
     "proof": {
-      "type": "DataIntegrityProof",
-      "cryptosuite": "eddsa-rdfc-2022",
-      "created": "2025-08-11T09:35:40.377458+00:00",
-      "verificationMethod": "https://example.com/issuers/keys/310bd277",
+      "created": "2025-10-28T05:14:37Z",
+      "cryptosuite": "bbs-2025-dorakemon",
       "proofPurpose": "assertionMethod",
-      "proofValue": "z1799804cec8eb93f...dummy...06a128ba0bebfb34"
+      "proofValue": "z81ac9e091481184b00ff2c6aed850ea40c1111b20bfd30fd8582e164eb3ff54b327b9a6d74e6dfb5a43959361e4b1c0f2b9dca4e3e415c897557a73c9c1f488ee3707da057662e5ff26661232ddc14bf",
+      "type": "DataIntegrityProof",
+      "verificationMethod": "did:key:zUC76hfqJAbsqA2nbys47brvubFNiWuxNPi1JySG8MSpt4NF6ZNYomL7izHiekfRMmWC3rMoepMBsCGwvn8RNkoBcipYN66U6v4dPxAR6uuQn1LSer5hyTzDBRa95dJMqHyfbsp"
     }
   },
   {
@@ -1179,12 +1187,12 @@
       "currency": "JPY"
     },
     "proof": {
-      "type": "DataIntegrityProof",
-      "cryptosuite": "eddsa-rdfc-2022",
-      "created": "2025-08-11T09:35:44.668977+00:00",
-      "verificationMethod": "https://example.com/issuers/keys/7af9af8f",
+      "created": "2025-10-28T05:14:38Z",
+      "cryptosuite": "bbs-2025-dorakemon",
       "proofPurpose": "assertionMethod",
-      "proofValue": "z0963f5a1bc9a4ffe...dummy...a721f4e808d182f8"
+      "proofValue": "z8b32daad082ddfde3bd726bd356fea2190e800dabfcd2e44c5737e264e8badbbe4bd2c9bd6623bd752e97abe56ae490c3492113a25f718e9fa261570d09ec5c76d8cb300a93d581e4c813d318f45f320",
+      "type": "DataIntegrityProof",
+      "verificationMethod": "did:key:zUC7HvH9Wkrq6nB6kvqBXUvFUgwH2yzn36966YLEWSuQuy15UdgmXjWtqKcyC546aQV7Lcg8oywt34M4aXiTnDZLnqs3Y6CdwroJDfkpNSFsSq6GUeARm9nBGjxP7cy2eNUiLQQ"
     }
   },
   {
@@ -1212,12 +1220,12 @@
       "rating": "Excellent"
     },
     "proof": {
-      "type": "DataIntegrityProof",
-      "cryptosuite": "eddsa-rdfc-2022",
-      "created": "2025-08-11T09:35:50.027720+00:00",
-      "verificationMethod": "https://example.com/issuers/keys/1aae7915",
+      "created": "2025-10-28T05:14:38Z",
+      "cryptosuite": "bbs-2025-dorakemon",
       "proofPurpose": "assertionMethod",
-      "proofValue": "z6a7666122f042118...dummy...213df881b27a5c83"
+      "proofValue": "za5cc3fe7a8c1a3f25ea13081c68992754137638a82944d0d63fb57437d3ea31af1bb109a07d1c6e7c022e1ae6b81a782561951771a072902ed92d889bc9e9fd8ac7e51c13386d71d4fa76418c0f76639",
+      "type": "DataIntegrityProof",
+      "verificationMethod": "did:key:zUC73muYWENabbPgygtAVLiQvS2tw3u8nigusKuDACqyWYRUTrEFEeLfaGbydHesAmdAW2UxHSPGHSiB3ZAGjpDN28HLuQFd7ENEmXYrsd7aJomFiZuRmdD9qGQUaLXGnnkALYM"
     }
   },
   {
@@ -1245,12 +1253,12 @@
       "promotionDate": "2024-01-15"
     },
     "proof": {
-      "type": "DataIntegrityProof",
-      "cryptosuite": "eddsa-rdfc-2022",
-      "created": "2025-08-11T09:35:54.010688+00:00",
-      "verificationMethod": "https://example.com/issuers/keys/a74f6ea5",
+      "created": "2025-10-28T05:14:38Z",
+      "cryptosuite": "bbs-2025-dorakemon",
       "proofPurpose": "assertionMethod",
-      "proofValue": "z0a8efa740147438c...dummy...519e3fbf70974b10"
+      "proofValue": "z8131af1386396212cea347f5d0418bbdf15b44d09bf85daab96be4d414be6317e54835ab71787b832ed6eae8a518b847680c4fbf3da3d313077cc6651fa140bb1816a75df933a0da5504fa4e3b9dda81",
+      "type": "DataIntegrityProof",
+      "verificationMethod": "did:key:zUC75y4iZtcMPg9SbjET81VbDMTPsxiKF89JZNLjwyWeygrjrqtBn3aG4oQtKH8kykTFyS7xMoJQcxC4XXg9fT1nsK5syZXLxqMZheqG2VPSnLhxsaEPUHEuxyRR7db5RAA58Jj"
     }
   },
   {
@@ -1276,12 +1284,12 @@
       "resignationDate": "2024-01-10"
     },
     "proof": {
-      "type": "DataIntegrityProof",
-      "cryptosuite": "eddsa-rdfc-2022",
-      "created": "2025-08-11T09:35:58.106973+00:00",
-      "verificationMethod": "https://example.com/issuers/keys/d7ba06ee",
+      "created": "2025-10-28T05:14:38Z",
+      "cryptosuite": "bbs-2025-dorakemon",
       "proofPurpose": "assertionMethod",
-      "proofValue": "zb424b374261e224a...dummy...6b632a7bde952625"
+      "proofValue": "zb76efaf0ca29d57da26a5757b01308848001097d8895c6bc0e852fdb9498a7c6b8f6c90bb07493311d631280ad93d4f2118a3ba693a0922df43762af0f7e56071ee9f9f452817ab3288898acd4b05bfe",
+      "type": "DataIntegrityProof",
+      "verificationMethod": "did:key:zUC72cvmfZJqCYRPhA6H65rcSS3NwD6CBmZJy4daft18rxRxExTbZYoSBvoxwuirXZx44yCnQQ7mrFituKc1Evou9oncz2pnodtdEgH1oecYUVuyT7CrGNVrd7jMyWFsU9213F2"
     }
   },
   {
@@ -1311,12 +1319,12 @@
       "employmentEndDate": "2024-12-31"
     },
     "proof": {
-      "type": "DataIntegrityProof",
-      "cryptosuite": "eddsa-rdfc-2022",
-      "created": "2025-08-11T09:36:01.485118+00:00",
-      "verificationMethod": "https://example.com/issuers/keys/9b993fa8",
+      "created": "2025-10-28T05:14:38Z",
+      "cryptosuite": "bbs-2025-dorakemon",
       "proofPurpose": "assertionMethod",
-      "proofValue": "z22b4e64b5b575b9a...dummy...97d94bcec710dfc0"
+      "proofValue": "z9843c3237bfb33375ba6407bf1a81c336dd6c25b50e6f3b504b59c77588e3067f18672d86ba5de282aa85c868bc61c6216962d900b2fb2e505c8c8c1dae78af10eae0d669e10a6af48fb72f8ebcabcaa",
+      "type": "DataIntegrityProof",
+      "verificationMethod": "did:key:zUC7EbGeiSyKP9nDPMCJKsAnzTTcwi1uMRffFd5y3qtMmJUNNvF9dyxDD39Fg1vaQW2UUyfJhEZsdADresH5KxdkMdrA2SoCn2FfEGkmekA3jZ3vJFqmefHSS8rfT6xpb9qq98y"
     }
   },
   {
@@ -1344,12 +1352,12 @@
       "lotNumber": "LOT-2024-001"
     },
     "proof": {
-      "type": "DataIntegrityProof",
-      "cryptosuite": "eddsa-rdfc-2022",
-      "created": "2025-08-11T09:36:07.414055+00:00",
-      "verificationMethod": "https://example.com/issuers/keys/9b32e0e1",
+      "created": "2025-10-28T05:14:38Z",
+      "cryptosuite": "bbs-2025-dorakemon",
       "proofPurpose": "assertionMethod",
-      "proofValue": "z3b64d414e7c0db7a...dummy...769e21cc199a0da4"
+      "proofValue": "zb6c7ae1b1e872fdc86c1e1cd9fe5c383e66e8fc799db88a3e5f209d3f0e639b08d79d1ea056dd946c778b829c0ee5f084a96fa042e576c00438fbefa5dfe51dcd11fc184c4887a8bd7f36a9a0c2c1b26",
+      "type": "DataIntegrityProof",
+      "verificationMethod": "did:key:zUC76neJCiCv4teoyqQ2VbJ1WhG3uNn4Nd62X7L2yRLFgEBgsRcobrowcBUB14e6Adnz2UYEsiLhu5T2t5esk4ygQwz4b7XwNogDRhH6QZLoZn5vWhXvpR6FF1R7HgmRZh91nG7"
     }
   },
   {
@@ -1377,12 +1385,12 @@
       "lotNumber": "LOT-2024-001"
     },
     "proof": {
-      "type": "DataIntegrityProof",
-      "cryptosuite": "eddsa-rdfc-2022",
-      "created": "2025-08-11T09:36:11.926597+00:00",
-      "verificationMethod": "https://example.com/issuers/keys/238e8d39",
+      "created": "2025-10-28T05:14:38Z",
+      "cryptosuite": "bbs-2025-dorakemon",
       "proofPurpose": "assertionMethod",
-      "proofValue": "z90f2339cd3d9876a...dummy...16cf9e1b32cc4078"
+      "proofValue": "z8bd2e2fe4ff243ed8e1e3ab421435bf20e16e813896450d1a9e7e7bc76bc370a1275ae06823fb7c4831019a46a2bd73b0300f5ab4f8b4066fb2f5b2c4371dc2897b5a8b62d3652398e62d54dfc2e42b1",
+      "type": "DataIntegrityProof",
+      "verificationMethod": "did:key:zUC74s2yXV5PDvBjWpcuw8R8CZQrt3NmW7U6SR3VHYe51XNtbgfgeu7zwPQ6r8Cr34SK31RYW2iFw9XietgkEi3oQoDy5V2yjcmFTkXAuhzVb9MQzFLWcdPCs5QeeSJrv74Xi17"
     }
   },
   {
@@ -1410,12 +1418,12 @@
       "lotNumber": "LOT-2024-001"
     },
     "proof": {
-      "type": "DataIntegrityProof",
-      "cryptosuite": "eddsa-rdfc-2022",
-      "created": "2025-08-11T09:36:17.771093+00:00",
-      "verificationMethod": "https://example.com/issuers/keys/42fe09e2",
+      "created": "2025-10-28T05:14:39Z",
+      "cryptosuite": "bbs-2025-dorakemon",
       "proofPurpose": "assertionMethod",
-      "proofValue": "z116b9e2a62790af9...dummy...a840ba5baa30dc2c"
+      "proofValue": "zb5ffa332c2f356d282f08fa757aa47def310fa003613a370d1549bfb3166bce60f01fe9a6c24d13204beae5c0545de066f186e36ff4e999889360c507ec353c01736c0a6c8595be17ccc5d878f723e4c",
+      "type": "DataIntegrityProof",
+      "verificationMethod": "did:key:zUC7LPpoKGvPdaNw5uHPKAdm5yL9XrBiFWiuR63vDCJcSZyQrE1nf5PvH4qbFMX67UJQ7XbDxLyQwF9zBX5SZe5tzWfLbd2KFcApXBhFbS8FLKis5XgMQpzU7pLAzXzpdGF4ioD"
     }
   },
   {
@@ -1442,12 +1450,12 @@
       "facility": "Tokyo Medical Center"
     },
     "proof": {
-      "type": "DataIntegrityProof",
-      "cryptosuite": "eddsa-rdfc-2022",
-      "created": "2025-08-11T09:36:24.831151+00:00",
-      "verificationMethod": "https://example.com/issuers/keys/4e958b5a",
+      "created": "2025-10-28T05:14:39Z",
+      "cryptosuite": "bbs-2025-dorakemon",
       "proofPurpose": "assertionMethod",
-      "proofValue": "z649f3a7083a8b5ad...dummy...2f96a89428143aac"
+      "proofValue": "z8f5cb044d992e9ec6ebe33c058b730456dde70ad7fe34d2d923c1091bca248531dd3a78565959dedea20252e6a2252c25993db6428b8725777bc3624410086c163513a39e7ee8599ea07bed1317b0050",
+      "type": "DataIntegrityProof",
+      "verificationMethod": "did:key:zUC7DMSxvBPLUYhEMjQS8szFph5Ce5hjoD6KLSrvns77LXRy7QDNnxyMTeXYrx7yKgse1p72FDW4tFDTkiw6brzFFsDgpLvP2twqqQfAPa7tLkAAt7w7KwrmYmnqxTNuxH3Z7Y5"
     }
   },
   {
@@ -1480,12 +1488,12 @@
       }
     },
     "proof": {
-      "type": "DataIntegrityProof",
-      "cryptosuite": "eddsa-rdfc-2022",
-      "created": "2025-08-11T09:36:30.013634+00:00",
-      "verificationMethod": "https://example.com/issuers/keys/77685293",
+      "created": "2025-10-28T05:14:39Z",
+      "cryptosuite": "bbs-2025-dorakemon",
       "proofPurpose": "assertionMethod",
-      "proofValue": "zdaa4971aafccd23b...dummy...8aa42c97e8c11d9f"
+      "proofValue": "z90ce1e8d89b78e20be821c71f068acab5c0ec9bdd5d9cf2c0d2ca6903ca58acf6dcd3dc5f8552b1ce7d4204e45991aa617b48f9cab4a4fe7474abbc8ef748844cb45137a302cc45a528ce1fb2a0270e4",
+      "type": "DataIntegrityProof",
+      "verificationMethod": "did:key:zUC75p3wKT88y69DgKcMJfNbEQ8ByZamwokvtqC8GmMhgmWPHqFFPcfiq9CrPKMCxAAV4iQnwk3LWRntej7e3c4iLdvbjTnB14iRM1bxSETopRfWVRCmUdT9YxSR3DNAC9H5hbg"
     }
   },
   {
@@ -1513,12 +1521,12 @@
       "doctor": "Dr. Smith"
     },
     "proof": {
-      "type": "DataIntegrityProof",
-      "cryptosuite": "eddsa-rdfc-2022",
-      "created": "2025-08-11T09:36:36.267454+00:00",
-      "verificationMethod": "https://example.com/issuers/keys/728cd2da",
+      "created": "2025-10-28T05:14:39Z",
+      "cryptosuite": "bbs-2025-dorakemon",
       "proofPurpose": "assertionMethod",
-      "proofValue": "z0e00291b86e82e81...dummy...43b3ccf5b58cb368"
+      "proofValue": "z87eaab4741102485240abd15029cbf6d568a546d800fc2a687cc874b295205a078e0007f358f5163ad98e81a7ee339703c6f37317c0da8230d2564b4104a930206d4a4e82a52ae1d019ac204c1e30cf0",
+      "type": "DataIntegrityProof",
+      "verificationMethod": "did:key:zUC7K3qkf9AedBHbqWzF1F9oqKmDp3fHbEVHh2nvzUEiRXNcc29z2hnrLssRASvKcnTZzibFeRbA5jbvZ3gR8LycTgW1RKUBYZgHSiKyVLmUBcD1qgMiajmWNt2UFskZm7T5rjD"
     }
   },
   {
@@ -1558,12 +1566,12 @@
       "startDate": "2010-04-01"
     },
     "proof": {
-      "type": "DataIntegrityProof",
-      "cryptosuite": "eddsa-rdfc-2022",
-      "created": "2025-08-11T09:36:41.894124+00:00",
-      "verificationMethod": "https://example.com/issuers/keys/da804acd",
+      "created": "2025-10-28T05:14:39Z",
+      "cryptosuite": "bbs-2025-dorakemon",
       "proofPurpose": "assertionMethod",
-      "proofValue": "zf0cb8da8b0f49c64...dummy...e1a36b55391a281b"
+      "proofValue": "za9c118a29282473693a7d54b20a38456d119d57acdd65c8d319bff1661d0686dc82162075b88cf7bc9453718368af2d067f08d2195c28537337ba7f38b347275d0ca221b05893392320a8d2582bd3d02",
+      "type": "DataIntegrityProof",
+      "verificationMethod": "did:key:zUC7C47Z9nAXmc7k9ShYjh9RZxxdo6hNr1gZQkbnYbWtzDJFL4ivkS6nSEJs7Vbzi5b4bU2mJoa1f1C6bSN39oWA3vSj4HCqxRk8iWSpRLWntMDAUUTiApudyCfZgxYvwRtqGjn"
     }
   },
   {
@@ -1590,12 +1598,12 @@
       "checkType": "Criminal Background Check"
     },
     "proof": {
-      "type": "DataIntegrityProof",
-      "cryptosuite": "eddsa-rdfc-2022",
-      "created": "2025-08-11T09:36:45.899732+00:00",
-      "verificationMethod": "https://example.com/issuers/keys/d6e3d1d3",
+      "created": "2025-10-28T05:14:39Z",
+      "cryptosuite": "bbs-2025-dorakemon",
       "proofPurpose": "assertionMethod",
-      "proofValue": "z4df38a8e43db822a...dummy...fdfc54152e552cbd"
+      "proofValue": "z89c9bbc1eb60ac616746ce51ac8cf19ec43b42884cf8f2add0bdee77a69a5c51092f6379ceead010958ee52bf18835a21425a8d57ffb81ab5983cdeba8b9034fb9c5283d260e0a76d317e8eeafe6f7e2",
+      "type": "DataIntegrityProof",
+      "verificationMethod": "did:key:zUC7HM1eQ8JCESY4nh7DMwm458BTbWjhDJb4VwigP4baCpN7hpDsSLE4qmnL23mBeX39hmPq7EoiWQ4UtoGkvPM6Pb6K1kCWY4MiXU2UvzxGnDnRuG6a19vNUEtfP3Tsp1ip6Qs"
     }
   },
   {
@@ -1623,12 +1631,12 @@
       "journal": "International Journal of Health Innovations"
     },
     "proof": {
-      "type": "DataIntegrityProof",
-      "cryptosuite": "eddsa-rdfc-2022",
-      "created": "2025-08-11T09:36:49.807863+00:00",
-      "verificationMethod": "https://example.com/issuers/keys/3e212782",
+      "created": "2025-10-28T05:14:39Z",
+      "cryptosuite": "bbs-2025-dorakemon",
       "proofPurpose": "assertionMethod",
-      "proofValue": "z4902f2f3828a39dc...dummy...004d56aec334b41f"
+      "proofValue": "zaadfbad623c39b6db1bfada99bcb7b777f8bc7d57e5c3d5271a646c9ef1f9ccfafe870835e6dabc6414d015131bb55150985c519c6ea60c174c38887553873185e95e370e4b79ac0e8dcce4d4686fcad",
+      "type": "DataIntegrityProof",
+      "verificationMethod": "did:key:zUC72NeA4PaRW4saCHaMUx9UpNTm6VxajckF1Ju2BgkxQJsbtgyQFNn79uDTcJRCRmRcBUgsRvU6qxh6rAfDgi4SuCgNaX8UbHQkTkPPu2ka2vGMXY9mq6LQwYriTuG2vLpsRY2"
     }
   },
   {
@@ -1655,12 +1663,12 @@
       "name": "Taro Yamada"
     },
     "proof": {
-      "type": "DataIntegrityProof",
-      "cryptosuite": "eddsa-rdfc-2022",
-      "created": "2025-08-11T09:36:54.103080+00:00",
-      "verificationMethod": "https://example.com/issuers/keys/a12e24de",
+      "created": "2025-10-28T05:14:40Z",
+      "cryptosuite": "bbs-2025-dorakemon",
       "proofPurpose": "assertionMethod",
-      "proofValue": "z78342aec51f67081...dummy...f91841f0a186ccbe"
+      "proofValue": "z889ad1f62e2b26dd791f61d3f8b1be06a51de83f65607c9602de28b216c515d8ed3c710fb8395a08182e6c93915685091e721fe601525f99bf3f3023895a643f22e749b554e1903f2b8820bb65d41d50",
+      "type": "DataIntegrityProof",
+      "verificationMethod": "did:key:zUC72PCqh2goLnZ2LcMNBCaxjrCgg8pSFFwc1WyEeqXZG3jTPEzCSmMK9F41wuygRK2rWxbLGPP6PaqNjDVvb9NedJZfgdxEb2dyGBNRGWdUvM1p8p1uG4FUsa7JH4ZcgRcJzhU"
     }
   },
   {
@@ -1688,12 +1696,12 @@
       "name": "Taro Yamada"
     },
     "proof": {
-      "type": "DataIntegrityProof",
-      "cryptosuite": "eddsa-rdfc-2022",
-      "created": "2025-08-11T09:36:59.472039+00:00",
-      "verificationMethod": "https://example.com/issuers/keys/6d8f753e",
+      "created": "2025-10-28T05:14:40Z",
+      "cryptosuite": "bbs-2025-dorakemon",
       "proofPurpose": "assertionMethod",
-      "proofValue": "z48a5a2531452a3d3...dummy...da8eabe1b2f4cb68"
+      "proofValue": "zb99f51238ebcd66c5fec2575539944f3d52a88b6634774eadf6fd80652d99116613f5e95c58da15e6a45a6c374baf5b76495d0603c68cffdd4e5d07d48312933a25c6e46ddb0494d554038b189dc2d39",
+      "type": "DataIntegrityProof",
+      "verificationMethod": "did:key:zUC74CUBbr6G6VbpvuLxRk4SNYS9dDMBZ6mqCDi9z1FYEFqeX4aFB7EAaXFYEaU9P3DbiMwMApfFCH9fPdqTxFF3wRM7zDQMLqu21m4xFz2XtfGvFyRmiabEKE5zUiaQFKLTMgH"
     }
   },
   {
@@ -1720,12 +1728,12 @@
       "name": "Taro Yamada"
     },
     "proof": {
-      "type": "DataIntegrityProof",
-      "cryptosuite": "eddsa-rdfc-2022",
-      "created": "2025-08-11T09:37:02.997071+00:00",
-      "verificationMethod": "https://example.com/issuers/keys/9d480292",
+      "created": "2025-10-28T05:14:40Z",
+      "cryptosuite": "bbs-2025-dorakemon",
       "proofPurpose": "assertionMethod",
-      "proofValue": "zfdc202d1bcbd3493...dummy...439c9faa617d38c4"
+      "proofValue": "z8f95d55178f1c9297225ee3a08d8167984945541b1b201ddc611b5553e37635d83c3736d23c465811506b69d1076733b3c2a87d56a2aab84fc371d89259efb3ab678f86baf3d933d707c73762e3f667e",
+      "type": "DataIntegrityProof",
+      "verificationMethod": "did:key:zUC77XyyroZeGWQ9E8zh26fqKtbmCw5hbGAx8NWhMdkHuBMupKji5cXV5NPw1oJitP8w7pHm2eDkvyBgcTdnwv7KTG4EKHPiLpupRURZzg5yGUNDJtDBNkXzcXygby4baGM5gT5"
     }
   },
   {
@@ -1752,12 +1760,12 @@
       "name": "Taro Yamada"
     },
     "proof": {
-      "type": "DataIntegrityProof",
-      "cryptosuite": "eddsa-rdfc-2022",
-      "created": "2025-08-11T09:37:08.029955+00:00",
-      "verificationMethod": "https://example.com/issuers/keys/40eb1b5b",
+      "created": "2025-10-28T05:14:40Z",
+      "cryptosuite": "bbs-2025-dorakemon",
       "proofPurpose": "assertionMethod",
-      "proofValue": "z896de9b2db018878...dummy...88b43e62a4a704c4"
+      "proofValue": "z8964382063eef4e7406515f4ab6217111619ef61f040cdb7abe6b0dbfd3563c5682416932046c8411bf2b52ea41dd8035d1d290769f6ef832ab274fc5b683eaa11e4d18f44b27592ce9de5cc90454649",
+      "type": "DataIntegrityProof",
+      "verificationMethod": "did:key:zUC767vMPocMoaKzyyfT3fgy4yQrimFxrwDFhfAuYD19S6rQvshvwJCkoUESLkYCq1RAFMyk9ywpwT6b3mQFjsJuqufLvTthAH7tnA2WGfHgtvT7qvdLPqRW5bz7sji6yvPTbD5"
     }
   },
   {
@@ -1784,12 +1792,12 @@
       "expiryDate": "2026-01-14"
     },
     "proof": {
-      "type": "DataIntegrityProof",
-      "cryptosuite": "eddsa-rdfc-2022",
-      "created": "2025-08-11T09:37:11.422852+00:00",
-      "verificationMethod": "https://example.com/issuers/keys/087df5d2",
+      "created": "2025-10-28T05:14:40Z",
+      "cryptosuite": "bbs-2025-dorakemon",
       "proofPurpose": "assertionMethod",
-      "proofValue": "z315a25a033e99cf8...dummy...42635e31225df9ed"
+      "proofValue": "z811b7be6293db02e1b7bbb86aee10636c96e37f30efbb0ed6969613fb5fcfd9884677d7e175ba6262ddd14f0774373de6a3b6d3cdc37f403597f254cb71f9a4362b113ab2edec8bc2e48bfa4f9829f50",
+      "type": "DataIntegrityProof",
+      "verificationMethod": "did:key:zUC76DzwRTcGsS6b7zhgFyghZVS8w3cxz7vm4Mf8YFysWnT3zo6fvSauCxfjHXMSa8rHKzcEjVzEBUsjZ7jqzS2FR4gUgmFrKyLRDrHt6vQtuBib1nxnWFGoiUefTnnwAgtWyJK"
     }
   },
   {
@@ -1815,12 +1823,12 @@
       "licenseType": "Small Boat License"
     },
     "proof": {
-      "type": "DataIntegrityProof",
-      "cryptosuite": "eddsa-rdfc-2022",
-      "created": "2025-08-11T09:37:15.663504+00:00",
-      "verificationMethod": "https://example.com/issuers/keys/6094838d",
+      "created": "2025-10-28T05:14:40Z",
+      "cryptosuite": "bbs-2025-dorakemon",
       "proofPurpose": "assertionMethod",
-      "proofValue": "z5ce69c956e1a27d1...dummy...420c6e913bd7f9c5"
+      "proofValue": "za7a8046e165a5d6cba7bd210627f016b3c2abaf0cfb461be98bff10a9a0ed3a0e1afc7087817ba536ff6a5536d546cff5d115c63a88805dcb535ddf8cfc9d6f826438a035f6e544453a4525e260c9f26",
+      "type": "DataIntegrityProof",
+      "verificationMethod": "did:key:zUC7H5M1fzUJvbYTuWNY7hpH7r9DPxDMMSrwC5VWsZePpmgbgmHsioenrFbDNpLinWhc5Rc9tQThvSYbkQRjEeQzHEKc2yh5HJKSuetsLeaNpYNVPisANZQkVRkb6vWEFqsEaDG"
     }
   },
   {
@@ -1847,12 +1855,12 @@
       "vehicleType": "Compact"
     },
     "proof": {
-      "type": "DataIntegrityProof",
-      "cryptosuite": "eddsa-rdfc-2022",
-      "created": "2025-08-11T09:37:20.875707+00:00",
-      "verificationMethod": "https://example.com/issuers/keys/716cbb01",
+      "created": "2025-10-28T05:14:40Z",
+      "cryptosuite": "bbs-2025-dorakemon",
       "proofPurpose": "assertionMethod",
-      "proofValue": "z9ec72ed5e95f89c1...dummy...c1252360e1211708"
+      "proofValue": "z8a0597d88f4e8783cf31d20be32bef946579a2bde95cadf6d86accf9cec3848d7e20b8b80976087f590646ef4dbcdb780457e71a0c500496964db6bf712683b39dad2a6b3c9f3dba686767a87a0276f4",
+      "type": "DataIntegrityProof",
+      "verificationMethod": "did:key:zUC7FDv2vxgth4zzC8ZDXcWQtqcFabHKombk3E34oe6Gu33g6jMfLg4nRqQCcqyNyTqPvuKTpxvgGbNSewLJtVfV8nxbWFa4B4MuxCRBTLKjQQWQ7d1DoMobUGnyEjEXCDYHMdD"
     }
   },
   {
@@ -1878,12 +1886,12 @@
       "returnDate": "2024-01-20"
     },
     "proof": {
-      "type": "DataIntegrityProof",
-      "cryptosuite": "eddsa-rdfc-2022",
-      "created": "2025-08-11T09:37:24.541398+00:00",
-      "verificationMethod": "https://example.com/issuers/keys/45505472",
+      "created": "2025-10-28T05:14:41Z",
+      "cryptosuite": "bbs-2025-dorakemon",
       "proofPurpose": "assertionMethod",
-      "proofValue": "z876903a9a7de86fb...dummy...e493c6e922ea78bd"
+      "proofValue": "z872f979a48d1627a8b149cda5963ea180c45966e01a472411bb320cb3662eb73ed8a87d88453507755b1a6ba9458d44970d66461001e3851ad0c7992fbaef12b38f4409322f91ac928252f87314c5d9e",
+      "type": "DataIntegrityProof",
+      "verificationMethod": "did:key:zUC7F77Vzy7JRUCyAUxqp2Qg4GpLUSt9vbnK2obCcN8Q2LWxhA519E9eDAcWVhxMo4NjZYfUXdyjN3njKYfMwgR3cNk6f1myyALYUJqiQyAK6s9dSeRBt9AVqLNf99vkFZnKYZ4"
     }
   },
   {
@@ -1909,12 +1917,12 @@
       "validPeriod": "2024-01-15 to 2024-04-14"
     },
     "proof": {
-      "type": "DataIntegrityProof",
-      "cryptosuite": "eddsa-rdfc-2022",
-      "created": "2025-08-11T09:37:27.950116+00:00",
-      "verificationMethod": "https://example.com/issuers/keys/fd01ae6a",
+      "created": "2025-10-28T05:14:41Z",
+      "cryptosuite": "bbs-2025-dorakemon",
       "proofPurpose": "assertionMethod",
-      "proofValue": "zc05db3fcc50dffff...dummy...1b30f95261aacc26"
+      "proofValue": "zb7e15d828060f1f2d63861f3d0525a6886048e335066c3ce5c924963aa8ff0313b185b297897c6176759fedeb4b1eff936683e0490c20cf41edd8568540732d6292aea79f398e4aadfcd6c8f111d6061",
+      "type": "DataIntegrityProof",
+      "verificationMethod": "did:key:zUC71hbcetVRvV4GhQazv6dXJ7cg1MPKoErJ41itd11XcjD8FxbFToaw7KsaCE57bGN9pzc5UTHuRaBzk51nycEAnjRJFPdjG6x1j6M6y2zajPAhkt5ViqZ2N7ZNDFY2bmJfCUD"
     }
   },
   {
@@ -1940,12 +1948,12 @@
       "receivedDate": "2024-01-20"
     },
     "proof": {
-      "type": "DataIntegrityProof",
-      "cryptosuite": "eddsa-rdfc-2022",
-      "created": "2025-08-11T09:37:40.694361+00:00",
-      "verificationMethod": "https://example.com/issuers/keys/65a38ce6",
+      "created": "2025-10-28T05:14:41Z",
+      "cryptosuite": "bbs-2025-dorakemon",
       "proofPurpose": "assertionMethod",
-      "proofValue": "ze58deb70a7d5d4cb...dummy...2793e072e3cf8b5f"
+      "proofValue": "zb674315e41e874e5cb621248e848e3bb89d9491ce940b3157f3f66992d45ec3a73f0360ab7dfce5fcc0565a89bebeaa53dcf96c36a8dbe409ad5627bcc4b886cde2f4ad93792ec82504c0749c72b1a3a",
+      "type": "DataIntegrityProof",
+      "verificationMethod": "did:key:zUC7FRQetPZoJHWjbzRJUUq9uJR1sh48oyzLP3QPcweKSeVmzfLMx1XX2mzxBV3Bq3ecoNZQegzxv8eVj2ZdN2fdqaGcvs9P7TwoiSw2F9R4WfFDQqYuiEx5CmtDKoRxZpHr7Ft"
     }
   },
   {
@@ -1971,12 +1979,12 @@
       "issuanceDate": "2024-01-15"
     },
     "proof": {
-      "type": "DataIntegrityProof",
-      "cryptosuite": "eddsa-rdfc-2022",
-      "created": "2025-08-11T09:37:46.538033+00:00",
-      "verificationMethod": "https://example.com/issuers/keys/fc49ccee",
+      "created": "2025-10-28T05:14:41Z",
+      "cryptosuite": "bbs-2025-dorakemon",
       "proofPurpose": "assertionMethod",
-      "proofValue": "z0b14d7bbd6f68b24...dummy...7c7c03f573a88cbc"
+      "proofValue": "za634168963ff8824faa8146a463b0d30eaca5a9ce462885d63775bbaf8c7963c43a413074fdd41919e3036149c1d37d7010fda40658376ffb56a2f1c3b28c45a5faf66fe116480a1747d5d7311e69349",
+      "type": "DataIntegrityProof",
+      "verificationMethod": "did:key:zUC7EsoUFEEN16Wgv9USB2piHkxStFVDuaErAw9vrorkNjzxbbuYSuyJyQYpWYVZYDjAzsk6a32MUZY9XLRvW3diGboPjK5Tc5xAngQ8sbyZEpDMG2fvwpQpaRuWzx8ygqTHcce"
     }
   },
   {
@@ -2003,12 +2011,12 @@
       "validPeriod": "2024-01-15 to 2024-04-14"
     },
     "proof": {
-      "type": "DataIntegrityProof",
-      "cryptosuite": "eddsa-rdfc-2022",
-      "created": "2025-08-11T09:37:50.715260+00:00",
-      "verificationMethod": "https://example.com/issuers/keys/6e3a7e1b",
+      "created": "2025-10-28T05:14:41Z",
+      "cryptosuite": "bbs-2025-dorakemon",
       "proofPurpose": "assertionMethod",
-      "proofValue": "z9d103b2b5cc7df72...dummy...c97341be8e8204d3"
+      "proofValue": "z8c529685c901b0f5765f8998e08197ca2e4703f43601cbdf093d11651e0f2968080d050ede412b15eca7a335324ffb2b065dcc9c4d5bcf22d0140deaec10f0aefdff3fa52482504922ef203a44d9e559",
+      "type": "DataIntegrityProof",
+      "verificationMethod": "did:key:zUC7FS3B5sMLxPedoz6dT2MeUJghs7SUVwfYd5qBRNbM5UbS7QYuiubKpaMtv2ehD6KRDus3seMVBuKuL1bdTzK9dZ22ZvMpeh2BzV4qEy7fY7TBnpL8rEBunHbkZGfT1sswmUV"
     }
   },
   {
@@ -2036,12 +2044,12 @@
       "employer": "Example Tech Corporation"
     },
     "proof": {
-      "type": "DataIntegrityProof",
-      "cryptosuite": "eddsa-rdfc-2022",
-      "created": "2025-08-11T09:37:54.454077+00:00",
-      "verificationMethod": "https://example.com/issuers/keys/4dca98e0",
+      "created": "2025-10-28T05:14:41Z",
+      "cryptosuite": "bbs-2025-dorakemon",
       "proofPurpose": "assertionMethod",
-      "proofValue": "z91331cbbcac851df...dummy...d98aff2511af71dc"
+      "proofValue": "zad08714446f2a04a452f960853c1858848bede6ed5fc2c517bf4e1adaf6f054edbd7d9bd0b626e927edd94f34433077666dd6aef85d2b3d96c6a4c66c6114065dae6107561e2de9805dc09c1c585788e",
+      "type": "DataIntegrityProof",
+      "verificationMethod": "did:key:zUC79PDC5cdvzGj5CqY9Lt3yALN8g1c41nGqx4ycR7FeNzSi5Nt2KusEWWguQ8AnUzJ7UadW2ivdmC4tMDG1mAYrKjerDNEr58gXNdBca99XdNZVpkmfGy6SqzeDSHNZc9eF2ZA"
     }
   },
   {
@@ -2067,12 +2075,12 @@
       "stayPeriod": "2024-02-01 to 2024-02-05"
     },
     "proof": {
-      "type": "DataIntegrityProof",
-      "cryptosuite": "eddsa-rdfc-2022",
-      "created": "2025-08-11T09:38:04.506849+00:00",
-      "verificationMethod": "https://example.com/issuers/keys/2bd08ee2",
+      "created": "2025-10-28T05:14:41Z",
+      "cryptosuite": "bbs-2025-dorakemon",
       "proofPurpose": "assertionMethod",
-      "proofValue": "z2dd260fa85009f5e...dummy...b35b7d12b08c0eee"
+      "proofValue": "z85292acfad4bbc3b45dbd91051034a396314939512a8f7b9ceb13b7185deb937049050bd627169d0183ffccddd5e72524e7fd146e788bb4b8d8443bbb62ebe29b8e2a91c9977943323d30548776d1fed",
+      "type": "DataIntegrityProof",
+      "verificationMethod": "did:key:zUC7FkQEjeqowb1fRPf39EcZLZvufLWg8s1gio6FmbmYtTC71XQrcWwenWxCFskfQiT7ipmdQqCx6UpiACsqcEWaHgwheMr4JHcf3JBig6z7GRAYpUTxQUJgtkZMqew86DpMUBk"
     }
   },
   {
@@ -2099,12 +2107,12 @@
       "guesthouseName": "Hakone Hot Spring Guesthouse Mountain Lodge"
     },
     "proof": {
-      "type": "DataIntegrityProof",
-      "cryptosuite": "eddsa-rdfc-2022",
-      "created": "2025-08-11T15:06:54.439853+00:00",
-      "verificationMethod": "https://example.com/issuers/keys/e83aaa84",
+      "created": "2025-10-28T05:14:41Z",
+      "cryptosuite": "bbs-2025-dorakemon",
       "proofPurpose": "assertionMethod",
-      "proofValue": "z31dad9c8d902c125...dummy...ba4ad496cfb4d5e4"
+      "proofValue": "z8351336ad157d4e66bfd32b2c61577d1e43376ab2add19081e3b043614d852a5dd09c976f8952be590e36e15d13afb2d53e9ffed52a108e683c8f4bb7798ab77964120431f68320b78134f731fd6199d",
+      "type": "DataIntegrityProof",
+      "verificationMethod": "did:key:zUC7J45vH1DNAC3GZgPFtnrEk6UrCnrHUGQrsPH9ZnbmVrFAwa8V9aowN6b2C9XGsHMTHFBC2ZLgvL1xCHRphhu2AGvNMrQEW5UnR8YtHbPnzKZ4wQ5Uzk1rVq8g4KVHEscPQTg"
     }
   },
   {
@@ -2131,12 +2139,12 @@
       "guesthouseName": "Kyoto Traditional Guesthouse Historic Inn"
     },
     "proof": {
-      "type": "DataIntegrityProof",
-      "cryptosuite": "eddsa-rdfc-2022",
-      "created": "2025-08-11T15:06:54.439860+00:00",
-      "verificationMethod": "https://example.com/issuers/keys/4f71992a",
+      "created": "2025-10-28T05:14:42Z",
+      "cryptosuite": "bbs-2025-dorakemon",
       "proofPurpose": "assertionMethod",
-      "proofValue": "z02221b5053f3b9ed...dummy...e1f871d6af5204d5"
+      "proofValue": "z965d2c3bd479822d10875b40a4913824923a59557447bf828dc47dd214871b2164678a815c447fe4d9fe9556f84e322639fbc44f2769aac485f9bb4c8a73c8c2378b98b1e7b322839342a66c83e00470",
+      "type": "DataIntegrityProof",
+      "verificationMethod": "did:key:zUC7KxLY4pKpQKnFFP3LJeDMJ7puMRjceDuvLciyC87EgyFa9dXS5FQRBtqohckg4vz2D2hii9qAY8FCxtqzZbKs3X7BE9BmSiSRcQQU1L2zUmnq3YANvHNHzvgHUVrmCSekGz4"
     }
   },
   {
@@ -2162,12 +2170,12 @@
       "cruiseDate": "2024-03-01"
     },
     "proof": {
-      "type": "DataIntegrityProof",
-      "cryptosuite": "eddsa-rdfc-2022",
-      "created": "2025-08-11T09:38:15.873994+00:00",
-      "verificationMethod": "https://example.com/issuers/keys/fe7162dc",
+      "created": "2025-10-28T05:14:42Z",
+      "cryptosuite": "bbs-2025-dorakemon",
       "proofPurpose": "assertionMethod",
-      "proofValue": "z2790597e1ca7e1ec...dummy...437ce50e2e04049b"
+      "proofValue": "zabb3834cd40ce74527ccc7e67946678b972a6a71f5d8fc483842d5b214be00c8c214c56907ab39a6858855170d3c10d46a4467d7da5ef2998a14c3e45f0c2a9f129ff49570560430aca0c4368410db98",
+      "type": "DataIntegrityProof",
+      "verificationMethod": "did:key:zUC7Co2pRNsQcL6MaAwd2uT3vX7DW55AdHqUZTMqWHwyKC7YK6m93Wec8xEu2BmatmJjmn9YNrg9k67x5mG5QgVjM7cDDvaeSABwDQodaxR5Vmiux6YzfngsQHqJYN7H6gGU8Yi"
     }
   },
   {
@@ -2195,12 +2203,12 @@
       "cabinType": "Balcony Suite"
     },
     "proof": {
-      "type": "DataIntegrityProof",
-      "cryptosuite": "eddsa-rdfc-2022",
-      "created": "2025-08-11T15:06:54.439879+00:00",
-      "verificationMethod": "https://example.com/issuers/keys/fecf4916",
+      "created": "2025-10-28T05:14:42Z",
+      "cryptosuite": "bbs-2025-dorakemon",
       "proofPurpose": "assertionMethod",
-      "proofValue": "za7a2c614f9ea7314...dummy...f646cd78e726ab69"
+      "proofValue": "zb84728b20192b87f8c12b23ff49fdfcd78e4b46460cebfcb65c7fa42ec6f87262b6c45cbb9117625dd8d31a214be89581ed34b02414ecb5cd50eb1555fb74dcdf9f5b2bd33f18e3d3cbbbd72d01263ed",
+      "type": "DataIntegrityProof",
+      "verificationMethod": "did:key:zUC7ExwKWBYo5SFp4dnKjDjcV41fMk7dMzrVwBMeJFoKkxazr62wAy78Qvcjx9Me5KVAHqk9uBJiUK7N9SyRyKrVSGBBMVg9NXGYgBGoM9shkuWrW79oRQRcwDsjiXpBvZjT5Xg"
     }
   },
   {
@@ -2228,12 +2236,12 @@
       "cabinType": "Ocean View Suite"
     },
     "proof": {
-      "type": "DataIntegrityProof",
-      "cryptosuite": "eddsa-rdfc-2022",
-      "created": "2025-08-11T15:12:49.843040+00:00",
-      "verificationMethod": "https://example.com/issuers/keys/2bdc8c77",
+      "created": "2025-10-28T05:14:42Z",
+      "cryptosuite": "bbs-2025-dorakemon",
       "proofPurpose": "assertionMethod",
-      "proofValue": "z40ca7ae6bb68b8c7...dummy...d37b8084909eafa7"
+      "proofValue": "z8d432c08e0caab52d64091035bf8d75a936c2cf21bdcab48d7d992a72eb4001825732d6aad9db813f8ab494aad335ad2089d6d4c1516663431a96eb6a79b89686074eaee92a9a4b932973d4efa8cf3bc",
+      "type": "DataIntegrityProof",
+      "verificationMethod": "did:key:zUC7LJpm5FuAR1P9ydCrBKDbEQxU8UFBcYvhCjKBSHMDM8prrtWmc32ovp3WADpAUTG9p56by7Q1R3BFHadNZzB5K8Lnvn6jbCV6WWYdHPdz3p3DrFCxPbR81HtsX7czp2jzye6"
     }
   },
   {
@@ -2259,12 +2267,12 @@
       "entryDate": "2024-02-01"
     },
     "proof": {
-      "type": "DataIntegrityProof",
-      "cryptosuite": "eddsa-rdfc-2022",
-      "created": "2025-08-11T09:38:19.582180+00:00",
-      "verificationMethod": "https://example.com/issuers/keys/4598a024",
+      "created": "2025-10-28T05:14:42Z",
+      "cryptosuite": "bbs-2025-dorakemon",
       "proofPurpose": "assertionMethod",
-      "proofValue": "z7f776f84bfc77950...dummy...b78dd4be6b3d60b6"
+      "proofValue": "z8f1102a9d082fcab4b0863bf5d1327f47de4bfdf42f7b79a30b4cb1922062626c273d2f5b0488f9e8d6df90753d9edc9137d71122687672153b5fedcf6b97fe89018bda17b0194b06f390c68a9112534",
+      "type": "DataIntegrityProof",
+      "verificationMethod": "did:key:zUC7Ls1Nayg3gcdHGcipgMKmt6R6rDDw4Fsx2hg75CHt3TfZtnbUQ8FFsGsDeoYsDAme37q9Ho9wfdejtBd9n4HBgf5BQdeawCEeGAhNBAGPeLumrtChYzmJFfan6opPgBZpVXQ"
     }
   },
   {
@@ -2290,12 +2298,12 @@
       "exitDate": "2024-02-15"
     },
     "proof": {
-      "type": "DataIntegrityProof",
-      "cryptosuite": "eddsa-rdfc-2022",
-      "created": "2025-08-11T09:38:23.849969+00:00",
-      "verificationMethod": "https://example.com/issuers/keys/afd3ada5",
+      "created": "2025-10-28T05:14:42Z",
+      "cryptosuite": "bbs-2025-dorakemon",
       "proofPurpose": "assertionMethod",
-      "proofValue": "z54fd56ceeffc77a4...dummy...b04220e90d40bc77"
+      "proofValue": "zb4fa7315b055bd6dba4cf78366af56c75ddf8ec04254e73153104c55dca68eeb37241e611fe5cee3f9f4c05e375b53db4ee64e0257657e4b636dfffcc0abe3325c768d5427f385975b4dfeee8b41ac90",
+      "type": "DataIntegrityProof",
+      "verificationMethod": "did:key:zUC74M7PtdxKaKCM76CXEVNf4MKYEnehaeCwpwHXPM8X2N22RbyaE5WEqVGsWTcTEdTXfJEEihSaKPgm9jAziVdcy5df7Rnhbpt7UUE4EApMhkTFhmHY6CrCAk2XYkbFNY4QD35"
     }
   },
   {
@@ -2321,12 +2329,12 @@
       "flightNumber": "JL123"
     },
     "proof": {
-      "type": "DataIntegrityProof",
-      "cryptosuite": "eddsa-rdfc-2022",
-      "created": "2025-08-11T09:38:27.996806+00:00",
-      "verificationMethod": "https://example.com/issuers/keys/17397779",
+      "created": "2025-10-28T05:14:42Z",
+      "cryptosuite": "bbs-2025-dorakemon",
       "proofPurpose": "assertionMethod",
-      "proofValue": "z4c8cff897e592dfe...dummy...00d506360519882e"
+      "proofValue": "z9024ebdb8e9217e58f3469f64519c66d9f36bba3e321a6a8a8e93fdffd9439c68965424e0c6f24a6601bf881c787dbea0304b7b55d9640f191f0cb0d58d107e5b1da5feb7b587b39ac0ba9141dcca09f",
+      "type": "DataIntegrityProof",
+      "verificationMethod": "did:key:zUC7JQ7Yp4LuNK3dxnvvvK1Exp1MGM7DAo2L9yLUieTMVKPPwnm84HNjmf5rF6VsiJp26sVJMuH4u9pB3zzBfaugCfPPRHYSDAA4EfmkvwX6r1FPMg2dw7We6eZhVTA3XqXPfr5"
     }
   },
   {
@@ -2353,12 +2361,12 @@
       "name": "Taro Yamada"
     },
     "proof": {
-      "type": "DataIntegrityProof",
-      "cryptosuite": "eddsa-rdfc-2022",
-      "created": "2025-08-11T09:38:33.248005+00:00",
-      "verificationMethod": "https://example.com/issuers/keys/5a1ff74e",
+      "created": "2025-10-28T05:14:43Z",
+      "cryptosuite": "bbs-2025-dorakemon",
       "proofPurpose": "assertionMethod",
-      "proofValue": "z20028ad02fa3e6c9...dummy...ccb48d272849fc08"
+      "proofValue": "zb42c6490d7b9e8db3e603abd444af2f68219d0dc37fec9b262e19f2aa982ed54ce23e01a6bd24931424dbbdb0ee956a5537f9b643bfcf9de80faa78fbacfeca220b9a3f6708d8940a65e023b67c2fff2",
+      "type": "DataIntegrityProof",
+      "verificationMethod": "did:key:zUC7EspSm9kL6KS6SEqmTHivatZoabfSNymULJmmwMbZTF5mHSPUzT3715MwapZMuNkCRMFjpht1EcySjtu68EQv2P24dMPjCYPcGzywrthstp9btPcPkMzA5qNtfVYM4fVNDUh"
     }
   },
   {
@@ -2386,12 +2394,12 @@
       "withholdingAmount": "100000"
     },
     "proof": {
-      "type": "DataIntegrityProof",
-      "cryptosuite": "eddsa-rdfc-2022",
-      "created": "2025-08-11T09:38:37.406233+00:00",
-      "verificationMethod": "https://example.com/issuers/keys/d5fab138",
+      "created": "2025-10-28T05:14:43Z",
+      "cryptosuite": "bbs-2025-dorakemon",
       "proofPurpose": "assertionMethod",
-      "proofValue": "za470264b61d134c3...dummy...ff63cb41deb1ebf4"
+      "proofValue": "zad92ecbdee3e84241d133afe8689d3ea8cbbb5bcf01d4df6afae6e12d960efe1486d200c4bd494142b3d16ce76f80dcc17f91b81ea0c07b5fad5688e9970d4341033316b6c918e8e0110b89d16ed0dae",
+      "type": "DataIntegrityProof",
+      "verificationMethod": "did:key:zUC7KXEuUviVWaeWmyWjMTghFsVdQb696LvJFVGfbZFbzBSwciLEbqSwvsy2nYyW5W6EXWwdacvie5X4CLto7eAAd5ZW9gjpEaTquyBaHfsMn3VKP2ryRpEd6ZVC3CRFL4ZEbWy"
     }
   },
   {
@@ -2418,12 +2426,12 @@
       "filingDate": "2024-03-15"
     },
     "proof": {
-      "type": "DataIntegrityProof",
-      "cryptosuite": "eddsa-rdfc-2022",
-      "created": "2025-08-11T09:38:43.129609+00:00",
-      "verificationMethod": "https://example.com/issuers/keys/1f583e6e",
+      "created": "2025-10-28T05:14:43Z",
+      "cryptosuite": "bbs-2025-dorakemon",
       "proofPurpose": "assertionMethod",
-      "proofValue": "z0a0586f846cb5838...dummy...d2bd7229489554d4"
+      "proofValue": "zb3367bd87cfdf1e7f856bfcd37f8ae170bc2d8b61b259ca0b0e9f26334e08061a91fab302e54d1b17111cb503798581c09afdec9ef10c678bd0ef554e7d3539369b95b411189c6b44450e08b471d96c1",
+      "type": "DataIntegrityProof",
+      "verificationMethod": "did:key:zUC7K5o6MvxdJpbpWvZJjN61AVpFZS25xRRJNSuQGG4z6hwrwTgTygCsFHdtFZgJmxqvtJCKURTU3xeT6j4GUeTQdqP3a43LTzejbS76Mhr9w5KdJDo5n24gH7TkQMDDr3rYAFn"
     }
   },
   {
@@ -2451,12 +2459,12 @@
       "amount": "500000"
     },
     "proof": {
-      "type": "DataIntegrityProof",
-      "cryptosuite": "eddsa-rdfc-2022",
-      "created": "2025-08-11T09:38:47.426286+00:00",
-      "verificationMethod": "https://example.com/issuers/keys/adc59bc5",
+      "created": "2025-10-28T05:14:43Z",
+      "cryptosuite": "bbs-2025-dorakemon",
       "proofPurpose": "assertionMethod",
-      "proofValue": "zdc8acf244198bc7c...dummy...4cef6606b8368c65"
+      "proofValue": "z956cff0b7d20f7a1ee1c378688c63174f35f83595f41abdbe4dcdd41626460356658e282e536621e78ee48e476a233ed4ff077433b083813fe30aaf8e843b41de738fff8721f05f6c3b38cbdbeae8d6f",
+      "type": "DataIntegrityProof",
+      "verificationMethod": "did:key:zUC79fsZ4NJoE8CTrWHKaEWfnuR4iMkBfk2m6tsTrTkVEdcTYPeweWXtTfyb9taWTu89nGJKaQvzhkVM5PAukPATqA6LF1o8qpCKU3pibYrFw4Q4Jj5oJoWgcsuWDP5Uiz3Pk2P"
     }
   },
   {
@@ -2484,12 +2492,12 @@
       "destination": "United States"
     },
     "proof": {
-      "type": "DataIntegrityProof",
-      "cryptosuite": "eddsa-rdfc-2022",
-      "created": "2025-08-11T09:38:52.982366+00:00",
-      "verificationMethod": "https://example.com/issuers/keys/0d4b675e",
+      "created": "2025-10-28T05:14:43Z",
+      "cryptosuite": "bbs-2025-dorakemon",
       "proofPurpose": "assertionMethod",
-      "proofValue": "zc75eafbb5509cf8e...dummy...b2b9bc27c582d624"
+      "proofValue": "z8b9bb51b5276bcf42f8545e13506c9a504d90db313d134a8efcdd01e8521f2db964ef00cda7f7c97e87d9aba7f9d067373d4ee46c1a594016fbc172bf1ba83058fdcfe723226bbc5516869de1e88a19d",
+      "type": "DataIntegrityProof",
+      "verificationMethod": "did:key:zUC756EkKUMSySVBHJGK5M6SHF3fqqKuFREXSREaPrHjfHV8kG2fHzuN3VaAkVNJNkM9x8amtYBFWZQZm4tECJbs2WxVoJaaLMraVzrxa3CFk9iAvqrwVs8VYfR5i7fqq718vwx"
     }
   },
   {
@@ -2518,12 +2526,12 @@
       "employer": "Example Tech Corporation"
     },
     "proof": {
-      "type": "DataIntegrityProof",
-      "cryptosuite": "eddsa-rdfc-2022",
-      "created": "2025-08-11T09:38:56.759707+00:00",
-      "verificationMethod": "https://example.com/issuers/keys/b19e30fb",
+      "created": "2025-10-28T05:14:43Z",
+      "cryptosuite": "bbs-2025-dorakemon",
       "proofPurpose": "assertionMethod",
-      "proofValue": "zd6f20b88cb689cb9...dummy...c8f8bb3c5716b494"
+      "proofValue": "z99b2d737bb7dd13c13fe8d3ec9a9e7d1eaebfe5b7d26f6c7de42eb34cc6b28d30113b478ecdc683f6ae43619d0a5e1b241ad6f7c8515b9708c57156ea39b77d8465e960550623f76c94bc766468664bd",
+      "type": "DataIntegrityProof",
+      "verificationMethod": "did:key:zUC7LYKLEoFeWpoYqDkNERCKsehCnGZLrCp9v45H8yVN8Qp7rHLkf6eqej3KxQiTDTznU21ZSGnai4ittR4xpCf5eymUxi9y29xRq9k4QYnUH8Y9pnJ4i6QcSXrY4bGxen5cJ21"
     }
   },
   {
@@ -2550,12 +2558,12 @@
       "insuredAmount": "10000000"
     },
     "proof": {
-      "type": "DataIntegrityProof",
-      "cryptosuite": "eddsa-rdfc-2022",
-      "created": "2025-08-11T09:39:00.419225+00:00",
-      "verificationMethod": "https://example.com/issuers/keys/bd2eb257",
+      "created": "2025-10-28T05:14:43Z",
+      "cryptosuite": "bbs-2025-dorakemon",
       "proofPurpose": "assertionMethod",
-      "proofValue": "z476916ef7e110a10...dummy...31cd93a879cb66d3"
+      "proofValue": "z981b78bd9108ca1d6884066f823e4f6c28307885cc46374d90afcaef6256be99395835cc19c2ec671d6db04cbbb2b6ad5cd9af26314e526549f336bf1b8c67cd7ac61c4f06019ab0d81decbb0d2a53b6",
+      "type": "DataIntegrityProof",
+      "verificationMethod": "did:key:zUC7K8bUJZ78Q2MuPNDkoAVMprKtS5LnvdEaRtchJGvPucF7p79P3bKXQjaS4pLw6aKFWVb5JQomDygNWJYZkp6RZaAA2tsveeuVB2CRGW3zPWbvj6jSZXQLXSsoFZcBK3Yn4CR"
     }
   },
   {
@@ -2583,12 +2591,12 @@
       "miles": "50000"
     },
     "proof": {
-      "type": "DataIntegrityProof",
-      "cryptosuite": "eddsa-rdfc-2022",
-      "created": "2025-08-11T09:39:04.957401+00:00",
-      "verificationMethod": "https://example.com/issuers/keys/7f300654",
+      "created": "2025-10-28T05:14:44Z",
+      "cryptosuite": "bbs-2025-dorakemon",
       "proofPurpose": "assertionMethod",
-      "proofValue": "za0767852740c581c...dummy...925b8b540de19081"
+      "proofValue": "za6d497a0f13bb1cbf848ecabca4407a35408e429c4ab63fcc4217bf27d4275b9ea1fa07e677e7184f4269e2669de93c8625b9f1b461704f9cfaf9aa931310de18d77ce7b5ab32a2c60efee4ece1f8800",
+      "type": "DataIntegrityProof",
+      "verificationMethod": "did:key:zUC7JzSojXWiuvKuKtPMK5fZFLnvFEv6RQ9JLAJ6XEckwKm6APJXxp2REGMFXvBpxjFar9w1Mw7UnhCyoLRWcRAZei6WkZL48V9oxiF1doZBzkuYVzRpSK2Zyfc4KJDV9xC7iCT"
     }
   },
   {
@@ -2616,12 +2624,12 @@
       "points": "10000"
     },
     "proof": {
-      "type": "DataIntegrityProof",
-      "cryptosuite": "eddsa-rdfc-2022",
-      "created": "2025-08-11T09:39:09.245142+00:00",
-      "verificationMethod": "https://example.com/issuers/keys/76c7e998",
+      "created": "2025-10-28T05:14:44Z",
+      "cryptosuite": "bbs-2025-dorakemon",
       "proofPurpose": "assertionMethod",
-      "proofValue": "zd6a83a96ef5b327b...dummy...558d72f966635ab3"
+      "proofValue": "z8ac66c7ef70e0215f139f33b1fd3483f3c40ca3ef7b3c3e870e0bfdb80e971ad3ed9e2e65cfa9d83f0096af0d3c0e3db333f5681afa69f5b8c4bb9e29bbab1169f83420db4c087b1768003ee3560792f",
+      "type": "DataIntegrityProof",
+      "verificationMethod": "did:key:zUC7GQuM6eZAAgnag5udFxomzwWZ1dcRySRKZmwCXMFnvTm1yFPq1rp5YYjmdmaGUCH2JX39LaQAYhmN69wi7GFmByZRmsJnjWH1K6jgki2gWGZ3F9SMNFUcjNtHoZxHgDjvCE7"
     }
   },
   {
@@ -2648,12 +2656,12 @@
       "eventDate": "2024-02-25"
     },
     "proof": {
-      "type": "DataIntegrityProof",
-      "cryptosuite": "eddsa-rdfc-2022",
-      "created": "2025-08-11T09:39:14.003805+00:00",
-      "verificationMethod": "https://example.com/issuers/keys/46bf6aca",
+      "created": "2025-10-28T05:14:44Z",
+      "cryptosuite": "bbs-2025-dorakemon",
       "proofPurpose": "assertionMethod",
-      "proofValue": "z87d962eb31926918...dummy...d3a8f84bf640fad7"
+      "proofValue": "z97ce26bfbae7393ee1fa7a7796b8aaa6fa86dbcf860ed71cbd81e267b14180c5f98cbf29be85dab0ca80dea8d4fc35b51235211610c3a9b1fe3265227c8d6d43d6526be106e53c0c7de6cde94ea2201b",
+      "type": "DataIntegrityProof",
+      "verificationMethod": "did:key:zUC7FWjnT6qc53TyF396RhD38V5YKW8dWUwUnHG4udBXkmxnpJozBsACqDvn22XEgYeNMmRriw4hQ6Z6cqq2KH8LvPsn9BnFA94PPvYqsyYJDf5c244YdjrupkauZnJyu2m7XYH"
     }
   },
   {
@@ -2679,12 +2687,12 @@
       "eventDate": "2024-02-25"
     },
     "proof": {
-      "type": "DataIntegrityProof",
-      "cryptosuite": "eddsa-rdfc-2022",
-      "created": "2025-08-11T09:39:18.955361+00:00",
-      "verificationMethod": "https://example.com/issuers/keys/5eff8b34",
+      "created": "2025-10-28T05:14:44Z",
+      "cryptosuite": "bbs-2025-dorakemon",
       "proofPurpose": "assertionMethod",
-      "proofValue": "zf104f15bfe7faddc...dummy...fd10fa39b30c8392"
+      "proofValue": "za2d83f663906fa4c8e35ad7136b2459cb92f5552233f9d3a498c0157e29346eba72d8d99c744df6e9612518f963bc06044b145788c42760514bff055352e52e87e79996ba4a7f18256fe95c930897f58",
+      "type": "DataIntegrityProof",
+      "verificationMethod": "did:key:zUC748jfAqTpESVMa2Lw6p3KhHduQhnoqsiNDjrUPhDc4o6NF3rbEc2tiCKhy23yCu9w2CCPcc8L9gEUbHvTqcv5pJGCVHZwGNv8SE3PeTZxKqMwffTohinScts5hqkA8HRqmMR"
     }
   },
   {
@@ -2711,12 +2719,12 @@
       "climbDate": "2024-07-15"
     },
     "proof": {
-      "type": "DataIntegrityProof",
-      "cryptosuite": "eddsa-rdfc-2022",
-      "created": "2025-08-11T09:39:23.109485+00:00",
-      "verificationMethod": "https://example.com/issuers/keys/c709aafd",
+      "created": "2025-10-28T05:14:44Z",
+      "cryptosuite": "bbs-2025-dorakemon",
       "proofPurpose": "assertionMethod",
-      "proofValue": "z82ffb46cb15d7710...dummy...3e2f4cab618538d6"
+      "proofValue": "z913a5cdea0d088247531a39e2075ff1c8f22359345bf08a0024af7196918d199628269a215e09b91ba234a3246c90e475e520d9c135458f30e94ad9dce076dd8f0a2cd40f46aa2416a97a0d1944ee6e2",
+      "type": "DataIntegrityProof",
+      "verificationMethod": "did:key:zUC7LNeBEWZzbz55A5RneqEZ1hiKU9QX2YXU1io1dtG19a7QBWPhwYt6d2gJsKK6AWctiJqdrUD2PrVZw7LnMKctd5rvmiPJvZ7JU4e1EWYaxa1bpERfxKTzBFKpdyoHFifRJtn"
     }
   },
   {
@@ -2743,12 +2751,12 @@
       "name": "Taro Yamada"
     },
     "proof": {
-      "type": "DataIntegrityProof",
-      "cryptosuite": "eddsa-rdfc-2022",
-      "created": "2025-08-11T09:39:26.527791+00:00",
-      "verificationMethod": "https://example.com/issuers/keys/7875d862",
+      "created": "2025-10-28T05:14:44Z",
+      "cryptosuite": "bbs-2025-dorakemon",
       "proofPurpose": "assertionMethod",
-      "proofValue": "z8313850ef83e3d77...dummy...0a00c6500bf9fac2"
+      "proofValue": "zaca50e8e675aea9fe23a2ac6e01c8193291a0a47c3f31432d0a26da56730abf09b3702887bec56c3b17b5027b46f3028172696f4f5ff4d404d57338919b449d2f45232f6fc7e185721f4c3260dd16d43",
+      "type": "DataIntegrityProof",
+      "verificationMethod": "did:key:zUC73bAW4eAjGd7LZasjdHaA5dv8m4zqVFDeWfE7YnyDMkjvudMcYq8z27tXHMcM3st7TwKAofS4Euw29bhnRjDPFGkm27Vy95fvV7DpjFBo1YAZdtmB1XoY1V17JhH7XqK4weF"
     }
   },
   {
@@ -2775,12 +2783,12 @@
       "name": "Taro Yamada"
     },
     "proof": {
-      "type": "DataIntegrityProof",
-      "cryptosuite": "eddsa-rdfc-2022",
-      "created": "2025-08-11T09:39:29.995688+00:00",
-      "verificationMethod": "https://example.com/issuers/keys/e73e1faa",
+      "created": "2025-10-28T05:14:44Z",
+      "cryptosuite": "bbs-2025-dorakemon",
       "proofPurpose": "assertionMethod",
-      "proofValue": "z1694bd6476ce52fe...dummy...3516e59e9dbc2829"
+      "proofValue": "za66cab9f6d9d66d23f8d7ac940f6f77f797ca5ac24ce7d97cc6255f5d72a3134a3ec7ebc9bd2a041d1d72ca47df244ae3ab1dc5c75e01ef4f644a34e14ca8f5814d7c9d9b40eba5f4e8a75b6328b802f",
+      "type": "DataIntegrityProof",
+      "verificationMethod": "did:key:zUC78Nysbmw5UDZTHW7g6mGWnEayYKGE7pFhj7UjXAt3exbuscA5LQVPmapjf2ApLnoPHGnpQ1cZUTGMhtnpQpXmnVD6q9GiN4VKah2MVHZXuaFirkRuPY9ZCsfWKa766LzWsEf"
     }
   },
   {
@@ -2808,12 +2816,12 @@
       "name": "Taro Yamada"
     },
     "proof": {
-      "type": "DataIntegrityProof",
-      "cryptosuite": "eddsa-rdfc-2022",
-      "created": "2025-08-11T09:39:37.942984+00:00",
-      "verificationMethod": "https://example.com/issuers/keys/1d47d9a1",
+      "created": "2025-10-28T05:14:44Z",
+      "cryptosuite": "bbs-2025-dorakemon",
       "proofPurpose": "assertionMethod",
-      "proofValue": "z51b9870293f6628d...dummy...0c26e2148d8ce785"
+      "proofValue": "za963beaa6f0662556a66dcfad023d8d204e6c2491ee72b7edb6b8c6cb6b73101c987559a99ce11c44957f25c301c2a9d003f9b6d31b6cf80022ed01d3f8b26806fe62510c2478413fea118db2c6fc764",
+      "type": "DataIntegrityProof",
+      "verificationMethod": "did:key:zUC79UuKxZx2mE2dvRuM2EveQFt5sHnDBTwEhNWS7283HsmWW9j584EApgAKH1AcTjag6YSis4icKAwM2LJRXzQ1CswGuiBr21pfwd2KQ8KntqZeEaRPz6FpJRHy8FH4py7QHZR"
     }
   },
   {
@@ -2841,12 +2849,12 @@
       "name": "Taro Yamada"
     },
     "proof": {
-      "type": "DataIntegrityProof",
-      "cryptosuite": "eddsa-rdfc-2022",
-      "created": "2025-08-11T09:39:42.810443+00:00",
-      "verificationMethod": "https://example.com/issuers/keys/348de3ce",
+      "created": "2025-10-28T05:14:45Z",
+      "cryptosuite": "bbs-2025-dorakemon",
       "proofPurpose": "assertionMethod",
-      "proofValue": "zbcabceedff157884...dummy...ff8354140a14ef4b"
+      "proofValue": "z96684b38c7a2b7ac2bc48b5ee20c9171ab09cb37ef79e4ef0c1408fbfba77e54db8436b545167f198b931ced04da380e27ef5720a3bb8f950e1bc9e5437d83bb2e767bc00d3c154a811f943707cd4db6",
+      "type": "DataIntegrityProof",
+      "verificationMethod": "did:key:zUC7L3uaJdMzvsRshSpknbzh2Gx2tMKA3cEnkogmqEykMC76zRXEhGXcVMgRDmQ6DLi35gyvs1KzmTXKVkX8WRg5DuKtPTtDwAVvkdbWTpjqyAkvHN4ySggZm4mSSWwTGKMQ45W"
     }
   },
   {
@@ -2875,12 +2883,12 @@
       "name": "Taro Yamada"
     },
     "proof": {
-      "type": "DataIntegrityProof",
-      "cryptosuite": "eddsa-rdfc-2022",
-      "created": "2025-08-11T09:39:46.499783+00:00",
-      "verificationMethod": "https://example.com/issuers/keys/3c872d4d",
+      "created": "2025-10-28T05:14:45Z",
+      "cryptosuite": "bbs-2025-dorakemon",
       "proofPurpose": "assertionMethod",
-      "proofValue": "z91978900c1b85cb5...dummy...4c40ac0c41f17e62"
+      "proofValue": "za70d17baadab6421f3f58701092b1b555db2a1bfcaeda3bdccd9e9743b8cbbf1228201c7516327dc19cb99b1d2db1c4a528a58659823134285298355d1f79c549e12dc540cdbb78ed33a8ac3f46fe750",
+      "type": "DataIntegrityProof",
+      "verificationMethod": "did:key:zUC7H4HdxpjLcBL5wyWtcyRmqcewGz8GqWsaSh8zEkZi4hxaxFqWwU6gq9f6PMEmCfYrkXxG4WYJvkYL1U3RLsFWReWR6WkAtiAnw8B2QTaBhmaEaak4Q7TLgsbtgENsXMTUbNK"
     }
   },
   {
@@ -2908,12 +2916,12 @@
       "name": "Taro Yamada"
     },
     "proof": {
-      "type": "DataIntegrityProof",
-      "cryptosuite": "eddsa-rdfc-2022",
-      "created": "2025-08-11T09:39:51.286621+00:00",
-      "verificationMethod": "https://example.com/issuers/keys/d60f6cc7",
+      "created": "2025-10-28T05:14:45Z",
+      "cryptosuite": "bbs-2025-dorakemon",
       "proofPurpose": "assertionMethod",
-      "proofValue": "z53477d11592599d5...dummy...0a32337fb6bfbdc4"
+      "proofValue": "za943c6de354281360671cb733cc7b9e11a933865e44410cf9f9b2cf5afe7616cf1c52911175e287bc531b3eeddb09a5642d635c396ea1415944e47ed5f1ab96dc98c3d8a3d523d8cf3e9add0a6234299",
+      "type": "DataIntegrityProof",
+      "verificationMethod": "did:key:zUC7DHcZf6QwyJQ6SSFjgPGfXNrzuv2rkaTQVpeg13Y5vVJz6eg3ghxPYr3Vm5nLiqe8u24Sd1dnNKRC2QbtdtAjFqPhe9xehBht9DCpn9FZvADU1uYY1wBxw4eB5urXAYRyuVM"
     }
   },
   {
@@ -2940,12 +2948,12 @@
       "membershipType": "GymMembership"
     },
     "proof": {
-      "type": "DataIntegrityProof",
-      "cryptosuite": "eddsa-rdfc-2022",
-      "created": "2025-08-11T09:39:56.420253+00:00",
-      "verificationMethod": "https://example.com/issuers/keys/f563682b",
+      "created": "2025-10-28T05:14:45Z",
+      "cryptosuite": "bbs-2025-dorakemon",
       "proofPurpose": "assertionMethod",
-      "proofValue": "zc022730a478c3bfe...dummy...91936c19f7d46d86"
+      "proofValue": "za544a30500947c69c6e3b154586268c063a9a69ddc5e130f04a5201b708e39de808a825698631da73c2a84dace4834916439db237c1219c2377043b038806bd902c48e3267e766c44dd236007498058c",
+      "type": "DataIntegrityProof",
+      "verificationMethod": "did:key:zUC71tyXaDepyd7mtBSA9wRbsNud8QLvCBiXXgaEaJ6QU2STDrKcr5ehFsFsfqEHvJiy9w6WZjoWh6o9aMEogfmEoLVDzEDpYM1vzhJgc1XKaPaSDguvQRx1RzKgmEW8YszxkH4"
     }
   },
   {
@@ -2972,12 +2980,12 @@
       "membershipType": "SportsMembership"
     },
     "proof": {
-      "type": "DataIntegrityProof",
-      "cryptosuite": "eddsa-rdfc-2022",
-      "created": "2025-08-11T09:40:05.470513+00:00",
-      "verificationMethod": "https://example.com/issuers/keys/666e7496",
+      "created": "2025-10-28T05:14:45Z",
+      "cryptosuite": "bbs-2025-dorakemon",
       "proofPurpose": "assertionMethod",
-      "proofValue": "z0356a3745b6005d5...dummy...04bbf1ff6b82a24b"
+      "proofValue": "za9bbba95c5ce8923517d0166cade73046a03ed2796395417ce511f344a3a17db97846a95c671b3141a1f58c392373c6f517dd1c4eca7b0205d5d52c978766a89aa53d425c3910e8e91c6a9d338078a4f",
+      "type": "DataIntegrityProof",
+      "verificationMethod": "did:key:zUC7JKvUx7xTQBnmWPFkCPYBa9FFFdQTaQGJYnvqm7S8Bfi7zUwxRUyz1jNehBHHsw3qyFtLwsKEFgu4CfeFng32aHGLUYfN2qgE6zSgExXVCzLnfoutBXrxPkX7QepT9er7czb"
     }
   },
   {
@@ -3005,12 +3013,12 @@
       "eventDate": "2024-02-25"
     },
     "proof": {
-      "type": "DataIntegrityProof",
-      "cryptosuite": "eddsa-rdfc-2022",
-      "created": "2025-08-11T09:40:08.934035+00:00",
-      "verificationMethod": "https://example.com/issuers/keys/69265aa3",
+      "created": "2025-10-28T05:14:45Z",
+      "cryptosuite": "bbs-2025-dorakemon",
       "proofPurpose": "assertionMethod",
-      "proofValue": "z1a535ea0dc4a47bd...dummy...84d705083450eab7"
+      "proofValue": "zb6ea6e11100c8d4252b90d40c0a32f917675b1fd591329518327a024cd17958f6aedc3fff88f799cd19231ca975176a907e49dd91d060b356a796f8d82d3fd87607c5debc71437808ebd905a49b4f596",
+      "type": "DataIntegrityProof",
+      "verificationMethod": "did:key:zUC7JUiD6g8g1L4uqcSDkxkriYiaCYKNLVSoEaNrrbDSbs3trARtRG4TTRkMxGgQ3AnaixVCdyzyUv8qCuBiqeKMNkjFPR4W9TDUBnbSPjbpmrnDZBkLpNieek2hAmdDXqEdJ4m"
     }
   },
   {
@@ -3038,12 +3046,12 @@
       "score": "999999"
     },
     "proof": {
-      "type": "DataIntegrityProof",
-      "cryptosuite": "eddsa-rdfc-2022",
-      "created": "2025-08-11T09:40:14.505620+00:00",
-      "verificationMethod": "https://example.com/issuers/keys/cdeb2f0e",
+      "created": "2025-10-28T05:14:45Z",
+      "cryptosuite": "bbs-2025-dorakemon",
       "proofPurpose": "assertionMethod",
-      "proofValue": "za2c45467c7d887f0...dummy...e84fcc31e2ca1261"
+      "proofValue": "z91aa2b6994d431fb7197ea65fa25df266abbcabc1ef26d4dbe6e8de71fc270472a46c64be129a4024a302428bb6aed996b5892460344fea5d869054f6cba85cd28a6237177bfd0b9a7f1008eecfd1c35",
+      "type": "DataIntegrityProof",
+      "verificationMethod": "did:key:zUC72RT2dqwUKRaHVSwPtuK7HHrbNLQJfC8hfSvMyVXHL6hsBg4YL3wMSKXxyViABMEn2NMyAXo2TkovGgtQqbQnYeXtLGCX1fQGsGQFDw18MEJe1R5xijG6sZsozm36pMG4fyS"
     }
   },
   {
@@ -3070,12 +3078,12 @@
       "memberNumber": "MEM-123456"
     },
     "proof": {
-      "type": "DataIntegrityProof",
-      "cryptosuite": "eddsa-rdfc-2022",
-      "created": "2025-08-11T09:40:17.759929+00:00",
-      "verificationMethod": "https://example.com/issuers/keys/86e738ad",
+      "created": "2025-10-28T05:14:46Z",
+      "cryptosuite": "bbs-2025-dorakemon",
       "proofPurpose": "assertionMethod",
-      "proofValue": "z6fd5037d80712c2f...dummy...c524806b92ca720f"
+      "proofValue": "z89f91884ff1b800c2fca1235d9e4cac59013a29a080fe608f3ceb71bcd30637fb2a8f5108921a6541c41dbddb240ed671ecd366224374404eadb34b1de7f3c1f44de32c0311bb42e4bd1dded8fe8b68e",
+      "type": "DataIntegrityProof",
+      "verificationMethod": "did:key:zUC76UJEcLd66NubSJuyjzoeVGvq8MWgsqBqoXvmM9kM6XC4Tx2wUpCAuf9oaJsVNAF3W3LzXrHrqQqdApFV9cpsHVPwEaapeyx5jFowb8wJS7etgHoxa1YgZBhvQb8TXw2majh"
     }
   },
   {
@@ -3102,12 +3110,12 @@
       "memberNumber": "MEM-123456"
     },
     "proof": {
-      "type": "DataIntegrityProof",
-      "cryptosuite": "eddsa-rdfc-2022",
-      "created": "2025-08-11T09:40:22.452186+00:00",
-      "verificationMethod": "https://example.com/issuers/keys/f0a4da56",
+      "created": "2025-10-28T05:14:46Z",
+      "cryptosuite": "bbs-2025-dorakemon",
       "proofPurpose": "assertionMethod",
-      "proofValue": "ze5810995ea03ee9a...dummy...f67b81e6c0df1ec5"
+      "proofValue": "z864981f773e0d864f61069ac3df33f91a9084a8877af349b4b0d5612ac2bd40dd694b39bbcde26d828fbe27d09d414727319c57ebdd4c55ef508de7518321f5c7480f1af956a7e545e3d293f57154f67",
+      "type": "DataIntegrityProof",
+      "verificationMethod": "did:key:zUC79sjnTaHJJXzMXn48T1ZpfKmXcQ64sbpVGs7u6M91hjmww9UAcngotfUBhtu6jA6dVi6ZDwyK2hfkW7fRmEbFEhYhaSrPWEARkBYjMEiXZnzxWRHDPxR1VfhEAMz45WeDKmD"
     }
   },
   {
@@ -3134,12 +3142,12 @@
       "cardNumber": "LIB-123456"
     },
     "proof": {
-      "type": "DataIntegrityProof",
-      "cryptosuite": "eddsa-rdfc-2022",
-      "created": "2025-08-11T09:40:27.686656+00:00",
-      "verificationMethod": "https://example.com/issuers/keys/1934fbf2",
+      "created": "2025-10-28T05:14:46Z",
+      "cryptosuite": "bbs-2025-dorakemon",
       "proofPurpose": "assertionMethod",
-      "proofValue": "z8623cfb06c727c53...dummy...e342cdd22e255993"
+      "proofValue": "z947a5cb85b1aee4b1e6bd92efec2189d5ad3c779891c3bd3ce9d357799fab3e828280eebdaa211dcd64d0b40e3a8fdad17b52d3dbee2d1b7041297a649f7ef0d2b24e2a8d207e4e6c95fdde3c623ab70",
+      "type": "DataIntegrityProof",
+      "verificationMethod": "did:key:zUC7DrnPB4amZ6tt7Pe1PFYtta9tBVM1PdVRHD7UPgvEgSyNDt5p6hhDTtVaJvmqn8pd5y4NfJ9e6ZaWU3UsfR831Y4NbE3kSmyVnEdH61Pf9TRFQZHVWvwG812vMUiS5DknsXH"
     }
   },
   {
@@ -3166,12 +3174,12 @@
       "accessLevel": "Full Access"
     },
     "proof": {
-      "type": "DataIntegrityProof",
-      "cryptosuite": "eddsa-rdfc-2022",
-      "created": "2025-08-11T09:40:31.410280+00:00",
-      "verificationMethod": "https://example.com/issuers/keys/bb5155f6",
+      "created": "2025-10-28T05:14:46Z",
+      "cryptosuite": "bbs-2025-dorakemon",
       "proofPurpose": "assertionMethod",
-      "proofValue": "z00ee1702661907fd...dummy...31306505e2719e3a"
+      "proofValue": "zafe9ded0759746f7cf32e1c2fafd66a73a345274c986c2316e9d70e1f89b9e448559348a681160a2a78ba7b289431dd7071eda15b6cd09e46f2d6ac5775cb8162cb7fb3613d007bc59d164b750a9208a",
+      "type": "DataIntegrityProof",
+      "verificationMethod": "did:key:zUC74fdY6ATfcyPrEQwBzemUTLV3JHNp49bnv8jhf1e2Ftdpbpir6QZwRvoTF2ca5Ya9kKmkysWs6nN2tYa9zYRbg6Aycxwpf12zb86332NgZSogHPe2Yuz1Diqu1cfVWS793TN"
     }
   },
   {
@@ -3199,12 +3207,12 @@
       "presentationDate": "2024-01-15"
     },
     "proof": {
-      "type": "DataIntegrityProof",
-      "cryptosuite": "eddsa-rdfc-2022",
-      "created": "2025-08-11T09:40:35.647762+00:00",
-      "verificationMethod": "https://example.com/issuers/keys/15997917",
+      "created": "2025-10-28T05:14:46Z",
+      "cryptosuite": "bbs-2025-dorakemon",
       "proofPurpose": "assertionMethod",
-      "proofValue": "z8cdf56e5c86f8235...dummy...7d1a98ca78ff5334"
+      "proofValue": "z87505a79a1ff5b47c6b45a074cf5b8e0046eb1408bb285f552ee80ed3ed3c99d99f82450c250bc3ca6c4fc7ca1f1893e5ad8585cbf191d9d3f5662a09d764c32ad0404007ae28ebfeb876a5bef865633",
+      "type": "DataIntegrityProof",
+      "verificationMethod": "did:key:zUC7CiCcjU97XR3xTbChKgSBKwLWk5UYhLmsp4RABf24BH7jXKFgjx9coDvnowPqGAYUETjVd7WaNL5TZnowmeLbPYRdaNXwBjMp1Vca3rsw1fo2nMz1khk2eUrT5KU3mmyMCSv"
     }
   },
   {
@@ -3230,12 +3238,12 @@
       "name": "Taro Yamada"
     },
     "proof": {
-      "type": "DataIntegrityProof",
-      "cryptosuite": "eddsa-rdfc-2022",
-      "created": "2025-08-11T09:40:39.578391+00:00",
-      "verificationMethod": "https://example.com/issuers/keys/db0469d3",
+      "created": "2025-10-28T05:14:46Z",
+      "cryptosuite": "bbs-2025-dorakemon",
       "proofPurpose": "assertionMethod",
-      "proofValue": "z5309c55e4e268355...dummy...5f99322b3be3315d"
+      "proofValue": "z8b2670b4c8d21bac7bd2d8be619a91147b8c240a5bc0e060676a1b3a557cd77c3200f625d5c75aa2da8ae330c2a5cd8d4e6e02319dc90a9ff79498dbdfa7c2f6ca334156980da8f7f7f65de63b66d816",
+      "type": "DataIntegrityProof",
+      "verificationMethod": "did:key:zUC7K85vSWbDo1yjQrgpNk9CtqYVoMSJt5z7iv7yLpKvAjvcwZrCtAZ8myYth2AehuPoZNJGHkDXkAfSgw6DN7hSXSYEUDnuza9tcbVFN1Nd2k4yFknLAHwunxdt65unVHGTwbe"
     }
   },
   {
@@ -3261,12 +3269,12 @@
       "name": "Taro Yamada"
     },
     "proof": {
-      "type": "DataIntegrityProof",
-      "cryptosuite": "eddsa-rdfc-2022",
-      "created": "2025-08-11T09:40:44.334313+00:00",
-      "verificationMethod": "https://example.com/issuers/keys/056fc46d",
+      "created": "2025-10-28T05:14:46Z",
+      "cryptosuite": "bbs-2025-dorakemon",
       "proofPurpose": "assertionMethod",
-      "proofValue": "zc103a2e68628bdc9...dummy...e2a983a145d72616"
+      "proofValue": "zaffaefd31cf2e8c3b66a4a198caae86e486f7bc91702899db122cc91bf2f1bcb54b60c6073168eb2343c17d3b70a28d0543ba390dc3b47bde7ca7669af87cd387d2c04261b4428d2fcd83a18e77ac1a8",
+      "type": "DataIntegrityProof",
+      "verificationMethod": "did:key:zUC713kWvZ1n7RhEApbDEDWFexCaPwegcVjJCiacWek7j1hjWUKWRNJBTPZjUPp7qddNXeMoKYLpJsdLPY5BDs6tmB9DWm6S9CVB73AMV8yBYWwCHHEd6cRTEE4PoXGbuRXWJFq"
     }
   },
   {
@@ -3293,12 +3301,12 @@
       "name": "Taro Yamada"
     },
     "proof": {
-      "type": "DataIntegrityProof",
-      "cryptosuite": "eddsa-rdfc-2022",
-      "created": "2025-08-11T09:40:50.038985+00:00",
-      "verificationMethod": "https://example.com/issuers/keys/694157ea",
+      "created": "2025-10-28T05:14:47Z",
+      "cryptosuite": "bbs-2025-dorakemon",
       "proofPurpose": "assertionMethod",
-      "proofValue": "z1f5af378a041dc24...dummy...7aefecb1d51147b3"
+      "proofValue": "zaee78879cca99e139c6bac8d41ea20561453c4b7a2822b17c93a0d567b5b05b87ceedebe9a42209d59e340e0d490c68d5ae2082b4f001c67569b99e1450b221a2ccb9777abc4db8120d06b2a26b55e2c",
+      "type": "DataIntegrityProof",
+      "verificationMethod": "did:key:zUC7483vrWpENpfjxm359viLgjV9mj64NFkzeqeBBFJmxyvXzqYrtsGLdWmJkYfhaZPM5jSiia7JH7e3PX55oybY1vTzCRezwse6J9z7wSwFdQcQejEvne5Uuhv8bp3PvkP9hKq"
     }
   },
   {
@@ -3325,12 +3333,12 @@
       "name": "Taro Yamada"
     },
     "proof": {
-      "type": "DataIntegrityProof",
-      "cryptosuite": "eddsa-rdfc-2022",
-      "created": "2025-08-11T09:40:53.967909+00:00",
-      "verificationMethod": "https://example.com/issuers/keys/7becb35d",
+      "created": "2025-10-28T05:14:47Z",
+      "cryptosuite": "bbs-2025-dorakemon",
       "proofPurpose": "assertionMethod",
-      "proofValue": "z52da1230e75feb1d...dummy...b2b98449eab041f7"
+      "proofValue": "z81c7869dffff53c90da11cdac49a5e5656206e09eb60489d0b36ee82887c1e49b70a0075ab656aff5aaaa0bd575857b704e3b658311c9b6a82a5e68519e883508580e6cb4b48e31e37a2829cc3639034",
+      "type": "DataIntegrityProof",
+      "verificationMethod": "did:key:zUC7GC3aJQPnhLUvPBaTpBahc7Kuu3QsTeGCB2dzhSzsDskpR4rpRYwx6Q3JR63H9adzLxUTBEo8Nt2hEd6qXnTkL2B5ixYM5DtCiRQfV77arAGWbv6td7KFkveGVxny3Vffktu"
     }
   },
   {
@@ -3357,12 +3365,12 @@
       "name": "Taro Yamada"
     },
     "proof": {
-      "type": "DataIntegrityProof",
-      "cryptosuite": "eddsa-rdfc-2022",
-      "created": "2025-08-11T09:40:58.051962+00:00",
-      "verificationMethod": "https://example.com/issuers/keys/5f05b747",
+      "created": "2025-10-28T05:14:47Z",
+      "cryptosuite": "bbs-2025-dorakemon",
       "proofPurpose": "assertionMethod",
-      "proofValue": "za222fc44d0b1a861...dummy...406731c89d98a1b2"
+      "proofValue": "zb28c72325da8d2fbd0d983d709536334fdd1027eb604f5e9209271bb1ccc1b125056dee104edd2dc11d23e55a12cce8a0e6e6a46c295b9c34f6b6bd181c2d56d8789f56f9ddd2b09d143828448493ab6",
+      "type": "DataIntegrityProof",
+      "verificationMethod": "did:key:zUC7EhmSUPufeVR9ZZD5kFgn8jq31ETTxsKzZFyAS4JEUqTFnoE1WHmo6zba4qLQJL43HQoVpoFumjrZQUsC8nV5e8BwSuqMhgMDFWjrNXX8rg5do7PGSdz7UgXFRT1W2X6cWFD"
     }
   },
   {
@@ -3388,12 +3396,12 @@
       "accessLevel": "Full Access"
     },
     "proof": {
-      "type": "DataIntegrityProof",
-      "cryptosuite": "eddsa-rdfc-2022",
-      "created": "2025-08-11T09:41:01.688585+00:00",
-      "verificationMethod": "https://example.com/issuers/keys/f30b6a6e",
+      "created": "2025-10-28T05:14:47Z",
+      "cryptosuite": "bbs-2025-dorakemon",
       "proofPurpose": "assertionMethod",
-      "proofValue": "z881dee061876c6ab...dummy...1a1d204745cfcec1"
+      "proofValue": "zab56f10265bf7ae6af073728adeab8f61d45bd22c64a4ef1ed837b9a1fa91db8bd6921a889b42405836317f4a7a8c243668b206b86f0af2534e9c7e7428953ff7b8d509c1b91f6a39e6c693fd578a002",
+      "type": "DataIntegrityProof",
+      "verificationMethod": "did:key:zUC77U19A4xVpujYfiYpPewqHFHLihohD3zNWjRjWddagjwMqG5gGWtVCj9LWuHymEj97LvirLomh4gejGYnWJGL4KNsYsPUwtudz1GtqqrtnumATDkxgBmb3vHUMXbnvoMneZR"
     }
   },
   {
@@ -3419,12 +3427,12 @@
       "propertyAddress": "1-2-3 Kasumigaseki, Chiyoda-ku, Tokyo"
     },
     "proof": {
-      "type": "DataIntegrityProof",
-      "cryptosuite": "eddsa-rdfc-2022",
-      "created": "2025-08-11T09:41:05.097019+00:00",
-      "verificationMethod": "https://example.com/issuers/keys/8b790ca7",
+      "created": "2025-10-28T05:14:47Z",
+      "cryptosuite": "bbs-2025-dorakemon",
       "proofPurpose": "assertionMethod",
-      "proofValue": "zc5d888b5520cf415...dummy...3f64be34a4f220d6"
+      "proofValue": "zacf0c02738b94818fa9122a8b15c5ef80568dbe1f39f1ec4bd3f55ff38e34d1978520c0b190472f2f9c79075602a04451939efb7327cf85b1fc02949e082287e37a1a1f952ee1b7b71371ed9352a81e7",
+      "type": "DataIntegrityProof",
+      "verificationMethod": "did:key:zUC76TYzKuF3sPT4GEnUzWL2tSg7b8ZZwYYuRQNYFiNZ5LVD8xuLT3ZeMEo6kzWo2vQLPV5p2sBcUbB3NguxroVy7RC97vc7XDhkzyg2SQ5dEr5iVUeussWCuriHeZki8ppb4io"
     }
   },
   {
@@ -3451,12 +3459,12 @@
       "presentationDate": "2024-01-15"
     },
     "proof": {
-      "type": "DataIntegrityProof",
-      "cryptosuite": "eddsa-rdfc-2022",
-      "created": "2025-08-11T09:41:11.139524+00:00",
-      "verificationMethod": "https://example.com/issuers/keys/0aac6ebd",
+      "created": "2025-10-28T05:14:47Z",
+      "cryptosuite": "bbs-2025-dorakemon",
       "proofPurpose": "assertionMethod",
-      "proofValue": "zdc80f84b4d7d775e...dummy...4e45b097118d7ce6"
+      "proofValue": "z8c8847cd2c8e702c393b13d8bdbc6c98cdbbb0c9ffdad1b688107f51623c1ae86d416f59d1f18f8c8be5dc22ab6f7f564590dc2cd5fb836a5695b9a28e48bc911f1af2f8424681e79af21efba8057446",
+      "type": "DataIntegrityProof",
+      "verificationMethod": "did:key:zUC7CknCHuxVBJstDexJrjqVg41dpieT4V8BYt1Gt2Pa4MHyzTdz2wAzrj8EfhatEej3y8XuQFuMFyajdQRJS9CSimNRejsiWV3RsZbcUCpoBKkRn2tZWf4XsoEggLW8DBMjiKJ"
     }
   },
   {
@@ -3485,12 +3493,12 @@
       "name": "Taro Yamada"
     },
     "proof": {
-      "type": "DataIntegrityProof",
-      "cryptosuite": "eddsa-rdfc-2022",
-      "created": "2025-08-11T09:41:15.938682+00:00",
-      "verificationMethod": "https://example.com/issuers/keys/00cd81b2",
+      "created": "2025-10-28T05:14:47Z",
+      "cryptosuite": "bbs-2025-dorakemon",
       "proofPurpose": "assertionMethod",
-      "proofValue": "z757512e9e3fdc57f...dummy...ef5171b44c0721e9"
+      "proofValue": "zb7665d0ac9e4441f24d77beaafaa127aa0e2cee4786850ae0cf929aaa786e387c51bd0c23cf8d70c355394da52f51b193a22a5112e6fd65b5bf2f730104551234f639e90aa21dbdf5db0f496c548f2a2",
+      "type": "DataIntegrityProof",
+      "verificationMethod": "did:key:zUC726Xzma2PdwunspesCndJyrwHragQ2WmdHssUVAA7SJxi535bwExavGKhio5FG4dRDXn2LB9jZqihhcDzE3Fvg12naScjv3CLqz2vy9hksfmXJ1bGcDQYRhEsynfoYkz7wq3"
     }
   },
   {
@@ -3536,12 +3544,12 @@
       "name": "Taro Yamada"
     },
     "proof": {
-      "type": "DataIntegrityProof",
-      "cryptosuite": "eddsa-rdfc-2022",
-      "created": "2025-08-11T09:41:22.049507+00:00",
-      "verificationMethod": "https://example.com/issuers/keys/06b9d10c",
+      "created": "2025-10-28T05:14:47Z",
+      "cryptosuite": "bbs-2025-dorakemon",
       "proofPurpose": "assertionMethod",
-      "proofValue": "z618d578c3a3d424c...dummy...58700e787cf3d157"
+      "proofValue": "z8b3cf5367bd71bafc6d0bc1298b29647c71f51f93cab813336b61032e4bfd586b24391f004a2fae715e4125dd315fd633116869722317d7f15a8577da058be207abe55a429e391ff88ab6a44e6f3e018",
+      "type": "DataIntegrityProof",
+      "verificationMethod": "did:key:zUC7LMw1cCSZ3SeBy83P5ZhCfLZTxW6AgnyFFcsSApVRKHdGdP5AYx55fDB5rFTvSaU9oof7DTXEpgiavDq4wDnjNvYWm7ey8gE3cYF5iJyCsNm4fgV1ru3oNkTvzycUFrMsc6n"
     }
   },
   {
@@ -3569,12 +3577,12 @@
       "name": "Taro Yamada"
     },
     "proof": {
-      "type": "DataIntegrityProof",
-      "cryptosuite": "eddsa-rdfc-2022",
-      "created": "2025-08-11T09:41:25.521560+00:00",
-      "verificationMethod": "https://example.com/issuers/keys/bcb0467b",
+      "created": "2025-10-28T05:14:48Z",
+      "cryptosuite": "bbs-2025-dorakemon",
       "proofPurpose": "assertionMethod",
-      "proofValue": "z6b9261e07616a7ae...dummy...be3e41de694d28cd"
+      "proofValue": "z8f6dc9539814f425dfb72af7ec2813fc021ca8a933697288b9b3502e690184b3e9ca9b0b476d6a9a073847d90f4120d344419bb46cd3bc63b93850dafea75bcb658150c66b41d744f99ab89c79271a91",
+      "type": "DataIntegrityProof",
+      "verificationMethod": "did:key:zUC75MCcm6UEHc5PeYrAHUqpErwFq8BmCickkpfW31dgLHG5fCuqig6gVyyr8qMEgBmepe69NT2cRxGWN7SG3n7NutovvW1Bo1gbaMAAPMQeB2A9hwnrcScxETQA1sSziJyKNvY"
     }
   },
   {
@@ -3601,12 +3609,12 @@
       "date": "2024-01-15"
     },
     "proof": {
-      "type": "DataIntegrityProof",
-      "cryptosuite": "eddsa-rdfc-2022",
-      "created": "2025-08-11T09:41:29.766442+00:00",
-      "verificationMethod": "https://example.com/issuers/keys/74cbf337",
+      "created": "2025-10-28T05:14:48Z",
+      "cryptosuite": "bbs-2025-dorakemon",
       "proofPurpose": "assertionMethod",
-      "proofValue": "z197ee39885e5b33a...dummy...37b930bca95ead45"
+      "proofValue": "z8ffe0a8b38033dac632b58ab322f853087deda1d112a67f5a12629c171a1c699706ef6d141261f2ffb2490dd9de1555646a00f55b45a54651df5b34683967803cc0c3254fc7d28e564fde6c6c7f0dfd0",
+      "type": "DataIntegrityProof",
+      "verificationMethod": "did:key:zUC7HuzYZxouhFtu3pASyoTLSeC5D6u2icggbVcByegpmaksLmzkdBAFg8Qs6zTabzaffPLon5oWiJBGDZB6kvG7gHghmPxTbvDMYA4LdA4GEzWpryyWmByEof4hziHRJa2ggGq"
     }
   },
   {
@@ -3634,12 +3642,12 @@
       "name": "Taro Yamada"
     },
     "proof": {
-      "type": "DataIntegrityProof",
-      "cryptosuite": "eddsa-rdfc-2022",
-      "created": "2025-08-11T09:41:35.695592+00:00",
-      "verificationMethod": "https://example.com/issuers/keys/ab2e71b0",
+      "created": "2025-10-28T05:14:48Z",
+      "cryptosuite": "bbs-2025-dorakemon",
       "proofPurpose": "assertionMethod",
-      "proofValue": "z77a26163216fff45...dummy...7ec4388e46bae324"
+      "proofValue": "zb1258d712c49f683cbbacfa8027877bcde9490e3faded2eb9cc9074adcd68b445cf9b6d0a438d3b52aff48ef48a8ba706c517c55a7522b1f85c72d9b94946b32ceabad9b1eaadbc6ebea68207ba285e2",
+      "type": "DataIntegrityProof",
+      "verificationMethod": "did:key:zUC7JbxSSqUdPWrBmpHmS6gacqdkx1mMapeBr6t9wMXnQovCCNKRtUSWfCAZ7q6cimw6WbpyPbB2GHntJJgksDK5exDgTZkKWCdBakRg8EmJ7WXqWyFAo5wdaRp2u24XFMaMfwL"
     }
   },
   {
@@ -3667,12 +3675,12 @@
       "name": "Taro Yamada"
     },
     "proof": {
-      "type": "DataIntegrityProof",
-      "cryptosuite": "eddsa-rdfc-2022",
-      "created": "2025-08-11T09:41:39.758341+00:00",
-      "verificationMethod": "https://example.com/issuers/keys/5adc00e9",
+      "created": "2025-10-28T05:14:48Z",
+      "cryptosuite": "bbs-2025-dorakemon",
       "proofPurpose": "assertionMethod",
-      "proofValue": "zecf41c89ad2c155c...dummy...8f5f88f5ee0245cc"
+      "proofValue": "z8af554ae0cb92921e2ffcab922823d9e6d5c257541a7d723e8f1bc2d313a3898591afc10176f96bf37fbdbdd23df1ca715eedb761241b46c2e706b0601b3f622bc7e5e7bd573bf769eef3a80873f8194",
+      "type": "DataIntegrityProof",
+      "verificationMethod": "did:key:zUC75R5EE9g8ASen7Y25aa9tegeKpEnoMW1ctpwggMsFXJuezg2chktcKViUH38VobWv3PVjnqfg6LvML8W9tbaRbQGuSy34WsNUHUFsWK2C2QrkJx4e1JRt9GvbgqGMTYpXXFZ"
     }
   },
   {
@@ -3700,12 +3708,12 @@
       "name": "Taro Yamada"
     },
     "proof": {
-      "type": "DataIntegrityProof",
-      "cryptosuite": "eddsa-rdfc-2022",
-      "created": "2025-08-11T09:41:43.140034+00:00",
-      "verificationMethod": "https://example.com/issuers/keys/50139284",
+      "created": "2025-10-28T05:14:48Z",
+      "cryptosuite": "bbs-2025-dorakemon",
       "proofPurpose": "assertionMethod",
-      "proofValue": "za5f0c18b138451f7...dummy...7b043604071b59d8"
+      "proofValue": "z979dd95f0bfb10be325c482d71eb85273027c164f8c5c34ed3c00d17da93b6935068c4d05eb2ddd598ff42d9eda3d435017c18441d2e33bd520e373127f63265a6a1ac87224cab0d1b7fb11936716004",
+      "type": "DataIntegrityProof",
+      "verificationMethod": "did:key:zUC7DUCkMhr2DE8BAtQZfSnhfFk9ogJ1bqPdndvc3pfyzCUWfpc7s3ZQhm8WWwg56vAKnUJM3m2R1fuMsyzLcDHyPJ72sRfD7y8bFPsRceh3SYMJJ9uNC1rPT4oMgKxT5gfvqwV"
     }
   },
   {
@@ -3733,12 +3741,12 @@
       "name": "Taro Yamada"
     },
     "proof": {
-      "type": "DataIntegrityProof",
-      "cryptosuite": "eddsa-rdfc-2022",
-      "created": "2025-08-11T09:41:47.231996+00:00",
-      "verificationMethod": "https://example.com/issuers/keys/fe295085",
+      "created": "2025-10-28T05:14:48Z",
+      "cryptosuite": "bbs-2025-dorakemon",
       "proofPurpose": "assertionMethod",
-      "proofValue": "zcab86dfd50513cbd...dummy...8dc52971d340b626"
+      "proofValue": "zb1d028719474cf7cabdaca5ea8133ce342c0766fea64bdfd8d3f938c0bfc23c2e0bfac613f64e1f49d53d8b4345699ef099975dc441d901228de2eb32289a8709c63226345c434bc8f40ffd81805ea0e",
+      "type": "DataIntegrityProof",
+      "verificationMethod": "did:key:zUC72LUbqH64tGWBM68nKQMC16FViB3jYX9gTd15RTFYgh5kNygtdvPsmi7hpAS138ErQ9mi25F6NgVuyxpkGVVBRmpvWrbrqUA2FypnUC9qDUcaGD5RgQpdZLAdJ38zgZXtqor"
     }
   },
   {
@@ -3766,12 +3774,12 @@
       "acceptanceDate": "2024-01-15"
     },
     "proof": {
-      "type": "DataIntegrityProof",
-      "cryptosuite": "eddsa-rdfc-2022",
-      "created": "2025-08-11T09:35:33.309531+00:00",
-      "verificationMethod": "https://example.com/issuers/keys/39ea318c",
+      "created": "2025-10-28T05:14:48Z",
+      "cryptosuite": "bbs-2025-dorakemon",
       "proofPurpose": "assertionMethod",
-      "proofValue": "zba47a94d5ba1c5a6...dummy...5230573a408d5562"
+      "proofValue": "z8b8135ba1dd4b36add815543cce4007bb6083db62fb45ca8c7d5d5d016471fcec82d1f4be1bab676a8675292131eed7669c5170533bc91ae713394c3ca3bfb4de0a7b71f40e47b42cd3a869e9d215fa5",
+      "type": "DataIntegrityProof",
+      "verificationMethod": "did:key:zUC7EnPoPdpz41NJsiAxcogeiFD9DPSJoy8KK6JGCFNcx7YYKrCiqB9ZLGusvSCTSNp1Zn83cdYXd4qZcpe8XjktdGH3pQAFugJCSVDQUyaagtumDHA7kcvGJ6LRjsuz24KHeVP"
     }
   }
 ]

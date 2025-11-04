@@ -56,10 +56,31 @@ vc-llm/
 ├── LlamaDCQLGenerator.swift    # llama.cpp wrapper
 ├── LibLlama.swift              # llama.cpp bindings
 ├── VCRetriever.swift           # Semantic search
+├── VPDCQLBridge.swift          # Rust vp-dcql wrapper
+├── RustBridge.h                # Bridging header
 └── Views/Main/FormView.swift   # Main UI
 
 Frameworks/
 └── llama.framework             # llama.cpp framework
 
+RustLib/
+├── libvp_dcql.a                # Rust static library
+└── vp_dcql.h                   # C header
+
 vc_pool/                        # Sample credentials
 ```
+
+## Rust Integration
+
+The app integrates the Rust `vp-dcql` library from `vc-dcql-bbs` for BBS-based Verifiable Presentation generation.
+
+**Usage:**
+```swift
+let vp = try VPDCQLBridge.createPresentation(
+    dcqlQuery: dcqlQuery,    // JSON string
+    signedCredential: signedVC,
+    challenge: challenge
+)
+```
+
+**Note:** Requires physical device (aarch64-apple-ios). Simulator not yet supported.

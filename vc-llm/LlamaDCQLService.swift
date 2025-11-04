@@ -139,7 +139,9 @@ final class LlamaDCQLService: ObservableObject {
         let retrievalResults = retriever.retrieve(query: query, topK: 3)
         let retrievalTime = CFAbsoluteTimeGetCurrent() - retrievalStart
 
+        // Use retrieval results
         let relevantVCs = retrievalResults.map { $0.vc }
+        print("🔍 Using retrieval results")
 
         guard !relevantVCs.isEmpty else {
             throw DCQLError.noRelevantVCsFound
@@ -184,7 +186,10 @@ final class LlamaDCQLService: ObservableObject {
                 selectedVCs: relevantVCs,
                 query: query,
                 retrievalTime: retrievalTime,
-                generationTime: generationTime
+                generationTime: generationTime,
+                vpGenerationTime: 0,
+                vp: nil,
+                vpError: nil
             )
         } catch let validationError as DCQLValidationError {
             let generationTime = CFAbsoluteTimeGetCurrent() - generationStart
@@ -205,7 +210,10 @@ final class LlamaDCQLService: ObservableObject {
                 selectedVCs: relevantVCs,
                 query: query,
                 retrievalTime: retrievalTime,
-                generationTime: generationTime
+                generationTime: generationTime,
+                vpGenerationTime: 0,
+                vp: nil,
+                vpError: nil
             )
         } catch {
             throw DCQLError.generationFailed(error.localizedDescription)
@@ -385,9 +393,18 @@ struct DCQLResponse {
     let query: String
     let retrievalTime: TimeInterval
     let generationTime: TimeInterval
+    let vpGenerationTime: TimeInterval
+
+    // VP generation results
+    let vp: String?  // Generated VP JSON
+    let vpError: String?  // Error message if VP generation failed
 
     var totalTime: TimeInterval {
-        retrievalTime + generationTime
+        retrievalTime + generationTime + vpGenerationTime
+    }
+
+    var hasVP: Bool {
+        vp != nil
     }
 }
 
